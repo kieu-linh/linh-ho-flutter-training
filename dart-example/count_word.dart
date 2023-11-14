@@ -4,7 +4,7 @@ Map<String, int> countWord(String st) {
   stdout.write('Enter a string: ');
   String st = stdin.readLineSync().toString().trim();
   st = st.toLowerCase().replaceAll(RegExp(r'[^\w\s]'), '');
-  print(st);
+  print('value: $st ');
   final words = st.split(' ');
   print(words);
   final count = <String, int>{};
