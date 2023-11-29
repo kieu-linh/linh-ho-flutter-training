@@ -15,14 +15,21 @@ class _HomePageState extends State<HomePage> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Text(
-            'Example Stack',
-            style: TextStyle(
-              color: Colors.pink.withOpacity(0.5),
-              fontSize: 20.0,
-              fontWeight: FontWeight.w500,
-            ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            decoration: BoxDecoration(
+                color: Colors.blue, borderRadius: BorderRadius.circular(10.0)),
+            width: 200,
+            height: 200,
           ),
+          // Text(
+          //   'Example Stack',
+          //   style: TextStyle(
+          //     color: Colors.pink.withOpacity(0.5),
+          //     fontSize: 20.0,
+          //     fontWeight: FontWeight.w500,
+          //   ),
+          // ),
           const Positioned(
             top: 20,
             child: Icon(
@@ -34,22 +41,6 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     )
-        //  Column(
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   children: [
-        //     Row(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         Text('This is a Row1'),
-        //         SizedBox(height: 20.0),
-        //         Text('This is a Row2'),
-        //         SizedBox(height: 20.0),
-        //         Text('This is a Row3'),
-        //         SizedBox(height: 20.0),
-        //       ],
-        //     ),
-        //   ],
-        // ),
         );
   }
 }
