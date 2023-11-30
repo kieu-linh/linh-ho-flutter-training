@@ -9,6 +9,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int a = 0;
+  double _volume = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,11 +100,20 @@ class _HomePageState extends State<HomePage> {
               Text('Number: $a')
             ],
           ),
-          FloatingActionButton.extended(
-            onPressed: () {},
-            label: const Text('Add Item'),
-            icon: const Icon(Icons.add),
-          )
+          const SizedBox(height: 20.0),
+          IconButton(
+            onPressed: () {
+              setState(() {
+                _volume += 10;
+              });
+            },
+            icon: const Icon(
+              Icons.volume_up,
+              color: Colors.pink,
+              size: 20.0,
+            ),
+          ),
+          Text('Volume: $_volume'),
         ],
       ),
     ));
