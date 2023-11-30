@@ -73,6 +73,14 @@ class _HomePageState extends State<HomePage> {
               'Outlined Button',
               style: TextStyle(color: Colors.blue),
             ),
+          ),
+          const SizedBox(height: 20.0),
+          TextButton(
+            onPressed: () => print('Clicked Text Button!'),
+            child: const Text(
+              'Text Button',
+              style: TextStyle(color: Colors.grey),
+            ),
           )
         ],
       ),
