@@ -8,6 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int a = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +82,27 @@ class _HomePageState extends State<HomePage> {
               'Text Button',
               style: TextStyle(color: Colors.grey),
             ),
+          ),
+          const SizedBox(height: 20.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    a++;
+                  });
+                },
+                child: const Icon(Icons.add),
+              ),
+              const SizedBox(width: 10.0),
+              Text('Number: $a')
+            ],
+          ),
+          FloatingActionButton.extended(
+            onPressed: () {},
+            label: const Text('Add Item'),
+            icon: const Icon(Icons.add),
           )
         ],
       ),
