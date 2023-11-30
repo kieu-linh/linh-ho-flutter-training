@@ -48,12 +48,22 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 20.0),
           FilledButton(
+            onPressed: () {
+              print('Clicked FillButton!');
+            },
+            child: const Text(
+              'Filled Button',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          FilledButton.tonal(
               onPressed: () {
-                print('Clicked FillButton!');
+                print('Clicked Filled Tonal!');
               },
               child: const Text(
-                'Filled Button',
-                style: TextStyle(color: Colors.white),
+                'Filled Tonal',
+                style: TextStyle(color: Colors.green),
               ))
         ],
       ),
