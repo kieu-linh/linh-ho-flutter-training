@@ -12,44 +12,42 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-      child: Stack(
-        alignment: Alignment.center,
+      child: Column(
         children: [
-          Text(
-            'Example Stack',
-            style: TextStyle(
-              color: Colors.pink.withOpacity(0.5),
-              fontSize: 20.0,
-              fontWeight: FontWeight.w500,
-            ),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(10.0)),
+                width: 200,
+                height: 200,
+              ),
+              const Positioned(
+                top: 20,
+                child: Icon(
+                  Icons.star,
+                  size: 100,
+                  color: Colors.yellow,
+                ),
+              )
+            ],
           ),
-          const Positioned(
-            top: 20,
-            child: Icon(
-              Icons.star,
-              size: 100,
-              color: Colors.yellow,
+          const SizedBox(height: 20.0),
+          ElevatedButton(
+            onPressed: () {
+              //Action to perform when the button is pressed
+              print('Clicked me!');
+            },
+            child: const Text(
+              'Elevated Button',
+              style: TextStyle(color: Colors.pink),
             ),
           )
         ],
       ),
-    )
-        //  Column(
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   children: [
-        //     Row(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         Text('This is a Row1'),
-        //         SizedBox(height: 20.0),
-        //         Text('This is a Row2'),
-        //         SizedBox(height: 20.0),
-        //         Text('This is a Row3'),
-        //         SizedBox(height: 20.0),
-        //       ],
-        //     ),
-        //   ],
-        // ),
-        );
+    ));
   }
 }
