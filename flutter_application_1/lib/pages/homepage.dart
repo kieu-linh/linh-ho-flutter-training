@@ -45,7 +45,16 @@ class _HomePageState extends State<HomePage> {
               'Elevated Button',
               style: TextStyle(color: Colors.pink),
             ),
-          )
+          ),
+          const SizedBox(height: 20.0),
+          FilledButton(
+              onPressed: () {
+                print('Clicked FillButton!');
+              },
+              child: const Text(
+                'Filled Button',
+                style: TextStyle(color: Colors.white),
+              ))
         ],
       ),
     ));
