@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/segmented_button_page.dart';
+import 'package:flutter_application_1/pages/list_title_example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SegmentedButtonPage(),
+      home: const ListTitle(),
     );
   }
 }
