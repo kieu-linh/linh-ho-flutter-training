@@ -77,7 +77,16 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage>
           ),
           const SizedBox(height: 20.0),
           const SnackBarExamPle(),
-          const SizedBox(height: 20.0),
+          const SizedBox(
+            height: 20.0,
+            child: Divider(
+              height: 10,
+              thickness: 0,
+              color: Color.fromARGB(255, 243, 77, 77),
+              indent: 200,
+              endIndent: 200,
+            ),
+          ),
           ElevatedButton(
             onPressed: () {
               showDialog(
@@ -103,7 +112,14 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage>
               style: TextStyle(color: Color.fromARGB(255, 235, 121, 191)),
             ),
           ),
-          const SizedBox(height: 20.0),
+          const SizedBox(
+            height: 20.0,
+            child: Divider(
+              height: 10,
+              thickness: 1,
+              color: Colors.blue,
+            ),
+          ),
           OutlinedButton(
             onPressed: () {
               showModalBottomSheet(
@@ -125,7 +141,40 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage>
               );
             },
             child: const Text('Show Bottom Sheet'),
-          )
+          ),
+          const SizedBox(
+            height: 20.0,
+            child: Divider(
+              height: 10,
+              thickness: 5,
+              color: Colors.grey,
+              indent: 50,
+              endIndent: 50,
+            ),
+          ),
+          Card(
+            child: Column(
+              children: <Widget>[
+                const ListTile(
+                  leading: Icon(Icons.album),
+                  title: Text('Card Title'),
+                  subtitle: Text('Subtitle'),
+                ),
+                ButtonBar(
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('ACTION 1'),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('ACTION 2'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
