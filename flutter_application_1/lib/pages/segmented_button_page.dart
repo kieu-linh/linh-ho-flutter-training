@@ -102,6 +102,29 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage>
               'Show Alert Dialog',
               style: TextStyle(color: Color.fromARGB(255, 235, 121, 191)),
             ),
+          ),
+          const SizedBox(height: 20.0),
+          OutlinedButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 200.0),
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Close!'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Text('Show Bottom Sheet'),
           )
         ],
       ),
