@@ -77,6 +77,32 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage>
           ),
           const SizedBox(height: 20.0),
           const SnackBarExamPle(),
+          const SizedBox(height: 20.0),
+          ElevatedButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text('Alert Dialog Title'),
+                    content: const Text('AlertDialog description'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Text(
+              'Show Alert Dialog',
+              style: TextStyle(color: Color.fromARGB(255, 235, 121, 191)),
+            ),
+          )
         ],
       ),
     );
@@ -92,7 +118,7 @@ class SnackBarExamPle extends StatelessWidget {
       onPressed: () {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('SnackBar is here!'),
+            content: const Text('SnackBar is here!'),
             action: SnackBarAction(
               label: 'Action',
               onPressed: () {},
