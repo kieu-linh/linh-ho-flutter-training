@@ -32,6 +32,12 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          LinearProgressIndicator(value: controller.value),
+          const SizedBox(height: 20.0),
+          CircularProgressIndicator(
+            value: controller.value,
+          ),
+          const SizedBox(height: 20.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -70,13 +76,31 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage>
             ],
           ),
           const SizedBox(height: 20.0),
-          LinearProgressIndicator(value: controller.value),
-          const SizedBox(height: 20.0),
-          CircularProgressIndicator(
-            value: controller.value,
-          )
+          const SnackBarExamPle(),
         ],
       ),
+    );
+  }
+}
+
+class SnackBarExamPle extends StatelessWidget {
+  const SnackBarExamPle({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('SnackBar is here!'),
+            action: SnackBarAction(
+              label: 'Action',
+              onPressed: () {},
+            ),
+          ),
+        );
+      },
+      child: const Text('Show Snackbar'),
     );
   }
 }
