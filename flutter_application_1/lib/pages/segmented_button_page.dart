@@ -8,9 +8,24 @@ class SegmentedButtonPage extends StatefulWidget {
   State<SegmentedButtonPage> createState() => _SegmentedButtonPageState();
 }
 
-class _SegmentedButtonPageState extends State<SegmentedButtonPage> {
+class _SegmentedButtonPageState extends State<SegmentedButtonPage>
+    with TickerProviderStateMixin {
   List<bool> isSelected = [true, false, false];
   int value = 0;
+
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3))
+          ..addListener(() {
+            setState(() {});
+          });
+    controller.repeat(reverse: true);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -54,6 +69,12 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage> {
               Icon(Icons.school),
             ],
           ),
+          const SizedBox(height: 20.0),
+          LinearProgressIndicator(value: controller.value),
+          const SizedBox(height: 20.0),
+          CircularProgressIndicator(
+            value: controller.value,
+          )
         ],
       ),
     );
