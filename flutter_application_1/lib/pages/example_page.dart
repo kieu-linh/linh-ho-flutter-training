@@ -9,6 +9,7 @@ class ExamplePage extends StatefulWidget {
 }
 
 class _ExamplePageState extends State<ExamplePage> {
+  bool isCheck = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +27,46 @@ class _ExamplePageState extends State<ExamplePage> {
               )),
         ],
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              isCheck = true;
+            });
+          },
           icon: const Icon(Icons.menu),
+        ),
+      ),
+      body: Drawer(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(24.0),
+              child: Wrap(
+                runSpacing: 16,
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.home),
+                    title: Text('Home'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.search),
+                    title: Text('Search'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.shopping_bag_outlined),
+                    title: Text('Cart'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.person_2_outlined),
+                    title: Text('Person'),
+                    onTap: () {},
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: BottomAppBar(
