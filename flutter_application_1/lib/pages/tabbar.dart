@@ -39,19 +39,6 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
       ),
       body: Column(
         children: [
-          TabBarView(
-            controller: _tabController,
-            children: const [
-              Center(
-                  child: Column(
-                children: [
-                  Text("Home"),
-                ],
-              )),
-              Center(child: Text("Cart")),
-              Center(child: Text("Setting")),
-            ],
-          ),
           Center(
             child: Checkbox(
               value: isChecked,
@@ -63,6 +50,12 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
                 });
               },
             ),
+          ),
+          const Chip(
+            avatar: CircleAvatar(
+              backgroundColor: Color.fromARGB(255, 243, 153, 153),
+            ),
+            label: Text('This is a Flutter chip'),
           )
         ],
       ),
