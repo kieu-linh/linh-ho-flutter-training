@@ -94,7 +94,13 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
                 });
               },
             ),
-          )
+          ),
+          const TextField(
+            decoration: InputDecoration(
+              labelText: 'Enter your text',
+              border: OutlineInputBorder(),
+            ),
+          ),
         ],
       ),
     );
