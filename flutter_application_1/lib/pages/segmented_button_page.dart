@@ -196,7 +196,7 @@ class SnackBarExamPle extends StatelessWidget {
               onPressed: () {},
             ),
           ),
-        );
+         );
       },
       child: const Text('Show Snackbar'),
     );
