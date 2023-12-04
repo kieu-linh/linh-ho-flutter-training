@@ -30,6 +30,39 @@ class _ExamplePageState extends State<ExamplePage> {
           icon: const Icon(Icons.menu),
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        color: Colors.pink[50],
+        child: IconTheme(
+          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              IconButton(
+                tooltip: 'Home',
+                icon: const Icon(Icons.home, color: Colors.black),
+                onPressed: () {},
+              ),
+              IconButton(
+                tooltip: 'Search',
+                icon: const Icon(Icons.search, color: Colors.grey),
+                onPressed: () {},
+              ),
+              IconButton(
+                tooltip: 'Cart',
+                icon:
+                    const Icon(Icons.shopping_bag_outlined, color: Colors.grey),
+                onPressed: () {},
+              ),
+              IconButton(
+                tooltip: 'Person',
+                icon: const Icon(Icons.person_2_outlined, color: Colors.grey),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
