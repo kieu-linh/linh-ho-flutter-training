@@ -101,6 +101,25 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
               border: OutlineInputBorder(),
             ),
           ),
+          PopupMenuButton<String>(
+            onSelected: (String result) {
+              print('Selected: $result');
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: 'option1',
+                child: Text('Option 1'),
+              ),
+              const PopupMenuItem<String>(
+                value: 'option2',
+                child: Text('Option 2'),
+              ),
+              const PopupMenuItem<String>(
+                value: 'option3',
+                child: Text('Option 3'),
+              ),
+            ],
+          ),
         ],
       ),
     );
