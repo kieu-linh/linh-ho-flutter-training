@@ -25,6 +25,8 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     bool? isChecked = false;
+    int? selectedValue = 1;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('TabBar Sample'),
@@ -56,7 +58,49 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
               backgroundColor: Color.fromARGB(255, 243, 153, 153),
             ),
             label: Text('This is a Flutter chip'),
-          )
+          ),
+          ListTile(
+            title: Text('Option 1'),
+            leading: Radio(
+              value: 1,
+              groupValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+          ),
+          ListTile(
+            title: Text('Option 2'),
+            leading: Radio(
+              value: 2,
+              groupValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+          ),
+          ListTile(
+            title: Text('Option 3'),
+            leading: Radio(
+              value: 3,
+              groupValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+          ),
+          const TextField(
+            decoration: InputDecoration(
+              labelText: 'Enter your text',
+              border: OutlineInputBorder(),
+            ),
+          ),
         ],
       ),
     );
