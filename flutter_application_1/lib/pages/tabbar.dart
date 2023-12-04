@@ -24,6 +24,7 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    bool? isChecked = false;
     return Scaffold(
       appBar: AppBar(
         title: const Text('TabBar Sample'),
@@ -36,12 +37,33 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: const [
-          Center(child: Text("Home")),
-          Center(child: Text("Cart")),
-          Center(child: Text("Setting")),
+      body: Column(
+        children: [
+          TabBarView(
+            controller: _tabController,
+            children: const [
+              Center(
+                  child: Column(
+                children: [
+                  Text("Home"),
+                ],
+              )),
+              Center(child: Text("Cart")),
+              Center(child: Text("Setting")),
+            ],
+          ),
+          Center(
+            child: Checkbox(
+              value: isChecked,
+              activeColor: Colors.orange[300],
+              tristate: true,
+              onChanged: (context) {
+                setState(() {
+                  isChecked = context;
+                });
+              },
+            ),
+          )
         ],
       ),
     );
