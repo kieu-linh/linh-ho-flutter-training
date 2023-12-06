@@ -44,23 +44,23 @@ class _ExamplePageState extends State<ExamplePage> {
                 runSpacing: 16,
                 children: [
                   ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text('Home'),
+                    leading: const Icon(Icons.home),
+                    title: const Text('Home'),
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: Icon(Icons.search),
-                    title: Text('Search'),
+                    leading: const Icon(Icons.search),
+                    title: const Text('Search'),
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: Icon(Icons.shopping_bag_outlined),
-                    title: Text('Cart'),
+                    leading: const Icon(Icons.shopping_bag_outlined),
+                    title: const Text('Cart'),
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: Icon(Icons.person_2_outlined),
-                    title: Text('Person'),
+                    leading: const Icon(Icons.person_2_outlined),
+                    title: const Text('Person'),
                     onTap: () {},
                   )
                 ],

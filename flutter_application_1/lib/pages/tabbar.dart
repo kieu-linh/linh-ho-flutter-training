@@ -60,7 +60,7 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
             label: Text('This is a Flutter chip'),
           ),
           ListTile(
-            title: Text('Option 1'),
+            title: const Text('Option 1'),
             leading: Radio(
               value: 1,
               groupValue: selectedValue,
@@ -72,7 +72,7 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
             ),
           ),
           ListTile(
-            title: Text('Option 2'),
+            title: const Text('Option 2'),
             leading: Radio(
               value: 2,
               groupValue: selectedValue,
@@ -84,7 +84,7 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
             ),
           ),
           ListTile(
-            title: Text('Option 3'),
+            title: const Text('Option 3'),
             leading: Radio(
               value: 3,
               groupValue: selectedValue,
