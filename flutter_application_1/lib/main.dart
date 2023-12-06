@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/example/splash.dart';
 import 'package:flutter_application_1/example/time_picker.dart';
 import 'package:flutter_application_1/pages/tabbar.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const TimePicker(),
+      home: const Splash(),
     );
   }
 }
