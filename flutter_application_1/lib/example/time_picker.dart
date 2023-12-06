@@ -10,6 +10,8 @@ class TimePicker extends StatefulWidget {
 class _TimePickerState extends State<TimePicker> {
   DateTime _dateTime = DateTime.now();
   double _rating = 20;
+  TimeOfDay _selectedTime = TimeOfDay.now();
+  bool isSwitched = false;
 
   void _showDatePicker() {
     showDatePicker(
@@ -22,6 +24,18 @@ class _TimePickerState extends State<TimePicker> {
         _dateTime = value!;
       });
     });
+  }
+
+  void _showTimePicker() async {
+    final TimeOfDay? timeOfDay = await showTimePicker(
+      context: context,
+      initialTime: _selectedTime,
+    );
+    if (timeOfDay != null) {
+      setState(() {
+        _selectedTime = timeOfDay;
+      });
+    }
   }
 
   @override
@@ -53,6 +67,28 @@ class _TimePickerState extends State<TimePicker> {
               onChanged: (double value) {
                 setState(() {
                   _rating = value;
+                });
+              },
+            ),
+            Text("${_selectedTime.hour}:${_selectedTime.minute}",
+                style: const TextStyle(fontSize: 20.0)),
+            const SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: _showTimePicker,
+              child: const Text(
+                'Choose Time',
+                style: TextStyle(
+                  color: Colors.pink,
+                  fontSize: 25.0,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            Switch(
+              value: isSwitched,
+              onChanged: (value) {
+                setState(() {
+                  isSwitched = value;
                 });
               },
             )
