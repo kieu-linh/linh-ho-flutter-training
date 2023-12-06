@@ -9,6 +9,8 @@ class TimePicker extends StatefulWidget {
 
 class _TimePickerState extends State<TimePicker> {
   DateTime _dateTime = DateTime.now();
+  double _rating = 20;
+
   void _showDatePicker() {
     showDatePicker(
       context: context,
@@ -41,6 +43,19 @@ class _TimePickerState extends State<TimePicker> {
                 ),
               ),
             ),
+            const SizedBox(height: 20.0),
+            Slider(
+              value: _rating,
+              max: 100,
+              min: 0,
+              divisions: 5,
+              label: _rating.round().toString(),
+              onChanged: (double value) {
+                setState(() {
+                  _rating = value;
+                });
+              },
+            )
           ],
         ),
       ),
