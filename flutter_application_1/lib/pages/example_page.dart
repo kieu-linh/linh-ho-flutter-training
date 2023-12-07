@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 
-class ExamplePage extends StatefulWidget {
-  const ExamplePage({super.key});
+class ExamplePage1 extends StatefulWidget {
+  const ExamplePage1({super.key});
 
   @override
-  State<ExamplePage> createState() => _ExamplePageState();
+  State<ExamplePage1> createState() => _ExamplePage1State();
 }
 
-class _ExamplePageState extends State<ExamplePage> {
+class _ExamplePage1State extends State<ExamplePage1> {
   bool isCheck = false;
   @override
   Widget build(BuildContext context) {
