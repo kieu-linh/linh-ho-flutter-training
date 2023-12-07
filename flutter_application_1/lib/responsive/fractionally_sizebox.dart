@@ -12,25 +12,21 @@ class Fractionally extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FractionallySizedWidget(widthFactor: 0.4),
               ],
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FractionallySizedWidget(widthFactor: 0.6),
               ],
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FractionallySizedWidget(widthFactor: 0.8),
               ],
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FractionallySizedWidget(widthFactor: 1.0),
               ],
