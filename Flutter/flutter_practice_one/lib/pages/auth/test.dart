@@ -5,13 +5,13 @@ class Test extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       'PRO FITNESS',
       style: TextStyle(
-        fontSize: 48.0,
+        fontSize: 48,
         fontWeight: FontWeight.w400,
         fontFamily: 'BebasNeue',
-        inherit: false
+        inherit: false,
       ),
     );
   }
