@@ -40,9 +40,9 @@ Before you continue, ensure you meet the following requirements:
 - [Estimate](https://trello.com/b/NiWPfcm1/practice-one)
 ​
 ## Deployment Plan
-- [] Epic 1: Requirement analysis
-- [] Epic 2: Setup environment
-- [] Epic 3: Create skeleton structure practice
+- [X] Epic 1: Requirement analysis
+- [X] Epic 2: Setup environment
+- [X] Epic 3: Create skeleton structure practice
 - [] Epic 4: Setup themes, routes
 - [] Epic 5: Implement the UI
 - [] Epic 6: Test the application and prepare for the review
