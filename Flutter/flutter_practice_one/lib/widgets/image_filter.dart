@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class FAImageFilter extends StatelessWidget {
   const FAImageFilter({
-    super.key,
     required this.image,
     this.sigmaX = 100,
     this.sigmaY = 100,
+    super.key,
   });
 
   final String image;
