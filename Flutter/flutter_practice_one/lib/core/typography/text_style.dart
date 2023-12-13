@@ -71,7 +71,7 @@ class AppTextStyles {
     fontSize: 14,
     color: AppColor.onSurface,
     fontWeight: AppFontWeight.medium,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle textTitle = primaryTextStyle(
@@ -92,7 +92,7 @@ class AppTextStyles {
     fontSize: 12,
     color: AppColor.onSurface,
     fontWeight: AppFontWeight.medium,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle textButtonSmall = primaryTextStyle(
