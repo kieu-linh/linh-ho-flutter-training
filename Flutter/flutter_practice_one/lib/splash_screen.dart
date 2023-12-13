@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_locals
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -18,16 +20,22 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(const Duration(milliseconds: 2600), () {
-      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarBrightness: Brightness.light,
-        statusBarIconBrightness: Brightness.light,
-      ));
+      SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+          statusBarBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.light,
+        ),
+      );
 
-      Route route =
+      Route<dynamic> route =
           MaterialPageRoute(builder: (context) => const WelcomePage());
       Navigator.pushAndRemoveUntil(
-          context, route, (Route<dynamic> route) => false);
+        context,
+        route,
+        (Route<dynamic> route) => false,
+      );
     });
+
     super.initState();
   }
 
@@ -59,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     width: 180,
                     height: 56,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
+                      borderRadius: BorderRadius.circular(5),
                       color: const Color(0xFF191919),
                     ),
                     child: Center(
