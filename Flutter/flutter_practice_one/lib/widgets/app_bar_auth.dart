@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -16,7 +17,7 @@ class AppBarAuth extends StatelessWidget implements PreferredSizeWidget {
           .copyWith(top: MediaQuery.of(context).padding.top + 18),
       child: Row(
         children: [
-          SvgPicture.asset('assets/icons/ic_back.svg'),
+          SvgPicture.asset(FAIcons.iconBack),
           const Spacer(),
           if (text != null)
             Text(

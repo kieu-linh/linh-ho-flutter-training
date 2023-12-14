@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/typography/font_weight.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/widgets/app_bar_auth.dart';
@@ -35,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 39),
             const FATextField(
               hintText: 'Email Address',
-              icon: 'assets/icons/ic_tick.svg',
+              icon: FAIcons.iconTick,
             ),
             const SizedBox(height: 14),
             const FATextFieldPassword(
@@ -66,12 +67,12 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
             FAButton.outline(
-              icon: 'assets/icons/ic_google.svg',
+              icon: FAIcons.iconGoogle,
               text: 'Connect with Google',
             ),
             const SizedBox(height: 8),
             FAButton.text(
-              icon: 'assets/icons/ic_facebook.svg',
+              icon: FAIcons.iconFacebook,
               text: 'Connect With Facebook',
             ),
             const SizedBox(height: 48),
@@ -88,7 +89,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       TextSpan(
-                          text: 'Register!', style: AppTextStyles.textAppBar),
+                        text: 'Register!',
+                        style: AppTextStyles.textAppBar,
+                      ),
                     ],
                   ),
                 ),

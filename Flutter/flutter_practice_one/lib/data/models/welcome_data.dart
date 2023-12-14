@@ -1,4 +1,6 @@
 // Create class WelcomeData to store data for Welcome Screen
+import 'package:flutter_practice_one/core/constant/images.dart';
+
 class WelcomeData {
   WelcomeData();
 
@@ -12,20 +14,20 @@ class WelcomeData {
 //Create a WelcomeData list containing common data fields
 List<WelcomeData> listWelcomes = [
   WelcomeData()
-    ..image = 'assets/images/girl_welcome1.png'
-    ..backgroundImage = 'assets/images/img_welcome1.jpg'
+    ..image = FAImage.playerFirst
+    ..backgroundImage = FAImage.backgroundWelcome1
     ..firstText = 'Perfect Body \n Doing '
     ..secondText = 'Crossfit \n'
     ..thirdText = 'Exercises',
   WelcomeData()
-    ..image = 'assets/images/girl_welcome2.png'
-    ..backgroundImage = 'assets/images/img_welcome2.png'
+    ..image = FAImage.playerSecond
+    ..backgroundImage = FAImage.backgroundWelcome2
     ..firstText = 'Shot Strong \n'
     ..secondText = 'Timeless \n'
     ..thirdText = 'Woman Training',
   WelcomeData()
-    ..image = 'assets/images/girl_welcome3.png'
-    ..backgroundImage = 'assets/images/img_welcome3.png'
+    ..image = FAImage.playerThird
+    ..backgroundImage = FAImage.backgroundWelcome3
     ..firstText = 'Healthy Muscular \n'
     ..secondText = 'Sportswoman \n'
     ..thirdText = 'Standing',
