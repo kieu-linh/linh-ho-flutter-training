@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/color/app_color.dart';
+import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -50,9 +51,9 @@ class _FATextFieldPasswordState extends State<FATextFieldPassword> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: const Color(0xFF696969).withOpacity(0.25),
+              color: AppColor.outlineColor.withOpacity(0.25),
             ),
-            color: const Color(0xFFF5F5F5),
+            color: AppColor.onSecondary,
           ),
           child: TextFormField(
             controller: widget.controller,
@@ -73,7 +74,7 @@ class _FATextFieldPasswordState extends State<FATextFieldPassword> {
                 }),
                 child: !showPassword
                     ? SvgPicture.asset(
-                        'assets/icons/ic_eye.svg',
+                        FAIcons.iconEye,
                         width: 16,
                         height: 14,
                         fit: BoxFit.scaleDown,

@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_practice_one/core/constant/images.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/pages/welcome/welcome.dart';
 import 'package:flutter_practice_one/widgets/image_filter.dart';
@@ -45,13 +46,13 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: [
           const FAImageFilter(
-            image: 'assets/images/img_splash.png',
+            image: FAImage.backgroundSplashScreen,
           ),
           Positioned.fill(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/images/img_girl.png'),
+                Image.asset(FAImage.logoSplashScreen),
                 const SizedBox(height: 42),
                 const FARichText(fistText: 'PRO ', secondText: 'FITNESS'),
                 const SizedBox(height: 14),
