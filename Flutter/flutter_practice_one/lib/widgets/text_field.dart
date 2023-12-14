@@ -1,6 +1,7 @@
 // ignore_for_file: inference_failure_on_function_return_type
 
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -38,9 +39,9 @@ class FATextField extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: const Color(0xFF696969).withOpacity(0.25),
+              color: AppColor.outlineColor.withOpacity(0.25),
             ),
-            color: const Color(0xFFF5F5F5),
+            color: AppColor.onSecondary,
           ),
           child: TextFormField(
             controller: controller,

@@ -99,7 +99,7 @@ class AppTextStyles {
     fontSize: 14,
     color: AppColor.onSurface,
     fontWeight: AppFontWeight.semiBold,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-SemiBold',
   );
 
   static TextStyle textAppBar = primaryTextStyle(

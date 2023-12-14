@@ -16,68 +16,58 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarAuth(
-        text: 'Skip',
-      ),
+      appBar: const AppBarAuth(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 35),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Welcome to Pro Fitness!',
-              style: AppTextStyles.headlineLarge,
-            ),
-            const SizedBox(height: 11),
-            Text(
-              'Hello there, sign in to \ncontinue!',
-              style: AppTextStyles.headlineMedium,
-            ),
-            const SizedBox(height: 39),
-            const FATextField(
-              hintText: 'Email Address',
-              icon: 'assets/icons/ic_tick.svg',
-            ),
-            const SizedBox(height: 14),
-            const FATextFieldPassword(
-              hintText: 'Password',
-            ),
-            const SizedBox(height: 17),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'Forgot Password?',
-                  style: AppTextStyles.textTitle,
-                  textAlign: TextAlign.right,
-                ),
-              ],
-            ),
-            const SizedBox(height: 34),
-            const FAButton(),
-            const SizedBox(height: 24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Or Login with',
-                  style: AppTextStyles.textSmall,
-                ),
-              ],
-            ),
-            const SizedBox(height: 21),
-            Container(
-              height: 55,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: const Color(0xFF696969).withOpacity(0.25),
-                ),
-                color: const Color(0xFFF5F5F5),
+        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 30),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Welcome to Pro Fitness!',
+                style: AppTextStyles.headlineLarge,
               ),
-            ),
-          ],
+              const SizedBox(height: 11),
+              Text(
+                'Hello there, sign in to \ncontinue!',
+                style: AppTextStyles.headlineMedium,
+              ),
+              const SizedBox(height: 39),
+              const FATextField(
+                hintText: 'Email Address',
+                icon: 'assets/icons/ic_tick.svg',
+              ),
+              const SizedBox(height: 14),
+              const FATextFieldPassword(
+                hintText: 'Password',
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Forgot Password?',
+                    style: AppTextStyles.textTitle,
+                    textAlign: TextAlign.right,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 34),
+              FAButton(
+                text: 'Login',
+              ),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Or Login with',
+                    style: AppTextStyles.textSmall,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

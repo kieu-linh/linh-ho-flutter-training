@@ -48,9 +48,9 @@ Before you continue, ensure you meet the following requirements:
 - [] Epic 6: Test the application and prepare for the review
 
 ## UI
-- [] UI Splash Screen
-- [] UI Welcome Screen
-- [] UI Login In Screen
+- [X] UI Splash Screen
+- [X] UI Welcome Screen
+- [X] UI Login In Screen
 - [] UI Select Favorite Screen
 - [] UI Age Screen
 - [] UI Weight Screen
