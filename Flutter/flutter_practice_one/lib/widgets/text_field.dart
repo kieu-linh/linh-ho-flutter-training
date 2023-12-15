@@ -15,14 +15,18 @@ class FATextField extends StatelessWidget {
     super.key,
     this.keyboardType,
     this.validator,
+    this.onPressed,
+    this.obscureText = false,
   });
 
   final TextEditingController? controller;
   final Function(String)? onFieldSubmit;
+  final Function()? onPressed;
   final TextInputType? keyboardType;
   final FormFieldValidator<String>? validator;
   final String hintText;
   final String? icon;
+  final bool obscureText;
   final TextInputAction? textInputAction;
   @override
   Widget build(BuildContext context) {
@@ -47,6 +51,8 @@ class FATextField extends StatelessWidget {
             controller: controller,
             onFieldSubmitted: onFieldSubmit,
             keyboardType: keyboardType,
+            obscureText: obscureText,
+            obscuringCharacter: '*',
             validator: validator,
             textInputAction: textInputAction,
             decoration: InputDecoration(
@@ -54,12 +60,17 @@ class FATextField extends StatelessWidget {
               hintText: hintText,
               suffixIcon: icon == null
                   ? null
-                  : SvgPicture.asset(
-                      icon!,
-                      width: 12,
-                      height: 10,
-                      fit: BoxFit.scaleDown,
+                  : GestureDetector(
+                      onTap: onPressed,
+                      child: SvgPicture.asset(
+                        icon!,
+                        color: AppColor.onSurfaceVariant,
+                      ),
                     ),
+              suffixIconConstraints: const BoxConstraints(
+                maxHeight: 17,
+                maxWidth: 17,
+              ),
             ),
             style: AppTextStyles.labelMedium,
           ),

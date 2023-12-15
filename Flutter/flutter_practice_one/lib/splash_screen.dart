@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/constant/images.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/pages/welcome/welcome.dart';
@@ -69,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     height: 56,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: const Color(0xFF191919),
+                      color: AppColor.tertiaryContainer,
                     ),
                     child: Center(
                       child: Text(
