@@ -8,4 +8,6 @@ class FAIcons {
   static const String iconGoogle = 'assets/icons/ic_google.svg';
 
   static const String iconTick = 'assets/icons/ic_tick.svg';
+
+  static const String iconEyeOpen = 'assets/icons/ic_eye_open.svg';
 }
