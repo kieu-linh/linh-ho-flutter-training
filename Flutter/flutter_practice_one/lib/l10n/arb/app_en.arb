@@ -1,7 +1,7 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "firstTitleSplash": "PRO ",
+    "secondTitleSplash": "FITNESS",
+    "descriptionSplash": "We train your body to be \n great and fit.",
+    "btnLetStart": "LET'S START"
 }
