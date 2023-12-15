@@ -37,12 +37,12 @@ class _LoginPageState extends State<LoginPage> {
                 style: AppTextStyles.headlineMedium,
               ),
               const SizedBox(height: 39),
-              FATextField(
+              FAInput(
                 hintText: context.l10n.hintTextEmail,
                 icon: FAIcons.iconTick,
               ),
               const SizedBox(height: 14),
-              FATextField(
+              FAInput(
                 hintText: context.l10n.hintTextPassword,
                 obscureText: !showPassword,
                 icon: showPassword ? FAIcons.iconEyeOpen : FAIcons.iconEye,
@@ -63,7 +63,10 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               const SizedBox(height: 34),
-              FAButton(text: context.l10n.btnLoginIn),
+              FAButton(
+                onPressed: () {},
+                text: context.l10n.btnLoginIn,
+              ),
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -76,11 +79,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20),
               FAButton.outline(
+                onPressed: () {},
                 icon: FAIcons.iconGoogle,
                 text: context.l10n.btnGg,
               ),
               const SizedBox(height: 8),
               FAButton.text(
+                onPressed: () {},
                 icon: FAIcons.iconFacebook,
                 text: context.l10n.btnFb,
               ),
