@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/typography/font_weight.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
+import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/widgets/app_bar_auth.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
 import 'package:flutter_practice_one/widgets/text_field.dart';
@@ -27,22 +28,22 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Welcome to Pro Fitness!',
+                context.l10n.displayLarge,
                 style: AppTextStyles.headlineLarge,
               ),
               const SizedBox(height: 11),
               Text(
-                'Hello there, sign in to \ncontinue!',
+                context.l10n.displayMedium,
                 style: AppTextStyles.headlineMedium,
               ),
               const SizedBox(height: 39),
-              const FATextField(
-                hintText: 'Email Address',
+              FATextField(
+                hintText: context.l10n.hintTextEmail,
                 icon: FAIcons.iconTick,
               ),
               const SizedBox(height: 14),
               FATextField(
-                hintText: 'Password',
+                hintText: context.l10n.hintTextPassword,
                 obscureText: !showPassword,
                 icon: showPassword ? FAIcons.iconEyeOpen : FAIcons.iconEye,
                 onPressed: () {
@@ -55,20 +56,20 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'Forgot Password?',
+                    context.l10n.forgotPassword,
                     style: AppTextStyles.textTitle,
                     textAlign: TextAlign.right,
                   ),
                 ],
               ),
               const SizedBox(height: 34),
-              FAButton(text: 'Login'),
+              FAButton(text: context.l10n.btnLoginIn),
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Or Login with',
+                    context.l10n.btnLoginWith,
                     style: AppTextStyles.textSmall,
                   ),
                 ],
@@ -76,12 +77,12 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 20),
               FAButton.outline(
                 icon: FAIcons.iconGoogle,
-                text: 'Connect with Google',
+                text: context.l10n.btnGg,
               ),
               const SizedBox(height: 8),
               FAButton.text(
                 icon: FAIcons.iconFacebook,
-                text: 'Connect With Facebook',
+                text: context.l10n.btnFb,
               ),
               const SizedBox(height: 48),
               Padding(
@@ -93,13 +94,13 @@ class _LoginPageState extends State<LoginPage> {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'Don’t have an account? ',
+                            text: context.l10n.descriptionSignIn,
                             style: AppTextStyles.textAppBar.copyWith(
                               fontWeight: AppFontWeight.medium,
                             ),
                           ),
                           TextSpan(
-                            text: 'Register!',
+                            text: context.l10n.bntSignIn,
                             style: AppTextStyles.textAppBar,
                           ),
                         ],

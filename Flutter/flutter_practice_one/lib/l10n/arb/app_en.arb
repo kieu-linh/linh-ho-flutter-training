@@ -1,7 +1,20 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "firstTitleSplash": "PRO ",
+    "secondTitleSplash": "FITNESS",
+    "descriptionSplash": "We train your body to be \n great and fit.",
+    "btnLetStart": "LET'S START",
+    "skipPage": "SKIP",
+    "nextPage": "NEXT",
+    "displayLarge": "Welcome to Pro Fitness!",
+    "displayMedium": "Hello there, sign in to \ncontinue!",
+    "hintTextEmail": "Email Address",
+    "hintTextPassword": "Password",
+    "forgotPassword": "Forgot Password?",
+    "btnLoginIn": "Login",
+    "btnLoginWith": "Or Login with",
+    "btnGg": "Connect with Google",
+    "btnFb": "Connect with Facebook",
+    "bntSignIn": "Register!",
+    "descriptionSignIn": "Don't have an account? "
 }
