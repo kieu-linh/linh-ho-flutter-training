@@ -15,7 +15,7 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
 
-  //define two variables for page index and page controller
+  /// Define two variables for page index and page controller
   int _pageIndex = 0;
   PageController pageController = PageController();
 

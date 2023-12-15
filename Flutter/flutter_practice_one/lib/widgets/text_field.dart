@@ -5,8 +5,8 @@ import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_svg/svg.dart';
 
-class FATextField extends StatelessWidget {
-  const FATextField({
+class FAInput extends StatelessWidget {
+  const FAInput({
     required this.hintText,
     this.icon,
     this.controller,
