@@ -33,4 +33,8 @@ class AppColor {
   static const iconHeart = Color(0xFFFF6079);
 
   static const buttonFaceColor = Color(0xFF4267B2);
+
+  static const error = Colors.red;
+
+  static const onError = Color(0xFFF02626);
 }
