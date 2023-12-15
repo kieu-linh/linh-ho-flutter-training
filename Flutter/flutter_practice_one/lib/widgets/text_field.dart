@@ -64,6 +64,7 @@ class FATextField extends StatelessWidget {
                       onTap: onPressed,
                       child: SvgPicture.asset(
                         icon!,
+                        // ignore: deprecated_member_use
                         color: AppColor.onSurfaceVariant,
                       ),
                     ),
