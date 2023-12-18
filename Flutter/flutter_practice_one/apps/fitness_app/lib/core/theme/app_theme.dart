@@ -5,8 +5,10 @@ import 'package:flutter_practice_one/core/typography/text_style.dart';
 class AppTheme {
   const AppTheme();
 
+  // ignore: unused_element
   ColorScheme get _colorScheme {
     return const ColorScheme.light(
+      // ignore: avoid_redundant_argument_values
       brightness: Brightness.light,
       primary: AppColor.primary,
       secondary: AppColor.secondary,
@@ -20,8 +22,10 @@ class AppTheme {
     );
   }
 
+  // ignore: unused_element
   ColorScheme get _colorSchemeDark {
     return const ColorScheme.dark(
+      // ignore: avoid_redundant_argument_values
       brightness: Brightness.dark,
       primary: AppColor.primary,
       secondary: AppColor.secondary,
@@ -36,6 +40,7 @@ class AppTheme {
   }
 
   /// Define the text theme for the app
+  // ignore: unused_field
   static final TextTheme _textTheme = TextTheme(
     displayLarge: AppTextStyles.titlePrimary,
     displayMedium: AppTextStyles.titleMedium,
