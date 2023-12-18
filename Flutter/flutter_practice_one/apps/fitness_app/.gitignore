@@ -109,4 +109,5 @@ app.*.map.json
 !.vscode/launch.json
 !.idea/codeStyles/
 !.idea/dictionaries/
-!.idea/runConfigurations/
+.idea/runConfigurations/
+.github/
