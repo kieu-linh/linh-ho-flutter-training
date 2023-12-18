@@ -1,9 +1,14 @@
 name: flutter_practice_one
 
 packages:
-  - package/*
+  - apps/*
 
-scripts:
-  analyze:
-    e
+scripts: 
+  analyze: 
+    run: melos exec -- puro flutter analyze .
+    description: Run `dart analyze` on all packages.
+    packageFilters: 
+      scope: 
+        - fitness_app
+        - fitness_ui
   
