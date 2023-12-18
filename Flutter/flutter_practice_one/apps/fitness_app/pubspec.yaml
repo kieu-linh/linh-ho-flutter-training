@@ -1,0 +1,57 @@
+name: flutter_practice_one
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  bloc: ^8.1.2
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^2.0.9
+  intl: ^0.18.0
+
+dev_dependencies:
+  very_good_analysis: ^5.1.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: BebasNeue
+      fonts:
+        - asset: assets/fonts/BebasNeue.otf
+    - family: Bebas-Regular
+      fonts:
+        - asset: assets/fonts/Bebas-Regular.otf
+    - family: DMSans-Bold
+      fonts:
+        - asset: assets/fonts/DMSans-Bold.ttf
+    - family: DMSans-Medium
+      fonts:
+        - asset: assets/fonts/DMSans-Medium.ttf
+    - family: DMSans-Regular
+      fonts:
+        - asset: assets/fonts/DMSans-Regular.ttf
+    - family: Montserrat-Bold
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+    - family: Montserrat-Medium
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
+    - family: Montserrat-Regular
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+    - family: Montserrat-SemiBold
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+    - family: Poppins-Regular
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf

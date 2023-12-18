@@ -1,0 +1,9 @@
+name: flutter_practice_one
+
+packages:
+  - package/*
+
+scripts:
+  analyze:
+    e
+  

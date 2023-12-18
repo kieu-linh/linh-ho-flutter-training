@@ -1,56 +1,35 @@
-{
   // Use IntelliSense to learn about possible attributes.
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Launch development",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main_development.dart",
-      "args": [
-        "--flavor",
-        "development",
-        "--target",
-        "lib/main_development.dart"
-      ]
-    },
-    {
-      "name": "Launch staging",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main_staging.dart",
-      "args": [
-        "--flavor",
-        "staging",
-        "--target",
-        "lib/main_staging.dart"
-      ]
-    },
-    {
-      "name": "Launch production",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main_production.dart",
-      "args": [
-        "--flavor",
-        "production",
-        "--target",
-        "lib/main_production.dart"
-      ]
-    },
-    {
-      "name": "Launch main",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "args": [
-        "--flavor",
-        "production",
-        "--target",
-        "lib/main.dart"
-      ]
-    }
-  ]
-}
+  {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Device preview",
+        "request": "launch",
+        "type": "dart",
+        "program": "apps/fitness_app/lib/main_device_preview.dart",
+        "args": [
+          "apps/fitness_app/lib/main_device_preview.dart"
+        ]
+      },
+      {
+        "name": "Run app",
+        "request": "launch",
+        "type": "dart",
+        "program": "apps/fitness_app/lib/main.dart",
+        "args": [
+          "apps/fitness_app/lib/main.dart"
+        ]
+      },
+      {
+        "name": "Widgetbook",
+        "request": "launch",
+        "type": "dart",
+        "program": "apps/fitness_widgetbook/lib/main.dart",
+        "args": [
+          "apps/fitness_widgetbook/lib/main.dart"
+        ]
+      }
+    ]
+  }
