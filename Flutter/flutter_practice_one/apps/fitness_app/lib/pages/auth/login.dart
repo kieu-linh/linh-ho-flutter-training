@@ -1,3 +1,5 @@
+// ignore_for_file: directives_ordering
+
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/typography/font_weight.dart';
