@@ -1,17 +1,21 @@
 class FAImage {
-  static const String logoSplashScreen = 'assets/images/img_girl.png';
+  static const String imgSplash = 'assets/images/img_splash.png';
 
-  static const String backgroundSplashScreen = 'assets/images/img_splash.png';
+  static const String imgBackgroundSplash =
+      'assets/images/img_background_splash.png';
 
-  static const String playerFirst = 'assets/images/girl_welcome1.png';
+  static const String imgGirlFirst = 'assets/images/img_girl_first.png';
 
-  static const String backgroundWelcome1 = 'assets/images/img_welcome1.jpg';
+  static const String imgBackgroundFirst =
+      'assets/images/img_background_first.png';
 
-  static const String playerSecond = 'assets/images/girl_welcome2.png';
+  static const String imgGirlSecond = 'assets/images/img_girl_second.png';
 
-  static const String backgroundWelcome2 = 'assets/images/img_welcome2.png';
+  static const String imgBackgroundSecond =
+      'assets/images/img_background_second.png';
 
-  static const String playerThird = 'assets/images/girl_welcome3.png';
+  static const String imgGirlThird = 'assets/images/img_girl_third.png';
 
-  static const String backgroundWelcome3 = 'assets/images/img_welcome3.png';
+  static const String imgBackgroundThird =
+      'assets/images/img_background_third.png';
 }

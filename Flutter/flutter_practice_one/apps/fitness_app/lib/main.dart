@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       // ignore: avoid_redundant_argument_values
-      themeMode: ThemeMode.system,
-      theme: FAppTheme.lightTheme,
+      themeMode: ThemeMode.light,
       darkTheme: FAppTheme.darkTheme,
-      
+      theme: FAppTheme.lightTheme,
+
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

@@ -4,6 +4,18 @@ packages:
   - apps/*
 
 scripts: 
+  #Setup env for puro
+  postbootstrap: >
+    melos exec -- puro flutter pub get && pub global activate puro 
+  #Run puro
+  puro: 
+    run: melos exec -- puro flutter pub run puro:run
+    description: Run `puro` on all packages.
+    packageFilters: 
+      scope: 
+        - fitness_app
+        - fitness_ui
+
   analyze: 
     run: melos exec -- puro flutter analyze .
     description: Run `dart analyze` on all packages.

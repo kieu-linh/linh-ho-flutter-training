@@ -48,13 +48,13 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: [
           const FAImageFilter(
-            image: FAImage.backgroundSplashScreen,
+            image: FAImage.imgBackgroundSplash,
           ),
           Positioned.fill(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(FAImage.logoSplashScreen),
+                Image.asset(FAImage.imgSplash),
                 const SizedBox(height: 42),
                 FARichText(
                   fistText: context.l10n.firstTitleSplash,

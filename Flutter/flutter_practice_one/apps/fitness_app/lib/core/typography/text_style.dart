@@ -22,28 +22,28 @@ class AppTextStyles {
     fontSize: 48,
     color: AppColor.primary,
     fontWeight: AppFontWeight.regular,
-    fontFamily: 'BebasNeue',
+    fontFamily: 'Bebas-Regular',
   );
 
   static TextStyle titleMedium = primaryTextStyle(
     fontSize: 16,
     color: AppColor.tertiary,
     fontWeight: AppFontWeight.regular,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle textButton = primaryTextStyle(
     fontSize: 20,
     color: AppColor.secondary,
     fontWeight: AppFontWeight.regular,
-    fontFamily: 'BebasNeue',
+    fontFamily: 'Bebas-Regular',
   );
 
   static TextStyle textBottom = primaryTextStyle(
     fontSize: 18,
     color: AppColor.tertiary,
     fontWeight: AppFontWeight.medium,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle headlineLarge = primaryTextStyle(
@@ -57,14 +57,14 @@ class AppTextStyles {
     fontSize: 15,
     color: AppColor.onSurfaceVariant,
     fontWeight: AppFontWeight.medium,
-    fontFamily: 'DMSans-Medium',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle labelLarge = primaryTextStyle(
     fontSize: 16,
     color: AppColor.onSurfaceVariant,
     fontWeight: AppFontWeight.medium,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle labelMedium = primaryTextStyle(
@@ -78,7 +78,7 @@ class AppTextStyles {
     fontSize: 14,
     color: AppColor.tertiary,
     fontWeight: AppFontWeight.semiBold,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle textButtonMedium = primaryTextStyle(
@@ -99,13 +99,13 @@ class AppTextStyles {
     fontSize: 14,
     color: AppColor.onSurface,
     fontWeight: AppFontWeight.semiBold,
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Montserrat-Medium',
   );
 
   static TextStyle textAppBar = primaryTextStyle(
     fontSize: 14,
     color: AppColor.tertiary,
     fontWeight: AppFontWeight.bold,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
   );
 }

@@ -14,20 +14,20 @@ class WelcomeData {
 //Create a WelcomeData list containing common data fields
 List<WelcomeData> listWelcomes = [
   WelcomeData()
-    ..image = FAImage.playerFirst
-    ..backgroundImage = FAImage.backgroundWelcome1
+    ..image = FAImage.imgGirlFirst
+    ..backgroundImage = FAImage.imgBackgroundFirst
     ..firstText = 'Perfect Body \n Doing '
     ..secondText = 'Crossfit \n'
     ..thirdText = 'Exercises',
   WelcomeData()
-    ..image = FAImage.playerSecond
-    ..backgroundImage = FAImage.backgroundWelcome2
+    ..image = FAImage.imgGirlSecond
+    ..backgroundImage = FAImage.imgBackgroundSecond
     ..firstText = 'Shot Strong \n'
     ..secondText = 'Timeless \n'
     ..thirdText = 'Woman Training',
   WelcomeData()
-    ..image = FAImage.playerThird
-    ..backgroundImage = FAImage.backgroundWelcome3
+    ..image = FAImage.imgGirlThird
+    ..backgroundImage = FAImage.imgBackgroundThird
     ..firstText = 'Healthy Muscular \n'
     ..secondText = 'Sportswoman \n'
     ..thirdText = 'Standing',
