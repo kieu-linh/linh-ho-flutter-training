@@ -9,23 +9,32 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  # This is package use for in-app localization with Map data. Easier and faster to implement.
   flutter_localizations:
     sdk: flutter
+
+  # An SVG rendering and widget library for Flutter, which allows painting and displaying Scalable Vector Graphics.
   flutter_svg: ^2.0.9
-  intl: ^0.18.0
 
 dev_dependencies:
   provider: ^6.1.1
+
+  # This package provides lint rules for Dart and Flutter which are used at Very Good Ventures.
   very_good_analysis: ^5.1.0
 
 flutter:
   uses-material-design: true
   generate: true
+
+  # This is folder for assets: image, icon in the app.
   assets:
     - assets/images/2.0x/
     - assets/images/3.0x/
     - assets/images/
     - assets/icons/
+
+  # This is for custom two fonts in the app.
   fonts:
     - family: Bebas-Regular
       fonts:

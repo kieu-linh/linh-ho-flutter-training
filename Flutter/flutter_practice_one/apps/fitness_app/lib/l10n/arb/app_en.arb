@@ -18,6 +18,9 @@
     "bntSignIn": "Register!",
     "descriptionSignIn": "Don't have an account? ",
     "stepPage1": "Step 1 of 7",
-    "yourFavorite": "Select Your Favorite"
+    "yourFavorite": "Select Your Favorite",
+    "btnNextStep": "NEXT STEPS",
+    "stepPage2": "Step 2 of 7",
+    "yourOld": "How old are you?"
 
 }
