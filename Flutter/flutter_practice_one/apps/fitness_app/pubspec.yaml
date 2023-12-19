@@ -22,36 +22,14 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
+    - assets/images/2.0x/
+    - assets/images/3.0x/
     - assets/images/
     - assets/icons/
   fonts:
-    - family: BebasNeue
-      fonts:
-        - asset: assets/fonts/BebasNeue.otf
     - family: Bebas-Regular
       fonts:
         - asset: assets/fonts/Bebas-Regular.otf
-    - family: DMSans-Bold
-      fonts:
-        - asset: assets/fonts/DMSans-Bold.ttf
-    - family: DMSans-Medium
-      fonts:
-        - asset: assets/fonts/DMSans-Medium.ttf
-    - family: DMSans-Regular
-      fonts:
-        - asset: assets/fonts/DMSans-Regular.ttf
-    - family: Montserrat-Bold
-      fonts:
-        - asset: assets/fonts/Montserrat-Bold.ttf
     - family: Montserrat-Medium
       fonts:
         - asset: assets/fonts/Montserrat-Medium.ttf
-    - family: Montserrat-Regular
-      fonts:
-        - asset: assets/fonts/Montserrat-Regular.ttf
-    - family: Montserrat-SemiBold
-      fonts:
-        - asset: assets/fonts/Montserrat-SemiBold.ttf
-    - family: Poppins-Regular
-      fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
