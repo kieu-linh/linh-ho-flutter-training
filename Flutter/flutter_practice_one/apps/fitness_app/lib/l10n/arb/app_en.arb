@@ -13,8 +13,11 @@
     "forgotPassword": "Forgot Password?",
     "btnLoginIn": "Login",
     "btnLoginWith": "Or Login with",
-    "btnGg": "Connect with Google",
-    "btnFb": "Connect with Facebook",
+    "btnGoogle": "Connect with Google",
+    "btnFacebook": "Connect with Facebook",
     "bntSignIn": "Register!",
-    "descriptionSignIn": "Don't have an account? "
+    "descriptionSignIn": "Don't have an account? ",
+    "stepPage1": "Step 1 of 7",
+    "yourFavorite": "Select Your Favorite"
+
 }
