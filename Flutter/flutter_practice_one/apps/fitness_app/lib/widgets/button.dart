@@ -68,32 +68,35 @@ class FAButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      padding: padding,
-      decoration: BoxDecoration(
-        borderRadius: borderRadius,
-        color: color,
-        border: border,
-      ),
-      child: Row(
-        mainAxisAlignment: icon == null
-            ? MainAxisAlignment.center
-            : MainAxisAlignment.spaceBetween,
-        children: [
-          if (icon != null)
-            SvgPicture.asset(
-              icon!,
-              width: 24,
-              height: 24,
-              fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        height: height,
+        padding: padding,
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+          color: color,
+          border: border,
+        ),
+        child: Row(
+          mainAxisAlignment: icon == null
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.spaceBetween,
+          children: [
+            if (icon != null)
+              SvgPicture.asset(
+                icon!,
+                width: 24,
+                height: 24,
+                fit: BoxFit.fill,
+              ),
+            Text(
+              text,
+              style: textStyle,
             ),
-          Text(
-            text,
-            style: textStyle,
-          ),
-          if (icon != null) const SizedBox(width: 12),
-        ],
+            if (icon != null) const SizedBox(width: 12),
+          ],
+        ),
       ),
     );
   }

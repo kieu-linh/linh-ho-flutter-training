@@ -108,4 +108,11 @@ class AppTextStyles {
     fontWeight: AppFontWeight.bold,
     fontFamily: 'Montserrat-Medium',
   );
+
+  static TextStyle textStepPage = primaryTextStyle(
+    fontSize: 14,
+    color: AppColor.tertiaryContainer,
+    fontWeight: AppFontWeight.medium,
+    fontFamily: 'Montserrat-Medium',
+  );
 }
