@@ -14,7 +14,7 @@ abstract class AppFontWeight {
   /// FontWeight value of 'w600'
   static const FontWeight semiBold = FontWeight.w600;
 
-  /// FontWeight value of 'w500'
+  /// FontWeight value of 'w500' 
   static const FontWeight medium = FontWeight.w500;
 
   /// FontWeight value of 'w400'

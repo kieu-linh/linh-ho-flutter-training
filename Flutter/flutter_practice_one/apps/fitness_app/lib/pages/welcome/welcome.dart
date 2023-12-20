@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/data/models/welcome_data.dart';
+import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/widgets/image_filter.dart';
 import 'package:flutter_practice_one/widgets/rich_text.dart';
@@ -14,10 +15,15 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-
   /// Define two variables for page index and page controller
   int _pageIndex = 0;
   PageController pageController = PageController();
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +61,6 @@ class _WelcomePageState extends State<WelcomePage> {
               );
             },
           ),
-          
           Positioned(
             left: 24,
             right: 24,
@@ -74,7 +79,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     );
                   },
                   child: Text(
-                    'SKIP',
+                    context.l10n.skipPage,
                     style: AppTextStyles.textBottom,
                   ),
                 ),
@@ -118,7 +123,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     }
                   },
                   child: Text(
-                    'NEXT',
+                    context.l10n.nextPage,
                     style: AppTextStyles.textBottom,
                   ),
                 ),

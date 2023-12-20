@@ -5,6 +5,8 @@ import 'package:flutter_practice_one/core/theme/custom_themes/text_theme.dart';
 class FAppTheme {
   FAppTheme._();
 
+
+
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Montserrat-Regular',

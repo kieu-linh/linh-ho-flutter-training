@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_practice_one/core/theme/theme.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/splash_screen.dart';
+import 'package:flutter_practice_one/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,14 +14,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       // ignore: avoid_redundant_argument_values
       themeMode: ThemeMode.light,
       darkTheme: FAppTheme.darkTheme,
       theme: FAppTheme.lightTheme,
-
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -32,7 +31,10 @@ class MyApp extends StatelessWidget {
         Locale('en'), // English
         Locale('es'), // Spanish
       ],
-      home: const SplashScreen(),
+      //home: const WelcomePage(),
+      routeInformationProvider: appRouter.routeInformationProvider,
+      routeInformationParser: appRouter.routeInformationParser,
+      routerDelegate: appRouter.routerDelegate,
     );
   }
 }

@@ -17,10 +17,18 @@
     "btnFacebook": "Connect with Facebook",
     "bntSignIn": "Register!",
     "descriptionSignIn": "Don't have an account? ",
-    "stepPage1": "Step 1 of 7",
     "yourFavorite": "Select Your Favorite",
     "btnNextStep": "NEXT STEPS",
-    "stepPage2": "Step 2 of 7",
-    "yourOld": "How old are you?"
-
-}
+    "yourOld": "How old are you?",
+    "stepPage": "Step {currentStep} of {numberOfSteps}",
+    "@stepPage" : {
+        "placeholders": {
+            "currentStep": {
+                "type": "int"
+            },
+            "numberOfSteps": {
+                "type": "int"
+            }
+        }
+    }
+} 
