@@ -6,11 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/constant/images.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/pages/welcome/welcome.dart';
 import 'package:flutter_practice_one/widgets/image_filter.dart';
 import 'package:flutter_practice_one/widgets/rich_text.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -30,13 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       );
 
-      Route<dynamic> route =
-          MaterialPageRoute(builder: (context) => const WelcomePage());
-      Navigator.pushAndRemoveUntil(
-        context,
-        route,
-        (Route<dynamic> route) => false,
-      );
+      GoRouter.of(context).go('/welcomeScreen');
     });
 
     super.initState();
@@ -79,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Center(
                       child: Text(
                         context.l10n.btnLetStart,
-                        style: AppTextStyles.textButton,
+                        style: context.textTheme.headlineLarge,
                       ),
                     ),
                   ),

@@ -5,8 +5,8 @@ import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/typography/font_weight.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/pages/favorite/favorite.dart';
-import 'package:flutter_practice_one/widgets/text_field.dart';
+import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
+import 'package:flutter_practice_one/widgets/input.dart';
 import 'package:flutter_practice_one/widgets/top_control.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
 
@@ -18,7 +18,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool showPassword = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,18 +52,16 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 39),
                 FAInput(
+                  controller: emailController,
                   hintText: context.l10n.hintTextEmail,
                   icon: FAIcons.iconTick,
                 ),
                 const SizedBox(height: 14),
                 FAInput(
+                  controller: passwordController,
                   hintText: context.l10n.hintTextPassword,
-                  obscureText: !showPassword,
-                  icon: showPassword ? FAIcons.iconEyeOpen : FAIcons.iconEye,
-                  onPressed: () {
-                    showPassword = !showPassword;
-                    setState(() {});
-                  },
+                  icon: FAIcons.iconEye,
+                  obscureText: true,
                 ),
                 const SizedBox(height: 17),
                 Row(
@@ -73,7 +79,6 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                       context,
-                      // ignore: inference_failure_on_instance_creation
                       MaterialPageRoute(
                         builder: (context) => const FavoritePage(),
                       ),
