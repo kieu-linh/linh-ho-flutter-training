@@ -6,7 +6,8 @@ packages:
 scripts: 
   #Setup env for puro
   postbootstrap: >
-    melos exec -- puro flutter pub get && pub global activate puro 
+    melos exec -- puro flutter pub get && 
+    pub global activate puro 
   #Run puro
   puro: 
     run: melos exec -- puro flutter pub run puro:run
