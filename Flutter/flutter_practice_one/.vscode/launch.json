@@ -19,6 +19,8 @@
         "type": "dart",
         "program": "apps/fitness_app/lib/main.dart",
         "args": [
+          "--flavor",
+          "production",
           "apps/fitness_app/lib/main.dart"
         ]
       },
@@ -28,6 +30,7 @@
         "type": "dart",
         "program": "apps/fitness_widgetbook/lib/main.dart",
         "args": [
+          "--flavor",
           "apps/fitness_widgetbook/lib/main.dart"
         ]
       }

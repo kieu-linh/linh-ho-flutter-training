@@ -3,9 +3,9 @@ import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/data/models/welcome_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/widgets/image_filter.dart';
 import 'package:flutter_practice_one/widgets/rich_text.dart';
+import 'package:go_router/go_router.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -68,16 +68,7 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Row(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      // ignore: inference_failure_on_instance_creation
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
-                      ),
-                      (route) => false,
-                    );
-                  },
+                  onTap: () => GoRouter.of(context).go('/loginScreen'),
                   child: Text(
                     context.l10n.skipPage,
                     style: AppTextStyles.textBottom,
@@ -112,14 +103,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         curve: Curves.bounceIn,
                       );
                     } else {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        // ignore: inference_failure_on_instance_creation
-                        MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
-                        ),
-                        (route) => false,
-                      );
+                      GoRouter.of(context).go('/loginScreen');
                     }
                   },
                   child: Text(

@@ -5,13 +5,15 @@ import 'package:flutter_svg/svg.dart';
 
 class FATopControl extends StatelessWidget {
   const FATopControl({
-    this.onPressed,
+    required this.onPressed,
     this.text,
     super.key,
+    this.onTap,
   });
 
   final String? text;
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,9 +26,12 @@ class FATopControl extends StatelessWidget {
           ),
           const Spacer(),
           if (text != null)
-            Text(
-              text!,
-              style: AppTextStyles.textAppBar,
+            GestureDetector(
+              onTap: onTap,
+              child: Text(
+                text!,
+                style: AppTextStyles.textAppBar,
+              ),
             ),
         ],
       ),
