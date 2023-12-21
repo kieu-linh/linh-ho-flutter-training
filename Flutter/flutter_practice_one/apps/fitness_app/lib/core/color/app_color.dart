@@ -10,6 +10,8 @@ class AppColor {
 
   static const onSecondary = Color(0xFFF5F5F5);
 
+  static const transparent = Colors.transparent;
+
   static const tertiary = Colors.black;
 
   static const tertiaryContainer = Color(0xFF191919);
@@ -21,6 +23,8 @@ class AppColor {
   static const surfaceContainer = Color(0xFF696969);
 
   static const outlineColor = Color(0xFF696969);
+
+  static const outlineButton =  Color(0XFF707070);
 
   static const containerFirst = Color(0xFFF6A010);
 

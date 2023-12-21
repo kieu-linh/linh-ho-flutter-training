@@ -30,5 +30,25 @@
                 "type": "int"
             }
         }
-    }
+    },
+    "weight" : "How much do you weight?",
+    "goalWeight" : "What's your goal weight?",
+    "height" : "How much do you Height?",
+    "level" : "What's your fitness level?",
+    "goal" : "What's your goal",
+    "start" : "Let's get started",
+    "lbs":"LBS",
+    "kg":"KG",
+    "feet":"FEET",
+    "cm":"CM",
+    "beginner":"Beginner",
+    "intermediate":"Intermediate",
+    "advanced":"Advanced",
+    "weightLoss" : "Weight loss",
+    "gainMuscle" : "Gain muscle",
+    "improveFitness" : "Improve fitness",
+    "textStart" : "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
+    "textFirstStart" : "Sculpt your",
+    "textSecondStart" : "ideal body,",
+    "textThirdStart" : "free your \n true self, transform your life."
 } 

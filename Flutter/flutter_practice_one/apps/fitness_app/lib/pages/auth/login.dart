@@ -1,14 +1,15 @@
-// ignore_for_file: directives_ordering
+// ignore_for_file: directives_ordering, inference_failure_on_instance_creation
 
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/typography/font_weight.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
+import 'package:flutter_practice_one/routes/routes.dart';
 import 'package:flutter_practice_one/widgets/input.dart';
 import 'package:flutter_practice_one/widgets/top_control.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -39,7 +40,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const FATopControl(),
+                FATopControl(
+                  onPressed: () => context.go(AppRoutes.welcomeScreen.path),
+                ),
                 const SizedBox(height: 30),
                 Text(
                   context.l10n.displayLarge,
@@ -76,15 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 34),
                 FAButton(
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const FavoritePage(),
-                      ),
-                      (route) => false,
-                    );
-                  },
+                  onPressed: () => GoRouter.of(context).go('/favoriteScreen'),
                   text: context.l10n.btnLoginIn,
                 ),
                 const SizedBox(height: 24),

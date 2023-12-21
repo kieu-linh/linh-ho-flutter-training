@@ -21,7 +21,7 @@ class FavoritePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FATopControl(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {},
               text: context.l10n.skipPage,
             ),
             const SizedBox(height: 7),

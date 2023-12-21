@@ -30,7 +30,6 @@ class _SplashScreenState extends State<SplashScreen> {
           statusBarIconBrightness: Brightness.dark,
         ),
       );
-
       GoRouter.of(context).go('/welcomeScreen');
     });
 
@@ -74,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Center(
                       child: Text(
                         context.l10n.btnLetStart,
-                        style: context.textTheme.headlineLarge,
+                        style: context.textTheme.displaySmall,
                       ),
                     ),
                   ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
+import 'package:flutter_practice_one/pages/onboarding/weight.dart';
 import 'package:flutter_practice_one/pages/splash/splash_screen.dart';
 import 'package:flutter_practice_one/pages/welcome/welcome.dart';
 import 'package:go_router/go_router.dart';
@@ -33,9 +34,15 @@ final GoRouter appRouter = GoRouter(
           const FavoritePage(),
     ),
     GoRoute(
-      path: AppRoutes.playerPage.path,
-      name: AppRoutes.playerPage.name,
+      path: AppRoutes.ageScreen.path,
+      name: AppRoutes.ageScreen.name,
       builder: (BuildContext context, GoRouterState state) => const AgePage(),
+    ),
+    GoRoute(
+      path: AppRoutes.weightScreen.path,
+      name: AppRoutes.weightScreen.name,
+      builder: (BuildContext context, GoRouterState state) =>
+          const WeightPage(),
     ),
   ],
 );
@@ -52,36 +59,20 @@ enum AppRoutes {
   ),
 
   loginScreen(
-    name: 'signIn',
-    path: '/signIn',
+    name: 'loginScreen',
+    path: '/loginScreen',
   ),
   favoriteScreen(
-    name: 'signUp',
-    path: '/signUp',
+    name: 'favoriteScreen',
+    path: '/favoriteScreen',
   ),
-  playerPage(
-    name: 'playerPage',
-    path: '/playerPage',
+  ageScreen(
+    name: 'ageScreen',
+    path: '/ageScreen',
   ),
-  homePage(
-    name: 'homePage',
-    path: '/homePage',
-  ),
-  nextMatchPage(
-    name: 'nextMatchPage',
-    path: '/nextMatchPage',
-  ),
-  fixturesPage(
-    name: ' fixturesPage',
-    path: '/fixturesPage',
-  ),
-  notificationsPage(
-    name: ' notificationsPage',
-    path: '/notificationsPage',
-  ),
-  forgotPasswordPage(
-    name: ' forgotPasswordPage',
-    path: '/forgotPasswordPage',
+  weightScreen(
+    name: 'weightScreen',
+    path: '/weightScreen',
   );
 
   const AppRoutes({

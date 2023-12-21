@@ -6,7 +6,7 @@ class TopOnBoarding extends StatelessWidget {
   const TopOnBoarding({
     required this.title,
     required this.currentStep,
-    this.numberOfSteps = 8,
+    this.numberOfSteps = 7,
     super.key,
   });
 
