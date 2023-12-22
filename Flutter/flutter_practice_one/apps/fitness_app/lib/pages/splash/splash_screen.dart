@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_practice_one/core/constant/images.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
-import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/widgets/image_filter.dart';
 import 'package:flutter_practice_one/widgets/rich_text.dart';
@@ -57,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Text(
                   context.l10n.descriptionSplash,
                   textAlign: TextAlign.center,
-                  style: AppTextStyles.titleMedium,
+                  style: context.textTheme.displayMedium,
                 ),
                 const SizedBox(height: 42),
                 GestureDetector(

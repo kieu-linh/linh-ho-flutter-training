@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
-import 'package:flutter_practice_one/core/typography/text_style.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
 import 'package:flutter_practice_one/widgets/top_control.dart';
@@ -52,12 +51,12 @@ class _GoalPageState extends State<GoalPage> {
                         setState(() {});
                       },
                       color: _selectIndex == index
-                          ? AppColor.tertiary
-                          : AppColor.onSecondary,
+                          ? context.colorScheme.tertiary
+                          : context.colorScheme.onSecondary,
                       textStyle: _selectIndex == index
-                          ? AppTextStyles.textButtonMedium
-                          : AppTextStyles.textButtonSmall
-                              .copyWith(fontSize: 17),
+                          ? context.textTheme.bodyMedium
+                          : context.textTheme.titleLarge
+                              ?.copyWith(fontSize: 17),
                       text: listText[index],
                     ),
                   );
