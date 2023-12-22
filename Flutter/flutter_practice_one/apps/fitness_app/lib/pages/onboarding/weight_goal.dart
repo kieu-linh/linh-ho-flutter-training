@@ -4,19 +4,15 @@ import 'package:flutter_practice_one/widgets/button.dart';
 import 'package:flutter_practice_one/widgets/input_number.dart';
 import 'package:flutter_practice_one/widgets/top_control.dart';
 import 'package:flutter_practice_one/widgets/top_onboarding.dart';
+import 'package:go_router/go_router.dart';
 
-class WeightGoalPage extends StatefulWidget {
+class WeightGoalPage extends StatelessWidget {
   const WeightGoalPage({super.key});
 
   @override
-  State<WeightGoalPage> createState() => _WeightGoalPageState();
-}
-
-class _WeightGoalPageState extends State<WeightGoalPage> {
-  TextEditingController weightController = TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
+    // ignore: omit_local_variable_types, prefer_final_locals
+    TextEditingController weightController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -25,7 +21,10 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FATopControl(text: context.l10n.skipPage, onPressed: () {  },),
+                FATopControl(
+                  text: context.l10n.skipPage,
+                  onPressed: () => GoRouter.of(context).go('/weightScreen'),
+                ),
                 const SizedBox(height: 7),
                 TopOnBoarding(title: context.l10n.goalWeight, currentStep: 4),
                 const SizedBox(height: 20),
@@ -43,7 +42,7 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
             bottom: 10,
             child: FAButton(
               text: context.l10n.btnNextStep,
-              onPressed: () {},
+              onPressed: () => GoRouter.of(context).go('/heightScreen'),
             ),
           ),
         ],
@@ -51,4 +50,3 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
     );
   }
 }
-

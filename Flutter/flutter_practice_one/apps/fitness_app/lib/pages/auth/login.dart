@@ -97,12 +97,14 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {},
                   icon: FAIcons.iconGoogle,
                   text: context.l10n.btnGoogle,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 ),
                 const SizedBox(height: 8),
                 FAButton.text(
                   onPressed: () {},
                   icon: FAIcons.iconFacebook,
                   text: context.l10n.btnFacebook,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 ),
                 const SizedBox(height: 48),
                 Padding(

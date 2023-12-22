@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/color/app_color.dart';
-import 'package:flutter_practice_one/core/theme/custom_themes/text_theme.dart';
+import 'package:flutter_practice_one/core/theme/app_theme.dart';
 
 class FAppTheme {
   FAppTheme._();
-
-
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
@@ -13,7 +11,8 @@ class FAppTheme {
     brightness: Brightness.light,
     primaryColor: AppColor.primary,
     scaffoldBackgroundColor: AppColor.secondary,
-    textTheme: FATextTheme.lightTextTheme,
+    colorScheme: AppTheme.colorScheme,
+    textTheme: AppTheme.textTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -22,6 +21,7 @@ class FAppTheme {
     brightness: Brightness.dark,
     primaryColor: AppColor.primary,
     scaffoldBackgroundColor: AppColor.tertiary,
-    textTheme: FATextTheme.darkTextTheme,
+    colorScheme: AppTheme.colorScheme,
+    textTheme: AppTheme.textTheme,
   );
 }

@@ -6,7 +6,7 @@ class AppTheme {
   const AppTheme();
 
   // ignore: unused_element
-  ColorScheme get _colorScheme {
+  static ColorScheme get colorScheme {
     return const ColorScheme.light(
       // ignore: avoid_redundant_argument_values
       brightness: Brightness.light,
@@ -41,7 +41,7 @@ class AppTheme {
 
   /// Define the text theme for the app
   // ignore: unused_field
-  static final TextTheme _textTheme = TextTheme(
+  static final TextTheme textTheme = TextTheme(
     displayLarge: AppTextStyles.titlePrimary,
     displayMedium: AppTextStyles.titleMedium,
     displaySmall: AppTextStyles.textButton,
@@ -57,3 +57,4 @@ class AppTheme {
     labelSmall: AppTextStyles.textAppBar,
   );
 }
+//buttonthem, textbutton, appbar, bottom navigation, input decoration

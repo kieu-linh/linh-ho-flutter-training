@@ -4,6 +4,7 @@ import 'package:flutter_practice_one/widgets/button.dart';
 import 'package:flutter_practice_one/widgets/input_number.dart';
 import 'package:flutter_practice_one/widgets/top_control.dart';
 import 'package:flutter_practice_one/widgets/top_onboarding.dart';
+import 'package:go_router/go_router.dart';
 
 class HeightPage extends StatefulWidget {
   const HeightPage({super.key});
@@ -25,9 +26,12 @@ class _HeightPageState extends State<HeightPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FATopControl(text: context.l10n.skipPage, onPressed: () {  },),
+                FATopControl(
+                  onPressed: () => GoRouter.of(context).go('/weightGoalScreen'),
+                  text: context.l10n.skipPage,
+                ),
                 const SizedBox(height: 7),
-                TopOnBoarding(title: context.l10n.goalWeight, currentStep: 5),
+                TopOnBoarding(title: context.l10n.height, currentStep: 5),
                 const SizedBox(height: 20),
                 FAInputNumber(
                   textLeft: context.l10n.feet,
@@ -43,7 +47,7 @@ class _HeightPageState extends State<HeightPage> {
             bottom: 10,
             child: FAButton(
               text: context.l10n.btnNextStep,
-              onPressed: () {},
+              onPressed: () => GoRouter.of(context).go('/levelScreen'),
             ),
           ),
         ],

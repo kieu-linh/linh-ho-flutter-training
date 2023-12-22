@@ -47,7 +47,7 @@ class _WeightPageState extends State<WeightPage> {
             bottom: 10,
             child: FAButton(
               text: context.l10n.btnNextStep,
-              onPressed: () {},
+              onPressed: () => GoRouter.of(context).go('/weightGoalScreen'),
             ),
           ),
         ],

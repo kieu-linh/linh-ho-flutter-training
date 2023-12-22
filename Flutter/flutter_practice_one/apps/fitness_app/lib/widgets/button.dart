@@ -16,6 +16,7 @@ class FAButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 16),
     super.key,
     this.border,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonMedium;
 
@@ -31,6 +32,7 @@ class FAButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 16),
     super.key,
     Border? border,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonSmall,
         border = border ??
@@ -49,6 +51,7 @@ class FAButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 16),
     super.key,
     this.border,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ??
             AppTextStyles.textButtonSmall.copyWith(
@@ -65,6 +68,7 @@ class FAButton extends StatelessWidget {
   final String? icon;
   final BorderRadius borderRadius;
   final EdgeInsets padding;
+  final MainAxisAlignment mainAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +83,7 @@ class FAButton extends StatelessWidget {
           border: border,
         ),
         child: Row(
-          mainAxisAlignment: icon == null
-              ? MainAxisAlignment.center
-              : MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: mainAxisAlignment,
           children: [
             if (icon != null)
               SvgPicture.asset(
