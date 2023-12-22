@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
+import 'package:flutter_practice_one/pages/onboarding/height.dart';
+import 'package:flutter_practice_one/pages/onboarding/level.dart';
 import 'package:flutter_practice_one/pages/onboarding/weight.dart';
+import 'package:flutter_practice_one/pages/onboarding/weight_goal.dart';
 import 'package:flutter_practice_one/pages/splash/splash_screen.dart';
 import 'package:flutter_practice_one/pages/welcome/welcome.dart';
 import 'package:go_router/go_router.dart';
@@ -44,6 +47,24 @@ final GoRouter appRouter = GoRouter(
       builder: (BuildContext context, GoRouterState state) =>
           const WeightPage(),
     ),
+    GoRoute(
+      path: AppRoutes.weightGoalScreen.path,
+      name: AppRoutes.weightGoalScreen.name,
+      builder: (BuildContext context, GoRouterState state) =>
+          const WeightGoalPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.heightScreen.path,
+      name: AppRoutes.heightScreen.name,
+      builder: (BuildContext context, GoRouterState state) =>
+          const HeightPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.levelScreen.path,
+      name: AppRoutes.levelScreen.name,
+      builder: (BuildContext context, GoRouterState state) => const LevelPage(),
+    ),
+    
   ],
 );
 
@@ -73,6 +94,18 @@ enum AppRoutes {
   weightScreen(
     name: 'weightScreen',
     path: '/weightScreen',
+  ),
+  weightGoalScreen(
+    name: 'weightGoalScreen',
+    path: '/weightGoalScreen',
+  ),
+  heightScreen(
+    name: 'heightScreen',
+    path: '/heightScreen',
+  ),
+  levelScreen(
+    name: 'levelScreen',
+    path: '/levelScreen',
   );
 
   const AppRoutes({

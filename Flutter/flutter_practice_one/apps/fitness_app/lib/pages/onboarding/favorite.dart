@@ -3,10 +3,10 @@ import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/data/models/favorite_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
 import 'package:flutter_practice_one/widgets/top_control.dart';
 import 'package:flutter_practice_one/widgets/top_onboarding.dart';
+import 'package:go_router/go_router.dart';
 
 class FavoritePage extends StatelessWidget {
   const FavoritePage({super.key});
@@ -72,13 +72,7 @@ class FavoritePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 30),
               child: FAButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  // ignore: inference_failure_on_instance_creation
-                  MaterialPageRoute(
-                    builder: (context) => const AgePage(),
-                  ),
-                ),
+                onPressed: () => GoRouter.of(context).go('/ageScreen'),
                 text: context.l10n.btnNextStep,
               ),
             ),
