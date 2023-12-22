@@ -55,6 +55,7 @@ class AppTheme {
     labelLarge: AppTextStyles.labelLarge,
     labelMedium: AppTextStyles.labelMedium,
     labelSmall: AppTextStyles.textAppBar,
+    titleSmall: AppTextStyles.textStepPage,
   );
 }
 //buttonthem, textbutton, appbar, bottom navigation, input decoration

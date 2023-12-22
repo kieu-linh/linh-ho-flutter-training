@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
-import 'package:flutter_practice_one/core/typography/text_style.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/data/models/favorite_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
@@ -57,8 +56,9 @@ class FavoritePage extends StatelessWidget {
                             const SizedBox(height: 11),
                             Text(
                               listFavorite[index].title ?? '',
-                              style: AppTextStyles.textStepPage
-                                  .copyWith(color: AppColor.onSurface),
+                              style: context.textTheme.titleSmall?.copyWith(
+                                color: context.colorScheme.onSurface,
+                              ),
                             ),
                           ],
                         );

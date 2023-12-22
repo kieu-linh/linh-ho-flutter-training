@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
-import 'package:flutter_practice_one/core/typography/text_style.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
 import 'package:flutter_practice_one/widgets/top_control.dart';
@@ -48,7 +47,7 @@ class _AgePageState extends State<AgePage> {
                           width: 70,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: AppColor.tertiary,
+                            color: context.colorScheme.tertiary,
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
@@ -65,9 +64,9 @@ class _AgePageState extends State<AgePage> {
                             child: Text(
                               '${index + 15}',
                               style: _selectIndex == index
-                                  ? AppTextStyles.textButtonMedium
-                                  : AppTextStyles.labelMedium
-                                      .copyWith(fontSize: 18),
+                                  ? context.textTheme.bodyMedium
+                                  : context.textTheme.labelMedium
+                                      ?.copyWith(fontSize: 18),
                             ),
                           );
                         },
