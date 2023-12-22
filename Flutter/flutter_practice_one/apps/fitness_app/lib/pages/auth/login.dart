@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/font_weight.dart';
-import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/routes/routes.dart';
 import 'package:flutter_practice_one/widgets/input.dart';
@@ -46,12 +46,12 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 30),
                 Text(
                   context.l10n.displayLarge,
-                  style: AppTextStyles.headlineLarge,
+                  style: context.textTheme.headlineLarge,
                 ),
                 const SizedBox(height: 11),
                 Text(
                   context.l10n.displayMedium,
-                  style: AppTextStyles.headlineMedium,
+                  style: context.textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 39),
                 FAInput(
@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       context.l10n.forgotPassword,
-                      style: AppTextStyles.textTitle,
+                      style: context.textTheme.bodyLarge,
                       textAlign: TextAlign.right,
                     ),
                   ],
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       context.l10n.btnLoginWith,
-                      style: AppTextStyles.textSmall,
+                      style: context.textTheme.bodySmall,
                     ),
                   ],
                 ),
@@ -117,13 +117,13 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             TextSpan(
                               text: context.l10n.descriptionSignIn,
-                              style: AppTextStyles.textAppBar.copyWith(
+                              style: context.textTheme.labelSmall?.copyWith(
                                 fontWeight: AppFontWeight.medium,
                               ),
                             ),
                             TextSpan(
                               text: context.l10n.bntSignIn,
-                              style: AppTextStyles.textAppBar,
+                              style: context.textTheme.labelSmall,
                             ),
                           ],
                         ),
