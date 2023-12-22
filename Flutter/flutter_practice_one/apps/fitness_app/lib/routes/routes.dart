@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
+import 'package:flutter_practice_one/pages/onboarding/goal.dart';
 import 'package:flutter_practice_one/pages/onboarding/height.dart';
 import 'package:flutter_practice_one/pages/onboarding/level.dart';
 import 'package:flutter_practice_one/pages/onboarding/weight.dart';
@@ -64,7 +65,11 @@ final GoRouter appRouter = GoRouter(
       name: AppRoutes.levelScreen.name,
       builder: (BuildContext context, GoRouterState state) => const LevelPage(),
     ),
-    
+    GoRoute(
+      path: AppRoutes.goalScreen.path,
+      name: AppRoutes.goalScreen.name,
+      builder: (BuildContext context, GoRouterState state) => const GoalPage(),
+    ),
   ],
 );
 
@@ -106,6 +111,10 @@ enum AppRoutes {
   levelScreen(
     name: 'levelScreen',
     path: '/levelScreen',
+  ),
+  goalScreen(
+    name: 'goalScreen',
+    path: '/goalScreen',
   );
 
   const AppRoutes({
