@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
@@ -41,7 +40,7 @@ class _GoalPageState extends State<GoalPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FATopControl(
-                  onPressed: () {},
+                  onPressed: () => GoRouter.of(context).go('/levelScreen'),
                   text: context.l10n.skipPage,
                 ),
                 const SizedBox(height: 9),
@@ -66,7 +65,6 @@ class _GoalPageState extends State<GoalPage> {
                           ? AppTextStyles.textButtonGoal
                               .copyWith(color: context.colorScheme.onSecondary)
                           : AppTextStyles.textButtonGoal,
-
                       text: listText[index],
                     ),
                   );
@@ -80,7 +78,7 @@ class _GoalPageState extends State<GoalPage> {
             bottom: 30,
             child: FAButton(
               text: context.l10n.finishStep,
-              onPressed: () => GoRouter.of(context).go('/goalScreen'),
+              onPressed: () => GoRouter.of(context).go('/getStartScreen'),
             ),
           ),
         ],

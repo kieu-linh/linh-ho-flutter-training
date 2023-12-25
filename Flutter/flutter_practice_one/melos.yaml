@@ -1,15 +1,15 @@
 name: flutter_practice_one
 
 packages:
-  - apps/*
+  - apps/**
 
 scripts: 
   #Setup env for puro
-  puro: >
+  postbootstrap: >
     melos exec -- puro flutter pub get && 
     pub global activate puro 
   #Run app
-  Run app: 
+  run_app: 
     run: melos exec -- puro flutter run lib/main.dart 
     description: Run `puro` on all packages.
     packageFilters: 

@@ -20,6 +20,7 @@
     "yourFavorite": "Select Your Favorite",
     "btnNextStep": "NEXT STEPS",
     "finishStep": "Finish Steps",
+    "getStarted": "Get Started!",
     "yourOld": "How old are you?",
     "stepPage": "Step {currentStep} of {numberOfSteps}",
     "@stepPage" : {
@@ -48,8 +49,8 @@
     "weightLoss" : "Weight loss",
     "gainMuscle" : "Gain muscle",
     "improveFitness" : "Improve fitness",
-    "textStart" : "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
-    "textFirstStart" : "Sculpt your",
-    "textSecondStart" : "ideal body,",
+    "textStart" : "The standard chunk of Lorem Ipsum \n used since the 1500s is reproduced below \n for those interested.",
+    "textFirstStart" : "Sculpt your ",
+    "textSecondStart" : "ideal body, ",
     "textThirdStart" : "free your \n true self, transform your life."
 } 
