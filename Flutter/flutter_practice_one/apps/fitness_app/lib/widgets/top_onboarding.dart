@@ -23,7 +23,7 @@ class TopOnBoarding extends StatelessWidget {
           context.l10n.stepPage(currentStep, numberOfSteps),
           style: AppTextStyles.textStepPage,
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 10),
         Text(
           title,
           style: AppTextStyles.headlineLarge,

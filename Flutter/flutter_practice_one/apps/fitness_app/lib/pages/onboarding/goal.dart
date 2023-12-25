@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/color/app_color.dart';
+import 'package:flutter_practice_one/core/constant/icons.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/widgets/button.dart';
@@ -20,9 +22,14 @@ class _GoalPageState extends State<GoalPage> {
   @override
   Widget build(BuildContext context) {
     final listText = [
-      context.l10n.beginner,
-      context.l10n.intermediate,
-      context.l10n.advanced,
+      context.l10n.weightLoss,
+      context.l10n.gainMuscle,
+      context.l10n.improveFitness,
+    ];
+    final listIcon = [
+      FAIcons.iconWeightLoss,
+      FAIcons.iconGainMuscle,
+      FAIcons.iconFitness,
     ];
 
     return Scaffold(
@@ -31,16 +38,16 @@ class _GoalPageState extends State<GoalPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FATopControl(
                   onPressed: () {},
                   text: context.l10n.skipPage,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 9),
                 TopOnBoarding(
-                  title: context.l10n.level,
-                  currentStep: 6,
+                  title: context.l10n.goal,
+                  currentStep: 7,
                 ),
                 const SizedBox(height: 140),
                 ...List.generate(3, (index) {
@@ -51,13 +58,14 @@ class _GoalPageState extends State<GoalPage> {
                         _selectIndex = index;
                         setState(() {});
                       },
+                      icon: listIcon[index],
                       color: _selectIndex == index
                           ? AppColor.tertiary
                           : AppColor.onSecondary,
                       textStyle: _selectIndex == index
-                          ? AppTextStyles.textButtonMedium
-                          : AppTextStyles.textButtonSmall
-                              .copyWith(fontSize: 17),
+                          ? AppTextStyles.textButtonGoal
+                              .copyWith(color: context.colorScheme.onSecondary)
+                          : AppTextStyles.textButtonGoal,
                       text: listText[index],
                     ),
                   );
@@ -70,7 +78,7 @@ class _GoalPageState extends State<GoalPage> {
             right: 20,
             bottom: 30,
             child: FAButton(
-              text: context.l10n.btnNextStep,
+              text: context.l10n.finishStep,
               onPressed: () => GoRouter.of(context).go('/goalScreen'),
             ),
           ),

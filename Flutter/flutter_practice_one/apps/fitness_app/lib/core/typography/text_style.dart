@@ -115,4 +115,11 @@ class AppTextStyles {
     fontWeight: AppFontWeight.medium,
     fontFamily: 'Montserrat-Medium',
   );
+
+  static TextStyle textButtonGoal = primaryTextStyle(
+    fontSize: 17,
+    color: AppColor.onSurface,
+    fontWeight: AppFontWeight.medium,
+    fontFamily: 'Montserrat-Medium',
+  );
 }

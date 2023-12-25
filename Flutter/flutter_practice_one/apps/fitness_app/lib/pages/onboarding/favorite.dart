@@ -24,7 +24,7 @@ class FavoritePage extends StatelessWidget {
               onPressed: () {},
               text: context.l10n.skipPage,
             ),
-            const SizedBox(height: 7),
+            const SizedBox(height: 9),
             TopOnBoarding(
               currentStep: 1,
               title: context.l10n.yourFavorite,

@@ -29,9 +29,8 @@ class _AgePageState extends State<AgePage> {
               onPressed: () => GoRouter.of(context).go('/favoriteScreen'),
               text: context.l10n.skipPage,
             ),
-            const SizedBox(height: 7),
+            const SizedBox(height: 9),
             TopOnBoarding(currentStep: 2, title: context.l10n.yourOld),
-            const SizedBox(height: 10),
             Expanded(
               child: SizedBox(
                 height: 300,
