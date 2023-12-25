@@ -26,7 +26,7 @@ class AppTextStyles {
   );
 
   static TextStyle titleMedium = primaryTextStyle(
-    fontSize: 16,
+    fontSize: 17,
     color: AppColor.tertiary,
     fontWeight: AppFontWeight.regular,
     fontFamily: 'Montserrat-Medium',
@@ -120,6 +120,12 @@ class AppTextStyles {
     fontSize: 17,
     color: AppColor.onSurface,
     fontWeight: AppFontWeight.medium,
+    fontFamily: 'Montserrat-Medium',
+  );
+  static TextStyle textStart = primaryTextStyle(
+    fontSize: 14,
+    color: AppColor.onSurfaceVariant,
+    fontWeight: AppFontWeight.regular,
     fontFamily: 'Montserrat-Medium',
   );
 }

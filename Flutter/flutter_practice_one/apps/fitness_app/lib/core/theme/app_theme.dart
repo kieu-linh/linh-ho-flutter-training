@@ -55,21 +55,22 @@ class AppTheme {
 
   /// Define the text theme for the app
   static final TextTheme textTheme = TextTheme(
-      displayLarge: AppTextStyles.titlePrimary,
-      displayMedium: AppTextStyles.titleMedium,
-      displaySmall: AppTextStyles.textButton,
-      headlineLarge: AppTextStyles.headlineLarge,
-      headlineMedium: AppTextStyles.headlineMedium,
-      headlineSmall: AppTextStyles.textBottom,
-      bodyLarge: AppTextStyles.textTitle,
-      bodyMedium: AppTextStyles.textButtonMedium,
-      bodySmall: AppTextStyles.textSmall,
-      titleLarge: AppTextStyles.textButtonSmall,
-      labelLarge: AppTextStyles.labelLarge,
-      labelMedium: AppTextStyles.labelMedium,
-      labelSmall: AppTextStyles.textAppBar,
-      titleMedium: AppTextStyles.textStepPage);
-
+    displayLarge: AppTextStyles.titlePrimary,
+    displayMedium: AppTextStyles.titleMedium,
+    displaySmall: AppTextStyles.textButton,
+    headlineLarge: AppTextStyles.headlineLarge,
+    headlineMedium: AppTextStyles.headlineMedium,
+    headlineSmall: AppTextStyles.textBottom,
+    bodyLarge: AppTextStyles.textTitle,
+    bodyMedium: AppTextStyles.textButtonMedium,
+    bodySmall: AppTextStyles.textSmall,
+    titleLarge: AppTextStyles.textButtonSmall,
+    labelLarge: AppTextStyles.labelLarge,
+    labelMedium: AppTextStyles.labelMedium,
+    labelSmall: AppTextStyles.textAppBar,
+    titleMedium: AppTextStyles.textStepPage,
+    titleSmall: AppTextStyles.textStart,
+  );
 }
 
 

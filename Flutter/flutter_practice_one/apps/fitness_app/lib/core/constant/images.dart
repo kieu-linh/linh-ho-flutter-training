@@ -18,4 +18,6 @@ class FAImage {
 
   static const String imgBackgroundThird =
       'assets/images/img_background_third.png';
+
+  static const String imgStart = 'assets/images/img_start.png';
 }

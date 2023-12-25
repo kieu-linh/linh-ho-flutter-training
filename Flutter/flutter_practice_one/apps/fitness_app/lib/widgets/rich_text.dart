@@ -2,25 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 
 class FARichText extends StatelessWidget {
-  const FARichText({
+  FARichText({
     super.key,
     this.fistText,
     this.secondText,
     this.thirdText,
-  });
+    TextStyle? textStyleFirst,
+    TextStyle? textStyleSecond,
+  })  : textStyleFirst = textStyleFirst ??
+            AppTextStyles.titlePrimary.copyWith(color: Colors.black),
+        textStyleSecond = textStyleSecond ?? AppTextStyles.titlePrimary;
 
   final String? fistText;
   final String? secondText;
   final String? thirdText;
+  final TextStyle textStyleFirst;
+  final TextStyle textStyleSecond;
 
   @override
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
         text: fistText,
-        style: AppTextStyles.titlePrimary.copyWith(color: Colors.black),
+        style: textStyleFirst,
         children: [
-          TextSpan(text: secondText, style: AppTextStyles.titlePrimary),
+          TextSpan(text: secondText, style: textStyleSecond),
           TextSpan(text: thirdText),
         ],
       ),
