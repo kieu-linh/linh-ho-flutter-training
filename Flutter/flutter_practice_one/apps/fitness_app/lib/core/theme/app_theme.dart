@@ -69,6 +69,7 @@ class AppTheme {
       labelMedium: AppTextStyles.labelMedium,
       labelSmall: AppTextStyles.textAppBar,
       titleMedium: AppTextStyles.textStepPage);
+
 }
 
 

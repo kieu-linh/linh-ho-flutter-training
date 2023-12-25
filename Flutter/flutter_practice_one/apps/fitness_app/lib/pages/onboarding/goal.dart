@@ -60,12 +60,13 @@ class _GoalPageState extends State<GoalPage> {
                       },
                       icon: listIcon[index],
                       color: _selectIndex == index
-                          ? AppColor.tertiary
-                          : AppColor.onSecondary,
+                          ? context.colorScheme.tertiary
+                          : context.colorScheme.onSecondary,
                       textStyle: _selectIndex == index
                           ? AppTextStyles.textButtonGoal
                               .copyWith(color: context.colorScheme.onSecondary)
                           : AppTextStyles.textButtonGoal,
+
                       text: listText[index],
                     ),
                   );
