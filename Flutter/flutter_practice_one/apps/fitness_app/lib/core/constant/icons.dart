@@ -10,4 +10,10 @@ class FAIcons {
   static const String iconTick = 'assets/icons/ic_tick.svg';
 
   static const String iconEyeOpen = 'assets/icons/ic_eye_open.svg';
+
+  static const String iconWeightLoss = 'assets/icons/ic_weight_loss.svg';
+
+  static const String iconGainMuscle = 'assets/icons/ic_gain_muscle.svg';
+
+  static const String iconFitness = 'assets/icons/ic_improve_fitness.svg';
 }

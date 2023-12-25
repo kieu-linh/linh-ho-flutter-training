@@ -30,17 +30,14 @@ class _LevelPageState extends State<LevelPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FATopControl(
                   onPressed: () {},
                   text: context.l10n.skipPage,
                 ),
-                const SizedBox(height: 20),
-                TopOnBoarding(
-                  title: context.l10n.level,
-                  currentStep: 6,
-                ),
+                const SizedBox(height: 9),
+                TopOnBoarding(title: context.l10n.level, currentStep: 6),
                 const SizedBox(height: 140),
                 ...List.generate(3, (index) {
                   return Padding(
@@ -59,32 +56,8 @@ class _LevelPageState extends State<LevelPage> {
                               ?.copyWith(fontSize: 17),
                       text: listText[index],
                     ),
-                    /*: FAButton(
-                            onPressed: () {},
-                            text: listText[index],
-                            color: AppColor.tertiary,
-                          ),*/
                   );
                 }),
-                /*FAButton(
-                  color: AppColor.tertiary,
-                  text: context.l10n.beginner,
-                  onPressed: () {}, 
-                ),
-                const SizedBox(height: 25),
-                FAButton.outline(
-                  textStyle:
-                      AppTextStyles.textButtonSmall.copyWith(fontSize: 17),
-                  text: context.l10n.intermediate,
-                  onPressed: () {},
-                ),
-                const SizedBox(height: 25),
-                FAButton.outline(
-                  textStyle:
-                      AppTextStyles.textButtonSmall.copyWith(fontSize: 17),
-                  text: context.l10n.advanced,
-                  onPressed: () {},
-                ),*/
               ],
             ),
           ),

@@ -19,6 +19,7 @@
     "descriptionSignIn": "Don't have an account? ",
     "yourFavorite": "Select Your Favorite",
     "btnNextStep": "NEXT STEPS",
+    "finishStep": "Finish Steps",
     "yourOld": "How old are you?",
     "stepPage": "Step {currentStep} of {numberOfSteps}",
     "@stepPage" : {
