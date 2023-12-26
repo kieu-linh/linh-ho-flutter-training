@@ -128,4 +128,10 @@ class AppTextStyles {
     fontWeight: AppFontWeight.regular,
     fontFamily: 'Montserrat-Medium',
   );
+  static TextStyle nameUser = primaryTextStyle(
+    fontSize: 20,
+    color: AppColor.secondary,
+    fontWeight: AppFontWeight.bold,
+    fontFamily: 'Montserrat-Medium',
+  );
 }
