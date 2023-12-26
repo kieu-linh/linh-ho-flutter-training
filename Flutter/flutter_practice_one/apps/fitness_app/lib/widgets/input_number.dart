@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 
 class FAInputNumber extends StatefulWidget {
@@ -28,7 +28,7 @@ class _FAInputNumberState extends State<FAInputNumber> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 8),
           decoration: BoxDecoration(
-            color: AppColor.surfaceContainer.withOpacity(0.25),
+            color: context.colorScheme.onSurfaceVariant.withOpacity(0.25),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
@@ -44,8 +44,8 @@ class _FAInputNumberState extends State<FAInputNumber> {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                   decoration: BoxDecoration(
                     color: _selectIndex == index
-                        ? AppColor.secondary
-                        : AppColor.transparent,
+                        ? context.colorScheme.secondary
+                        : context.colorScheme.onTertiary,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
@@ -61,8 +61,9 @@ class _FAInputNumberState extends State<FAInputNumber> {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 4),
           decoration: BoxDecoration(
-            color: AppColor.secondary,
-            border: Border.all(color: AppColor.outlineButton.withOpacity(0.25)),
+            color: context.colorScheme.secondary,
+            border: Border.all(
+                color: context.colorScheme.outlineVariant.withOpacity(0.25)),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
@@ -82,7 +83,7 @@ class _FAInputNumberState extends State<FAInputNumber> {
                 margin: const EdgeInsets.symmetric(horizontal: 4),
                 width: 1,
                 height: 19,
-                color: AppColor.outlineColor,
+                color: context.colorScheme.outline,
               ),
               Text(
                 widget.textRight.toLowerCase(),

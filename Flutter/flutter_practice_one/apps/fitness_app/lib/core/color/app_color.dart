@@ -24,11 +24,13 @@ class AppColor {
 
   static const outlineColor = Color(0xFF696969);
 
-  static const outlineButton =  Color(0XFF707070);
+  static const outlineButton = Color(0XFF707070);
 
   static const containerFirst = Color(0xFFF6A010);
 
   static const containerSecond = Color(0xFFFABC06);
+
+  static const linearContainer = Color(0xffd38002);
 
   static const containerThird = Color(0xFFFF805E);
 

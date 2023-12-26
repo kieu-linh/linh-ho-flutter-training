@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
@@ -23,7 +22,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(
           width: 2,
-          color: color ?? Colors.grey.withOpacity(0.25),
+          color: context.colorScheme.outline.withOpacity(0.25),
         ),
       );
     }
@@ -43,9 +42,9 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
       children: [
         Container(
           height: 237,
-          decoration: const BoxDecoration(
-            color: AppColor.primary,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            color: context.colorScheme.primary,
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(40),
               bottomRight: Radius.circular(40),
             ),
@@ -64,7 +63,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
           left: -83,
           child: CircleAvatar(
             radius: 103,
-            backgroundColor: Colors.white.withOpacity(0.1),
+            backgroundColor: context.colorScheme.secondary.withOpacity(0.1),
           ),
         ),
         Positioned(
@@ -91,7 +90,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
               Text(
                 getDay(),
                 style: AppTextStyles.textSmall.copyWith(
-                  color: AppColor.secondary,
+                  color: context.colorScheme.secondary,
                   fontSize: 10,
                 ),
               ),
@@ -104,7 +103,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
               TextFormField(
                 controller: controller,
                 decoration: InputDecoration(
-                  fillColor: Colors.white,
+                  fillColor: context.colorScheme.secondary,
                   filled: true,
                   focusedBorder: outlineInputBorder(),
                   enabledBorder: outlineInputBorder(),

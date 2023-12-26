@@ -23,6 +23,7 @@ class AppTheme {
       inverseSurface: AppColor.iconHeart,
       onInverseSurface: AppColor.containerThird,
       inversePrimary: AppColor.containerSecond,
+      onTertiaryContainer: AppColor.linearContainer,
       surfaceTint: AppColor.containerFirst,
       background: AppColor.buttonFaceColor,
       onBackground: AppColor.iconColor,

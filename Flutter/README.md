@@ -3,7 +3,8 @@
 
 ## Overview
 
-- This document provides the requirement for UI and detailed estimate of Flutter for the practice.
+- A fitness app is a mobile application designed to assist users in achieving their health and fitness goals. 
+- These apps typically offer features such as workout plans, exercise demonstrations, goal tracking, and nutrition monitoring.
 ## Design
 
 - This is the design of the app : [link](https://www.figma.com/file/cgL21AQDI4EWL0crG5XpXy/Fitness-App?type=design&node-id=0-1&mode=design&t=JEVFe6JUfb2UTrQW-0)
@@ -12,10 +13,10 @@
 
 - 1 Dev
 
-***Start date :*** 
+***Start date :*** 25/12/2023 
 
 
-***Timeline:*** 3 weeks ()
+***Timeline:*** 2 weeks ()
 
 
 ***Target :***
@@ -43,7 +44,7 @@ Before you continue, ensure you meet the following requirements:
 - [X] Epic 1: Requirement analysis
 - [X] Epic 2: Setup environment
 - [X] Epic 3: Create skeleton structure practice
-- [] Epic 4: Setup themes, routes
+- [X] Epic 4: Setup themes, routes
 - [] Epic 5: Implement the UI
 - [] Epic 6: Test the application and prepare for the review
 
@@ -51,14 +52,14 @@ Before you continue, ensure you meet the following requirements:
 - [X] UI Splash Screen
 - [X] UI Welcome Screen
 - [X] UI Login In Screen
-- [] UI Select Favorite Screen
-- [] UI Age Screen
-- [] UI Weight Screen
-- [] UI Weight_Goal Screen
-- [] UI Height Screen
-- [] UI Level Screen
-- [] UI Goal Screen
-- [] UI Get Started Screen
+- [X] UI Select Favorite Screen
+- [X] UI Age Screen
+- [X] UI Weight Screen
+- [X] UI Weight_Goal Screen
+- [X] UI Height Screen
+- [X] UI Level Screen
+- [X] UI Goal Screen
+- [X] UI Get Started Screen
 - [] UI HomePage Screen
 - [] UI Category Screen
 - [] UI Side Menu Screen

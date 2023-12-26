@@ -1,8 +1,8 @@
 // ignore_for_file: inference_failure_on_function_return_type
 
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
+import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -54,9 +54,9 @@ class _FAInputState extends State<FAInput> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: AppColor.outlineColor.withOpacity(0.25),
+              color: context.colorScheme.outline.withOpacity(0.25),
             ),
-            color: AppColor.onSecondary,
+            color: context.colorScheme.onSecondary,
           ),
           child: TextFormField(
             controller: widget.controller,
@@ -87,7 +87,7 @@ class _FAInputState extends State<FAInput> {
                       child: SvgPicture.asset(
                         showPassword ? FAIcons.iconEyeOpen : widget.icon!,
                         // ignore: deprecated_member_use
-                        color: AppColor.onSurfaceVariant,
+                        color: context.colorScheme.onSurface,
                       ),
                     ),
               suffixIconConstraints: const BoxConstraints(
