@@ -134,4 +134,5 @@ class AppTextStyles {
     fontWeight: AppFontWeight.bold,
     fontFamily: 'Montserrat-Medium',
   );
+
 }

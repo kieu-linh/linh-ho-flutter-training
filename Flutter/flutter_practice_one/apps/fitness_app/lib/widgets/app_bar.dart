@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/color/app_color.dart';
+import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/data/models/user_model.dart';
@@ -76,14 +77,14 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
               Row(
                 children: [
-                  SvgPicture.asset('assets/icons/ic_menu.svg'),
+                  SvgPicture.asset(FAIcons.iconMenu),
                   const SizedBox(width: 5),
                   CircleAvatar(
                     radius: 22,
                     backgroundImage: AssetImage(user.image ?? ''),
                   ),
                   const Spacer(),
-                  SvgPicture.asset('assets/icons/ic_notification.svg'),
+                  SvgPicture.asset(FAIcons.iconNotification),
                 ],
               ),
               const SizedBox(height: 12),
@@ -107,7 +108,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                   filled: true,
                   focusedBorder: outlineInputBorder(),
                   enabledBorder: outlineInputBorder(),
-                  prefixIcon: SvgPicture.asset('assets/icons/ic_search.svg'),
+                  prefixIcon: SvgPicture.asset(FAIcons.iconSearch),
                   hintText: context.l10n.search,
                   prefixIconConstraints:
                       const BoxConstraints(maxHeight: 24, minWidth: 50),
@@ -115,7 +116,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
