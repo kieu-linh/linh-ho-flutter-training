@@ -10,12 +10,16 @@ scripts:
     pub global activate puro 
   #Run app
   run_app: 
-    run: melos exec -- puro flutter run lib/main.dart 
+    run: melos exec -- puro flutter run lib/main.dart
     description: Run `puro` on all packages.
     packageFilters: 
       scope: 
         - fitness_app
-
+  run:fitness_app:
+    run: melos exec -- puro flutter run lib/main.dart
+    packageFilters:
+      scope:
+        - fitness_app
   analyze: 
     run: melos exec -- puro flutter analyze .
     description: Run `dart analyze` on all packages.

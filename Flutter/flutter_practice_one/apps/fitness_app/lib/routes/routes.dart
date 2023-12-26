@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
+import 'package:flutter_practice_one/pages/home/home.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
 import 'package:flutter_practice_one/pages/onboarding/get_start.dart';
@@ -77,6 +78,11 @@ final GoRouter appRouter = GoRouter(
       builder: (BuildContext context, GoRouterState state) =>
           const GetStartPage(),
     ),
+    GoRoute(
+      path: AppRoutes.getHomeScreen.path,
+      name: AppRoutes.getHomeScreen.name,
+      builder: (BuildContext context, GoRouterState state) => const HomePage(),
+    ),
   ],
 );
 
@@ -126,6 +132,10 @@ enum AppRoutes {
   getStartScreen(
     name: 'getStartScreen',
     path: '/getStartScreen',
+  ),
+  getHomeScreen(
+    name: 'getHomeScreen',
+    path: '/getHomeScreen',
   );
 
   const AppRoutes({
