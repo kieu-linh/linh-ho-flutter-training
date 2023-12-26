@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
+import 'package:flutter_practice_one/core/constant/images.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
@@ -19,10 +19,10 @@ class FACard extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 colors: [
-                  Color(0XFFF6A010),
-                  Color(0xffd38002),
+                  context.colorScheme.surfaceTint,
+                  context.colorScheme.onTertiaryContainer,
                 ],
               ),
             ),
@@ -34,7 +34,7 @@ class FACard extends StatelessWidget {
           bottom: 0,
           child: Row(
             children: [
-              Image.asset('assets/images/img_girl_card.png'),
+              Image.asset(FAImage.imgGirlCard),
               Padding(
                 padding: const EdgeInsets.only(top: 60),
                 child: Column(
@@ -48,7 +48,7 @@ class FACard extends StatelessWidget {
                     Container(
                       height: 28,
                       decoration: BoxDecoration(
-                        color: AppColor.containerSecond,
+                        color: context.colorScheme.inversePrimary,
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Padding(
@@ -66,7 +66,7 @@ class FACard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Image.asset('assets/images/img_dumbbell.png'),
+                    Image.asset(FAImage.imgDumbbell),
                   ],
                 ),
               ),
