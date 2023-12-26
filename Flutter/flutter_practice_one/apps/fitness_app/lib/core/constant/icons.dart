@@ -16,4 +16,10 @@ class FAIcons {
   static const String iconGainMuscle = 'assets/icons/ic_gain_muscle.svg';
 
   static const String iconFitness = 'assets/icons/ic_improve_fitness.svg';
+
+  static const String iconMenu = 'assets/icons/ic_menu.svg';
+
+  static const String iconNotification = 'assets/icons/ic_notification.svg';
+
+  static const String iconSearch = 'assets/icons/ic_search.svg';
 }

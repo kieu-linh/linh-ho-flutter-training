@@ -20,4 +20,7 @@ class FAImage {
       'assets/images/img_background_third.png';
 
   static const String imgStart = 'assets/images/img_start.png';
+
+  static const String imgAvatar = 'assets/images/img_avatar.png';
+
 }
