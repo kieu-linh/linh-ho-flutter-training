@@ -17,6 +17,7 @@ class FAButton extends StatelessWidget {
     super.key,
     this.border,
     this.mainAxisAlignment = MainAxisAlignment.center,
+    this.iconColor,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonMedium;
 
@@ -33,6 +34,7 @@ class FAButton extends StatelessWidget {
     super.key,
     Border? border,
     this.mainAxisAlignment = MainAxisAlignment.center,
+    this.iconColor,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonSmall,
         border = border ??
@@ -52,6 +54,7 @@ class FAButton extends StatelessWidget {
     super.key,
     this.border,
     this.mainAxisAlignment = MainAxisAlignment.center,
+    this.iconColor,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ??
             AppTextStyles.textButtonSmall.copyWith(
@@ -69,6 +72,7 @@ class FAButton extends StatelessWidget {
   final BorderRadius borderRadius;
   final EdgeInsets padding;
   final MainAxisAlignment mainAxisAlignment;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -86,17 +90,22 @@ class FAButton extends StatelessWidget {
           mainAxisAlignment: mainAxisAlignment,
           children: [
             if (icon != null)
-              SvgPicture.asset(
-                icon!,
-                width: 24,
-                height: 24,
-                fit: BoxFit.fill,
+              Padding(
+                padding: const EdgeInsets.only(right: 11),
+                child: SvgPicture.asset(
+                  icon!,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
+                  width: 24,
+                  height: 24,
+                  fit: BoxFit.fill,
+                ),
               ),
             Text(
               text,
               style: textStyle,
             ),
-            if (icon != null) const SizedBox(width: 12),
+            if (icon != null) const SizedBox(width: 22),
           ],
         ),
       ),

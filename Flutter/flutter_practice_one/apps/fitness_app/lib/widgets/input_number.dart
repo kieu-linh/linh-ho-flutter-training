@@ -63,7 +63,8 @@ class _FAInputNumberState extends State<FAInputNumber> {
           decoration: BoxDecoration(
             color: context.colorScheme.secondary,
             border: Border.all(
-                color: context.colorScheme.outlineVariant.withOpacity(0.25)),
+              color: context.colorScheme.outlineVariant.withOpacity(0.25),
+            ),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(

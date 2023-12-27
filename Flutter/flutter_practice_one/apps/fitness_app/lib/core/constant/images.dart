@@ -26,4 +26,22 @@ class FAImage {
   static const String imgGirlCard = 'assets/images/img_girl_card.png';
 
   static const String imgDumbbell = 'assets/images/img_dumbbell.png';
+
+  static const String imgYogaHome = 'assets/images/img_yoga_home.png';
+
+  static const String imgGym = 'assets/images/img_gym.png';
+
+  static const String imgCardio = 'assets/images/img_cardio.png';
+
+  static const String imgStretch = 'assets/images/img_stretch.png';
+
+  static const String imgFullBody = 'assets/images/img_full_body.png';
+
+  static const String imgWomanStretch = 'assets/images/img_woman_stretch.png';
+
+  static const String imgAthlete = 'assets/images/img_athlete.png';
+
+  static const String imgGreekSalad = 'assets/images/img_greek_salad.png';
+
+  static const String imgSalad = 'assets/images/img_salad.png';
 }
