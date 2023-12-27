@@ -32,4 +32,6 @@ class FAIcons {
   static const String icMeal = 'assets/icons/ic_meal.svg';
 
   static const String icProfile = 'assets/icons/ic_profile.svg';
+
+  static const String icCalories = 'assets/icons/ic_calories.svg';
 }
