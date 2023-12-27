@@ -58,6 +58,9 @@ class _GoalPageState extends State<GoalPage> {
                         setState(() {});
                       },
                       icon: listIcon[index],
+                      iconColor: _selectIndex == index
+                          ? context.colorScheme.secondary
+                          : context.colorScheme.surface,
                       color: _selectIndex == index
                           ? context.colorScheme.tertiary
                           : context.colorScheme.onSecondary,

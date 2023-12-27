@@ -22,4 +22,14 @@ class FAIcons {
   static const String iconNotification = 'assets/icons/ic_notification.svg';
 
   static const String iconSearch = 'assets/icons/ic_search.svg';
+
+  static const String iconHeart = 'assets/icons/ic_heart.svg';
+
+  static const String iconClock = 'assets/icons/ic_clock.svg';
+
+  static const String icHome = 'assets/icons/ic_home.svg';
+
+  static const String icMeal = 'assets/icons/ic_meal.svg';
+
+  static const String icProfile = 'assets/icons/ic_profile.svg';
 }

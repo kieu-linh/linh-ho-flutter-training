@@ -32,42 +32,45 @@ class FACard extends StatelessWidget {
           top: 0,
           left: 15,
           bottom: 0,
+          right: 10,
           child: Row(
             children: [
               Image.asset(FAImage.imgGirlCard),
-              Padding(
-                padding: const EdgeInsets.only(top: 60),
-                child: Column(
-                  children: [
-                    Text(
-                      context.l10n.titleCard,
-                      style:
-                          AppTextStyles.textButtonMedium.copyWith(fontSize: 19),
-                    ),
-                    const SizedBox(height: 15),
-                    Container(
-                      height: 28,
-                      decoration: BoxDecoration(
-                        color: context.colorScheme.inversePrimary,
-                        borderRadius: BorderRadius.circular(5),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 60),
+                  child: Column(
+                    children: [
+                      Text(
+                        context.l10n.titleCard,
+                        style: AppTextStyles.textButtonMedium
+                            .copyWith(fontSize: 19),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 6,
+                      const SizedBox(height: 15),
+                      Container(
+                        height: 28,
+                        decoration: BoxDecoration(
+                          color: context.colorScheme.inversePrimary,
+                          borderRadius: BorderRadius.circular(5),
                         ),
-                        child: Text(
-                          context.l10n.textButtonCard,
-                          style: AppTextStyles.textAppBar.copyWith(
-                            fontSize: 12,
-                            color: context.colorScheme.secondary,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 6,
+                          ),
+                          child: Text(
+                            context.l10n.textButtonCard,
+                            style: AppTextStyles.textAppBar.copyWith(
+                              fontSize: 12,
+                              color: context.colorScheme.secondary,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    Image.asset(FAImage.imgDumbbell),
-                  ],
+                      const SizedBox(height: 10),
+                      Image.asset(FAImage.imgDumbbell),
+                    ],
+                  ),
                 ),
               ),
             ],

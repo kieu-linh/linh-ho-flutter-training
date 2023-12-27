@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
-import 'package:flutter_practice_one/data/models/user_model.dart';
+import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 

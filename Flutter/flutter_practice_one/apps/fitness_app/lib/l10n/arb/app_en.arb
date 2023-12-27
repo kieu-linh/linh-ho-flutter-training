@@ -57,7 +57,7 @@
     "afternoon" : "Hello, Good Afternoon",
     "evening" : "Hello, Good Evening",
     "search" : "Search",
-    "titleCard" : "Fit Young Woman Doing \nBattle Stretch Training",
+    "titleCard" : "Fit Young Woman Doing Battle Stretch Training",
     "textButtonCard" : "Start Exercise",
     "titleGoal" : "Select your Goal",
     "looseWeight" : "Loose Weight",
@@ -74,5 +74,16 @@
     "home" : "Home",
     "mealPlans" : "Meal Plans",
     "exercise" : "Exercise",
-    "profile" : "Profile"
+    "profile" : "Profile",
+    "descriptionPopularExercise" : "Popular Exercise",
+    "stretchingArm" : "Full Shot Woman Stretching Arm",
+    "min" : "min",
+    "descriptionAthlete" : "Athlete Practicing Monochrome",
+    "greekSalad" : "Greek salad with lettuce, green onion,",
+    "kcal" : "kcal",
+    "saladVegetables" : "Salad of fresh vegetables",
+    "addExercise" : "Additional Exercise",
+    "jumpingRope" : "Exercises with Jumping Rope",
+    "holdingJumping" : "Exercises with Holding Jumping Rope ",
+    "sittingDumbbells" : "Exercises with Sitting Dumbbells"
 } 
