@@ -44,4 +44,10 @@ class FAImage {
   static const String imgGreekSalad = 'assets/images/img_greek_salad.png';
 
   static const String imgSalad = 'assets/images/img_salad.png';
+
+  static const String imgJumpRope = 'assets/images/img_jump_rope.png';
+
+  static const String imgHoldJump = 'assets/images/img_hold_jump.png';
+
+  static const String imgGirlDumbbell = 'assets/images/img_girl_dumbbell.png';
 }

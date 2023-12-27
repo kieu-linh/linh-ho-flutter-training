@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 
-class FAInputNumber extends StatefulWidget {
-  const FAInputNumber({
+class InputBodyMeasurement extends StatefulWidget {
+  const InputBodyMeasurement({
     required this.textRight,
     required this.textLeft,
     this.controller,
@@ -15,10 +15,10 @@ class FAInputNumber extends StatefulWidget {
   final String textLeft;
 
   @override
-  State<FAInputNumber> createState() => _FAInputNumberState();
+  State<InputBodyMeasurement> createState() => _InputBodyMeasurementState();
 }
 
-class _FAInputNumberState extends State<FAInputNumber> {
+class _InputBodyMeasurementState extends State<InputBodyMeasurement> {
   int _selectIndex = 1;
   @override
   Widget build(BuildContext context) {
