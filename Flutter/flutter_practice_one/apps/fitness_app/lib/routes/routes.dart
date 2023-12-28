@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
+import 'package:flutter_practice_one/pages/category/category.dart';
 import 'package:flutter_practice_one/pages/controller/controller_page.dart';
 import 'package:flutter_practice_one/pages/home/home.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
@@ -14,84 +15,174 @@ import 'package:flutter_practice_one/pages/splash/splash_screen.dart';
 import 'package:flutter_practice_one/pages/welcome/welcome.dart';
 import 'package:go_router/go_router.dart';
 
-final GoRouter appRouter = GoRouter(
-  initialLocation: AppRoutes.splashScreen.path,
-  routes: <GoRoute>[
-    GoRoute(
-      path: AppRoutes.splashScreen.path,
-      name: AppRoutes.splashScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const SplashScreen(),
-    ),
-    GoRoute(
-      path: AppRoutes.welcomeScreen.path,
-      name: AppRoutes.welcomeScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const WelcomePage(),
-    ),
-    GoRoute(
-      path: AppRoutes.loginScreen.path,
-      name: AppRoutes.loginScreen.name,
-      builder: (BuildContext context, GoRouterState state) => const LoginPage(),
-    ),
-    GoRoute(
-      path: AppRoutes.favoriteScreen.path,
-      name: AppRoutes.favoriteScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const FavoritePage(),
-    ),
-    GoRoute(
-      path: AppRoutes.ageScreen.path,
-      name: AppRoutes.ageScreen.name,
-      builder: (BuildContext context, GoRouterState state) => const AgePage(),
-    ),
-    GoRoute(
-      path: AppRoutes.weightScreen.path,
-      name: AppRoutes.weightScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const WeightPage(),
-    ),
-    GoRoute(
-      path: AppRoutes.weightGoalScreen.path,
-      name: AppRoutes.weightGoalScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const WeightGoalPage(),
-    ),
-    GoRoute(
-      path: AppRoutes.heightScreen.path,
-      name: AppRoutes.heightScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const HeightPage(),
-    ),
-    GoRoute(
-      path: AppRoutes.levelScreen.path,
-      name: AppRoutes.levelScreen.name,
-      builder: (BuildContext context, GoRouterState state) => const LevelPage(),
-    ),
-    GoRoute(
-      path: AppRoutes.goalScreen.path,
-      name: AppRoutes.goalScreen.name,
-      builder: (BuildContext context, GoRouterState state) => const GoalPage(),
-    ),
-    GoRoute(
-      path: AppRoutes.getStartScreen.path,
-      name: AppRoutes.getStartScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const GetStartPage(),
-    ),
-    GoRoute(
-      path: AppRoutes.getHomeScreen.path,
-      name: AppRoutes.getHomeScreen.name,
-      builder: (BuildContext context, GoRouterState state) => const HomePage(),
-    ),
-    GoRoute(
-      path: AppRoutes.getControllerScreen.path,
-      name: AppRoutes.getControllerScreen.name,
-      builder: (BuildContext context, GoRouterState state) =>
-          const ControllerPage(),
-    ),
-  ],
-);
+class FARouter {
+  FARouter._();
+
+  // Private navigators
+  static final _rootNavigatorKey = GlobalKey<NavigatorState>();
+  
+  static final _shellNavigatorHome =
+      GlobalKey<NavigatorState>(debugLabel: 'shellHome');
+  static final _shellNavigatorMeal =
+      GlobalKey<NavigatorState>(debugLabel: 'shellMeal');
+  static final _shellNavigatorExercise =
+      GlobalKey<NavigatorState>(debugLabel: 'shellMeal');
+  static final _shellNavigatorProfile =
+      GlobalKey<NavigatorState>(debugLabel: 'shellMeal');
+
+  static final GoRouter appRouter = GoRouter(
+    initialLocation: AppRoutes.splashScreen.path,
+    navigatorKey: _rootNavigatorKey,
+    debugLogDiagnostics: true,
+    routes: [
+      GoRoute(
+        path: AppRoutes.splashScreen.path,
+        name: AppRoutes.splashScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const SplashScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.welcomeScreen.path,
+        name: AppRoutes.welcomeScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const WelcomePage(),
+      ),
+      GoRoute(
+        path: AppRoutes.loginScreen.path,
+        name: AppRoutes.loginScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const LoginPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.favoriteScreen.path,
+        name: AppRoutes.favoriteScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const FavoritePage(),
+      ),
+      GoRoute(
+        path: AppRoutes.ageScreen.path,
+        name: AppRoutes.ageScreen.name,
+        builder: (BuildContext context, GoRouterState state) => const AgePage(),
+      ),
+      GoRoute(
+        path: AppRoutes.weightScreen.path,
+        name: AppRoutes.weightScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const WeightPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.weightGoalScreen.path,
+        name: AppRoutes.weightGoalScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const WeightGoalPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.heightScreen.path,
+        name: AppRoutes.heightScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const HeightPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.levelScreen.path,
+        name: AppRoutes.levelScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const LevelPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.goalScreen.path,
+        name: AppRoutes.goalScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const GoalPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.getStartScreen.path,
+        name: AppRoutes.getStartScreen.name,
+        builder: (BuildContext context, GoRouterState state) =>
+            const GetStartPage(),
+      ),
+
+      /// Home Router
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          return ControllerPage(
+            navigationShell: navigationShell,
+          );
+        },
+        branches: <StatefulShellBranch>[
+          /// Branch Home
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorHome,
+            routes: <RouteBase>[
+              GoRoute(
+                path: '/home',
+                name: 'Home',
+                builder: (context, state) {
+                  return HomePage(
+                    key: state.pageKey,
+                  );
+                },
+                routes: [
+                  /// CategoryPage
+                  GoRoute(
+                    path: 'category',
+                    name: 'category',
+                    builder: (context, state) {
+                      return CategoryPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+
+          /// Branch Meal
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorMeal,
+            routes: [
+              GoRoute(
+                path: '/mealPlan',
+                name: 'MealPlan',
+                builder: (context, state) => Container(
+                  color: Colors.green,
+                ),
+              ),
+            ],
+          ),
+
+          /// Branch Exercise
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorExercise,
+            routes: [
+              GoRoute(
+                path: '/exercise',
+                name: 'Exercise',
+                builder: (context, state) => Container(
+                  color: Colors.blue,
+                ),
+              ),
+            ],
+          ),
+
+          /// Branch Profile
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorProfile,
+            routes: [
+              GoRoute(
+                path: '/profile',
+                name: 'Profile',
+                builder: (context, state) => Container(
+                  color: Colors.pink.shade100,
+                ),
+              ),
+            ],
+          ),
+        ],
+      )
+    ],
+  );
+}
 
 /// Represents the app routes and their paths.
 enum AppRoutes {
@@ -147,6 +238,10 @@ enum AppRoutes {
   getControllerScreen(
     name: 'getControllerScreen',
     path: '/getControllerScreen',
+  ),
+  getCategoryScreen(
+    name: 'getCategoryScreen',
+    path: '/getCategoryScreen',
   );
 
   const AppRoutes({

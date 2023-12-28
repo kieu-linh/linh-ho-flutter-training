@@ -23,4 +23,7 @@ List<CategoryModel> listCategory = [
   CategoryModel()
     ..image = FAImage.imgFullBody
     ..name = 'Full Body',
+  CategoryModel()
+    ..image = FAImage.imgLegs
+    ..name = 'Legs',
 ];

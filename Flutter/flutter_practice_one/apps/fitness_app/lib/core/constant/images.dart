@@ -37,6 +37,8 @@ class FAImage {
 
   static const String imgFullBody = 'assets/images/img_full_body.png';
 
+  static const String imgLegs = 'assets/images/img_legs.png';
+
   static const String imgWomanStretch = 'assets/images/img_woman_stretch.png';
 
   static const String imgAthlete = 'assets/images/img_athlete.png';
