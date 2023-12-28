@@ -11,6 +11,7 @@ import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/widgets/app_bar.dart';
 import 'package:flutter_practice_one/widgets/card.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,6 +66,9 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 28),
             FATitleHome(
+              onPressed: () {
+                context.goNamed('category');
+              },
               title: context.l10n.category,
               titleSmall: context.l10n.seeAll,
             ),
@@ -78,7 +82,12 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 19),
                       child: Column(
                         children: [
-                          Image.asset(listCategory[index].image ?? ''),
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage(listCategory[index].image ?? ''),
+                          ),
+                          //Image.asset(listCategory[index].image ?? ''),
                           const SizedBox(height: 10),
                           Text(
                             listCategory[index].name ?? '',
@@ -251,7 +260,8 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 Container(
                                   margin: const EdgeInsets.symmetric(
-                                      horizontal: 10),
+                                    horizontal: 10,
+                                  ),
                                   width: 1,
                                   height: 8,
                                   color: context.colorScheme.outlineVariant,
@@ -314,10 +324,12 @@ class FATitleHome extends StatelessWidget {
     required this.title,
     super.key,
     this.titleSmall,
+    this.onPressed,
   });
 
   final String title;
   final String? titleSmall;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -331,9 +343,12 @@ class FATitleHome extends StatelessWidget {
           ),
           const Spacer(),
           if (titleSmall != null)
-            Text(
-              titleSmall!,
-              style: context.textTheme.labelSmall?.copyWith(fontSize: 12),
+            GestureDetector(
+              onTap: onPressed,
+              child: Text(
+                titleSmall!,
+                style: context.textTheme.labelSmall?.copyWith(fontSize: 12),
+              ),
             ),
         ],
       ),

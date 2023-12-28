@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/pages/home/home.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ControllerPage extends StatefulWidget {
-  const ControllerPage({super.key});
+  const ControllerPage({
+    required this.navigationShell,
+    super.key,
+  });
+
+  final StatefulNavigationShell navigationShell;
 
   @override
   State<ControllerPage> createState() => _ControllerPageState();
@@ -15,18 +20,18 @@ class ControllerPage extends StatefulWidget {
 class _ControllerPageState extends State<ControllerPage> {
   int currentIndex = 0;
 
+  void _goToBrach(int index) {
+    widget.navigationShell.goBranch(
+      index,
+      initialLocation: index == widget.navigationShell.currentIndex,
+    );
+  }
+
   List<String> listIcon = [
     FAIcons.icHome,
     FAIcons.icMeal,
     FAIcons.iconGainMuscle,
     FAIcons.icProfile,
-  ];
-
-  List<Widget> pages = [
-    const HomePage(),
-    Container(color: Colors.pink),
-    Container(color: Colors.red),
-    Container(color: Colors.blue),
   ];
 
   @override
@@ -38,7 +43,13 @@ class _ControllerPageState extends State<ControllerPage> {
       context.l10n.profile,
     ];
     return Scaffold(
-      body: pages[currentIndex],
+      body:
+          // ignore: sized_box_shrink_expand
+          SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: widget.navigationShell,
+      ),
       bottomNavigationBar: Container(
         height: 75,
         decoration: BoxDecoration(
@@ -56,6 +67,7 @@ class _ControllerPageState extends State<ControllerPage> {
               onTap: () {
                 currentIndex = index;
                 setState(() {});
+                _goToBrach(currentIndex);
               },
               child: SizedBox(
                 width: MediaQuery.of(context).size.width / 4,

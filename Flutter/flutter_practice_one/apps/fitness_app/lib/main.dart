@@ -32,9 +32,10 @@ class MyApp extends StatelessWidget {
         Locale('es'), // Spanish
       ],
       //home: const WelcomePage(),
-      routeInformationProvider: appRouter.routeInformationProvider,
-      routeInformationParser: appRouter.routeInformationParser,
-      routerDelegate: appRouter.routerDelegate,
+      //routeInformationProvider: FARouter.appRouter.routeInformationProvider,
+      //routeInformationParser: FARouter.appRouter.routeInformationParser,
+      //routerDelegate: FARouter.appRouter.routerDelegate,
+      routerConfig: FARouter.appRouter,
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/core/typography/text_style.dart';
 import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
+import 'package:flutter_practice_one/widgets/search_box.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,15 +18,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    OutlineInputBorder outlineInputBorder({Color? color}) {
-      return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(
-          width: 2,
-          color: context.colorScheme.outline.withOpacity(0.25),
-        ),
-      );
-    }
+    
 
     String getDay() {
       final time = DateTime.now();
@@ -100,19 +93,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                 style: AppTextStyles.nameUser,
               ),
               const Spacer(),
-              TextFormField(
-                controller: controller,
-                decoration: InputDecoration(
-                  fillColor: context.colorScheme.secondary,
-                  filled: true,
-                  focusedBorder: outlineInputBorder(),
-                  enabledBorder: outlineInputBorder(),
-                  prefixIcon: SvgPicture.asset(FAIcons.iconSearch),
-                  hintText: context.l10n.search,
-                  prefixIconConstraints:
-                      const BoxConstraints(maxHeight: 24, minWidth: 50),
-                ),
-              ),
+              SearchBox(controller: controller),
             ],
           ),
         ),
@@ -123,3 +104,4 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(237);
 }
+
