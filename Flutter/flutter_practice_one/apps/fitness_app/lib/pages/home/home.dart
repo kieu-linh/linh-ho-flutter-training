@@ -14,7 +14,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, this.onTap});
+
+  final VoidCallback? onTap;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: FAAppBar(
+        onPressed: widget.onTap,
         user: user1,
         controller: searchController,
       ),
@@ -67,7 +70,8 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 28),
             FATitleHome(
               onPressed: () {
-                context.goNamed('category');
+                GoRouter.of(context).goNamed('categoryScreen');
+                //context.goNamed('categoryScreen');
               },
               title: context.l10n.category,
               titleSmall: context.l10n.seeAll,
@@ -251,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(height: 13),
                             Row(
                               children: [
-                                SvgPicture.asset(FAIcons.icCalories),
+                                SvgPicture.asset(FAIcons.iconCalories),
                                 const SizedBox(width: 7),
                                 Text(
                                   '${addExercise.kcal} kcal',
