@@ -85,5 +85,16 @@
     "addExercise" : "Additional Exercise",
     "jumpingRope" : "Exercises with Jumping Rope",
     "holdingJumping" : "Exercises with Holding Jumping Rope ",
-    "sittingDumbbells" : "Exercises with Sitting Dumbbells"
+    "sittingDumbbells" : "Exercises with Sitting Dumbbells",
+    "basicMember" : "Basic member",
+    "dashboard" : "Dashboard",
+    "plan" : "Plans",
+    "training" : "Training",
+    "categories" : "Categories",
+    "myAccount" : "My Account",
+    "myFavorite" : "My Favorites",
+    "appSetting" : "App Settings",
+    "contactSupport" : "Contact Support",
+    "signOut" : "Sign Out"
+
 } 

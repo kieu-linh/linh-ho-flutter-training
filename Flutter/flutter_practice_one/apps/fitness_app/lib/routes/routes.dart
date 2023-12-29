@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/pages/category/category.dart';
 import 'package:flutter_practice_one/pages/controller/controller_page.dart';
-import 'package:flutter_practice_one/pages/home/home.dart';
+import 'package:flutter_practice_one/pages/drawer/drawer_main.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
 import 'package:flutter_practice_one/pages/onboarding/get_start.dart';
@@ -20,7 +20,7 @@ class FARouter {
 
   // Private navigators
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
-  
+
   static final _shellNavigatorHome =
       GlobalKey<NavigatorState>(debugLabel: 'shellHome');
   static final _shellNavigatorMeal =
@@ -114,18 +114,18 @@ class FARouter {
             navigatorKey: _shellNavigatorHome,
             routes: <RouteBase>[
               GoRoute(
-                path: '/home',
-                name: 'Home',
+                path: AppRoutes.homeScreen.path,
+                name: AppRoutes.homeScreen.name,
                 builder: (context, state) {
-                  return HomePage(
+                  return DrawerMain(
                     key: state.pageKey,
                   );
                 },
                 routes: [
                   /// CategoryPage
                   GoRoute(
-                    path: 'category',
-                    name: 'category',
+                    path: AppRoutes.categoryScreen.path,
+                    name: AppRoutes.categoryScreen.name,
                     builder: (context, state) {
                       return CategoryPage(
                         key: state.pageKey,
@@ -231,17 +231,17 @@ enum AppRoutes {
     name: 'getStartScreen',
     path: '/getStartScreen',
   ),
-  getHomeScreen(
-    name: 'getHomeScreen',
-    path: '/getHomeScreen',
+  homeScreen(
+    name: 'homeScreen',
+    path: '/homeScreen',
   ),
-  getControllerScreen(
-    name: 'getControllerScreen',
-    path: '/getControllerScreen',
+  controllerScreen(
+    name: 'controllerScreen',
+    path: '/controllerScreen',
   ),
-  getCategoryScreen(
-    name: 'getCategoryScreen',
-    path: '/getCategoryScreen',
+  categoryScreen(
+    name: 'categoryScreen',
+    path: 'categoryScreen',
   );
 
   const AppRoutes({

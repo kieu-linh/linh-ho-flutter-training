@@ -12,14 +12,14 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.user,
     super.key,
     this.controller,
+    this.onPressed,
   });
   final TextEditingController? controller;
   final UserModel user;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    
-
     String getDay() {
       final time = DateTime.now();
       if (time.hour >= 6 && time.hour <= 11) {
@@ -69,7 +69,10 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
               Row(
                 children: [
-                  SvgPicture.asset(FAIcons.iconMenu),
+                  GestureDetector(
+                    onTap: onPressed,
+                    child: SvgPicture.asset(FAIcons.iconMenu),
+                  ),
                   const SizedBox(width: 5),
                   CircleAvatar(
                     radius: 22,
@@ -104,4 +107,3 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(237);
 }
-

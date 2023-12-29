@@ -27,11 +27,29 @@ class FAIcons {
 
   static const String iconClock = 'assets/icons/ic_clock.svg';
 
-  static const String icHome = 'assets/icons/ic_home.svg';
+  static const String iconHome = 'assets/icons/ic_home.svg';
 
-  static const String icMeal = 'assets/icons/ic_meal.svg';
+  static const String iconMeal = 'assets/icons/ic_meal.svg';
 
-  static const String icProfile = 'assets/icons/ic_profile.svg';
+  static const String iconProfile = 'assets/icons/ic_profile.svg';
 
-  static const String icCalories = 'assets/icons/ic_calories.svg';
+  static const String iconCalories = 'assets/icons/ic_calories.svg';
+
+  static const String iconPlan = 'assets/icons/ic_plan.svg';
+
+  static const String iconTrain = 'assets/icons/ic_train.svg';
+
+  static const String iconCategory = 'assets/icons/ic_category.svg';
+
+  static const String iconAccount = 'assets/icons/ic_account.svg';
+
+  static const String iconFavorite = 'assets/icons/ic_favorite.svg';
+
+  static const String iconSetting = 'assets/icons/ic_setting.svg';
+
+  static const String iconContact = 'assets/icons/ic_contact.svg';
+
+  static const String iconSignOut = 'assets/icons/ic_sign_out.svg';
+
+  static const String iconClose = 'assets/icons/ic_close.svg';
 }

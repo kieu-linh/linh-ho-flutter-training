@@ -28,10 +28,10 @@ class _ControllerPageState extends State<ControllerPage> {
   }
 
   List<String> listIcon = [
-    FAIcons.icHome,
-    FAIcons.icMeal,
+    FAIcons.iconHome,
+    FAIcons.iconMeal,
     FAIcons.iconGainMuscle,
-    FAIcons.icProfile,
+    FAIcons.iconProfile,
   ];
 
   @override
