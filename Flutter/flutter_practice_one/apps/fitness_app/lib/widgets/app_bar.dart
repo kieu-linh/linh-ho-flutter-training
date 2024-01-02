@@ -60,7 +60,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).padding.top + 46,
+          top: MediaQuery.of(context).padding.top + 20,
           left: 18,
           right: 18,
           bottom: 16,

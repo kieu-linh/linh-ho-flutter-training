@@ -11,6 +11,7 @@ import 'package:flutter_practice_one/pages/onboarding/height.dart';
 import 'package:flutter_practice_one/pages/onboarding/level.dart';
 import 'package:flutter_practice_one/pages/onboarding/weight.dart';
 import 'package:flutter_practice_one/pages/onboarding/weight_goal.dart';
+import 'package:flutter_practice_one/pages/profile/profile.dart';
 import 'package:flutter_practice_one/pages/splash/splash_screen.dart';
 import 'package:flutter_practice_one/pages/welcome/welcome.dart';
 import 'package:go_router/go_router.dart';
@@ -38,67 +39,57 @@ class FARouter {
       GoRoute(
         path: AppRoutes.splashScreen.path,
         name: AppRoutes.splashScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const SplashScreen(),
+        builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
         path: AppRoutes.welcomeScreen.path,
         name: AppRoutes.welcomeScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const WelcomePage(),
+        builder: (context, state) => const WelcomePage(),
       ),
       GoRoute(
         path: AppRoutes.loginScreen.path,
         name: AppRoutes.loginScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const LoginPage(),
+        builder: (context, state) => const LoginPage(),
       ),
       GoRoute(
         path: AppRoutes.favoriteScreen.path,
         name: AppRoutes.favoriteScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const FavoritePage(),
+        builder: (context, state) => const FavoritePage(),
       ),
       GoRoute(
         path: AppRoutes.ageScreen.path,
         name: AppRoutes.ageScreen.name,
-        builder: (BuildContext context, GoRouterState state) => const AgePage(),
+        builder: (context, state) => const AgePage(),
       ),
       GoRoute(
         path: AppRoutes.weightScreen.path,
         name: AppRoutes.weightScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const WeightPage(),
+        builder: (context, state) => const WeightPage(),
       ),
       GoRoute(
         path: AppRoutes.weightGoalScreen.path,
         name: AppRoutes.weightGoalScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const WeightGoalPage(),
+        builder: (context, state) => const WeightGoalPage(),
       ),
       GoRoute(
         path: AppRoutes.heightScreen.path,
         name: AppRoutes.heightScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const HeightPage(),
+        builder: (context, state) => const HeightPage(),
       ),
       GoRoute(
         path: AppRoutes.levelScreen.path,
         name: AppRoutes.levelScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const LevelPage(),
+        builder: (context, state) => const LevelPage(),
       ),
       GoRoute(
         path: AppRoutes.goalScreen.path,
         name: AppRoutes.goalScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const GoalPage(),
+        builder: (context, state) => const GoalPage(),
       ),
       GoRoute(
         path: AppRoutes.getStartScreen.path,
         name: AppRoutes.getStartScreen.name,
-        builder: (BuildContext context, GoRouterState state) =>
-            const GetStartPage(),
+        builder: (context, state) => const GetStartPage(),
       ),
 
       /// Home Router
@@ -117,9 +108,7 @@ class FARouter {
                 path: AppRoutes.homeScreen.path,
                 name: AppRoutes.homeScreen.name,
                 builder: (context, state) {
-                  return DrawerMain(
-                    key: state.pageKey,
-                  );
+                  return DrawerMain(key: state.pageKey);
                 },
                 routes: [
                   /// CategoryPage
@@ -127,9 +116,7 @@ class FARouter {
                     path: AppRoutes.categoryScreen.path,
                     name: AppRoutes.categoryScreen.name,
                     builder: (context, state) {
-                      return CategoryPage(
-                        key: state.pageKey,
-                      );
+                      return CategoryPage(key: state.pageKey);
                     },
                   ),
                 ],
@@ -152,29 +139,25 @@ class FARouter {
           ),
 
           /// Branch Exercise
-          StatefulShellBranch(
+          /* StatefulShellBranch(
             navigatorKey: _shellNavigatorExercise,
             routes: [
               GoRoute(
-                path: '/exercise',
-                name: 'Exercise',
-                builder: (context, state) => Container(
-                  color: Colors.blue,
-                ),
+                path: AppRoutes.exerciseScreen.path,
+                name: AppRoutes.exerciseScreen.name,
+                builder: (context, state) => ExercisePage(key: state.pageKey),
               ),
             ],
-          ),
+          ),*/
 
           /// Branch Profile
           StatefulShellBranch(
             navigatorKey: _shellNavigatorProfile,
             routes: [
               GoRoute(
-                path: '/profile',
-                name: 'Profile',
-                builder: (context, state) => Container(
-                  color: Colors.pink.shade100,
-                ),
+                path: AppRoutes.profileScreen.path,
+                name: AppRoutes.profileScreen.path,
+                builder: (context, state) => ProfilePage(key: state.pageKey),
               ),
             ],
           ),
@@ -242,6 +225,14 @@ enum AppRoutes {
   categoryScreen(
     name: 'categoryScreen',
     path: 'categoryScreen',
+  ),
+  profileScreen(
+    name: 'profileScreen',
+    path: '/profileScreen',
+  ),
+  exerciseScreen(
+    name: 'exerciseScreen',
+    path: '/exerciseScreen',
   );
 
   const AppRoutes({

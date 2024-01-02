@@ -12,8 +12,9 @@ class DrawerMain extends StatefulWidget {
   State<DrawerMain> createState() => _DrawerMainState();
 }
 
+ZoomDrawerController zoomDrawerController = ZoomDrawerController();
+
 class _DrawerMainState extends State<DrawerMain> {
-  ZoomDrawerController zoomDrawerController = ZoomDrawerController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

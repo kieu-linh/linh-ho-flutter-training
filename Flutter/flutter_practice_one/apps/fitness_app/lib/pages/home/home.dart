@@ -221,78 +221,80 @@ class _HomePageState extends State<HomePage> {
               titleSmall: context.l10n.seeAll,
             ),
             ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 final addExercise = listAddExercise[index];
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(4),
-                        height: 90,
-                        width: 90,
-                        decoration: BoxDecoration(
-                          color: addExercise.backgroundColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Image.asset(
-                          addExercise.image ?? '',
-                          fit: BoxFit.cover,
-                        ),
+                return Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(4),
+                      height: 90,
+                      width: 90,
+                      decoration: BoxDecoration(
+                        color: addExercise.backgroundColor,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              addExercise.description ?? '',
-                              style: context.textTheme.labelSmall
-                                  ?.copyWith(fontSize: 12),
-                            ),
-                            const SizedBox(height: 13),
-                            Row(
-                              children: [
-                                SvgPicture.asset(FAIcons.iconCalories),
-                                const SizedBox(width: 7),
-                                Text(
-                                  '${addExercise.kcal} kcal',
-                                  style: context.textTheme.bodySmall
-                                      ?.copyWith(fontSize: 10),
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                  ),
-                                  width: 1,
-                                  height: 8,
-                                  color: context.colorScheme.outlineVariant,
-                                ),
-                                SvgPicture.asset(FAIcons.iconClock),
-                                const SizedBox(width: 6),
-                                Text(
-                                  '${addExercise.min} min',
-                                  style: context.textTheme.bodySmall
-                                      ?.copyWith(fontSize: 10),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 9),
-                            Text(
-                              addExercise.level ?? '',
-                              style: context.textTheme.bodySmall
-                                  ?.copyWith(fontSize: 10),
-                            ),
-                          ],
-                        ),
+                      child: Image.asset(
+                        addExercise.image ?? '',
+                        fit: BoxFit.cover,
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            addExercise.description ?? '',
+                            style: context.textTheme.labelSmall
+                                ?.copyWith(fontSize: 12),
+                          ),
+                          const SizedBox(height: 13),
+                          Row(
+                            children: [
+                              SvgPicture.asset(FAIcons.iconCalories),
+                              const SizedBox(width: 7),
+                              Text(
+                                '${addExercise.kcal} kcal',
+                                style: context.textTheme.bodySmall
+                                    ?.copyWith(fontSize: 10),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
+                                width: 1,
+                                height: 8,
+                                color: context.colorScheme.outlineVariant,
+                              ),
+                              SvgPicture.asset(FAIcons.iconClock),
+                              const SizedBox(width: 6),
+                              Text(
+                                '${addExercise.min} min',
+                                style: context.textTheme.bodySmall
+                                    ?.copyWith(fontSize: 10),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 9),
+                          Text(
+                            addExercise.level ?? '',
+                            style: context.textTheme.bodySmall
+                                ?.copyWith(fontSize: 10),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 );
               },
-              separatorBuilder: (context, index) => const FADivider(height: 40),
+              separatorBuilder: (context, index) => const FADivider(
+                height: 40,
+                indent: 0,
+                endIndent: 0,
+              ),
               itemCount: listAddExercise.length,
             ),
             const SizedBox(height: 20),
@@ -307,17 +309,21 @@ class FADivider extends StatelessWidget {
   const FADivider({
     super.key,
     this.height,
+    this.indent = 20,
+    this.endIndent = 20,
   });
 
   final double? height;
+  final double indent;
+  final double endIndent;
 
   @override
   Widget build(BuildContext context) {
     return Divider(
       thickness: 1,
       color: context.colorScheme.onSurfaceVariant.withOpacity(0.15),
-      indent: 20,
-      endIndent: 20,
+      indent: indent,
+      endIndent: endIndent,
       height: height,
     );
   }

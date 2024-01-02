@@ -1,30 +1,40 @@
-name: flutter_practice_one
+name: modular
+
+# repository:
+# command:
+#   version:
+#     linkToCommits: true
+#     workspaceChangelog: true
 
 packages:
   - apps/**
 
-scripts: 
-  #Setup env for puro
+scripts:
   postbootstrap: >
-    melos exec -- puro flutter pub get && 
-    pub global activate puro 
-  #Run app
-  run_app: 
-    run: melos exec -- puro flutter run lib/main.dart
-    description: Run `puro` on all packages.
-    packageFilters: 
-      scope: 
+    melos exec -- puro flutter pub get
+
+  postclean: >
+    melos exec -- puro flutter clean
+
+  # Code styles scripts
+  formatting:check: melos exec -- puro dart format --set-exit-if-changed .
+
+  analyze:
+    run: melos exec -- puro flutter analyze .
+    description: Run `dart analyze` in all packages.
+    packageFilters:
+      scope:
         - fitness_app
+        - fitness_ui
+
+  format:
+    run: melos exec -- puro flutter format .
+    description: Run `flutter format` in all packages.
+
+
+  # Start mobile apps scripts
   run:fitness_app:
     run: melos exec -- puro flutter run lib/main.dart
     packageFilters:
       scope:
         - fitness_app
-  analyze: 
-    run: melos exec -- puro flutter analyze .
-    description: Run `dart analyze` on all packages.
-    packageFilters: 
-      scope: 
-        - fitness_app
-        - fitness_ui
-  

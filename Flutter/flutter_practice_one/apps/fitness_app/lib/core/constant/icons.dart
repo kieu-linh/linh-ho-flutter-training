@@ -52,4 +52,6 @@ class FAIcons {
   static const String iconSignOut = 'assets/icons/ic_sign_out.svg';
 
   static const String iconClose = 'assets/icons/ic_close.svg';
+
+  static const String iconEdit = 'assets/icons/ic_edit.svg';
 }

@@ -72,7 +72,7 @@ class FavoritePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 30),
               child: FAButton(
-                onPressed: () => GoRouter.of(context).go('/ageScreen'),
+                onPressed: () => GoRouter.of(context).push('/ageScreen'),
                 text: context.l10n.btnNextStep,
               ),
             ),

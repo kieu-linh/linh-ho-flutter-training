@@ -29,6 +29,7 @@ class SearchBox extends StatelessWidget {
       decoration: InputDecoration(
         fillColor: context.colorScheme.secondary,
         filled: true,
+        contentPadding: const EdgeInsets.symmetric(vertical: 13),
         focusedBorder: outlineInputBorder(),
         enabledBorder: outlineInputBorder(),
         prefixIcon: SvgPicture.asset(FAIcons.iconSearch),
