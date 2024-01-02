@@ -45,7 +45,7 @@ Before you continue, ensure you meet the following requirements:
 - [X] Epic 2: Setup environment
 - [X] Epic 3: Create skeleton structure practice
 - [X] Epic 4: Setup themes, routes
-- [] Epic 5: Implement the UI
+- [X] Epic 5: Implement the UI
 - [] Epic 6: Test the application and prepare for the review
 
 ## UI
@@ -60,11 +60,11 @@ Before you continue, ensure you meet the following requirements:
 - [X] UI Level Screen
 - [X] UI Goal Screen
 - [X] UI Get Started Screen
-- [] UI HomePage Screen
-- [] UI Category Screen
-- [] UI Side Menu Screen
-- [] UI Profile Screen
-- [] UI Exercise Screen
+- [X] UI HomePage Screen
+- [X] UI Category Screen
+- [X] UI Side Menu Screen
+- [X] UI Profile Screen
+- [X] UI Exercise Screen
 - [] UI Exercise Details Screen
 ## Installation
 1. Clone the repository:
@@ -84,7 +84,7 @@ Before you continue, ensure you meet the following requirements:
     ```
 4. Run project
    ```
-   flutter run
+   melos run run:fitness_app
    ```
 ​
 
