@@ -1,9 +1,9 @@
+import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/components/inputBodyMeasurements.dart';
+import 'package:fitness_ui/components/top_control.dart';
+import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/widgets/button.dart';
-import 'package:flutter_practice_one/widgets/inputBodyMeasurements.dart';
-import 'package:flutter_practice_one/widgets/top_control.dart';
-import 'package:flutter_practice_one/widgets/top_onboarding.dart';
 import 'package:go_router/go_router.dart';
 
 class HeightPage extends StatefulWidget {
@@ -33,7 +33,7 @@ class _HeightPageState extends State<HeightPage> {
                 const SizedBox(height: 9),
                 TopOnBoarding(title: context.l10n.height, currentStep: 5),
                 const SizedBox(height: 20),
-                InputBodyMeasurement(
+                FAInputBodyMeasurement(
                   textLeft: context.l10n.feet,
                   textRight: context.l10n.cm,
                   controller: weightController,

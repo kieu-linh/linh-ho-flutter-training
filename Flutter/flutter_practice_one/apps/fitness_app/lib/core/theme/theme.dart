@@ -1,6 +1,8 @@
+import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/color/app_color.dart';
 import 'package:flutter_practice_one/core/theme/app_theme.dart';
+
+
 
 class FAppTheme {
   FAppTheme._();

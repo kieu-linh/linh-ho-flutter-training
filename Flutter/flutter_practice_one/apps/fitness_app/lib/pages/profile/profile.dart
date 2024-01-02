@@ -1,6 +1,8 @@
+import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/core/typography/text_style.dart';
+import 'package:fitness_ui/data/models/macronutrient_goal_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/constant/icons.dart';
-import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/data/models/category_data.dart';
 import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
@@ -147,17 +149,46 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const SizedBox(height: 24),
             Padding(
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20, bottom: 25),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     context.l10n.macronutrient,
-                    style: const TextStyle(color: Colors.black),
+                    style: AppTextStyles.textButtonMedium
+                        .copyWith(color: context.colorScheme.tertiary),
                   ),
                 ],
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(listMacronutrientGoal.length, (index) {
+                return Column(
+                  children: [
+                    Image.asset(listMacronutrientGoal[index].image ?? ''),
+                    const SizedBox(height: 10),
+                    Text(
+                      '${listMacronutrientGoal[index].title}',
+                      style:
+                          context.textTheme.bodyLarge?.copyWith(fontSize: 12),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      '${listMacronutrientGoal[index].gam}',
+                      style: context.textTheme.headlineSmall
+                          ?.copyWith(fontSize: 12),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      '${listMacronutrientGoal[index].description}',
+                      style: context.textTheme.displayMedium
+                          ?.copyWith(fontSize: 10),
+                    ),
+                  ],
+                );
+              }),
+            )
           ],
         ),
       ),

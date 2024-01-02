@@ -1,6 +1,6 @@
+import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/constant/icons.dart';
-import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/pages/home/home.dart';

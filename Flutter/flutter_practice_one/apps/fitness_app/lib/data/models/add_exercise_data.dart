@@ -1,8 +1,7 @@
 import 'dart:ui';
 
-import 'package:flutter_practice_one/core/color/app_color.dart';
-import 'package:flutter_practice_one/core/constant/images.dart';
-
+import 'package:fitness_ui/core/color/app_color.dart';
+import 'package:fitness_ui/core/constant/images.dart';
 class AddExerciseModel {
   AddExerciseModel();
 

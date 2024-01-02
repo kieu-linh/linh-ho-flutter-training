@@ -1,15 +1,16 @@
 // ignore_for_file: directives_ordering, inference_failure_on_instance_creation
 
+import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/core/typography/font_weight.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/constant/icons.dart';
-import 'package:flutter_practice_one/core/extension/extension.dart';
-import 'package:flutter_practice_one/core/typography/font_weight.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/routes/routes.dart';
-import 'package:flutter_practice_one/widgets/input.dart';
-import 'package:flutter_practice_one/widgets/top_control.dart';
-import 'package:flutter_practice_one/widgets/button.dart';
+import 'package:fitness_ui/components/input.dart';
+import 'package:fitness_ui/components/top_control.dart';
 import 'package:go_router/go_router.dart';
+import 'package:fitness_ui/core/constant/icons.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

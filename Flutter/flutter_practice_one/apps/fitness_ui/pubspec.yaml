@@ -9,10 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.3
+
   flutter_localizations:
     sdk: flutter
-  intl: ^0.18.0
+
+  flutter_svg: ^2.0.9
+
+  flutter_zoom_drawer: ^3.1.1
+
 
 dev_dependencies:
   very_good_analysis: ^5.1.0
@@ -20,3 +24,19 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+  # This is folder for assets: image, icon in the app.
+  assets:
+    - assets/images/2.0x/
+    - assets/images/3.0x/
+    - assets/images/
+    - assets/icons/
+
+  # This is for custom two fonts in the app.
+  fonts:
+    - family: Bebas-Regular
+      fonts:
+        - asset: assets/fonts/Bebas-Regular.otf
+    - family: Montserrat-Medium
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
