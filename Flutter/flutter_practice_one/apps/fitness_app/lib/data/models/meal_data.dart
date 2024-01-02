@@ -1,5 +1,4 @@
-import 'package:flutter_practice_one/core/constant/images.dart';
-
+import 'package:fitness_ui/core/constant/images.dart';
 class MealModel {
   MealModel();
 

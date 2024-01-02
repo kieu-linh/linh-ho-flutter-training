@@ -1,15 +1,15 @@
+import 'package:fitness_ui/components/app_bar.dart';
+import 'package:fitness_ui/components/card.dart';
+import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/data/models/user_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/constant/icons.dart';
-import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_practice_one/data/models/category_data.dart';
 import 'package:flutter_practice_one/data/models/exercise_data.dart';
 import 'package:flutter_practice_one/data/models/goal_model.dart';
 import 'package:flutter_practice_one/data/models/meal_data.dart';
-import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/widgets/app_bar.dart';
-import 'package:flutter_practice_one/widgets/card.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -40,33 +40,7 @@ class _HomePageState extends State<HomePage> {
             FATitleHome(
               title: context.l10n.titleGoal,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: List.generate(listGoal.length, (index) {
-                    return Container(
-                      margin: const EdgeInsets.only(right: 13),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: context.colorScheme.onSurfaceVariant
-                            .withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Text(
-                        listGoal[index].name ?? '',
-                        style: context.textTheme.labelMedium
-                            ?.copyWith(fontSize: 11),
-                      ),
-                    );
-                  }),
-                ),
-              ),
-            ),
+            const FAGoal(),
             const SizedBox(height: 28),
             FATitleHome(
               onPressed: () {
@@ -299,6 +273,58 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 20),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class FAGoal extends StatefulWidget {
+  const FAGoal({
+    super.key,
+  });
+
+  @override
+  State<FAGoal> createState() => _FAGoalState();
+}
+
+class _FAGoalState extends State<FAGoal> {
+  int _selectIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          children: List.generate(listGoal.length, (index) {
+            return GestureDetector(
+              onTap: () {
+                _selectIndex = index;
+                setState(() {});
+              },
+              child: Container(
+                margin: const EdgeInsets.only(right: 13),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 6,
+                ),
+                decoration: BoxDecoration(
+                  color: _selectIndex == index
+                      ? context.colorScheme.tertiary
+                      : context.colorScheme.onSurfaceVariant.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  listGoal[index].name ?? '',
+                  style: _selectIndex == index
+                      ? context.textTheme.labelMedium?.copyWith(
+                          fontSize: 11, color: context.colorScheme.secondary)
+                      : context.textTheme.labelMedium?.copyWith(fontSize: 11),
+                ),
+              ),
+            );
+          }),
         ),
       ),
     );

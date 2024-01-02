@@ -1,10 +1,10 @@
+import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/components/rich_text.dart';
+import 'package:fitness_ui/components/top_control.dart';
+import 'package:fitness_ui/core/constant/images.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/constant/images.dart';
-import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_practice_one/widgets/button.dart';
-import 'package:flutter_practice_one/widgets/rich_text.dart';
-import 'package:flutter_practice_one/widgets/top_control.dart';
 import 'package:go_router/go_router.dart';
 
 class GetStartPage extends StatelessWidget {
