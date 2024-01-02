@@ -3,6 +3,7 @@ import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/pages/category/category.dart';
 import 'package:flutter_practice_one/pages/controller/controller_page.dart';
 import 'package:flutter_practice_one/pages/drawer/drawer_main.dart';
+import 'package:flutter_practice_one/pages/exercise/exercise.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
 import 'package:flutter_practice_one/pages/onboarding/get_start.dart';
@@ -139,7 +140,7 @@ class FARouter {
           ),
 
           /// Branch Exercise
-          /* StatefulShellBranch(
+          StatefulShellBranch(
             navigatorKey: _shellNavigatorExercise,
             routes: [
               GoRoute(
@@ -148,7 +149,7 @@ class FARouter {
                 builder: (context, state) => ExercisePage(key: state.pageKey),
               ),
             ],
-          ),*/
+          ),
 
           /// Branch Profile
           StatefulShellBranch(
