@@ -52,4 +52,6 @@ class FAImage {
   static const String imgHoldJump = 'assets/images/img_hold_jump.png';
 
   static const String imgGirlDumbbell = 'assets/images/img_girl_dumbbell.png';
+
+  static const String imgYogaExercise = 'assets/images/img_yoga_exercise.png';
 }

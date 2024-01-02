@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/constant/icons.dart';
 import 'package:flutter_practice_one/core/extension/extension.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
+import 'package:flutter_practice_one/pages/drawer/drawer_main.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,6 +28,16 @@ class _ControllerPageState extends State<ControllerPage> {
       index,
       initialLocation: index == widget.navigationShell.currentIndex,
     );
+  }
+
+  Future<void> changePage(int index) async {
+    if (zoomDrawerController.isOpen != null) {
+      await zoomDrawerController.close?.call();
+    }
+
+    currentIndex = index;
+    setState(() {});
+    _goToBrach(currentIndex);
   }
 
   List<String> listIcon = [
@@ -65,9 +78,7 @@ class _ControllerPageState extends State<ControllerPage> {
           children: List.generate(listIcon.length, (index) {
             return InkWell(
               onTap: () {
-                currentIndex = index;
-                setState(() {});
-                _goToBrach(currentIndex);
+                changePage(index);
               },
               child: SizedBox(
                 width: MediaQuery.of(context).size.width / 4,

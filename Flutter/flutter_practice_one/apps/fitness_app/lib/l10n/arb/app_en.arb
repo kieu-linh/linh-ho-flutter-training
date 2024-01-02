@@ -95,6 +95,17 @@
     "myFavorite" : "My Favorites",
     "appSetting" : "App Settings",
     "contactSupport" : "Contact Support",
-    "signOut" : "Sign Out"
-
+    "signOut" : "Sign Out",
+    "weight" : "Weight",
+    "height" : "Height",
+    "year" : "year",
+    "age" : "Age",
+    "titleGoal" : "Goal",
+    "macronutrient" : "Macronutrient Goals",
+    "protein" : "Protein",
+    "carbs" : "Carbs",
+    "fat" : "Fat",
+    "gramPer" : "Grams per day",
+    "back" : "Back",
+    "chest" : "Chest"
 } 

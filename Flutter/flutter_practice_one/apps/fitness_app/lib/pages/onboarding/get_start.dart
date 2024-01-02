@@ -16,13 +16,14 @@ class GetStartPage extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 70),
             child: Column(
               children: [
                 FATopControl(
                   onPressed: () => GoRouter.of(context).go('/goalScreen'),
                 ),
-                const SizedBox(height: 66),
+                const Spacer(),
                 Text(
                   context.l10n.start,
                   style: context.textTheme.headlineLarge,
@@ -44,13 +45,14 @@ class GetStartPage extends StatelessWidget {
                   textStyleSecond: context.textTheme.displayMedium
                       ?.copyWith(color: context.colorScheme.primary),
                 ),
+                const Spacer(),
               ],
             ),
           ),
           Positioned(
             left: 20,
             right: 20,
-            bottom: 50,
+            bottom: 20,
             child: FAButton(
               text: context.l10n.getStarted,
               onPressed: () => GoRouter.of(context).goNamed('homeScreen'),
