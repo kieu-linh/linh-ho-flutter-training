@@ -4,10 +4,9 @@ class FAImage {
   static const String imgBackgroundSplash =
       'assets/images/img_background_splash.png';
 
-  static const String imgGirlFirst = 'assets/images/img_girl_first.png';
+  static const String imgGirlFirst = 'images/img_girl_first.png';
 
-  static const String imgBackgroundFirst =
-      'assets/images/img_background_first.png';
+  static const String imgBackgroundFirst = 'images/img_background_first.png';
 
   static const String imgGirlSecond = 'assets/images/img_girl_second.png';
 
@@ -60,4 +59,7 @@ class FAImage {
   static const String imgCarbs = 'assets/images/img_carbs.png';
 
   static const String imgFat = 'assets/images/img_fat.png';
+
+  static const String imgExerciseDumbbell =
+      'assets/images/img_exercise_dumbbell.png';
 }

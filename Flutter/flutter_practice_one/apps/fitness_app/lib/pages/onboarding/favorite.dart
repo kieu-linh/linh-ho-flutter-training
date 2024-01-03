@@ -2,8 +2,8 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/data/models/favorite_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/favorite_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
