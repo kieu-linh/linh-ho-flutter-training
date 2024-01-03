@@ -107,5 +107,19 @@
     "fat" : "Fat",
     "gramPer" : "Grams per day",
     "back" : "Back",
-    "chest" : "Chest"
+    "chest" : "Chest",
+    "levelTitle" : "Level", 
+    "schedule" : "Schedule",
+    "exerciseProgram" : "Exercise Program",
+    "exerciseDetail": "{weekNumber} Weeks - {exerciseNumber} Exercises",
+    "@exerciseDetail" : {
+        "placeholders": {
+            "weekNumber": {
+                "type": "int"
+            },
+            "exerciseNumber": {
+                "type": "int"
+            }
+        }
+    }
 } 

@@ -1,10 +1,12 @@
+import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/data/models/add_exercise_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/pages/home/home.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ExercisePage extends StatefulWidget {
   const ExercisePage({super.key});
@@ -76,68 +78,12 @@ class _ExercisePageState extends State<ExercisePage> {
               //shrinkWrap: true,
               itemBuilder: (context, index) {
                 final addExercise = listAddExercise[index];
-                return Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      height: 90,
-                      width: 90,
-                      decoration: BoxDecoration(
-                        color: addExercise.backgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Image.asset(
-                        addExercise.image ?? '',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            addExercise.description ?? '',
-                            style: context.textTheme.labelSmall
-                                ?.copyWith(fontSize: 12),
-                          ),
-                          const SizedBox(height: 13),
-                          Row(
-                            children: [
-                              SvgPicture.asset(FAIcons.iconCalories),
-                              const SizedBox(width: 7),
-                              Text(
-                                '${addExercise.kcal} kcal',
-                                style: context.textTheme.bodySmall
-                                    ?.copyWith(fontSize: 10),
-                              ),
-                              Container(
-                                margin: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                ),
-                                width: 1,
-                                height: 8,
-                                color: context.colorScheme.outlineVariant,
-                              ),
-                              SvgPicture.asset(FAIcons.iconClock),
-                              const SizedBox(width: 6),
-                              Text(
-                                '${addExercise.min} min',
-                                style: context.textTheme.bodySmall
-                                    ?.copyWith(fontSize: 10),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 9),
-                          Text(
-                            addExercise.level ?? '',
-                            style: context.textTheme.bodySmall
-                                ?.copyWith(fontSize: 10),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                return FACardContainer(
+                  addExercise: addExercise,
+                  onPressed: () {
+                    GoRouter.of(context)
+                        .goNamed('exerciseDetailScreen', extra: addExercise);
+                  },
                 );
               },
               separatorBuilder: (context, index) => const FADivider(

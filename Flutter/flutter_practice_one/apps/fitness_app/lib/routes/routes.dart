@@ -1,9 +1,11 @@
+import 'package:fitness_ui/data/models/add_exercise_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/pages/category/category.dart';
 import 'package:flutter_practice_one/pages/controller/controller_page.dart';
 import 'package:flutter_practice_one/pages/drawer/drawer_main.dart';
 import 'package:flutter_practice_one/pages/exercise/exercise.dart';
+import 'package:flutter_practice_one/pages/exercise_detail/exercise_detail.dart';
 import 'package:flutter_practice_one/pages/onboarding/age.dart';
 import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
 import 'package:flutter_practice_one/pages/onboarding/get_start.dart';
@@ -147,6 +149,19 @@ class FARouter {
                 path: AppRoutes.exerciseScreen.path,
                 name: AppRoutes.exerciseScreen.name,
                 builder: (context, state) => ExercisePage(key: state.pageKey),
+                routes: [
+                  /// Exercise Detail Page
+                  GoRoute(
+                    path: AppRoutes.exerciseDetailScreen.path,
+                    name: AppRoutes.exerciseDetailScreen.name,
+                    builder: (context, state) {
+                      return ExerciseDetailPage(
+                        key: state.pageKey,
+                        exercise: state.extra! as AddExerciseModel,
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -234,6 +249,10 @@ enum AppRoutes {
   exerciseScreen(
     name: 'exerciseScreen',
     path: '/exerciseScreen',
+  ),
+  exerciseDetailScreen(
+    name: 'exerciseDetailScreen',
+    path: 'exerciseDetailScreen',
   );
 
   const AppRoutes({
