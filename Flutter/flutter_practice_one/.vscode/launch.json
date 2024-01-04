@@ -16,6 +16,17 @@
         ]
       },
       {
+        "name": "Device preview",
+        "request": "launch",
+        "type": "dart",
+        "program": "apps/fitness_app/lib/main_device_preview.dart",
+        "args": [
+          "--flavor",
+          "production",
+          "apps/fitness_app/lib/main_device_preview.dart"
+        ]
+      },
+      {
         "name": "Widgetbook",
         "request": "launch",
         "type": "dart",
