@@ -4,13 +4,13 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/core/utils/validator.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/routes/routes.dart';
 import 'package:fitness_ui/components/input.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,6 +22,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  bool checkIcon = false;
 
   @override
   void dispose() {
@@ -38,101 +40,114 @@ class _LoginPageState extends State<LoginPage> {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                FATopControl(
-                  onPressed: () => context.go(AppRoutes.welcomeScreen.path),
-                ),
-                const SizedBox(height: 30),
-                Text(
-                  context.l10n.displayLarge,
-                  style: context.textTheme.headlineLarge,
-                ),
-                const SizedBox(height: 11),
-                Text(
-                  context.l10n.displayMedium,
-                  style: context.textTheme.headlineMedium,
-                ),
-                const SizedBox(height: 39),
-                FAInput(
-                  controller: emailController,
-                  hintText: context.l10n.hintTextEmail,
-                  icon: FAIcons.iconTick,
-                ),
-                const SizedBox(height: 14),
-                FAInput(
-                  controller: passwordController,
-                  hintText: context.l10n.hintTextPassword,
-                  icon: FAIcons.iconEye,
-                  obscureText: true,
-                ),
-                const SizedBox(height: 17),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      context.l10n.forgotPassword,
-                      style: context.textTheme.bodyLarge,
-                      textAlign: TextAlign.right,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 34),
-                FAButton(
-                  onPressed: () => GoRouter.of(context).go('/favoriteScreen'),
-                  text: context.l10n.btnLoginIn,
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      context.l10n.btnLoginWith,
-                      style: context.textTheme.bodySmall,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                FAButton.outline(
-                  onPressed: () {},
-                  icon: FAIcons.iconGoogle,
-                  text: context.l10n.btnGoogle,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                ),
-                const SizedBox(height: 8),
-                FAButton.text(
-                  onPressed: () {},
-                  icon: FAIcons.iconFacebook,
-                  text: context.l10n.btnFacebook,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                ),
-                const SizedBox(height: 48),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 24),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FATopControl(
+                    onPressed: () => context.go(AppRoutes.welcomeScreen.path),
+                  ),
+                  const SizedBox(height: 30),
+                  Text(
+                    context.l10n.displayLarge,
+                    style: context.textTheme.headlineLarge,
+                  ),
+                  const SizedBox(height: 11),
+                  Text(
+                    context.l10n.displayMedium,
+                    style: context.textTheme.headlineMedium,
+                  ),
+                  const SizedBox(height: 39),
+                  FAInput(
+                    controller: emailController,
+                    hintText: context.l10n.hintTextEmail,
+                    icon: checkIcon ? FAIcons.iconTick : null,
+                    validator: (value) {
+                      return FAValidator.validatorEmail(
+                        value,
+                        check: checkIcon,
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 14),
+                  FAInput(
+                    controller: passwordController,
+                    hintText: context.l10n.hintTextPassword,
+                    icon: FAIcons.iconEye,
+                    obscureText: true,
+                    validator: FAValidator.validatorPassword,
+                  ),
+                  const SizedBox(height: 17),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: context.l10n.descriptionSignIn,
-                              style: context.textTheme.labelSmall?.copyWith(
-                                fontWeight: AppFontWeight.medium,
-                              ),
-                            ),
-                            TextSpan(
-                              text: context.l10n.bntSignIn,
-                              style: context.textTheme.labelSmall,
-                            ),
-                          ],
-                        ),
+                      Text(
+                        context.l10n.forgotPassword,
+                        style: context.textTheme.bodyLarge,
+                        textAlign: TextAlign.right,
                       ),
                     ],
                   ),
-                ),
-              ],
+                  const SizedBox(height: 34),
+                  FAButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate() == false) return;
+                      GoRouter.of(context).go('/favoriteScreen');
+                    },
+                    text: context.l10n.btnLoginIn,
+                  ),
+                  const SizedBox(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        context.l10n.btnLoginWith,
+                        style: context.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  FAButton.outline(
+                    onPressed: () {},
+                    icon: FAIcons.iconGoogle,
+                    text: context.l10n.btnGoogle,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  const SizedBox(height: 8),
+                  FAButton.text(
+                    onPressed: () {},
+                    icon: FAIcons.iconFacebook,
+                    text: context.l10n.btnFacebook,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  const SizedBox(height: 48),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 24),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: context.l10n.descriptionSignIn,
+                                style: context.textTheme.labelSmall?.copyWith(
+                                  fontWeight: AppFontWeight.medium,
+                                ),
+                              ),
+                              TextSpan(
+                                text: context.l10n.bntSignIn,
+                                style: context.textTheme.labelSmall,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

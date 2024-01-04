@@ -29,13 +29,13 @@ class FAInput extends StatefulWidget {
   final String? icon;
   final TextInputAction? textInputAction;
   final bool obscureText;
+  
 
   @override
   State<FAInput> createState() => _FAInputState();
 }
 
 class _FAInputState extends State<FAInput> {
-
   //Define value for show password
   bool showPassword = false;
 
@@ -49,54 +49,68 @@ class _FAInputState extends State<FAInput> {
           style: AppTextStyles.labelLarge,
         ),
         const SizedBox(height: 7),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: context.colorScheme.outline.withOpacity(0.25),
-            ),
-            color: context.colorScheme.onSecondary,
-          ),
-          child: TextFormField(
-            controller: widget.controller,
-            onFieldSubmitted: widget.onFieldSubmit,
-            keyboardType: widget.keyboardType,
+        TextFormField(
+          controller: widget.controller,
+          onFieldSubmitted: widget.onFieldSubmit,
+          keyboardType: widget.keyboardType,
 
-            //obscureText = true => can show,hidden password
-            //obscureText = false => only show text
-            // ignore: avoid_bool_literals_in_conditional_expressions
-            obscureText: widget.obscureText ? !showPassword : false,
-            obscuringCharacter: '*',
-            validator: widget.validator,
-            textInputAction: widget.textInputAction,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: widget.hintText,
-              suffixIcon: widget.icon == null
-                  ? null
-                  : GestureDetector(
-                      onTap: widget.obscureText
-                          ? () {
-                              //showPassword = true =>  hidden password
-                              //default start
-                              showPassword = !showPassword;
-                              setState(() {});
-                            }
-                          : null,
-                      child: SvgPicture.asset(
-                        showPassword ? FAIcons.iconEyeOpen : widget.icon!,
-                        // ignore: deprecated_member_use
-                        color: context.colorScheme.onSurface,
-                      ),
-                    ),
-              suffixIconConstraints: const BoxConstraints(
-                maxHeight: 17,
-                maxWidth: 17,
+          //obscureText = true => can show,hidden password
+          //obscureText = false => only show text
+          // ignore: avoid_bool_literals_in_conditional_expressions
+          obscureText: widget.obscureText ? !showPassword : false,
+          obscuringCharacter: '*',
+          validator: widget.validator,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          textInputAction: widget.textInputAction,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: context.colorScheme.outline.withOpacity(0.25),
               ),
             ),
-            style: AppTextStyles.labelMedium,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: context.colorScheme.outline.withOpacity(0.25),
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: context.colorScheme.outline.withOpacity(0.25),
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: context.colorScheme.errorContainer.withOpacity(0.1),
+              ),
+            ),
+            hintText: widget.hintText,
+            suffixIcon: widget.icon == null
+                ? null
+                : GestureDetector(
+                    onTap: widget.obscureText
+                        ? () {
+                            //showPassword = true =>  hidden password
+                            //default start
+                            showPassword = !showPassword;
+                            setState(() {});
+                          }
+                        : null,
+                    child: SvgPicture.asset(
+                      showPassword ? FAIcons.iconEyeOpen : widget.icon!,
+                      // ignore: deprecated_member_use
+                      color: context.colorScheme.onSurface,
+                    ),
+                  ),
+            suffixIconConstraints: const BoxConstraints(
+              maxHeight: 17,
+              minWidth: 47,
+            ),
           ),
+          style: AppTextStyles.labelMedium,
         ),
       ],
     );

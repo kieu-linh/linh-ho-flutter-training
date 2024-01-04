@@ -24,20 +24,19 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              Image.asset(
-                widget.exercise.backgroundImage ?? '',
-                width: MediaQuery.of(context).size.width,
-                height: 379,
-                fit: BoxFit.cover,
-              ),
-              SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20)
-                      .copyWith(top: 45),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Image.asset(
+                  widget.exercise.backgroundImage ?? '',
+                  width: MediaQuery.of(context).size.width,
+                  height: 379,
+                  fit: BoxFit.cover,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 45),
                   child: Column(
                     children: [
                       Row(
@@ -112,7 +111,11 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                           ],
                         ),
                       ),
-                      Text(context.l10n.exerciseProgram),
+                      Text(
+                        context.l10n.exerciseProgram,
+                        style: context.textTheme.labelSmall
+                            ?.copyWith(fontSize: 16),
+                      ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Padding(
@@ -162,61 +165,61 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     ],
                   ),
                 ),
-              ),
-            ],
-          ),
-          Positioned(
-            top: 349,
-            left: 20,
-            right: 20,
-            child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                color: Colors.white,
-              ),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      FAIcons.iconCalories,
-                      color: context.colorScheme.tertiary,
-                      height: 22,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      '${widget.exercise.kcal} kcal',
-                      style: context.textTheme.titleLarge
-                          ?.copyWith(color: context.colorScheme.tertiary),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 30,
+              ],
+            ),
+            Positioned(
+              top: 349,
+              left: 20,
+              right: 20,
+              child: Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(18),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        FAIcons.iconCalories,
+                        color: context.colorScheme.tertiary,
+                        height: 22,
                       ),
-                      width: 1,
-                      height: 16,
-                      color: context.colorScheme.outlineVariant,
-                    ),
-                    SvgPicture.asset(
-                      FAIcons.iconClock,
-                      color: context.colorScheme.tertiary,
-                      height: 22,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      '${widget.exercise.min} min',
-                      style: context.textTheme.titleLarge
-                          ?.copyWith(color: context.colorScheme.tertiary),
-                    ),
-                  ],
+                      const SizedBox(width: 8),
+                      Text(
+                        '${widget.exercise.kcal} kcal',
+                        style: context.textTheme.titleLarge
+                            ?.copyWith(color: context.colorScheme.tertiary),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 30,
+                        ),
+                        width: 1,
+                        height: 16,
+                        color: context.colorScheme.outlineVariant,
+                      ),
+                      SvgPicture.asset(
+                        FAIcons.iconClock,
+                        color: context.colorScheme.tertiary,
+                        height: 22,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        '${widget.exercise.min} min',
+                        style: context.textTheme.titleLarge
+                            ?.copyWith(color: context.colorScheme.tertiary),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
