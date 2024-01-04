@@ -1,11 +1,9 @@
 import 'package:fitness_ui/components/search_box.dart';
-import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/data/models/category_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/data/models/category_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -26,24 +24,9 @@ class _CategoryPageState extends State<CategoryPage> {
               top: MediaQuery.of(context).padding.top + 20,
               bottom: 22,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () => GoRouter.of(context).go('/homeScreen'),
-                  child: SvgPicture.asset(
-                    FAIcons.iconBack,
-                    // ignore: deprecated_member_use
-                    color: context.colorScheme.tertiaryContainer,
-                  ),
-                ),
-                Text(
-                  context.l10n.categories,
-                  style: AppTextStyles.textButtonMedium
-                      .copyWith(color: context.colorScheme.tertiary),
-                ),
-                const SizedBox(width: 20),
-              ],
+            child: FATopNavigation(
+              onPressLeft: () => GoRouter.of(context).go('/homeScreen'),
+              title: context.l10n.categories,
             ),
           ),
           const Padding(

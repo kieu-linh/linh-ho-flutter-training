@@ -57,7 +57,7 @@ List<AddExerciseModel> listAddExercise = [
     ..backgroundImage = FAImage.imgExerciseDumbbell
     ..weight = 'Lose'
     ..description =
-        'There are many variations of passages of Lorem \nIpsum available, but the majority have suffered \nalteration in some form, by injected humour.'
+        'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.'
     ..weeks = 3
     ..exerciseNumber = 20,
   AddExerciseModel()

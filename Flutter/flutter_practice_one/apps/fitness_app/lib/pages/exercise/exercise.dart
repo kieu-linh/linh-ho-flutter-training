@@ -1,11 +1,10 @@
 import 'package:fitness_ui/components/card_container.dart';
-import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/data/models/add_exercise_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/pages/home/home.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class ExercisePage extends StatefulWidget {
@@ -24,24 +23,10 @@ class _ExercisePageState extends State<ExercisePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20)
                 .copyWith(top: MediaQuery.of(context).padding.top + 5),
-            child: Row(
-              children: [
-                InkWell(
-                  child: Padding(
-                    padding: const EdgeInsets.all(3),
-                    child: SvgPicture.asset(FAIcons.iconBack),
-                  ),
-                ),
-                const Spacer(),
-                Text(
-                  context.l10n.exercise.toUpperCase(),
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: context.colorScheme.tertiaryContainer,
-                  ),
-                ),
-                const Spacer(),
-              ],
-            ),
+            child: FATopNavigation(
+              onPressLeft: () => GoRouter.of(context).go('/homeScreen'),
+              title: context.l10n.fullExercise,
+            ),  
           ),
           const SizedBox(height: 22),
           SingleChildScrollView(

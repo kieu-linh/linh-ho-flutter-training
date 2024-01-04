@@ -1,13 +1,16 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/card_container.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/data/models/add_exercise_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/pages/home/home.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ExerciseDetailPage extends StatefulWidget {
   const ExerciseDetailPage({
@@ -62,65 +65,76 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.exercise.title ?? '',
-                            style: context.textTheme.displaySmall
-                                ?.copyWith(color: context.colorScheme.tertiary),
-                          ),
-                          const SizedBox(height: 9),
-                          Text(
-                            widget.exercise.description ?? '',
-                            style: context.textTheme.titleSmall
-                                ?.copyWith(fontSize: 12),
-                          ),
-                        ],
-                      ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 34),
-                        child: Row(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              context.l10n.exerciseDetail(
-                                widget.exercise.weeks ?? 0,
-                                widget.exercise.exerciseNumber ?? 0,
-                              ),
-                              style: context.textTheme.bodyLarge,
+                              widget.exercise.title ?? '',
+                              style: context.textTheme.displaySmall?.copyWith(
+                                  color: context.colorScheme.tertiary),
                             ),
-                            const Spacer(),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 22,
-                                vertical: 12,
-                              ),
-                              height: 38,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: context.colorScheme.tertiary,
-                              ),
-                              child: Text(
-                                context.l10n.schedule,
-                                style: context.textTheme.bodyLarge?.copyWith(
-                                  fontSize: 12,
-                                  color: context.colorScheme.secondary,
-                                ),
-                              ),
+                            const SizedBox(height: 9),
+                            Text(
+                              widget.exercise.description ?? '',
+                              style: context.textTheme.titleSmall
+                                  ?.copyWith(fontSize: 12),
                             ),
                           ],
                         ),
                       ),
-                      Text(
-                        context.l10n.exerciseProgram,
-                        style: context.textTheme.labelSmall
-                            ?.copyWith(fontSize: 16),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20)
+                            .copyWith(top: 34, bottom: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  context.l10n.exerciseDetail(
+                                    widget.exercise.weeks ?? 0,
+                                    widget.exercise.exerciseNumber ?? 0,
+                                  ),
+                                  style: context.textTheme.bodyLarge,
+                                ),
+                                const Spacer(),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 22,
+                                    vertical: 12,
+                                  ),
+                                  height: 38,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: context.colorScheme.tertiary,
+                                  ),
+                                  child: Text(
+                                    context.l10n.schedule,
+                                    style:
+                                        context.textTheme.bodyLarge?.copyWith(
+                                      fontSize: 12,
+                                      color: context.colorScheme.secondary,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 32),
+                            Text(
+                              context.l10n.exerciseProgram,
+                              style: context.textTheme.labelSmall
+                                  ?.copyWith(fontSize: 16),
+                            ),
+                          ],
+                        ),
                       ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20)
-                              .copyWith(top: 20, bottom: 35),
+                              .copyWith(bottom: 35),
                           child: Row(
                             children: List.generate(listCategoryExercise.length,
                                 (index) {
@@ -162,10 +176,26 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         ),
                         itemCount: listAddExercise.length,
                       ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20)
+                            .copyWith(top: 35, bottom: 20),
+                        child: FAButton(
+                          text: context.l10n.startNow,
+                          onPressed: () {},
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
+            ),
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 20,
+              left: 24,
+              right: 24,
+              child: FATopNavigation(
+                onPressLeft: () => GoRouter.of(context).go('/exerciseScreen'),
+              ),
             ),
             Positioned(
               top: 349,
@@ -240,6 +270,7 @@ class ItemContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      //ko có padding lun
       children: [
         Text(
           title ?? '',

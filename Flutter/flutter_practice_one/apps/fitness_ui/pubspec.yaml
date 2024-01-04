@@ -7,6 +7,9 @@ environment:
   sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
+  flutter_practice_one:
+    path: ../fitness_app
+
   flutter:
     sdk: flutter
 
