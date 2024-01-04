@@ -17,11 +17,10 @@ class FAZoomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ZoomDrawer(
       disableDragGesture: true,
-      //menuScreenTapClose: true,
       mainScreenTapClose: true,
       controller: controller,
-      menuScreenWidth: MediaQuery.of(context).size.width * 0.6,
-      slideWidth: MediaQuery.of(context).size.width * 0.65,
+      menuScreenWidth: MediaQuery.sizeOf(context).width * 0.6,
+      slideWidth: MediaQuery.sizeOf(context).width * 0.65,
       menuScreen: menuScreen,
       mainScreen: screen,
       mainScreenScale: 0.1,
@@ -31,5 +30,3 @@ class FAZoomDrawer extends StatelessWidget {
     );
   }
 }
-
-

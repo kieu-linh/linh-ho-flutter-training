@@ -81,7 +81,7 @@ class _ControllerPageState extends State<ControllerPage> {
                 changePage(index);
               },
               child: SizedBox(
-                width: MediaQuery.of(context).size.width / 4,
+                width: MediaQuery.sizeOf(context).width / 4,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [

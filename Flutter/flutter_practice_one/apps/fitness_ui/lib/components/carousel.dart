@@ -25,7 +25,7 @@ class FACarousel extends StatelessWidget {
         GestureDetector(
           onTap: onPressedSkip,
           child: Text(
-            context.l10n.skipPage,
+            context.l10n.skipPage.toUpperCase(),
             style: AppTextStyles.textBottom,
           ),
         ),

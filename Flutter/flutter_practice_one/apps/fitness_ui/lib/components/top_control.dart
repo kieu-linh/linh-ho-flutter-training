@@ -17,12 +17,17 @@ class FATopControl extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 18),
+      padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 18),
       child: Row(
         children: [
-          GestureDetector(
+          InkWell(
             onTap: onPressed,
-            child: SvgPicture.asset(FAIcons.iconBack),
+            child: Padding(
+              padding: const EdgeInsets.all(3),
+              child: SvgPicture.asset(
+                FAIcons.iconBack,
+              ),
+            ),
           ),
           const Spacer(),
           if (text != null)

@@ -21,7 +21,7 @@ class _CategoryPageState extends State<CategoryPage> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18).copyWith(
-              top: MediaQuery.of(context).padding.top + 20,
+              top: MediaQuery.paddingOf(context).top + 20,
               bottom: 22,
             ),
             child: FATopNavigation(

@@ -22,11 +22,11 @@ class _ExercisePageState extends State<ExercisePage> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20)
-                .copyWith(top: MediaQuery.of(context).padding.top + 5),
+                .copyWith(top: MediaQuery.paddingOf(context).top + 5),
             child: FATopNavigation(
               onPressLeft: () => GoRouter.of(context).go('/homeScreen'),
               title: context.l10n.fullExercise,
-            ),  
+            ),
           ),
           const SizedBox(height: 22),
           SingleChildScrollView(

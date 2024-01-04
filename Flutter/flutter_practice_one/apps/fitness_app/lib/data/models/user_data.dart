@@ -5,8 +5,8 @@ class UserModel {
 
   String? image;
   String? name;
-  double? weight;
-  double? height;
+  int? weight;
+  int? height;
   int? age;
 }
 

@@ -34,7 +34,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               children: [
                 Image.asset(
                   widget.exercise.backgroundImage ?? '',
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery.sizeOf(context).width,
                   height: 379,
                   fit: BoxFit.cover,
                 ),
@@ -73,7 +73,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                             Text(
                               widget.exercise.title ?? '',
                               style: context.textTheme.displaySmall?.copyWith(
-                                  color: context.colorScheme.tertiary),
+                                color: context.colorScheme.tertiary,
+                              ),
                             ),
                             const SizedBox(height: 9),
                             Text(
@@ -121,7 +122,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 32),
+                            const SizedBox(height: 32),
                             Text(
                               context.l10n.exerciseProgram,
                               style: context.textTheme.labelSmall
@@ -190,7 +191,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               ],
             ),
             Positioned(
-              top: MediaQuery.of(context).padding.top + 20,
+              top: MediaQuery.paddingOf(context).top + 20,
               left: 24,
               right: 24,
               child: FATopNavigation(
@@ -209,7 +210,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                 ),
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

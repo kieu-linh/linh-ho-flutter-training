@@ -84,7 +84,7 @@ Before you continue, ensure you meet the following requirements:
     ```
 4. Run project
    ```
-   melos run run:fitness_app
+   flutter run --flavor development --target lib/main.dart
    ```
 ​
 

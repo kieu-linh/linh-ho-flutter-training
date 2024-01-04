@@ -33,7 +33,7 @@ class _LevelPageState extends State<LevelPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FATopControl(
-                  onPressed: () {},
+                  onPressed: () => GoRouter.of(context).go('/heightScreen'),
                   text: context.l10n.skipPage,
                 ),
                 const SizedBox(height: 9),

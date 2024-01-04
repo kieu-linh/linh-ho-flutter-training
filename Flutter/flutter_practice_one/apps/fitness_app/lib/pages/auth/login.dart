@@ -3,6 +3,8 @@
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
+import 'package:flutter/gestures.dart';
+//import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/utils/validator.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
@@ -24,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool checkIcon = false;
+  bool isLoading = false;
 
   @override
   void dispose() {
@@ -32,13 +35,22 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  Future<void> _submitLogin() async {
+    if (formKey.currentState!.validate() == false) return;
+    setState(() => isLoading = true);
+    await Future.delayed(const Duration(milliseconds: 1200));
+    setState(() => isLoading = false);
+    //const FASnackBar.success(message: 'Login success!');
+    GoRouter.of(context).go('/favoriteScreen');
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding:  const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Form(
               key: formKey,
@@ -69,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                         check: checkIcon,
                       );
                     },
+                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(height: 14),
                   FAInput(
@@ -77,6 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                     icon: FAIcons.iconEye,
                     obscureText: true,
                     validator: FAValidator.validatorPassword,
+                    textInputAction: TextInputAction.done,
                   ),
                   const SizedBox(height: 17),
                   Row(
@@ -91,11 +105,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 34),
                   FAButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate() == false) return;
-                      GoRouter.of(context).go('/favoriteScreen');
-                    },
+                    onPressed: _submitLogin,
                     text: context.l10n.btnLoginIn,
+                    isDisable: isLoading,
                   ),
                   const SizedBox(height: 24),
                   Row(
@@ -137,8 +149,12 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               TextSpan(
-                                text: context.l10n.bntSignIn,
+                                text: context.l10n.btnRegister,
                                 style: context.textTheme.labelSmall,
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    // Go to Register page
+                                  },
                               ),
                             ],
                           ),

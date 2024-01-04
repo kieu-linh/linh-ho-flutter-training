@@ -27,7 +27,9 @@ class _DrawerPageState extends State<DrawerPage> {
       children: [
         Padding(
           padding: EdgeInsets.only(
-              left: 20, top: MediaQuery.of(context).padding.top + 5),
+            left: 20,
+            top: MediaQuery.paddingOf(context).top + 5,
+          ),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +78,9 @@ class _DrawerPageState extends State<DrawerPage> {
                 Column(
                   children: [
                     FASideMenu(
-                        icon: FAIcons.iconPlan, title: context.l10n.plan),
+                      icon: FAIcons.iconPlan,
+                      title: context.l10n.plan,
+                    ),
                     FASideMenu(
                       icon: FAIcons.iconTrain,
                       title: context.l10n.training,
