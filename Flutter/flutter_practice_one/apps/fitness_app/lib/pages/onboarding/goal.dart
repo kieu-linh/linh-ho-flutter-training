@@ -42,6 +42,7 @@ class _GoalPageState extends State<GoalPage> {
                 FATopControl(
                   onPressed: () => GoRouter.of(context).go('/levelScreen'),
                   text: context.l10n.skipPage,
+                  onTap: () => GoRouter.of(context).go('/getStartScreen'),
                 ),
                 const SizedBox(height: 9),
                 TopOnBoarding(

@@ -29,6 +29,7 @@ class _WeightPageState extends State<WeightPage> {
                 FATopControl(
                   onPressed: () => GoRouter.of(context).go('/ageScreen'),
                   text: context.l10n.skipPage,
+                  onTap: () => GoRouter.of(context).go('/getStartScreen'),
                 ),
                 const SizedBox(height: 9),
                 TopOnBoarding(title: context.l10n.weight, currentStep: 3),

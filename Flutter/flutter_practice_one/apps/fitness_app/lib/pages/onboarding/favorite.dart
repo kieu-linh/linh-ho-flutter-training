@@ -22,6 +22,7 @@ class FavoritePage extends StatelessWidget {
             FATopControl(
               onPressed: () {},
               text: context.l10n.skipPage,
+              onTap: () => GoRouter.of(context).go('/getStartScreen'),
             ),
             const SizedBox(height: 9),
             TopOnBoarding(
