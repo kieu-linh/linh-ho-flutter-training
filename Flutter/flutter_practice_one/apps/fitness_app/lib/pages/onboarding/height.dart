@@ -31,7 +31,7 @@ class _HeightPageState extends State<HeightPage> {
                   text: context.l10n.skipPage,
                 ),
                 const SizedBox(height: 9),
-                TopOnBoarding(title: context.l10n.height, currentStep: 5),
+                TopOnBoarding(title: context.l10n.heightTitle, currentStep: 5),
                 const SizedBox(height: 20),
                 FAInputBodyMeasurement(
                   textLeft: context.l10n.feet,

@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_final_locals
-import 'dart:async';
 
 import 'package:fitness_ui/components/image_filter.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,21 +16,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    Timer(const Duration(milliseconds: 2600), () {
-      SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(
-          statusBarBrightness: Brightness.light,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-      );
-      GoRouter.of(context).go('/welcomeScreen');
-    });
-
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 const SizedBox(height: 42),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => GoRouter.of(context).go('/welcomeScreen'),
                   child: Container(
                     width: 180,
                     height: 56,

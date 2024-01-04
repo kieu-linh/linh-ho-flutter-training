@@ -29,7 +29,6 @@ class FAInput extends StatefulWidget {
   final String? icon;
   final TextInputAction? textInputAction;
   final bool obscureText;
-  
 
   @override
   State<FAInput> createState() => _FAInputState();

@@ -1,3 +1,4 @@
+import 'package:fitness_ui/components/loading_indicator.dart';
 import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class FAButton extends StatelessWidget {
     this.border,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.iconColor,
+    this.isDisable = false,
+    this.textColor = AppColor.secondary,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonMedium;
 
@@ -35,6 +38,8 @@ class FAButton extends StatelessWidget {
     Border? border,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.iconColor,
+    this.isDisable = false,
+    this.textColor = AppColor.error,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonSmall,
         border = border ??
@@ -55,6 +60,8 @@ class FAButton extends StatelessWidget {
     this.border,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.iconColor,
+    this.isDisable = false,
+    this.textColor = AppColor.error,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ??
             AppTextStyles.textButtonSmall.copyWith(
@@ -73,6 +80,8 @@ class FAButton extends StatelessWidget {
   final EdgeInsets padding;
   final MainAxisAlignment mainAxisAlignment;
   final Color? iconColor;
+  final bool isDisable;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +110,10 @@ class FAButton extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
-            Text(
-              text,
-              style: textStyle,
-            ),
+            if (isDisable == false)
+              Text(text, style: textStyle)
+            else
+              FALoadingIndicator(height: height, textColor: textColor),
             if (icon != null) const SizedBox(width: 22),
           ],
         ),
