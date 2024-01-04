@@ -35,6 +35,7 @@ class _LevelPageState extends State<LevelPage> {
                 FATopControl(
                   onPressed: () => GoRouter.of(context).go('/heightScreen'),
                   text: context.l10n.skipPage,
+                  onTap: () => GoRouter.of(context).go('/getStartScreen'),
                 ),
                 const SizedBox(height: 9),
                 TopOnBoarding(title: context.l10n.level, currentStep: 6),

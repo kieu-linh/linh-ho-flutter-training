@@ -24,6 +24,7 @@ class WeightGoalPage extends StatelessWidget {
                 FATopControl(
                   text: context.l10n.skipPage,
                   onPressed: () => GoRouter.of(context).go('/weightScreen'),
+                  onTap: () => GoRouter.of(context).go('/getStartScreen'),
                 ),
                 const SizedBox(height: 9),
                 TopOnBoarding(title: context.l10n.goalWeight, currentStep: 4),

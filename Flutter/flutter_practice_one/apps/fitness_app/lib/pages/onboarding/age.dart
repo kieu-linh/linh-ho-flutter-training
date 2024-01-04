@@ -27,6 +27,8 @@ class _AgePageState extends State<AgePage> {
             FATopControl(
               onPressed: () => GoRouter.of(context).go('/favoriteScreen'),
               text: context.l10n.skipPage,
+              onTap: () => GoRouter.of(context).go('/getStartScreen'),
+
             ),
             const SizedBox(height: 9),
             TopOnBoarding(currentStep: 2, title: context.l10n.yourOld),

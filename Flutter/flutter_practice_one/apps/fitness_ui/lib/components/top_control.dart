@@ -31,7 +31,7 @@ class FATopControl extends StatelessWidget {
           ),
           const Spacer(),
           if (text != null)
-            GestureDetector(
+            InkWell(
               onTap: onTap,
               child: Text(
                 text!,
