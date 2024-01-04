@@ -121,5 +121,8 @@
                 "type": "int"
             }
         }
-    }
+    },
+    "startNow" : "Start Now",
+    "fullExercise" : "Full Exercise"
+
 } 

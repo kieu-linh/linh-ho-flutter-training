@@ -1,5 +1,5 @@
-import 'package:fitness_ui/data/models/add_exercise_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_practice_one/pages/auth/login.dart';
 import 'package:flutter_practice_one/pages/category/category.dart';
 import 'package:flutter_practice_one/pages/controller/controller_page.dart';

@@ -1,7 +1,7 @@
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/data/models/add_exercise_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FACardContainer extends StatelessWidget {

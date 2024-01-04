@@ -1,12 +1,13 @@
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/data/models/category_data.dart';
-import 'package:fitness_ui/data/models/macronutrient_goal_data.dart';
-import 'package:fitness_ui/data/models/user_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/data/models/category_data.dart';
+import 'package:flutter_practice_one/data/models/macronutrient_goal_data.dart';
+import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
@@ -29,24 +30,11 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
-                  InkWell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(3),
-                      child: SvgPicture.asset(FAIcons.iconBack),
-                    ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    context.l10n.profile.toUpperCase(),
-                    style: context.textTheme.bodyMedium?.copyWith(
-                      color: context.colorScheme.tertiaryContainer,
-                    ),
-                  ),
-                  const Spacer(),
-                  SvgPicture.asset(FAIcons.iconEdit),
-                ],
+              child: FATopNavigation(
+                onPressLeft: () => GoRouter.of(context).go('/homeScreen'),
+                title: context.l10n.profile,
+                onPressRight: () {},
+                icon: FAIcons.iconEdit,
               ),
             ),
             Padding(
@@ -188,7 +176,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 );
               }),
-            )
+            ),
           ],
         ),
       ),
