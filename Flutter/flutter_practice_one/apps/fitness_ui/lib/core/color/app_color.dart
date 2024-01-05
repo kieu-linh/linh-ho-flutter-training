@@ -26,6 +26,8 @@ class AppColor {
 
   static const outlineButton = Color(0XFF707070);
 
+  static const bottomNavigationColor = Color(0xFF9CA3A7);
+
   static const containerFirst = Color(0xFFF6A010);
 
   static const containerSecond = Color(0xFFFABC06);

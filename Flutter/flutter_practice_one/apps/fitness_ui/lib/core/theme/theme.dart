@@ -14,13 +14,4 @@ class FAppTheme {
     colorScheme: AppTheme.colorSchemeLight,
     textTheme: AppTheme.textTheme,
   );
-
-  static ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
-    fontFamily: 'Montserrat-Regular',
-    primaryColor: AppColor.primary,
-    scaffoldBackgroundColor: AppColor.tertiary,
-    colorScheme: AppTheme.colorSchemeDark,
-    textTheme: AppTheme.textTheme,
-  );
 }

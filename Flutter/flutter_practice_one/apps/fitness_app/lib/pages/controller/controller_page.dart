@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,7 @@ class _ControllerPageState extends State<ControllerPage> {
                       // ignore: deprecated_member_use
                       color: currentIndex == index
                           ? context.colorScheme.tertiary
-                          : Color(0xFF9CA3A7),
+                          : AppColor.bottomNavigationColor,
                     ),
                     const SizedBox(height: 10),
                     Text(
@@ -99,7 +100,7 @@ class _ControllerPageState extends State<ControllerPage> {
                         fontSize: 12,
                         color: currentIndex == index
                             ? context.colorScheme.tertiary
-                            : Color(0xFF9CA3A7),
+                            : AppColor.bottomNavigationColor,
                       ),
                     ),
                   ],
