@@ -18,6 +18,7 @@ class AppTheme {
       onSurfaceVariant: AppColor.surfaceContainer,
       outline: AppColor.outlineColor,
       outlineVariant: AppColor.outlineButton,
+      onSecondaryContainer: AppColor.bottomNavigationColor,
       error: AppColor.error,
       onError: AppColor.onError,
       inverseSurface: AppColor.iconHeart,
@@ -30,29 +31,6 @@ class AppTheme {
     );
   }
 
-  static ColorScheme get colorSchemeDark {
-    return const ColorScheme.dark(
-      primary: AppColor.primary,
-      secondary: AppColor.secondary,
-      onSecondary: AppColor.onSecondary,
-      tertiary: AppColor.tertiary,
-      tertiaryContainer: AppColor.tertiaryContainer,
-      onTertiary: AppColor.transparent,
-      surface: AppColor.onSurface,
-      onSurface: AppColor.onSurfaceVariant,
-      onSurfaceVariant: AppColor.surfaceContainer,
-      outline: AppColor.outlineColor,
-      outlineVariant: AppColor.outlineButton,
-      error: AppColor.error,
-      onError: AppColor.onError,
-      inverseSurface: AppColor.iconHeart,
-      onInverseSurface: AppColor.containerThird,
-      inversePrimary: AppColor.containerSecond,
-      surfaceTint: AppColor.containerFirst,
-      background: AppColor.buttonFaceColor,
-      onBackground: AppColor.iconColor,
-    );
-  }
 
   /// Define the text theme for the app
   static final TextTheme textTheme = TextTheme(

@@ -1,3 +1,7 @@
 {
-    "dart.flutterSdkPath": "C:\\Users\\ADMIN\\.puro\\envs\\my_env\\flutter"
+    "dart.flutterSdkPath": "C:\\Users\\ADMIN\\.puro\\envs\\my_env\\flutter",
+    "cSpell.words": [
+        "screenutil",
+        "Widgetbook"
+    ]
 }

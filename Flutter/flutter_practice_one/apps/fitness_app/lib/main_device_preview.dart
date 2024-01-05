@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // ignore: avoid_redundant_argument_values
       themeMode: ThemeMode.light,
-      darkTheme: FAppTheme.darkTheme,
+      darkTheme: ThemeData.dark(),
       theme: FAppTheme.lightTheme,
       localizationsDelegates: const [
         AppLocalizations.delegate,

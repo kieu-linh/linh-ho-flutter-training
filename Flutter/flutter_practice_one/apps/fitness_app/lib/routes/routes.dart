@@ -33,6 +33,7 @@ class FARouter {
       GlobalKey<NavigatorState>(debugLabel: 'shellExercise');
   static final _shellNavigatorProfile =
       GlobalKey<NavigatorState>(debugLabel: 'shellProfile');
+
   //static final _navigatorKey = GlobalKey<NavigatorState>();
 
   static final GoRouter appRouter = GoRouter(
@@ -153,7 +154,7 @@ class FARouter {
                 routes: [
                   /// Exercise Detail Page
                   GoRoute(
-                    //parentNavigatorKey: _navigatorKey,
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: AppRoutes.exerciseDetailScreen.path,
                     name: AppRoutes.exerciseDetailScreen.name,
                     builder: (context, state) {
