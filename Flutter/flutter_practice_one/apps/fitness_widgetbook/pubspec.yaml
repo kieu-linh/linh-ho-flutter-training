@@ -39,3 +39,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  plugin:
+    platforms:
+      android:
+        package: com.mastertipsy.flutter_localization
+        pluginClass: FlutterLocalizationPlugin
+      ios:
+        pluginClass: FlutterLocalizationPlugin

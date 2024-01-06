@@ -2,9 +2,9 @@ import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/user_data.dart';
+import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
