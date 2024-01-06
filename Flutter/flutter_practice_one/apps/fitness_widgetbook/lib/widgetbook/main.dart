@@ -2,7 +2,7 @@
 import 'package:fitness_widgetbook/widgetbook/main.directories.g.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/card.dart';
-//import 'package:fitness_ui/components/app_bar.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -48,6 +48,7 @@ class FAWidgetBook extends StatelessWidget {
           localizationsDelegates: [
             DefaultWidgetsLocalizations.delegate,
             DefaultMaterialLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
           ],
         ),
         DeviceFrameAddon(
