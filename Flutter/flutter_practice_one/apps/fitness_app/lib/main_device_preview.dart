@@ -1,8 +1,9 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_practice_one/core/theme/theme.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
+import 'package:flutter_practice_one/l10n/l10n_generated/l10n.dart';
 import 'package:flutter_practice_one/routes/routes.dart';
 
 void main() {
@@ -27,15 +28,18 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
       theme: FAppTheme.lightTheme,
       localizationsDelegates: const [
-        AppLocalizations.delegate,
+        FAUiS.delegate,
+        S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en'), // English
-        Locale('es'), // Spanish
+      supportedLocales: [
+        ...S.delegate.supportedLocales,
+        ...FAUiS.delegate.supportedLocales,
+        const Locale('en', ''),
       ],
+
       //home: const WelcomePage(),
       //routeInformationProvider: FARouter.appRouter.routeInformationProvider,
       //routeInformationParser: FARouter.appRouter.routeInformationParser,

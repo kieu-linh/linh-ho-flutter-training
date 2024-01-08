@@ -1,10 +1,11 @@
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/rich_text.dart';
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class GetStartPage extends StatelessWidget {
@@ -12,6 +13,8 @@ class GetStartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -24,13 +27,10 @@ class GetStartPage extends StatelessWidget {
                   onPressed: () => GoRouter.of(context).go('/goalScreen'),
                 ),
                 const Spacer(),
-                Text(
-                  context.l10n.start,
-                  style: context.textTheme.headlineLarge,
-                ),
+                FAText.displayLarge(context, text: s.start),
                 const SizedBox(height: 8),
                 Text(
-                  context.l10n.textStart,
+                  s.textStart,
                   textAlign: TextAlign.center,
                   style: context.textTheme.titleSmall,
                 ),
@@ -38,9 +38,9 @@ class GetStartPage extends StatelessWidget {
                 Image.asset(FAImage.imgStart),
                 const SizedBox(height: 22),
                 FARichText(
-                  fistText: context.l10n.textFirstStart,
-                  secondText: context.l10n.textSecondStart,
-                  thirdText: context.l10n.textThirdStart,
+                  fistText: s.textFirstStart,
+                  secondText: s.textSecondStart,
+                  thirdText: s.textThirdStart,
                   textStyleFirst: context.textTheme.displayMedium,
                   textStyleSecond: context.textTheme.displayMedium
                       ?.copyWith(color: context.colorScheme.primary),
@@ -54,7 +54,7 @@ class GetStartPage extends StatelessWidget {
             right: 20,
             bottom: 20,
             child: FAButton(
-              text: context.l10n.getStarted,
+              text: s.getStarted,
               onPressed: () => GoRouter.of(context).goNamed('homeScreen'),
               //context.goNamed('homeScreen'),
             ),

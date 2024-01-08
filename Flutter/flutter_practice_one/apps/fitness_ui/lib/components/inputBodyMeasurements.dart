@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';

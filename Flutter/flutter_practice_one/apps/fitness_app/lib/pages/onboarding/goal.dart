@@ -4,8 +4,8 @@ import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class GoalPage extends StatefulWidget {
@@ -20,10 +20,12 @@ class _GoalPageState extends State<GoalPage> {
 
   @override
   Widget build(BuildContext context) {
+        final s = FAUiS.of(context);
+
     final listText = [
-      context.l10n.weightLoss,
-      context.l10n.gainMuscle,
-      context.l10n.improveFitness,
+      s.weightLoss,
+      s.gainMuscle,
+      s.improveFitness,
     ];
     final listIcon = [
       FAIcons.iconWeightLoss,
@@ -41,12 +43,12 @@ class _GoalPageState extends State<GoalPage> {
               children: [
                 FATopControl(
                   onPressed: () => GoRouter.of(context).go('/levelScreen'),
-                  text: context.l10n.skipPage,
+                  text: s.skipPage,
                   onTap: () => GoRouter.of(context).go('/getStartScreen'),
                 ),
                 const SizedBox(height: 9),
                 TopOnBoarding(
-                  title: context.l10n.goal,
+                  title: s.goal,
                   currentStep: 7,
                 ),
                 const SizedBox(height: 140),
@@ -81,7 +83,7 @@ class _GoalPageState extends State<GoalPage> {
             right: 20,
             bottom: 30,
             child: FAButton(
-              text: context.l10n.finishStep,
+              text: s.finishStep,
               onPressed: () => GoRouter.of(context).go('/getStartScreen'),
             ),
           ),

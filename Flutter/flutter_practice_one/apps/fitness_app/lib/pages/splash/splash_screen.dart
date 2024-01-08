@@ -4,8 +4,8 @@ import 'package:fitness_ui/components/image_filter.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,6 +18,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -31,12 +33,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 Image.asset(FAImage.imgSplash),
                 const SizedBox(height: 42),
                 FARichText(
-                  fistText: context.l10n.firstTitleSplash,
-                  secondText: context.l10n.secondTitleSplash,
+                  fistText: s.firstTitleSplash,
+                  secondText: s.secondTitleSplash,
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  context.l10n.descriptionSplash,
+                  s.descriptionSplash,
                   textAlign: TextAlign.center,
                   style: context.textTheme.displayMedium,
                 ),
@@ -52,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     child: Center(
                       child: Text(
-                        context.l10n.btnLetStart,
+                        s.btnLetStart,
                         style: context.textTheme.displaySmall,
                       ),
                     ),

@@ -1,6 +1,7 @@
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 
 class TopOnBoarding extends StatelessWidget {
   const TopOnBoarding({
@@ -16,18 +17,17 @@ class TopOnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.l10n.stepPage(currentStep, numberOfSteps),
+          s.stepPage(currentStep, numberOfSteps),
           style: AppTextStyles.textStepPage,
         ),
         const SizedBox(height: 10),
-        Text(
-          title,
-          style: AppTextStyles.headlineLarge,
-        ),
+        FAText.displayLarge(context, text: title),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:fitness_ui/components/loading_indicator.dart';
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +112,10 @@ class FAButton extends StatelessWidget {
                 ),
               ),
             if (isDisable == false)
-              Text(text, style: textStyle)
+              FAText(
+                text: text,
+                style: textStyle,
+              )
             else
               FALoadingIndicator(height: height, textColor: textColor),
             if (icon != null) const SizedBox(width: 22),

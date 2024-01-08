@@ -5,9 +5,9 @@ import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/pages/home/home.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -24,8 +24,11 @@ class ExerciseDetailPage extends StatefulWidget {
 }
 
 class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
+  int _selectIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
@@ -47,19 +50,19 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         children: [
                           ItemContainer(
                             widget: widget,
-                            title: context.l10n.levelTitle,
+                            title: s.levelTitle,
                             text: widget.exercise.level,
                           ),
                           const SizedBox(height: 15),
                           ItemContainer(
                             widget: widget,
-                            title: context.l10n.category,
+                            title: s.category,
                             text: widget.exercise.category,
                           ),
                           const SizedBox(height: 15),
                           ItemContainer(
                             widget: widget,
-                            title: context.l10n.weight,
+                            title: s.weight,
                             text: widget.exercise.weight,
                           ),
                         ],
@@ -94,7 +97,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                             Row(
                               children: [
                                 Text(
-                                  context.l10n.exerciseDetail(
+                                  s.exerciseDetail(
                                     widget.exercise.weeks ?? 0,
                                     widget.exercise.exerciseNumber ?? 0,
                                   ),
@@ -112,7 +115,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                                     color: context.colorScheme.tertiary,
                                   ),
                                   child: Text(
-                                    context.l10n.schedule,
+                                    s.schedule,
                                     style:
                                         context.textTheme.bodyLarge?.copyWith(
                                       fontSize: 12,
@@ -124,7 +127,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                             ),
                             const SizedBox(height: 32),
                             Text(
-                              context.l10n.exerciseProgram,
+                              s.exerciseProgram,
                               style: context.textTheme.labelSmall
                                   ?.copyWith(fontSize: 16),
                             ),
@@ -139,20 +142,36 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                           child: Row(
                             children: List.generate(listCategoryExercise.length,
                                 (index) {
-                              return Container(
-                                margin: const EdgeInsets.only(right: 13),
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 12,
-                                  horizontal: 25,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: context.colorScheme.onSurfaceVariant
-                                      .withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Text(
-                                  listCategoryExercise[index],
-                                  style: context.textTheme.bodySmall,
+                              return GestureDetector(
+                                onTap: () {
+                                  _selectIndex = index;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.only(right: 13),
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                    horizontal: 25,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: _selectIndex == index
+                                        ? context.colorScheme.tertiary
+                                        : context.colorScheme.onSurfaceVariant
+                                            .withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
+                                  child: Text(
+                                    listCategoryExercise[index],
+                                    style: _selectIndex == index
+                                        ? context.textTheme.titleLarge
+                                            ?.copyWith(
+                                            fontSize: 12,
+                                            color:
+                                                context.colorScheme.secondary,
+                                          )
+                                        : context.textTheme.titleLarge
+                                            ?.copyWith(fontSize: 12),
+                                  ),
                                 ),
                               );
                             }),
@@ -181,7 +200,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 20)
                             .copyWith(top: 35, bottom: 20),
                         child: FAButton(
-                          text: context.l10n.startNow,
+                          text: s.startNow,
                           onPressed: () {},
                         ),
                       ),

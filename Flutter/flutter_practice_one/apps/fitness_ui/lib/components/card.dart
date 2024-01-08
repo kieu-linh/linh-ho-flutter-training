@@ -1,8 +1,8 @@
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 
 class FACard extends StatelessWidget {
   const FACard({
@@ -11,6 +11,8 @@ class FACard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Stack(
       children: [
         Container(
@@ -35,14 +37,17 @@ class FACard extends StatelessWidget {
           right: 10,
           child: Row(
             children: [
-              Image.asset(FAImage.imgGirlCard),
+              Image.asset(
+                FAImage.imgGirlCard,
+                package: 'fitness_ui',
+              ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 60),
                   child: Column(
                     children: [
                       Text(
-                        context.l10n.titleCard,
+                        s.titleCard,
                         style: AppTextStyles.textButtonMedium
                             .copyWith(fontSize: 19),
                       ),
@@ -59,7 +64,7 @@ class FACard extends StatelessWidget {
                             vertical: 6,
                           ),
                           child: Text(
-                            context.l10n.textButtonCard,
+                            s.textButtonCard,
                             style: AppTextStyles.textAppBar.copyWith(
                               fontSize: 12,
                               color: context.colorScheme.secondary,
@@ -68,7 +73,10 @@ class FACard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Image.asset(FAImage.imgDumbbell),
+                      Image.asset(
+                        FAImage.imgDumbbell,
+                        package: 'fitness_ui',
+                      ),
                     ],
                   ),
                 ),

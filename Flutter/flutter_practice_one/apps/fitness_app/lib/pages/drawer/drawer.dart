@@ -1,9 +1,9 @@
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/core/typography/text_style.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/user_data.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,6 +23,8 @@ class DrawerPage extends StatefulWidget {
 class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Stack(
       children: [
         Padding(
@@ -49,14 +51,13 @@ class _DrawerPageState extends State<DrawerPage> {
                       backgroundImage: AssetImage(widget.user.image ?? ''),
                     ),
                     const SizedBox(height: 7),
-                    Text(
-                      '${widget.user.name ?? ''} !',
-                      style: AppTextStyles.nameUser
-                          .copyWith(color: context.colorScheme.tertiary),
+                    FAText.headlineLarge(
+                      context,
+                      text: '${widget.user.name ?? ''} !',
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      context.l10n.basicMember,
+                      s.basicMember,
                       style: context.textTheme.titleSmall,
                     ),
                   ],
@@ -65,7 +66,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 26),
                   child: Text(
-                    context.l10n.dashboard,
+                    s.dashboard,
                     style: context.textTheme.labelMedium,
                   ),
                 ),
@@ -79,31 +80,31 @@ class _DrawerPageState extends State<DrawerPage> {
                   children: [
                     FASideMenu(
                       icon: FAIcons.iconPlan,
-                      title: context.l10n.plan,
+                      title: s.plan,
                     ),
                     FASideMenu(
                       icon: FAIcons.iconTrain,
-                      title: context.l10n.training,
+                      title: s.training,
                     ),
                     FASideMenu(
                       icon: FAIcons.iconCategory,
-                      title: context.l10n.categories,
+                      title: s.categories,
                     ),
                     FASideMenu(
                       icon: FAIcons.iconAccount,
-                      title: context.l10n.myAccount,
+                      title: s.myAccount,
                     ),
                     FASideMenu(
                       icon: FAIcons.iconFavorite,
-                      title: context.l10n.myFavorite,
+                      title: s.myFavorite,
                     ),
                     FASideMenu(
                       icon: FAIcons.iconSetting,
-                      title: context.l10n.appSetting,
+                      title: s.appSetting,
                     ),
                     FASideMenu(
                       icon: FAIcons.iconContact,
-                      title: context.l10n.contactSupport,
+                      title: s.contactSupport,
                     ),
                     const SizedBox(height: 60),
                   ],
@@ -126,7 +127,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   SvgPicture.asset(FAIcons.iconSignOut),
                   const SizedBox(width: 22),
                   Text(
-                    context.l10n.signOut,
+                    s.signOut,
                     style: context.textTheme.titleMedium,
                   ),
                 ],

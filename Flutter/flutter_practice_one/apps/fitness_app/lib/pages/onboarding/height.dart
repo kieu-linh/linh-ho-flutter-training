@@ -2,8 +2,8 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/inputBodyMeasurements.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class HeightPage extends StatefulWidget {
@@ -18,6 +18,8 @@ class _HeightPageState extends State<HeightPage> {
 
   @override
   Widget build(BuildContext context) {
+        final s = FAUiS.of(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -28,15 +30,15 @@ class _HeightPageState extends State<HeightPage> {
               children: [
                 FATopControl(
                   onPressed: () => GoRouter.of(context).go('/weightGoalScreen'),
-                  text: context.l10n.skipPage,
+                  text: s.skipPage,
                   onTap: () => GoRouter.of(context).go('/getStartScreen'),
                 ),
                 const SizedBox(height: 9),
-                TopOnBoarding(title: context.l10n.heightTitle, currentStep: 5),
+                TopOnBoarding(title: s.heightTitle, currentStep: 5),
                 const SizedBox(height: 20),
                 FAInputBodyMeasurement(
-                  textLeft: context.l10n.feet,
-                  textRight: context.l10n.cm,
+                  textLeft: s.feet,
+                  textRight: s.cm,
                   controller: weightController,
                 ),
               ],
@@ -45,9 +47,9 @@ class _HeightPageState extends State<HeightPage> {
           Positioned(
             left: 20,
             right: 20,
-            bottom: 10,
+            bottom: 30,
             child: FAButton(
-              text: context.l10n.btnNextStep,
+              text: s.btnNextStep,
               onPressed: () => GoRouter.of(context).go('/levelScreen'),
             ),
           ),

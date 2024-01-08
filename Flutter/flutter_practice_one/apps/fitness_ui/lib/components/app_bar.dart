@@ -2,9 +2,10 @@ import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/user_data.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
+//import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -20,14 +21,17 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     String getDay() {
       final time = DateTime.now();
       if (time.hour >= 6 && time.hour <= 11) {
-        return context.l10n.morning;
+        return s.morning;
+        //return s.morning;
       } else if (time.hour >= 11 && time.hour <= 17) {
-        return context.l10n.afternoon;
+        return s.afternoon;
       } else {
-        return context.l10n.evening;
+        return s.evening;
       }
     }
 
