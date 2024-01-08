@@ -2,8 +2,8 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class LevelPage extends StatefulWidget {
@@ -18,10 +18,12 @@ class _LevelPageState extends State<LevelPage> {
 
   @override
   Widget build(BuildContext context) {
+        final s = FAUiS.of(context);
+
     final listText = [
-      context.l10n.beginner,
-      context.l10n.intermediate,
-      context.l10n.advanced,
+      s.beginner,
+      s.intermediate,
+      s.advanced,
     ];
 
     return Scaffold(
@@ -34,11 +36,11 @@ class _LevelPageState extends State<LevelPage> {
               children: [
                 FATopControl(
                   onPressed: () => GoRouter.of(context).go('/heightScreen'),
-                  text: context.l10n.skipPage,
+                  text: s.skipPage,
                   onTap: () => GoRouter.of(context).go('/getStartScreen'),
                 ),
                 const SizedBox(height: 9),
-                TopOnBoarding(title: context.l10n.level, currentStep: 6),
+                TopOnBoarding(title: s.level, currentStep: 6),
                 const SizedBox(height: 140),
                 ...List.generate(3, (index) {
                   return Padding(
@@ -67,7 +69,7 @@ class _LevelPageState extends State<LevelPage> {
             right: 20,
             bottom: 30,
             child: FAButton(
-              text: context.l10n.btnNextStep,
+              text: s.btnNextStep,
               onPressed: () => GoRouter.of(context).go('/goalScreen'),
             ),
           ),

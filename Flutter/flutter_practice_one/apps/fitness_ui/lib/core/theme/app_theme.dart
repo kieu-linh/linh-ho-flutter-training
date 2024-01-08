@@ -51,6 +51,3 @@ class AppTheme {
     titleSmall: AppTextStyles.textStart,
   );
 }
-
-
-//buttonthem, textbutton, appbar, bottom navigation, input decoration

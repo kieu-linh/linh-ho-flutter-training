@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class FALoadingIndicator extends StatelessWidget {
   const FALoadingIndicator({
-    super.key,
     required this.height,
     required this.textColor,
+    super.key,
   });
 
   final double height;

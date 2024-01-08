@@ -36,16 +36,18 @@ List<AddExerciseModel> listAddExercise = [
     ..kcal = 110
     ..min = 10
     ..level = 'Beginner'
+    ..backgroundImage = FAImage.imgExerciseDumbbell
     ..backgroundColor = AppColor.containerSecond
-    ..category = listCategoryExercise[1],
+    ..category = listCategoryExercise[0],
   AddExerciseModel()
     ..image = FAImage.imgHoldJump
     ..title = 'Exercises with Holding Jumping Rope '
     ..kcal = 135
     ..min = 8
     ..level = 'Beginner'
+    ..backgroundImage = FAImage.imgExerciseDumbbell
     ..backgroundColor = AppColor.iconColor
-    ..category = listCategoryExercise[1],
+    ..category = listCategoryExercise[0],
   AddExerciseModel()
     ..image = FAImage.imgGirlDumbbell
     ..title = 'Exercises with Sitting \nDumbbells'
@@ -66,14 +68,25 @@ List<AddExerciseModel> listAddExercise = [
     ..kcal = 140
     ..min = 10
     ..level = 'Beginner'
+    ..backgroundImage = FAImage.imgExerciseDumbbell
     ..backgroundColor = AppColor.containerSecond
-    ..category = listCategoryExercise[1],
+    ..category = listCategoryExercise[0],
   AddExerciseModel()
     ..image = FAImage.imgHoldJump
     ..title = 'Exercises with Holding Jumping Rope '
     ..kcal = 135
     ..min = 8
     ..level = 'Beginner'
+    ..backgroundImage = FAImage.imgExerciseDumbbell
     ..backgroundColor = AppColor.iconColor
+    ..category = listCategoryExercise[0],
+  AddExerciseModel()
+    ..image = FAImage.imgJumpRope
+    ..title = 'Exercises with Jumping Rope'
+    ..kcal = 110
+    ..min = 10
+    ..level = 'Beginner'
+    ..backgroundImage = FAImage.imgExerciseDumbbell
+    ..backgroundColor = AppColor.containerSecond
     ..category = listCategoryExercise[1],
 ];

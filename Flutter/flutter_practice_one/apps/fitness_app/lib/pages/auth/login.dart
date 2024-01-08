@@ -3,13 +3,14 @@
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/gestures.dart';
 //import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/core/utils/validator.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_practice_one/routes/routes.dart';
 import 'package:fitness_ui/components/input.dart';
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
@@ -40,17 +41,27 @@ class _LoginPageState extends State<LoginPage> {
     setState(() => isLoading = true);
     await Future.delayed(const Duration(milliseconds: 1200));
     setState(() => isLoading = false);
-    //const FASnackBar.success(message: 'Login success!');
+    // ignore: use_build_context_synchronously
     GoRouter.of(context).go('/favoriteScreen');
+  }
+
+  void _checkValidatorEmail(String value) {
+    const pattern =
+        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
+    final regex = RegExp(pattern);
+    checkIcon = regex.hasMatch(value);
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Padding(
-          padding:  const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Form(
               key: formKey,
@@ -61,19 +72,17 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () => context.go(AppRoutes.welcomeScreen.path),
                   ),
                   const SizedBox(height: 30),
-                  Text(
-                    context.l10n.displayLarge,
-                    style: context.textTheme.headlineLarge,
-                  ),
+                  FAText.displayLarge(context, text: s.displayLarge),
                   const SizedBox(height: 11),
                   Text(
-                    context.l10n.displayMedium,
+                    s.displayMedium,
                     style: context.textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 39),
                   FAInput(
+                    onChanged: _checkValidatorEmail,
                     controller: emailController,
-                    hintText: context.l10n.hintTextEmail,
+                    hintText: s.hintTextEmail,
                     icon: checkIcon ? FAIcons.iconTick : null,
                     validator: (value) {
                       return FAValidator.validatorEmail(
@@ -86,18 +95,21 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 14),
                   FAInput(
                     controller: passwordController,
-                    hintText: context.l10n.hintTextPassword,
+                    hintText: s.hintTextPassword,
                     icon: FAIcons.iconEye,
                     obscureText: true,
                     validator: FAValidator.validatorPassword,
                     textInputAction: TextInputAction.done,
+                    onFieldSubmit: (p0) {
+                      _submitLogin();
+                    },
                   ),
                   const SizedBox(height: 17),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        context.l10n.forgotPassword,
+                        s.forgotPassword,
                         style: context.textTheme.bodyLarge,
                         textAlign: TextAlign.right,
                       ),
@@ -106,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 34),
                   FAButton(
                     onPressed: _submitLogin,
-                    text: context.l10n.btnLoginIn,
+                    text: s.btnLoginIn,
                     isDisable: isLoading,
                   ),
                   const SizedBox(height: 24),
@@ -114,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        context.l10n.btnLoginWith,
+                        s.btnLoginWith,
                         style: context.textTheme.bodySmall,
                       ),
                     ],
@@ -123,14 +135,14 @@ class _LoginPageState extends State<LoginPage> {
                   FAButton.outline(
                     onPressed: () {},
                     icon: FAIcons.iconGoogle,
-                    text: context.l10n.btnGoogle,
+                    text: s.btnGoogle,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
                   const SizedBox(height: 8),
                   FAButton.text(
                     onPressed: () {},
                     icon: FAIcons.iconFacebook,
-                    text: context.l10n.btnFacebook,
+                    text: s.btnFacebook,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
                   const SizedBox(height: 48),
@@ -143,13 +155,13 @@ class _LoginPageState extends State<LoginPage> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: context.l10n.descriptionSignIn,
+                                text: s.descriptionSignIn,
                                 style: context.textTheme.labelSmall?.copyWith(
                                   fontWeight: AppFontWeight.medium,
                                 ),
                               ),
                               TextSpan(
-                                text: context.l10n.btnRegister,
+                                text: s.btnRegister,
                                 style: context.textTheme.labelSmall,
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {

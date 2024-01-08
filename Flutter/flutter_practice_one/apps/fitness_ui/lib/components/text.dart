@@ -1,4 +1,5 @@
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
 
 class FAText extends StatelessWidget {
@@ -19,7 +20,7 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ?? context.textTheme.displayLarge,
+      style: style ?? context.textTheme.headlineLarge,
       textAlign: textAlign,
     );
   }
@@ -33,7 +34,9 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ?? context.textTheme.displayMedium,
+      style: style ??
+          context.textTheme.titleLarge
+              ?.copyWith(color: context.colorScheme.secondary),
       textAlign: textAlign,
     );
   }
@@ -47,9 +50,7 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ??
-          context.textTheme.displaySmall
-              ?.copyWith(color: context.colorScheme.tertiary),
+      style: style ?? context.textTheme.headlineSmall,
       textAlign: textAlign,
     );
   }
@@ -61,7 +62,8 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ?? context.textTheme.headlineLarge,
+      style: style ??
+          AppTextStyles.nameUser.copyWith(color: context.colorScheme.tertiary),
       textAlign: textAlign,
     );
   }
@@ -73,7 +75,7 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ?? context.textTheme.headlineMedium,
+      style: style ?? context.textTheme.labelLarge,
       textAlign: textAlign,
     );
   }

@@ -2,6 +2,7 @@
 import 'package:fitness_widgetbook/widgetbook/main.directories.g.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/card.dart';
+import 'package:fitness_ui/components/app_bar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
@@ -11,6 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:flutter_practice_one/core/theme/theme.dart';
+import 'package:flutter_practice_one/data/models/user_data.dart';
 
 void main() {
   runApp(const FAWidgetBook());
@@ -29,7 +33,7 @@ class FAWidgetBook extends StatelessWidget {
           themes: [
             WidgetbookTheme(
               name: 'Light',
-              data: ThemeData.light(),
+              data: FAppTheme.lightTheme,
             ),
             WidgetbookTheme(
               name: 'Dark',
@@ -43,9 +47,11 @@ class FAWidgetBook extends StatelessWidget {
         ),
         LocalizationAddon(
           locales: [
+            ...FAUiS.delegate.supportedLocales,
             const Locale('en', 'vn'),
           ],
           localizationsDelegates: [
+            FAUiS.delegate,
             DefaultWidgetsLocalizations.delegate,
             DefaultMaterialLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -95,6 +101,7 @@ Widget primaryButton(BuildContext context) {
           FAButton(
             onPressed: () {},
             text: 'NEXT STEPS',
+            textStyle: null,
           ),
           const SizedBox(height: 20),
           FAButton.outline(
@@ -120,9 +127,71 @@ Widget primaryButton(BuildContext context) {
 }
 
 @widgetbook.UseCase(
+  name: 'AppBar',
+  type: FAAppBar,
+)
+Scaffold appBar(BuildContext context) {
+  return Scaffold(
+    appBar: FAAppBar(
+      onPressed: () {},
+      user: user1,
+    ),
+  );
+}
+
+@widgetbook.UseCase(
   name: 'CardHome',
   type: FACard,
 )
-Center cardHome(BuildContext context) {
+Widget cardHome(BuildContext context) {
   return const Center(child: FACard());
+}
+
+@widgetbook.UseCase(
+  name: 'SurfaceThemeData',
+  type: Container,
+)
+Widget colorAppThemeData(BuildContext context) {
+  return Column(
+    children: [
+      colorContainer(
+        text: 'Primary',
+        color: context.colorScheme.primary,
+      ),
+    ],
+  );
+}
+
+class colorContainer extends StatelessWidget {
+  const colorContainer({
+    super.key,
+    required this.text,
+    required this.color,
+  });
+
+  final String text;
+  final Color color;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all()),
+            child: const SizedBox.square(dimension: 25),
+          ),
+          const SizedBox(width: 10),
+          Text(
+            text,
+            style: TextStyle(color: context.colorScheme.tertiary),
+          )
+        ],
+      ),
+    );
+  }
 }

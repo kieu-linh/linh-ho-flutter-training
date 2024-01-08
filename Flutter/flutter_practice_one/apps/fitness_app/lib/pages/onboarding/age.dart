@@ -2,8 +2,8 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class AgePage extends StatefulWidget {
@@ -18,6 +18,8 @@ class _AgePageState extends State<AgePage> {
 
   @override
   Widget build(BuildContext context) {
+        final s = FAUiS.of(context);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -26,12 +28,11 @@ class _AgePageState extends State<AgePage> {
           children: [
             FATopControl(
               onPressed: () => GoRouter.of(context).go('/favoriteScreen'),
-              text: context.l10n.skipPage,
+              text: s.skipPage,
               onTap: () => GoRouter.of(context).go('/getStartScreen'),
-
             ),
             const SizedBox(height: 9),
-            TopOnBoarding(currentStep: 2, title: context.l10n.yourOld),
+            TopOnBoarding(currentStep: 2, title: s.yourOld),
             Expanded(
               child: SizedBox(
                 height: 300,
@@ -84,7 +85,7 @@ class _AgePageState extends State<AgePage> {
             Padding(
               padding: const EdgeInsets.only(bottom: 30),
               child: FAButton(
-                text: context.l10n.btnNextStep,
+                text: s.btnNextStep,
                 onPressed: () => GoRouter.of(context).go('/weightScreen'),
               ),
             ),

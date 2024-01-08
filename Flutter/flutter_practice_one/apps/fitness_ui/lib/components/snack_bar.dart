@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 /// Popup widget that you can use by default to show some information
 class FASnackBar extends StatefulWidget {
   const FASnackBar.success({
-    super.key,
     required this.message,
     this.messagePadding = const EdgeInsets.symmetric(horizontal: 24),
     this.icon = const Icon(
@@ -26,10 +25,10 @@ class FASnackBar extends StatefulWidget {
     this.boxShadow = kDefaultBoxShadow,
     this.borderRadius = kDefaultBorderRadius,
     this.textScaleFactor = 1.0,
+    super.key,
   });
 
   const FASnackBar.error({
-    super.key,
     required this.message,
     this.messagePadding = const EdgeInsets.symmetric(horizontal: 24),
     this.icon = const Icon(
@@ -50,6 +49,7 @@ class FASnackBar extends StatefulWidget {
     this.boxShadow = kDefaultBoxShadow,
     this.borderRadius = kDefaultBorderRadius,
     this.textScaleFactor = 1.0,
+    super.key,
   });
 
   final String message;
@@ -105,6 +105,7 @@ class _FASnackBarState extends State<FASnackBar> {
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 maxLines: widget.maxLines,
+                // ignore: deprecated_member_use
                 textScaleFactor: widget.textScaleFactor,
               ),
             ),
@@ -118,7 +119,7 @@ class _FASnackBarState extends State<FASnackBar> {
 const kDefaultBoxShadow = [
   BoxShadow(
     color: Colors.black26,
-    offset: Offset(0.0, 8.0),
+    offset: Offset(0, 8),
     spreadRadius: 1,
     blurRadius: 30,
   ),

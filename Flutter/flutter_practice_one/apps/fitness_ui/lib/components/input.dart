@@ -1,5 +1,6 @@
 // ignore_for_file: inference_failure_on_function_return_type
 
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
@@ -18,6 +19,7 @@ class FAInput extends StatefulWidget {
     this.validator,
     this.onPressed,
     this.obscureText = false,
+    this.onChanged,
   });
 
   final TextEditingController? controller;
@@ -29,6 +31,7 @@ class FAInput extends StatefulWidget {
   final String? icon;
   final TextInputAction? textInputAction;
   final bool obscureText;
+  final Function(String)? onChanged;
 
   @override
   State<FAInput> createState() => _FAInputState();
@@ -43,16 +46,13 @@ class _FAInputState extends State<FAInput> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.hintText,
-          style: AppTextStyles.labelLarge,
-        ),
+        FAText.headlineMedium(context, text: widget.hintText),
         const SizedBox(height: 7),
         TextFormField(
           controller: widget.controller,
           onFieldSubmitted: widget.onFieldSubmit,
           keyboardType: widget.keyboardType,
-
+          onChanged: widget.onChanged,
           //obscureText = true => can show,hidden password
           //obscureText = false => only show text
           // ignore: avoid_bool_literals_in_conditional_expressions

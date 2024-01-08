@@ -3,6 +3,7 @@ import 'package:fitness_ui/components/card.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 import 'package:flutter_practice_one/data/models/category_data.dart';
@@ -10,7 +11,6 @@ import 'package:flutter_practice_one/data/models/exercise_data.dart';
 import 'package:flutter_practice_one/data/models/goal_data.dart';
 import 'package:flutter_practice_one/data/models/meal_data.dart';
 import 'package:flutter_practice_one/data/models/user_data.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,6 +27,8 @@ class _HomePageState extends State<HomePage> {
   TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Scaffold(
       appBar: FAAppBar(
         onPressed: widget.onTap,
@@ -39,7 +41,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             const FACard(),
             FATitleHome(
-              title: context.l10n.titleGoal,
+              title: s.titleGoal,
             ),
             const FAGoal(),
             const SizedBox(height: 28),
@@ -48,8 +50,8 @@ class _HomePageState extends State<HomePage> {
                 GoRouter.of(context).goNamed('categoryScreen');
                 //context.goNamed('categoryScreen');
               },
-              title: context.l10n.category,
-              titleSmall: context.l10n.seeAll,
+              title: s.category,
+              titleSmall: s.seeAll,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -82,8 +84,8 @@ class _HomePageState extends State<HomePage> {
             ),
             const FADivider(height: 36),
             FATitleHome(
-              title: context.l10n.descriptionPopularExercise,
-              titleSmall: context.l10n.seeAll,
+              title: s.descriptionPopularExercise,
+              titleSmall: s.seeAll,
             ),
             ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
@@ -160,8 +162,8 @@ class _HomePageState extends State<HomePage> {
             ),
             const FADivider(height: 43),
             FATitleHome(
-              title: context.l10n.mealPlans,
-              titleSmall: context.l10n.seeAll,
+              title: s.mealPlans,
+              titleSmall: s.seeAll,
             ),
             ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -174,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                     Image.asset(listMeal[index].image ?? ''),
                     const SizedBox(height: 11),
                     Text(
-                      context.l10n.saladVegetables,
+                      s.saladVegetables,
                       style:
                           context.textTheme.labelSmall?.copyWith(fontSize: 12),
                     ),
@@ -192,8 +194,8 @@ class _HomePageState extends State<HomePage> {
             ),
             const FADivider(height: 46),
             FATitleHome(
-              title: context.l10n.addExercise,
-              titleSmall: context.l10n.seeAll,
+              title: s.addExercise,
+              titleSmall: s.seeAll,
             ),
             ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 20),

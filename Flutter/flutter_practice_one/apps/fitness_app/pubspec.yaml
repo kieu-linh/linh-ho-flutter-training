@@ -16,22 +16,21 @@ dependencies:
   flutter_svg: ^2.0.9
   flutter_zoom_drawer: ^3.1.1
   go_router: ^12.1.3
+  intl: ^0.18.1
 
 dev_dependencies:
   device_preview: ^1.1.0
+  intl_utils: ^2.8.7
   provider: ^6.1.1
-
-  # This package provides lint rules for Dart and Flutter which are used at Very Good Ventures.
   very_good_analysis: ^5.1.0
 
 flutter:
   uses-material-design: true
   generate: true
 
+
   # This is folder for assets: image, icon in the app.
   assets:
-    - assets/images/2.0x/
-    - assets/images/3.0x/
     - assets/images/
     - assets/icons/
 
@@ -43,3 +42,9 @@ flutter:
     - family: Montserrat-Medium
       fonts:
         - asset: assets/fonts/Montserrat-Medium.ttf
+
+# Config i18n generation
+flutter_intl:
+  enabled: true
+  arb_dir: lib/l10n
+  output_dir: lib/l10n/l10n_generated

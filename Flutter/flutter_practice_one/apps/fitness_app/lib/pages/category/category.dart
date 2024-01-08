@@ -1,9 +1,9 @@
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/category_data.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -14,8 +14,26 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
+  List<CategoryModel> listSearchCategory = [];
+
+  @override
+  void initState() {
+    listSearchCategory = listCategory;
+    super.initState();
+  }
+
+  void _searchCategory(String value) {
+    listSearchCategory = listCategory
+        .where(
+            (e) => (e.name ?? '').toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Scaffold(
       body: Column(
         children: [
@@ -26,18 +44,22 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
             child: FATopNavigation(
               onPressLeft: () => GoRouter.of(context).go('/homeScreen'),
-              title: context.l10n.categories,
+              title: s.categories,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: FASearchBox(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: FASearchBox(
+              onChanged: (value) {
+                _searchCategory(value);
+              },
+            ),
           ),
           const SizedBox(height: 62),
           Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              itemCount: listCategory.length,
+              itemCount: listSearchCategory.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 22,
@@ -50,11 +72,11 @@ class _CategoryPageState extends State<CategoryPage> {
                     CircleAvatar(
                       radius: 56,
                       backgroundImage:
-                          AssetImage(listCategory[index].image ?? ''),
+                          AssetImage(listSearchCategory[index].image ?? ''),
                     ),
                     const SizedBox(height: 21),
                     Text(
-                      listCategory[index].name ?? '',
+                      listSearchCategory[index].name ?? '',
                       style: context.textTheme.bodyLarge,
                     ),
                   ],

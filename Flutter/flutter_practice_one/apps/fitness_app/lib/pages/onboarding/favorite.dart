@@ -2,9 +2,9 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_control.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/favorite_data.dart';
-import 'package:flutter_practice_one/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class FavoritePage extends StatelessWidget {
@@ -12,6 +12,8 @@ class FavoritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
       body: Padding(
@@ -21,13 +23,13 @@ class FavoritePage extends StatelessWidget {
           children: [
             FATopControl(
               onPressed: () {},
-              text: context.l10n.skipPage,
+              text: s.skipPage,
               onTap: () => GoRouter.of(context).go('/getStartScreen'),
             ),
             const SizedBox(height: 9),
             TopOnBoarding(
               currentStep: 1,
-              title: context.l10n.yourFavorite,
+              title: s.yourFavorite,
             ),
             Expanded(
               child: Column(
@@ -74,7 +76,7 @@ class FavoritePage extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 30),
               child: FAButton(
                 onPressed: () => GoRouter.of(context).push('/ageScreen'),
-                text: context.l10n.btnNextStep,
+                text: s.btnNextStep,
               ),
             ),
           ],

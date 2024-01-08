@@ -17,6 +17,13 @@ final directories = <_i1.WidgetbookNode>[
     name: 'components',
     children: [
       _i1.WidgetbookLeafComponent(
+        name: 'FAAppBar',
+        useCase: _i1.WidgetbookUseCase(
+          name: 'AppBar',
+          builder: _i2.appBar,
+        ),
+      ),
+      _i1.WidgetbookLeafComponent(
         name: 'FAButton',
         useCase: _i1.WidgetbookUseCase(
           name: 'Welcome Screen Button',
@@ -31,5 +38,17 @@ final directories = <_i1.WidgetbookNode>[
         ),
       ),
     ],
-  )
+  ),
+  _i1.WidgetbookFolder(
+    name: 'widgets',
+    children: [
+      _i1.WidgetbookLeafComponent(
+        name: 'Container',
+        useCase: _i1.WidgetbookUseCase(
+          name: 'SurfaceThemeData',
+          builder: _i2.colorAppThemeData,
+        ),
+      )
+    ],
+  ),
 ];
