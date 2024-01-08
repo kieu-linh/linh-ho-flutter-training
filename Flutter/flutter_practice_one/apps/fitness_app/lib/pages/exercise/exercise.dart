@@ -87,7 +87,7 @@ class _ExercisePageState extends State<ExercisePage> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 28),
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 20),

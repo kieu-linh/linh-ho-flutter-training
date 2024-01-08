@@ -158,7 +158,7 @@ class FASideMenu extends StatelessWidget {
           children: [
             SvgPicture.asset(icon ?? ''),
             const SizedBox(width: 8),
-            Text(title ?? '', style: context.textTheme.labelMedium),
+            FAText.titleLarge(context, text: title ?? ''),
           ],
         ),
         Divider(

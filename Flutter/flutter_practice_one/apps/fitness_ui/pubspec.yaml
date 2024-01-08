@@ -24,9 +24,9 @@ dependencies:
 
 
 dev_dependencies:
-  very_good_analysis: ^5.1.0
-
   intl_utils: ^2.8.7
+
+  very_good_analysis: ^5.1.0
 
 flutter:
   uses-material-design: true

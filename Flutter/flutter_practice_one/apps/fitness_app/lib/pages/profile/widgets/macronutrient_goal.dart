@@ -1,3 +1,4 @@
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -11,7 +12,7 @@ class FAMacronutrientGoal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final s = FAUiS.of(context);
+    final s = FAUiS.of(context);
 
     return Column(
       children: [
@@ -38,8 +39,9 @@ class FAMacronutrientGoal extends StatelessWidget {
                   listMacronutrientGoal[index].image ?? '',
                 ),
                 const SizedBox(height: 10),
-                Text(
-                  '${listMacronutrientGoal[index].title}',
+                FAText.bodyLarge(
+                  context,
+                  text: '${listMacronutrientGoal[index].title}',
                   style: context.textTheme.bodyLarge?.copyWith(fontSize: 12),
                 ),
                 const SizedBox(height: 3),

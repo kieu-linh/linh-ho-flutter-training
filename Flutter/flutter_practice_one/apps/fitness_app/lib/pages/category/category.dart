@@ -1,6 +1,6 @@
 import 'package:fitness_ui/components/search_box.dart';
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
-import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/category_data.dart';
@@ -25,7 +25,8 @@ class _CategoryPageState extends State<CategoryPage> {
   void _searchCategory(String value) {
     listSearchCategory = listCategory
         .where(
-            (e) => (e.name ?? '').toLowerCase().contains(value.toLowerCase()))
+          (e) => (e.name ?? '').toLowerCase().contains(value.toLowerCase()),
+        )
         .toList();
     setState(() {});
   }
@@ -75,9 +76,9 @@ class _CategoryPageState extends State<CategoryPage> {
                           AssetImage(listSearchCategory[index].image ?? ''),
                     ),
                     const SizedBox(height: 21),
-                    Text(
-                      listSearchCategory[index].name ?? '',
-                      style: context.textTheme.bodyLarge,
+                    FAText.bodyLarge(
+                      context,
+                      text: listSearchCategory[index].name ?? '',
                     ),
                   ],
                 );

@@ -29,10 +29,10 @@ class GetStartPage extends StatelessWidget {
                 const Spacer(),
                 FAText.displayLarge(context, text: s.start),
                 const SizedBox(height: 8),
-                Text(
-                  s.textStart,
+                FAText.headlineSmall(
+                  context,
+                  text: s.textStart,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.titleSmall,
                 ),
                 const SizedBox(height: 50),
                 Image.asset(FAImage.imgStart),

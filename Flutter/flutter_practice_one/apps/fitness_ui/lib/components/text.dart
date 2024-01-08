@@ -87,9 +87,7 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ??
-          context.textTheme.headlineSmall
-              ?.copyWith(color: context.colorScheme.tertiary),
+      style: style ?? context.textTheme.titleSmall,
       textAlign: textAlign,
     );
   }
@@ -101,9 +99,7 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ??
-          context.textTheme.bodyLarge
-              ?.copyWith(color: context.colorScheme.tertiary),
+      style: style ?? context.textTheme.bodyLarge,
       textAlign: textAlign,
     );
   }
@@ -117,7 +113,9 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ?? context.textTheme.bodyMedium,
+      style: style ??
+          context.textTheme.titleLarge
+              ?.copyWith(color: context.colorScheme.tertiary),
       textAlign: textAlign,
     );
   }
@@ -129,7 +127,7 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ?? context.textTheme.bodySmall,
+      style: style ?? context.textTheme.labelSmall?.copyWith(fontSize: 12),
       textAlign: textAlign,
     );
   }
@@ -143,43 +141,10 @@ class FAText extends StatelessWidget {
   }) {
     return FAText(
       text: text,
-      style: style ?? context.textTheme.titleLarge,
-      textAlign: textAlign,
-    );
-  }
-  factory FAText.labelLarge(
-    BuildContext context, {
-    required String text,
-    TextStyle? style,
-    TextAlign? textAlign,
-  }) {
-    return FAText(
-      text: text,
-      style: style ?? context.textTheme.labelLarge,
-      textAlign: textAlign,
-    );
-  }
-  factory FAText.labelMedium(
-    BuildContext context, {
-    required String text,
-    TextStyle? style,
-    TextAlign? textAlign,
-  }) {
-    return FAText(
-      text: text,
-      style: style ?? context.textTheme.labelMedium,
-      textAlign: textAlign,
-    );
-  }
-  factory FAText.labelSmall(
-    BuildContext context, {
-    required String text,
-    TextStyle? style,
-    TextAlign? textAlign,
-  }) {
-    return FAText(
-      text: text,
-      style: style ?? context.textTheme.labelSmall,
+      style: style ??
+          context.textTheme.titleSmall?.copyWith(
+            color: context.colorScheme.onSurface,
+          ),
       textAlign: textAlign,
     );
   }
