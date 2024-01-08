@@ -6,26 +6,26 @@ import 'package:flutter_practice_one/data/models/welcome_data.dart';
 
 class FACarousel extends StatelessWidget {
   const FACarousel({
-    required this.pageIndex,
-    required this.pageController,
-    required this.onPressedSkip,
-    required this.onPressedNext,
+    required this.onSkip,
+    required this.onNext,
+    this.pageIndex = 0,
+    this.pageController,
     super.key,
   });
 
-  final int pageIndex;
-  final PageController pageController;
-  final VoidCallback onPressedSkip;
-  final VoidCallback onPressedNext;
+  final int? pageIndex;
+  final PageController? pageController;
+  final VoidCallback onSkip;
+  final VoidCallback onNext;
 
   @override
   Widget build(BuildContext context) {
-        final s = FAUiS.of(context);
+    final s = FAUiS.of(context);
 
     return Row(
       children: [
         GestureDetector(
-          onTap: onPressedSkip,
+          onTap: onSkip,
           child: FAText.displaySmall(
             context,
             text: s.skipPage.toUpperCase(),
@@ -51,7 +51,7 @@ class FACarousel extends StatelessWidget {
         }),
         const Spacer(),
         GestureDetector(
-          onTap: onPressedNext,
+          onTap: onNext,
           child: FAText.displaySmall(
             context,
             text: s.nextPage,

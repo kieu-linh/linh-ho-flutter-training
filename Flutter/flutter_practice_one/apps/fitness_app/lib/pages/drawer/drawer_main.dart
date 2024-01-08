@@ -20,11 +20,11 @@ class _DrawerMainState extends State<DrawerMain> {
     return Scaffold(
       body: FAZoomDrawer(
         controller: zoomDrawerController,
-        menuScreen: DrawerPage(
+        menu: DrawerPage(
           onTap: () => zoomDrawerController.close?.call(),
           user: user1,
         ),
-        screen: HomePage(
+        child: HomePage(
           onTap: () {
             zoomDrawerController.toggle?.call();
           },

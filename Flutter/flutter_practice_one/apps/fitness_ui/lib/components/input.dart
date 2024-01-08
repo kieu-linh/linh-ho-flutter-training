@@ -9,7 +9,7 @@ import 'package:flutter_svg/svg.dart';
 
 class FAInput extends StatefulWidget {
   const FAInput({
-    required this.hintText,
+    this.hintText = '',
     this.icon,
     this.controller,
     this.textInputAction,

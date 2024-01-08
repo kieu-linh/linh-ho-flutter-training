@@ -4,30 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FATopNavigation extends StatelessWidget {
-  const FATopNavigation({
-    required this.onPressLeft,
-    this.onPressRight,
+  FATopNavigation({
     this.title,
     super.key,
-    this.icon,
-  });
+    this.trailing = const SizedBox(width: 8),
+    Widget? leading,
+    this.onLeadingPress,
+    this.onTrailingPress,
+  }) : leading = leading ?? SvgPicture.asset(FAIcons.iconBack);
 
-  final String? icon;
+  final Widget? trailing;
+  final Widget? leading;
   final String? title;
-  final VoidCallback onPressLeft;
-  final VoidCallback? onPressRight;
+  final VoidCallback? onLeadingPress;
+  final VoidCallback? onTrailingPress;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         InkWell(
-          onTap: onPressLeft,
+          onTap: onLeadingPress,
           child: Padding(
-            padding: const EdgeInsets.all(3),
-            child: SvgPicture.asset(
-              FAIcons.iconBack,
-            ),
+            padding: const EdgeInsets.all(3), child: leading,
+            //SvgPicture.asset(FAIcons.iconBack),
           ),
         ),
         const Spacer(),
@@ -39,8 +39,8 @@ class FATopNavigation extends StatelessWidget {
         ),
         const Spacer(),
         InkWell(
-          onTap: onPressRight,
-          child: SvgPicture.asset(icon ?? ''),
+          onTap: onTrailingPress, child: trailing,
+          //SvgPicture.asset(icon ?? ''),
         ),
       ],
     );

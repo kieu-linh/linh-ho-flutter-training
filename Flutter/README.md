@@ -13,13 +13,13 @@
 
 - 1 Dev
 
-***Start date :*** 25/12/2023 
+***Start date:*** 25/12/2023 
 
 
 ***Timeline:*** 2 weeks ()
 
 
-***Target :***
+***Target:***
 
 - Setup tools for check Dart, Flutter code styles (Very Good Analysis)
 - Understanding and apply Flutter Widget for building UI
@@ -86,6 +86,3 @@ Before you continue, ensure you meet the following requirements:
    ```
    flutter run --flavor development --target lib/main.dart
    ```
-​
-
-

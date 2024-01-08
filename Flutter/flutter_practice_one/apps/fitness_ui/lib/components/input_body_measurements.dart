@@ -4,8 +4,8 @@ import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
 
-class FAInputBodyMeasurement extends StatefulWidget {
-  const FAInputBodyMeasurement({
+class FABodyMeasurementInput extends StatefulWidget {
+  const FABodyMeasurementInput({
     required this.textRight,
     required this.textLeft,
     this.controller,
@@ -17,10 +17,10 @@ class FAInputBodyMeasurement extends StatefulWidget {
   final String textLeft;
 
   @override
-  State<FAInputBodyMeasurement> createState() => _FAInputBodyMeasurementState();
+  State<FABodyMeasurementInput> createState() => _FAInputBodyMeasurementState();
 }
 
-class _FAInputBodyMeasurementState extends State<FAInputBodyMeasurement> {
+class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
   int _selectIndex = 1;
   @override
   Widget build(BuildContext context) {

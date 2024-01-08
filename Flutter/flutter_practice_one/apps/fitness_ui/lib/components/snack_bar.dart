@@ -29,7 +29,7 @@ class FASnackBar extends StatefulWidget {
   });
 
   const FASnackBar.error({
-    required this.message,
+    this.message = 'Unexpected',
     this.messagePadding = const EdgeInsets.symmetric(horizontal: 24),
     this.icon = const Icon(
       Icons.error_outline,
