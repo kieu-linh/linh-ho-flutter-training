@@ -19,7 +19,7 @@ class FAUiS {
 
   static FAUiS get current {
     assert(_current != null,
-        'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.');
+        'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.',);
     return _current!;
   }
 
@@ -42,7 +42,7 @@ class FAUiS {
   static FAUiS of(BuildContext context) {
     final instance = FAUiS.maybeOf(context);
     assert(instance != null,
-        'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?');
+        'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?',);
     return instance!;
   }
 

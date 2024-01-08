@@ -7,10 +7,11 @@ import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/drawer/drawer_main.dart';
 import 'package:flutter_svg/svg.dart';
+// ignore: depend_on_referenced_packages
 import 'package:go_router/go_router.dart';
 
-class ControllerPage extends StatefulWidget {
-  const ControllerPage({
+class FABottomNavigationBar extends StatefulWidget {
+  const FABottomNavigationBar({
     required this.navigationShell,
     super.key,
   });
@@ -18,10 +19,10 @@ class ControllerPage extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
 
   @override
-  State<ControllerPage> createState() => _ControllerPageState();
+  State<FABottomNavigationBar> createState() => _FABottomNavigationBarState();
 }
 
-class _ControllerPageState extends State<ControllerPage> {
+class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
   int currentIndex = 0;
 
   void _goToBrach(int index) {

@@ -1,3 +1,4 @@
+import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
@@ -38,10 +39,7 @@ class FACardContainer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  addExercise.title ?? '',
-                  style: context.textTheme.labelSmall?.copyWith(fontSize: 12),
-                ),
+                FAText.bodySmall(context, text: addExercise.title ?? ''),
                 const SizedBox(height: 13),
                 Row(
                   children: [
