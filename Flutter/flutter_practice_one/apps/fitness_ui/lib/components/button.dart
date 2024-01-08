@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 class FAButton extends StatelessWidget {
   FAButton({
     required this.text,
-    required this.onPressed,
+    this.onPressed,
     this.height = 55,
     this.color = AppColor.primary,
     this.borderColor,
@@ -27,7 +27,7 @@ class FAButton extends StatelessWidget {
 
   FAButton.outline({
     required this.text,
-    required this.onPressed,
+    this.onPressed,
     this.height = 55,
     this.color = AppColor.onSecondary,
     this.borderColor,
@@ -49,7 +49,7 @@ class FAButton extends StatelessWidget {
   // ignore: lines_longer_than_80_chars
   FAButton.text({
     required this.text,
-    required this.onPressed,
+    this.onPressed,
     this.height = 55,
     this.color = AppColor.buttonFaceColor,
     this.borderColor,
@@ -69,7 +69,7 @@ class FAButton extends StatelessWidget {
               color: AppColor.secondary,
             );
 
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double height;
   final Color color;
   final Color? borderColor;
@@ -117,7 +117,7 @@ class FAButton extends StatelessWidget {
                 style: textStyle,
               )
             else
-              FALoadingIndicator(height: height, textColor: textColor),
+              FALoadingIndicator(textColor: textColor),
             if (icon != null) const SizedBox(width: 22),
           ],
         ),

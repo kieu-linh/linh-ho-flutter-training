@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/pages/profile/widgets/goal_item.dart';
 import 'package:flutter_practice_one/pages/profile/widgets/macronutrient_goal.dart';
 import 'package:flutter_practice_one/pages/profile/widgets/user_info.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -32,10 +33,10 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: FATopNavigation(
-                  onPressLeft: () => GoRouter.of(context).go('/homeScreen'),
+                  onLeadingPress: () => GoRouter.of(context).go('/homeScreen'),
                   title: s.profile,
-                  onPressRight: () {},
-                  icon: FAIcons.iconEdit,
+                  onTrailingPress: () {},
+                  trailing: SvgPicture.asset(FAIcons.iconEdit),
                 ),
               ),
               const Column(

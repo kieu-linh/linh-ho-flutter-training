@@ -44,7 +44,7 @@ class _CategoryPageState extends State<CategoryPage> {
               bottom: 22,
             ),
             child: FATopNavigation(
-              onPressLeft: () => GoRouter.of(context).go('/homeScreen'),
+              onLeadingPress: () => GoRouter.of(context).go('/homeScreen'),
               title: s.categories,
             ),
           ),

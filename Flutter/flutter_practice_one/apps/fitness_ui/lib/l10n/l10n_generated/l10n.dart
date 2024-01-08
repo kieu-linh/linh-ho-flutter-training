@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+// ignore: always_use_package_imports
 import 'intl/messages_all.dart';
 
 // **************************************************************************

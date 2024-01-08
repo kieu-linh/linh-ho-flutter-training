@@ -66,7 +66,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               left: 24,
               right: 24,
               child: FATopNavigation(
-                onPressLeft: () => GoRouter.of(context).go('/exerciseScreen'),
+                onLeadingPress: () => GoRouter.of(context).go('/exerciseScreen'),
               ),
             ),
             Positioned(

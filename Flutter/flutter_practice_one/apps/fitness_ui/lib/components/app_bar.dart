@@ -25,9 +25,9 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     String getDay() {
       final time = DateTime.now();
+
       if (time.hour >= 6 && time.hour <= 11) {
-        return s.morning;
-        //return s.morning;
+        return FAUiS.current.morning;
       } else if (time.hour >= 11 && time.hour <= 17) {
         return s.afternoon;
       } else {

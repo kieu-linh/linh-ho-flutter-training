@@ -12,11 +12,11 @@ import 'package:go_router/go_router.dart';
 
 class FABottomNavigationBar extends StatefulWidget {
   const FABottomNavigationBar({
-    required this.navigationShell,
+    this.navigationShell,
     super.key,
   });
 
-  final StatefulNavigationShell navigationShell;
+  final StatefulNavigationShell? navigationShell;
 
   @override
   State<FABottomNavigationBar> createState() => _FABottomNavigationBarState();
@@ -24,11 +24,17 @@ class FABottomNavigationBar extends StatefulWidget {
 
 class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
   int currentIndex = 0;
+  final titles = [
+    FAUiS.current.home,
+    FAUiS.current.mealPlans,
+    FAUiS.current.exercise,
+    FAUiS.current.profile,
+  ];
 
-  void _goToBrach(int index) {
-    widget.navigationShell.goBranch(
-      index,
-      initialLocation: index == widget.navigationShell.currentIndex,
+  void _goToBrach(int? index) {
+    widget.navigationShell?.goBranch(
+      index ?? 0,
+      initialLocation: index == widget.navigationShell?.currentIndex,
     );
   }
 
@@ -51,14 +57,6 @@ class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
-    final titles = [
-      s.home,
-      s.mealPlans,
-      s.exercise,
-      s.profile,
-    ];
     return Scaffold(
       body:
           // ignore: sized_box_shrink_expand
