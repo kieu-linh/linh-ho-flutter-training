@@ -1,7 +1,7 @@
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/components/text.dart';
-import 'package:fitness_ui/components/top_control.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -23,8 +23,8 @@ class GetStartPage extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 70),
             child: Column(
               children: [
-                FATopControl(
-                  onPressed: () => GoRouter.of(context).go('/goalScreen'),
+                FATopNavigation(
+                  onLeadingPress: () => GoRouter.of(context).go('/goalScreen'),
                 ),
                 const Spacer(),
                 FAText.displayLarge(context, text: s.start),

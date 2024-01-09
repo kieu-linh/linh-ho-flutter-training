@@ -33,6 +33,7 @@
             }
         }
     },
+    "userName": "Sophia !",
     "weightTitle": "How much do you weight?",
     "goalWeight": "What's your goal weight?",
     "heightTitle": "How much do you Height?",
@@ -59,7 +60,7 @@
     "search": "Search",
     "titleCard": "Fit Young Woman Doing Battle Stretch Training",
     "textButtonCard": "Start Exercise",
-    "titleGoal": "Select your Goal",
+    "selectGoal": "Select your Goal",
     "looseWeight": "Loose Weight",
     "gainWeight": "Gain Weight",
     "bodyBuilding": "Body Building",

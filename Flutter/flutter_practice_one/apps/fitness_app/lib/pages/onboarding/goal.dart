@@ -1,5 +1,5 @@
 import 'package:fitness_ui/components/button.dart';
-import 'package:fitness_ui/components/top_control.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -20,7 +20,7 @@ class _GoalPageState extends State<GoalPage> {
 
   @override
   Widget build(BuildContext context) {
-        final s = FAUiS.of(context);
+    final s = FAUiS.of(context);
 
     final listText = [
       s.weightLoss,
@@ -41,10 +41,15 @@ class _GoalPageState extends State<GoalPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FATopControl(
-                  onPressed: () => GoRouter.of(context).go('/levelScreen'),
-                  text: s.skipPage,
-                  onTap: () => GoRouter.of(context).go('/getStartScreen'),
+                FATopNavigation(
+                  onLeadingPress: () => GoRouter.of(context).go('/levelScreen'),
+                  trailing: TextButton(
+                    onPressed: () => GoRouter.of(context).go('/getStartScreen'),
+                    child: Text(
+                      s.skipPage,
+                      style: context.textTheme.labelSmall,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 9),
                 TopOnBoarding(

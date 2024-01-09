@@ -62,11 +62,11 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               ],
             ),
             Positioned(
-              top: MediaQuery.paddingOf(context).top + 20,
               left: 24,
               right: 24,
               child: FATopNavigation(
-                onLeadingPress: () => GoRouter.of(context).go('/exerciseScreen'),
+                onLeadingPress: () =>
+                    GoRouter.of(context).go('/exerciseScreen'),
               ),
             ),
             Positioned(

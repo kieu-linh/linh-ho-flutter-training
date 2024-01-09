@@ -1,7 +1,8 @@
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/text.dart';
-import 'package:fitness_ui/components/top_control.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/favorite_data.dart';
@@ -21,10 +22,14 @@ class FavoritePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FATopControl(
-              onPressed: () {},
-              text: s.skipPage,
-              onTap: () => GoRouter.of(context).go('/getStartScreen'),
+            FATopNavigation(
+              trailing: TextButton(
+                onPressed: () => GoRouter.of(context).go('/getStartScreen'),
+                child: Text(
+                  s.skipPage,
+                  style: context.textTheme.labelSmall,
+                ),
+              ),
             ),
             const SizedBox(height: 9),
             TopOnBoarding(

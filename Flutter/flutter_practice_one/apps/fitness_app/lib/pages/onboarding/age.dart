@@ -1,5 +1,5 @@
 import 'package:fitness_ui/components/button.dart';
-import 'package:fitness_ui/components/top_control.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -18,7 +18,7 @@ class _AgePageState extends State<AgePage> {
 
   @override
   Widget build(BuildContext context) {
-        final s = FAUiS.of(context);
+    final s = FAUiS.of(context);
 
     return Scaffold(
       body: Padding(
@@ -26,10 +26,15 @@ class _AgePageState extends State<AgePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FATopControl(
-              onPressed: () => GoRouter.of(context).go('/favoriteScreen'),
-              text: s.skipPage,
-              onTap: () => GoRouter.of(context).go('/getStartScreen'),
+            FATopNavigation(
+              trailing: TextButton(
+                onPressed: () => GoRouter.of(context).go('/getStartScreen'),
+                child: Text(
+                  s.skipPage,
+                  style: context.textTheme.labelSmall,
+                ),
+              ),
+              onLeadingPress: () => GoRouter.of(context).go('/favoriteScreen'),
             ),
             const SizedBox(height: 9),
             TopOnBoarding(currentStep: 2, title: s.yourOld),

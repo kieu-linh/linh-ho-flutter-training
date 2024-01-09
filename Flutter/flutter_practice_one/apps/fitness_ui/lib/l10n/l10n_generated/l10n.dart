@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-// ignore: always_use_package_imports
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -20,7 +19,7 @@ class FAUiS {
 
   static FAUiS get current {
     assert(_current != null,
-        'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.',);
+        'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.');
     return _current!;
   }
 
@@ -43,7 +42,7 @@ class FAUiS {
   static FAUiS of(BuildContext context) {
     final instance = FAUiS.maybeOf(context);
     assert(instance != null,
-        'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?',);
+        'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -278,6 +277,16 @@ class FAUiS {
       name: 'stepPage',
       desc: '',
       args: [currentStep, numberOfSteps],
+    );
+  }
+
+  /// `Sophia !`
+  String get userName {
+    return Intl.message(
+      'Sophia !',
+      name: 'userName',
+      desc: '',
+      args: [],
     );
   }
 
@@ -541,11 +550,11 @@ class FAUiS {
     );
   }
 
-  /// `Goal`
-  String get titleGoal {
+  /// `Select your Goal`
+  String get selectGoal {
     return Intl.message(
-      'Goal',
-      name: 'titleGoal',
+      'Select your Goal',
+      name: 'selectGoal',
       desc: '',
       args: [],
     );
@@ -946,6 +955,16 @@ class FAUiS {
     return Intl.message(
       'Age',
       name: 'age',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Goal`
+  String get titleGoal {
+    return Intl.message(
+      'Goal',
+      name: 'titleGoal',
       desc: '',
       args: [],
     );

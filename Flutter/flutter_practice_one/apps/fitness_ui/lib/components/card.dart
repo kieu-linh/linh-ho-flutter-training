@@ -37,10 +37,7 @@ class FACard extends StatelessWidget {
           right: 10,
           child: Row(
             children: [
-              Image.asset(
-                FAImage.imgGirlCard,
-                package: 'fitness_ui',
-              ),
+              Image.asset(FAImage.imgGirlCard, package: 'fitness_ui'),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 60),
@@ -73,10 +70,7 @@ class FACard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Image.asset(
-                        FAImage.imgDumbbell,
-                        package: 'fitness_ui',
-                      ),
+                      Image.asset(FAImage.imgDumbbell, package: 'fitness_ui'),
                     ],
                   ),
                 ),
