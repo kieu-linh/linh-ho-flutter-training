@@ -40,13 +40,20 @@ final directories = <_i1.WidgetbookNode>[
     ],
   ),
   _i1.WidgetbookFolder(
-    name: 'widgets',
+    name: 'Theme',
     children: [
       _i1.WidgetbookLeafComponent(
-        name: 'Container',
+        name: 'Typography',
         useCase: _i1.WidgetbookUseCase(
           name: 'SurfaceThemeData',
           builder: _i2.colorAppThemeData,
+        ),
+      ),
+      _i1.WidgetbookLeafComponent(
+        name: 'Typography',
+        useCase: _i1.WidgetbookUseCase(
+          name: 'Text',
+          builder: _i2.textHome,
         ),
       )
     ],
