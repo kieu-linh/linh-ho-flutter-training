@@ -1,11 +1,11 @@
 // ignore_for_file: inference_failure_on_function_return_type
 
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FAInput extends StatefulWidget {
   const FAInput({
@@ -98,9 +98,9 @@ class _FAInputState extends State<FAInput> {
                             setState(() {});
                           }
                         : null,
-                    child: SvgPicture.asset(
-                      showPassword ? FAIcons.iconEyeOpen : widget.icon!,
-                      // ignore: deprecated_member_use
+                    child: FAIcon(
+                      iconLink:
+                          showPassword ? FAIcons.iconEyeOpen : widget.icon!,
                       color: context.colorScheme.onSurface,
                     ),
                   ),

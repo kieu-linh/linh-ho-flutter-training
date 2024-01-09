@@ -7,14 +7,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-//import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter_practice_one/core/theme/theme.dart';
-import 'package:flutter_practice_one/data/models/user_data.dart';
 
 void main() {
   runApp(const FAWidgetBook());
@@ -134,7 +132,6 @@ Scaffold appBar(BuildContext context) {
   return Scaffold(
     appBar: FAAppBar(
       onPressed: () {},
-      user: user1,
     ),
   );
 }

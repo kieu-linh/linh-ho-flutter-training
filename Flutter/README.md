@@ -65,7 +65,7 @@ Before you continue, ensure you meet the following requirements:
 - [X] UI Side Menu Screen
 - [X] UI Profile Screen
 - [X] UI Exercise Screen
-- [] UI Exercise Details Screen
+- [X] UI Exercise Details Screen
 ## Installation
 1. Clone the repository:
 ​
@@ -84,5 +84,7 @@ Before you continue, ensure you meet the following requirements:
     ```
 4. Run project
    ```
-   flutter run --flavor development --target lib/main.dart
+   flutter run ./apps/fitness_app/lib/main.dart
+   flutter run ./apps/fitness_app/lib/main_device_preview.dart
+   flutter run ./apps/fitness_widgetbook/lib/widgetbook/main.dart
    ```

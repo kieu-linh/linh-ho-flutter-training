@@ -1,39 +1,28 @@
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/search_box.dart';
-import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/user_data.dart';
-//import 'package:flutter_practice_one/l10n/l10n.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_practice_one/core/utils/get_string_day.dart';
 
 class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
   const FAAppBar({
-    required this.user,
     super.key,
     this.controller,
     this.onPressed,
+    this.avatar,
+    this.name,
   });
   final TextEditingController? controller;
-  final UserModel user;
   final VoidCallback? onPressed;
+  final String? avatar;
+  final String? name;
 
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
-
-    String getDay() {
-      final time = DateTime.now();
-
-      if (time.hour >= 6 && time.hour <= 11) {
-        return FAUiS.current.morning;
-      } else if (time.hour >= 11 && time.hour <= 17) {
-        return s.afternoon;
-      } else {
-        return s.evening;
-      }
-    }
 
     return Stack(
       children: [
@@ -75,30 +64,27 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   GestureDetector(
                     onTap: onPressed,
-                    child: SvgPicture.asset(FAIcons.iconMenu),
+                    child: FAIcon.menu(),
                   ),
                   const SizedBox(width: 5),
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 22,
-                    backgroundImage: AssetImage(user.image ?? ''),
+                    backgroundImage: AssetImage(FAImage.imgAvatar),
                   ),
                   const Spacer(),
-                  SvgPicture.asset(FAIcons.iconNotification),
+                  FAIcon.notification(),
                 ],
               ),
               const SizedBox(height: 12),
               Text(
-                getDay(),
+                GetStringDay.getTitle(),
                 style: AppTextStyles.textSmall.copyWith(
                   color: context.colorScheme.secondary,
                   fontSize: 10,
                 ),
               ),
               const SizedBox(height: 5),
-              Text(
-                '${user.name ?? ''} !',
-                style: AppTextStyles.nameUser,
-              ),
+              Text(s.userName, style: AppTextStyles.nameUser),
               const Spacer(),
               FASearchBox(controller: controller),
             ],

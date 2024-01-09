@@ -1,8 +1,8 @@
 import 'package:fitness_ui/components/carousel.dart';
-import 'package:fitness_ui/components/image_filter.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/welcome_data.dart';
+import 'package:flutter_practice_one/pages/welcome/widget/image_filter.dart';
 import 'package:go_router/go_router.dart';
 
 class WelcomePage extends StatefulWidget {

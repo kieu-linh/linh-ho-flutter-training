@@ -1,9 +1,8 @@
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
-import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FACardContainer extends StatelessWidget {
   const FACardContainer({
@@ -43,7 +42,7 @@ class FACardContainer extends StatelessWidget {
                 const SizedBox(height: 13),
                 Row(
                   children: [
-                    SvgPicture.asset(FAIcons.iconCalories),
+                    FAIcon.calories(),
                     const SizedBox(width: 7),
                     Text(
                       '${addExercise.kcal} kcal',
@@ -58,7 +57,7 @@ class FACardContainer extends StatelessWidget {
                       height: 8,
                       color: context.colorScheme.outlineVariant,
                     ),
-                    SvgPicture.asset(FAIcons.iconClock),
+                    FAIcon.clock(),
                     const SizedBox(width: 6),
                     Text(
                       '${addExercise.min} min',

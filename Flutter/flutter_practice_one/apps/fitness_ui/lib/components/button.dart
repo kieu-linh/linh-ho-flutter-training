@@ -1,9 +1,9 @@
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/loading_indicator.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FAButton extends StatelessWidget {
   FAButton({
@@ -102,13 +102,11 @@ class FAButton extends StatelessWidget {
             if (icon != null)
               Padding(
                 padding: const EdgeInsets.only(right: 11),
-                child: SvgPicture.asset(
-                  icon!,
-                  // ignore: deprecated_member_use
+                child: FAIcon(
+                  iconLink: icon!,
                   color: iconColor,
                   width: 24,
                   height: 24,
-                  fit: BoxFit.fill,
                 ),
               ),
             if (isDisable == false)

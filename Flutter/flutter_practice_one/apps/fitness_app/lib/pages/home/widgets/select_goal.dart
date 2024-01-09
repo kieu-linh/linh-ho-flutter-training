@@ -23,7 +23,7 @@ class _FASelectGoalState extends State<FASelectGoal> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FATitleHome(title: widget.s.titleGoal),
+        FATitleHome(title: widget.s.selectGoal),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(

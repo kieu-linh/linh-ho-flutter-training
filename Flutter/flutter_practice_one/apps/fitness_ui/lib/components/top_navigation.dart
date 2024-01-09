@@ -1,7 +1,6 @@
-import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FATopNavigation extends StatelessWidget {
   FATopNavigation({
@@ -11,7 +10,7 @@ class FATopNavigation extends StatelessWidget {
     Widget? leading,
     this.onLeadingPress,
     this.onTrailingPress,
-  }) : leading = leading ?? SvgPicture.asset(FAIcons.iconBack);
+  }) : leading = leading ?? FAIcon.back();
 
   final Widget? trailing;
   final Widget? leading;
@@ -21,28 +20,31 @@ class FATopNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        InkWell(
-          onTap: onLeadingPress,
-          child: Padding(
-            padding: const EdgeInsets.all(3), child: leading,
-            //SvgPicture.asset(FAIcons.iconBack),
+    return Padding(
+      padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 10),
+      child: Row(
+        children: [
+          InkWell(
+            onTap: onLeadingPress,
+            child: Padding(
+              padding: const EdgeInsets.all(3),
+              child: leading,
+            ),
           ),
-        ),
-        const Spacer(),
-        Text(
-          title ?? '',
-          style: context.textTheme.bodyMedium?.copyWith(
-            color: context.colorScheme.tertiaryContainer,
+          const Spacer(),
+          Text(
+            title ?? '',
+            style: context.textTheme.bodyMedium?.copyWith(
+              color: context.colorScheme.tertiaryContainer,
+            ),
           ),
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: onTrailingPress, child: trailing,
-          //SvgPicture.asset(icon ?? ''),
-        ),
-      ],
+          const Spacer(),
+          InkWell(
+            onTap: onTrailingPress,
+            child: trailing,
+          ),
+        ],
+      ),
     );
   }
 }

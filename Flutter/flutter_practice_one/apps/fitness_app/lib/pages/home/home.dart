@@ -3,7 +3,6 @@ import 'package:fitness_ui/components/card.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter_practice_one/pages/home/widgets/add_exercise.dart';
 import 'package:flutter_practice_one/pages/home/widgets/category_item.dart';
 import 'package:flutter_practice_one/pages/home/widgets/meal_plan.dart';
@@ -28,7 +27,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: FAAppBar(
         onPressed: widget.onTap,
-        user: user1,
         controller: searchController,
       ),
       body: SingleChildScrollView(

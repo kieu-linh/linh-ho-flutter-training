@@ -11,9 +11,9 @@ import 'package:flutter_practice_one/core/utils/validator.dart';
 import 'package:flutter_practice_one/routes/routes.dart';
 import 'package:fitness_ui/components/input.dart';
 import 'package:fitness_ui/components/text.dart';
-import 'package:fitness_ui/components/top_control.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -68,8 +68,9 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FATopControl(
-                    onPressed: () => context.go(AppRoutes.welcomeScreen.path),
+                  FATopNavigation(
+                    onLeadingPress: () =>
+                        context.go(AppRoutes.welcomeScreen.path),
                   ),
                   const SizedBox(height: 30),
                   FAText.displayLarge(context, text: s.displayLarge),

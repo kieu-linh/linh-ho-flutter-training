@@ -38,8 +38,7 @@ class _ExercisePageState extends State<ExercisePage> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20)
-                .copyWith(top: MediaQuery.paddingOf(context).top + 5),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: FATopNavigation(
               onLeadingPress: () => GoRouter.of(context).go('/homeScreen'),
               title: s.fullExercise,

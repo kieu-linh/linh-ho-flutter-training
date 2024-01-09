@@ -1,5 +1,5 @@
 name: flutter_practice_one
-description: A Very Good Project created by Very Good CLI.
+description: "A new Flutter project."
 version: 1.0.0+1
 publish_to: none
 
@@ -9,8 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  puro: ^1.3.1
-  very_good_cli: 0.15.0
 
 dev_dependencies:
   melos: ^3.4.0
