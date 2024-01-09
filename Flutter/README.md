@@ -84,7 +84,12 @@ Before you continue, ensure you meet the following requirements:
     ```
 4. Run project
    ```
-   flutter run ./apps/fitness_app/lib/main.dart
-   flutter run ./apps/fitness_app/lib/main_device_preview.dart
-   flutter run ./apps/fitness_widgetbook/lib/widgetbook/main.dart
+    Run app:
+        flutter run ./apps/fitness_app/lib/main.dart
+   ```
+    Run Device Preview:
+        flutter run ./apps/fitness_app/lib/main_device_preview.dart
+   ```
+    Run Widgetbook:
+        flutter run ./apps/fitness_widgetbook/lib/widgetbook/main.dart
    ```
