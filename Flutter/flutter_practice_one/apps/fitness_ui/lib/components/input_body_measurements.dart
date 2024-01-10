@@ -1,5 +1,4 @@
-// ignore_for_file: file_names
-
+// ignore_for_file: file_names, inference_failure_on_function_return_type
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +9,17 @@ class FABodyMeasurementInput extends StatefulWidget {
     required this.textLeft,
     this.controller,
     super.key,
+    this.onLeftPressed,
+    this.onRightPressed,
+    this.onChange,
   });
 
   final TextEditingController? controller;
   final String textRight;
   final String textLeft;
+  final Function(String)? onChange;
+  final Function()? onLeftPressed;
+  final Function()? onRightPressed;
 
   @override
   State<FABodyMeasurementInput> createState() => _FAInputBodyMeasurementState();
@@ -38,7 +43,13 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
             children: List.generate(2, (index) {
               return GestureDetector(
                 onTap: () {
+                  if (_selectIndex == index) return;
                   _selectIndex = index;
+                  if (index == 0) {
+                    widget.onLeftPressed?.call();
+                  } else {
+                    widget.onRightPressed?.call();
+                  }
                   setState(() {});
                 },
                 child: Container(
@@ -75,6 +86,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
                 keyboardType: TextInputType.number,
                 textAlign: TextAlign.right,
                 controller: widget.controller,
+                onChanged: widget.onChange,
                 decoration: InputDecoration(
                   constraints: BoxConstraints(
                     maxWidth: size.width * 0.5 - 28,

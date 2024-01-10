@@ -5,17 +5,25 @@ import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/core/utils/change_value.dart';
 import 'package:go_router/go_router.dart';
 
-class WeightGoalPage extends StatelessWidget {
+class WeightGoalPage extends StatefulWidget {
   const WeightGoalPage({super.key});
+
+  @override
+  State<WeightGoalPage> createState() => _WeightGoalPageState();
+}
+
+class _WeightGoalPageState extends State<WeightGoalPage> {
+  TextEditingController weightController = TextEditingController();
+  double saveValue = 0;
 
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
     // ignore: omit_local_variable_types, prefer_final_locals
-    TextEditingController weightController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -39,6 +47,23 @@ class WeightGoalPage extends StatelessWidget {
                 TopOnBoarding(title: s.goalWeight, currentStep: 4),
                 const SizedBox(height: 20),
                 FABodyMeasurementInput(
+                  onLeftPressed: () {
+                    saveValue = ChangeValue.convertValue(
+                      saveValue,
+                      weightController,
+                      double.parse(FAUiS.current.kgToLbs),
+                    );
+                  },
+                  onRightPressed: () {
+                    saveValue = ChangeValue.convertValue(
+                      saveValue,
+                      weightController,
+                      double.parse(FAUiS.current.LbsToKg),
+                    );
+                  },
+                  onChange: (value) {
+                    saveValue = double.parse(value);
+                  },
                   textLeft: s.lbs,
                   textRight: s.kg,
                   controller: weightController,

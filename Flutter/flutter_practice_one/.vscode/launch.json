@@ -26,9 +26,9 @@
         "name": "Widgetbook",
         "request": "launch",
         "type": "dart",
-        "program": "apps/fitness_widgetbook/lib/widgetbook/main.dart",
+        "program": "apps/fitness_widgetbook/lib/main.dart",
         "args": [
-          "apps/fitness_widgetbook/lib/widgetbook/main.dart"
+          "apps/fitness_widgetbook/lib/main.dart"
         ]
       }
     ]

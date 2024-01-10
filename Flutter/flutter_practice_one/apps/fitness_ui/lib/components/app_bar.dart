@@ -69,7 +69,9 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                   const SizedBox(width: 5),
                   const CircleAvatar(
                     radius: 22,
-                    backgroundImage: AssetImage(FAImage.imgAvatar),
+                    backgroundImage: AssetImage(
+                      FAImage.imgAvatar,
+                    ),
                   ),
                   const Spacer(),
                   FAIcon.notification(),

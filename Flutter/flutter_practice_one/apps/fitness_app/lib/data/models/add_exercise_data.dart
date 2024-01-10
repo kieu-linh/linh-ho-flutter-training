@@ -7,7 +7,6 @@ import 'package:fitness_ui/core/constant/images.dart';
 
 class AddExerciseModel {
   AddExerciseModel();
-
   String? image;
   String? title;
   int? kcal;

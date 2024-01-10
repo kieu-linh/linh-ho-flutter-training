@@ -7,21 +7,40 @@ environment:
   sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
+
+  # This is the path to package fitness_ui
   fitness_ui:
     path: ../fitness_ui
+
   flutter:
     sdk: flutter
+
+  # Flutter Localization is a package use for in-app localization with Map data
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.9
+
+  # A Flutter package with custom implementation of the Side Menu (Drawer)
   flutter_zoom_drawer: ^3.1.1
+
+  # A package that helps with routing and navigation
   go_router: ^12.1.3
+
+  # A package that helps with localization
   intl: ^0.18.1
 
 dev_dependencies:
+
+  # A package that helps with managing multiple packages in a single repository
   device_preview: ^1.1.0
+
+  # Dart package that creates a binding between your translations
   intl_utils: ^2.8.7
+
+  
   provider: ^6.1.1
+
+  #This package provides lint rules for Dart and Flutter
   very_good_analysis: ^5.1.0
 
 flutter:

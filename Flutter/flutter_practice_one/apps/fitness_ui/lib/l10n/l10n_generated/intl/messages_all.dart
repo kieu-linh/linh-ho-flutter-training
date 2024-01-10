@@ -3,7 +3,7 @@
 // delegating to the appropriate library.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:implementation_imports, file_names, unnecessary_new
+// ignore_for_file:implementation_imports, file_names, unnecessary_new, prefer_final_locals, lines_longer_than_80_chars, unnecessary_lambdas
 // ignore_for_file:unnecessary_brace_in_string_interps, directives_ordering
 // ignore_for_file:argument_type_not_assignable, invalid_assignment
 // ignore_for_file:prefer_single_quotes, prefer_generic_function_type_aliases
@@ -16,7 +16,8 @@ import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
 import 'package:intl/src/intl_helpers.dart';
 
-import 'messages_en_US.dart' as messages_en_us;
+import 'package:fitness_ui/l10n/l10n_generated/intl/messages_en_US.dart'
+    as messages_en_us;
 
 typedef Future<dynamic> LibraryLoader();
 Map<String, LibraryLoader> _deferredLibraries = {
@@ -36,7 +37,7 @@ MessageLookupByLibrary? _findExact(String localeName) {
 Future<bool> initializeMessages(String localeName) {
   var availableLocale = Intl.verifiedLocale(
       localeName, (locale) => _deferredLibraries[locale] != null,
-      onFailure: (_) => null);
+      onFailure: (_) => null,);
   if (availableLocale == null) {
     return new SynchronousFuture(false);
   }

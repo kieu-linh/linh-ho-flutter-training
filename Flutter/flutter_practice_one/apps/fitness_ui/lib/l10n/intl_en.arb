@@ -124,5 +124,13 @@
         }
     },
     "startNow": "Start Now",
-    "fullExercise": "Full Exercise"
+    "fullExercise": "Full Exercise",
+    "kgToLbs": "2.20462262",
+    "LbsToKg": "0.45359237",
+    "cmToFeet": "0.032808399",
+    "feetToCm": "30.48",
+    "requiredValue": "This field is required",
+    "validEmail": "Enter a valid email address",
+    "lengthPass": "Password must be at least 6 digits long",
+    "characterPass": "Password least uppercase and special character."
 }

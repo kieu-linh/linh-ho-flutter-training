@@ -5,6 +5,7 @@ import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/core/utils/change_value.dart';
 import 'package:go_router/go_router.dart';
 
 class HeightPage extends StatefulWidget {
@@ -15,8 +16,8 @@ class HeightPage extends StatefulWidget {
 }
 
 class _HeightPageState extends State<HeightPage> {
-  TextEditingController weightController = TextEditingController();
-
+  TextEditingController heightController = TextEditingController();
+  double saveValue = 0;
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
@@ -40,14 +41,30 @@ class _HeightPageState extends State<HeightPage> {
                     ),
                   ),
                 ),
-              
                 const SizedBox(height: 9),
                 TopOnBoarding(title: s.heightTitle, currentStep: 5),
                 const SizedBox(height: 20),
                 FABodyMeasurementInput(
+                  onLeftPressed: () {
+                    saveValue = ChangeValue.convertValue(
+                      saveValue,
+                      heightController,
+                      double.parse(FAUiS.current.cmToFeet),
+                    );
+                  },
+                  onRightPressed: () {
+                    saveValue = ChangeValue.convertValue(
+                      saveValue,
+                      heightController,
+                      double.parse(FAUiS.current.feetToCm),
+                    );
+                  },
+                  onChange: (value) {
+                    saveValue = double.parse(value);
+                  },
                   textLeft: s.feet,
                   textRight: s.cm,
-                  controller: weightController,
+                  controller: heightController,
                 ),
               ],
             ),
