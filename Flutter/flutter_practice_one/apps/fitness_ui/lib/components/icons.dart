@@ -15,7 +15,7 @@ class FAIcon extends StatelessWidget {
   });
 
   /// Factory constructor for back icon
-  factory FAIcon.primary(String s, {
+  factory FAIcon.primary( {
     Color? color,
     double? width,
     double? height,

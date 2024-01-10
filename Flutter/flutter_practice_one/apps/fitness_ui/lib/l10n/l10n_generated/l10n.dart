@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+import 'package:fitness_ui/l10n/l10n_generated/intl/messages_all.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,8 +18,10 @@ class FAUiS {
   static FAUiS? _current;
 
   static FAUiS get current {
-    assert(_current != null,
-        'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.');
+    assert(
+      _current != null,
+      'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class FAUiS {
 
   static FAUiS of(BuildContext context) {
     final instance = FAUiS.maybeOf(context);
-    assert(instance != null,
-        'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -1095,6 +1099,86 @@ class FAUiS {
     return Intl.message(
       'Full Exercise',
       name: 'fullExercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `2.20462262`
+  String get kgToLbs {
+    return Intl.message(
+      '2.20462262',
+      name: 'kgToLbs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `0.45359237`
+  String get LbsToKg {
+    return Intl.message(
+      '0.45359237',
+      name: 'LbsToKg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `0.032808399`
+  String get cmToFeet {
+    return Intl.message(
+      '0.032808399',
+      name: 'cmToFeet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `30.48`
+  String get feetToCm {
+    return Intl.message(
+      '30.48',
+      name: 'feetToCm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This field is required`
+  String get requiredValue {
+    return Intl.message(
+      'This field is required',
+      name: 'requiredValue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid email address`
+  String get validEmail {
+    return Intl.message(
+      'Enter a valid email address',
+      name: 'validEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 6 digits long`
+  String get lengthPass {
+    return Intl.message(
+      'Password must be at least 6 digits long',
+      name: 'lengthPass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password least uppercase and special character.`
+  String get characterPass {
+    return Intl.message(
+      'Password least uppercase and special character.',
+      name: 'characterPass',
       desc: '',
       args: [],
     );

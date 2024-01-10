@@ -1,12 +1,14 @@
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+
 class FAValidator {
   static String? validatorEmail(dynamic value, {bool? check}) {
     const pattern =
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
     final regex = RegExp(pattern);
     if ((value as String).isEmpty) {
-      return 'This field is required';
+      return FAUiS.current.requiredValue;
     } else if (!regex.hasMatch(value)) {
-      return 'Enter a valid email address';
+      return FAUiS.current.validEmail;
     }
     check = true;
     return null;
@@ -17,11 +19,11 @@ class FAValidator {
     final regex = RegExp(pattern);
 
     if ((value! as String).isEmpty) {
-      return 'This field is required';
+      return FAUiS.current.requiredValue;
     } else if ((value as String).length < 6) {
-      return 'Password must be at least 6 digits long';
+      return FAUiS.current.lengthPass;
     } else if (!regex.hasMatch(value)) {
-      return 'Password least uppercase and special character.';
+      return FAUiS.current.characterPass;
     }
     return null;
   }

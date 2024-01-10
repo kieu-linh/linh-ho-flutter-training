@@ -1,7 +1,15 @@
 // ignore_for_file: depend_on_referenced_packages
-import 'package:fitness_widgetbook/widgetbook/main.directories.g.dart';
+import 'package:fitness_widgetbook/main.directories.g.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/card.dart';
+import 'package:fitness_ui/components/carousel.dart';
+import 'package:fitness_ui/components/input.dart';
+import 'package:flutter_practice_one/core/utils/validator.dart';
+import 'package:fitness_ui/components/search_box.dart';
+import 'package:fitness_ui/components/snack_bar.dart';
+import 'package:fitness_ui/components/input_body_measurements.dart';
+import 'package:fitness_ui/components/loading_indicator.dart';
+import 'package:fitness_ui/components/bottom_navigation_bar.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/app_bar.dart';
@@ -70,7 +78,7 @@ class FAWidgetBook extends StatelessWidget {
       ],
       appBuilder: (context, child) {
         return ScreenUtilInit(
-          designSize: const Size(375, 812),
+          designSize: const Size(375, 400),
           minTextAdapt: true,
           splitScreenMode: true,
           useInheritedMediaQuery: true,
@@ -154,47 +162,44 @@ Widget colorAppThemeData(BuildContext context) {
   return SingleChildScrollView(
     child: Column(
       children: [
-        colorContainer(text: 'primary', color: context.colorScheme.primary),
-        colorContainer(text: 'secondary', color: context.colorScheme.secondary),
-        colorContainer(
-            text: 'onSecondary', color: context.colorScheme.onSecondary),
-        colorContainer(text: 'tertiary', color: context.colorScheme.tertiary),
-        colorContainer(
+        appColor(text: 'primary', color: context.colorScheme.primary),
+        appColor(text: 'secondary', color: context.colorScheme.secondary),
+        appColor(text: 'onSecondary', color: context.colorScheme.onSecondary),
+        appColor(text: 'tertiary', color: context.colorScheme.tertiary),
+        appColor(
             text: 'tertiaryContainer',
             color: context.colorScheme.tertiaryContainer),
-        colorContainer(text: 'surface', color: context.colorScheme.surface),
-        colorContainer(text: 'onSurface', color: context.colorScheme.onSurface),
-        colorContainer(
+        appColor(text: 'surface', color: context.colorScheme.surface),
+        appColor(text: 'onSurface', color: context.colorScheme.onSurface),
+        appColor(
             text: 'onSurfaceVariant',
             color: context.colorScheme.onSurfaceVariant),
-        colorContainer(text: 'outline', color: context.colorScheme.outline),
-        colorContainer(
+        appColor(text: 'outline', color: context.colorScheme.outline),
+        appColor(
             text: 'outlineVariant', color: context.colorScheme.outlineVariant),
-        colorContainer(text: 'error', color: context.colorScheme.error),
-        colorContainer(text: 'onError', color: context.colorScheme.onError),
-        colorContainer(
+        appColor(text: 'error', color: context.colorScheme.error),
+        appColor(text: 'onError', color: context.colorScheme.onError),
+        appColor(
             text: 'inverseSurface', color: context.colorScheme.inverseSurface),
-        colorContainer(
+        appColor(
             text: 'onInverseSurface',
             color: context.colorScheme.onInverseSurface),
-        colorContainer(
+        appColor(
             text: 'inversePrimary', color: context.colorScheme.inversePrimary),
-        colorContainer(
+        appColor(
             text: 'onTertiaryContainer',
             color: context.colorScheme.onTertiaryContainer),
-        colorContainer(
-            text: 'surfaceTint', color: context.colorScheme.surfaceTint),
-        colorContainer(
-            text: 'iconColor', color: context.colorScheme.background),
-        colorContainer(
-            text: 'onIconColor', color: context.colorScheme.onBackground),
+        appColor(text: 'surfaceTint', color: context.colorScheme.surfaceTint),
+        appColor(text: 'iconColor', color: context.colorScheme.background),
+        appColor(text: 'onIconColor', color: context.colorScheme.onBackground),
       ],
     ),
   );
 }
 
-class colorContainer extends StatelessWidget {
-  const colorContainer({
+// ignore: camel_case_types
+class appColor extends StatelessWidget {
+  const appColor({
     super.key,
     required this.text,
     required this.color,
@@ -239,10 +244,11 @@ Widget textHome(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FARichText(fistText: 'Welcome to', secondText: ' Fitness App'),
+          FARichText(
+              fistText: 'Welcome to'.toUpperCase(),
+              secondText: ' Fitness App'.toUpperCase()),
           const SizedBox(height: 5),
           FAText.displayLarge(context, text: 'Welcome to Fitness App'),
-          const SizedBox(height: 5),
           FAText.displayMedium(context, text: 'Welcome to Fitness App'),
           const SizedBox(height: 5),
           FAText.displaySmall(context, text: 'Welcome to Fitness App'),
@@ -256,6 +262,133 @@ Widget textHome(BuildContext context) {
           FAText.bodyLarge(context, text: 'Welcome to Fitness App'),
           const SizedBox(height: 5),
           FAText.bodySmall(context, text: 'Welcome to Fitness App'),
+        ],
+      ),
+    ),
+  );
+}
+
+/// Widgetbook Bottom Navigation Bar
+@widgetbook.UseCase(name: 'Bottom Navigation Bar', type: FABottomNavigationBar)
+Scaffold bottomNavigationBar(BuildContext context) {
+  return const Scaffold(body: FABottomNavigationBar());
+}
+
+/// Loading Indicator
+@widgetbook.UseCase(
+  name: 'Loading Indicator',
+  type: FALoadingIndicator,
+)
+Center loadingIndicator(BuildContext context) {
+  return Center(
+    child: Container(
+      height: 55,
+      width: 500,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: context.colorScheme.primary,
+      ),
+      child: FALoadingIndicator(
+        textColor: context.colorScheme.secondary,
+      ),
+    ),
+  );
+}
+
+/// Loading Indicator
+@widgetbook.UseCase(
+  name: 'Carousel',
+  type: FACarousel,
+)
+Center carousel(BuildContext context) {
+  return Center(child: FACarousel(onSkip: () {}, onNext: () {}));
+}
+
+/// Input Email
+@widgetbook.UseCase(
+  name: 'Input',
+  type: FAInput,
+)
+Center input(BuildContext context) {
+  final s = FAUiS.of(context);
+  return Center(
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FAInput(
+            hintText: s.hintTextEmail,
+            icon: FAIcons.iconTick,
+            validator: (value) {
+              return FAValidator.validatorEmail(value);
+            },
+          ),
+          const SizedBox(height: 10),
+          FAInput(
+            hintText: s.hintTextPassword,
+            icon: FAIcons.iconEye,
+            obscureText: true,
+            validator: FAValidator.validatorPassword,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+/// Search Box
+@widgetbook.UseCase(
+  name: 'Search Box',
+  type: FASearchBox,
+)
+Center searchBox(BuildContext context) {
+  return const Center(
+    child: FASearchBox(),
+  );
+}
+
+/// Snack Bar Success
+@widgetbook.UseCase(
+  name: 'Snack Bar Success',
+  type: FASnackBar,
+)
+Center snackBarSuccess(BuildContext context) {
+  return const Center(
+    child: FASnackBar.success(message: 'SUCCESS!!!!'),
+  );
+}
+
+/// Snack Bar Error
+@widgetbook.UseCase(
+  name: 'Snack Bar Error',
+  type: FASnackBar,
+)
+Center snackBarError(BuildContext context) {
+  return Center(
+    child: FASnackBar.success(
+      message: 'ERROR!!!!',
+      backgroundColor: context.colorScheme.onError,
+    ),
+  );
+}
+
+/// Input Body Measurements
+@widgetbook.UseCase(
+  name: 'Input Body Measurement',
+  type: FABodyMeasurementInput,
+)
+Center inputBodyMeasurements(BuildContext context) {
+  return Center(
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FABodyMeasurementInput(
+            textLeft: FAUiS.current.lbs,
+            textRight: FAUiS.current.kg,
+          ),
         ],
       ),
     ),

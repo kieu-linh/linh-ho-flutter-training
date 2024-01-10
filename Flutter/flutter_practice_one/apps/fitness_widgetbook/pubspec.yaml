@@ -23,12 +23,12 @@ dependencies:
 
 dev_dependencies:
   very_good_analysis: ^5.1.0
-  
-  fitness_ui:
-    path: ../fitness_ui
 
   flutter_practice_one:
     path: ../fitness_app
+  
+  fitness_ui:
+    path: ../fitness_ui
 
   build_runner: ^2.4.7
 

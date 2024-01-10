@@ -13,11 +13,11 @@
 
 - 1 Dev
 
-***Start date:*** 25/12/2023 
-
+***Start date:*** 22/12/2023 
 
 ***Timeline:*** 2 weeks ()
 
+***Actual:*** 18 days
 
 ***Target:***
 
@@ -46,7 +46,7 @@ Before you continue, ensure you meet the following requirements:
 - [X] Epic 3: Create skeleton structure practice
 - [X] Epic 4: Setup themes, routes
 - [X] Epic 5: Implement the UI
-- [] Epic 6: Test the application and prepare for the review
+- [X] Epic 6: Test the application and prepare for the review
 
 ## UI
 - [X] UI Splash Screen
@@ -91,5 +91,5 @@ Before you continue, ensure you meet the following requirements:
         flutter run ./apps/fitness_app/lib/main_device_preview.dart
    ```
     Run Widgetbook:
-        flutter run ./apps/fitness_widgetbook/lib/widgetbook/main.dart
+        flutter run ./apps/fitness_widgetbook/lib/main.dart
    ```
