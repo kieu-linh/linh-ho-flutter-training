@@ -41,7 +41,7 @@ class FavoritePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: size.height * 0.65,
+                    height: size.height * 0.6,
                     child: GridView.builder(
                       itemCount: listFavorite.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

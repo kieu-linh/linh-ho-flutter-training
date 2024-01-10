@@ -93,6 +93,7 @@ class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
                       color: currentIndex == index
                           ? context.colorScheme.tertiary
                           : AppColor.bottomNavigationColor,
+                      package: 'fitness_ui',
                     ),
                     const SizedBox(height: 10),
                     Text(

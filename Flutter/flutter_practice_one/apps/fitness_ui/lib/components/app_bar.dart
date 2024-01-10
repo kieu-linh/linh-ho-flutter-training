@@ -71,6 +71,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                     radius: 22,
                     backgroundImage: AssetImage(
                       FAImage.imgAvatar,
+                      package: 'fitness_ui',
                     ),
                   ),
                   const Spacer(),

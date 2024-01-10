@@ -34,11 +34,6 @@ class MyApp extends StatelessWidget {
         ...FAUiS.delegate.supportedLocales,
         const Locale('en', ''),
       ],
-
-      //home: const WelcomePage(),
-      //routeInformationProvider: FARouter.appRouter.routeInformationProvider,
-      //routeInformationParser: FARouter.appRouter.routeInformationParser,
-      //routerDelegate: FARouter.appRouter.routerDelegate,
       routerConfig: FARouter.appRouter,
     );
   }
