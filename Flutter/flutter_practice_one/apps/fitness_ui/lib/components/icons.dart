@@ -15,7 +15,7 @@ class FAIcon extends StatelessWidget {
   });
 
   /// Factory constructor for back icon
-  factory FAIcon.primary( {
+  factory FAIcon.primary({
     Color? color,
     double? width,
     double? height,
@@ -360,6 +360,19 @@ class FAIcon extends StatelessWidget {
     );
   }
 
+  factory FAIcon.home({
+    Color? color,
+    double? width,
+    double? height,
+  }) {
+    return FAIcon(
+      iconLink: FAIcons.iconHome,
+      color: color,
+      height: height,
+      width: width,
+    );
+  }
+
   /// link to the icon
   final String iconLink;
 
@@ -378,6 +391,7 @@ class FAIcon extends StatelessWidget {
       width: width,
       height: height,
       color: color,
+      package: 'fitness_ui',
     );
   }
 }
