@@ -10,6 +10,7 @@ class FATopNavigation extends StatelessWidget {
     Widget? leading,
     this.onLeadingPress,
     this.onTrailingPress,
+    this.padding,
   }) : leading = leading ?? FAIcon.back();
 
   final Widget? trailing;
@@ -17,11 +18,13 @@ class FATopNavigation extends StatelessWidget {
   final String? title;
   final VoidCallback? onLeadingPress;
   final VoidCallback? onTrailingPress;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 10),
+      padding: padding ??
+          EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 10),
       child: Row(
         children: [
           InkWell(

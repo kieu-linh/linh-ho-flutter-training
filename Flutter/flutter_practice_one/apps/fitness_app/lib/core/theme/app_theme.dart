@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   const AppTheme();
 
+  /// Define the color theme for the app
   static ColorScheme get colorSchemeLight {
     return const ColorScheme.light(
       primary: AppColor.primary,
@@ -53,6 +54,3 @@ class AppTheme {
     titleSmall: AppTextStyles.textStart,
   );
 }
-
-
-//buttonthem, textbutton, appbar, bottom navigation, input decoration

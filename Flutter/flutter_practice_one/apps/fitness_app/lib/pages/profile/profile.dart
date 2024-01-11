@@ -22,27 +22,29 @@ class _ProfilePageState extends State<ProfilePage> {
     final s = FAUiS.of(context);
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: FATopNavigation(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20)
+            .copyWith(top: MediaQuery.paddingOf(context).top + 6),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              FATopNavigation(
                 onLeadingPress: () => GoRouter.of(context).go('/homeScreen'),
+                padding: const EdgeInsets.only(top: 2),
                 title: s.profile,
                 onTrailingPress: () {},
                 trailing: FAIcon.edit(),
               ),
-            ),
-            const Column(
-              children: [
-                FAUserInfo(),
-                FAGoalItem(),
-                SizedBox(height: 24),
-                FAMacronutrientGoal(),
-              ],
-            ),
-          ],
+              const Column(
+                children: [
+                  FAUserInfo(),
+                  FAGoalItem(),
+                  SizedBox(height: 24),
+                  FAMacronutrientGoal(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

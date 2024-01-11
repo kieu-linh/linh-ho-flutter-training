@@ -46,7 +46,7 @@ class FACard extends StatelessWidget {
                       Text(
                         s.titleCard,
                         style: AppTextStyles.textButtonMedium
-                            .copyWith(fontSize: 19),
+                            .copyWith(fontSize: 17),
                       ),
                       const SizedBox(height: 15),
                       Container(
@@ -70,7 +70,12 @@ class FACard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Image.asset(FAImage.imgDumbbell, package: 'fitness_ui'),
+                      Expanded(
+                        child: Image.asset(
+                          FAImage.imgDumbbell,
+                          package: 'fitness_ui',
+                        ),
+                      ),
                     ],
                   ),
                 ),
