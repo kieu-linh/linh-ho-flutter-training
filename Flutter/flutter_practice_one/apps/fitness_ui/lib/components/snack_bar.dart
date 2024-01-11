@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 
@@ -21,10 +22,9 @@ class FASnackBar extends StatefulWidget {
     this.iconRotationAngle = 32,
     this.iconPositionTop = -10,
     this.iconPositionLeft = -8,
-    this.backgroundColor = const Color(0xff00E676),
-    this.boxShadow = kDefaultBoxShadow,
-    this.borderRadius = kDefaultBorderRadius,
-    this.textScaleFactor = 1.0,
+    this.backgroundColor = AppColor.iconColor,
+    this.boxShadow = defaultBoxShadow,
+    this.borderRadius = defaultBorderRadius,
     super.key,
   });
 
@@ -39,16 +39,15 @@ class FASnackBar extends StatefulWidget {
     this.textStyle = const TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 16,
-      color: Colors.white,
+      color: AppColor.secondary,
     ),
     this.maxLines = 2,
     this.iconRotationAngle = 32,
     this.iconPositionTop = -10,
     this.iconPositionLeft = -8,
-    this.backgroundColor = const Color(0xffff5252),
-    this.boxShadow = kDefaultBoxShadow,
-    this.borderRadius = kDefaultBorderRadius,
-    this.textScaleFactor = 1.0,
+    this.backgroundColor = AppColor.error,
+    this.boxShadow = defaultBoxShadow,
+    this.borderRadius = defaultBorderRadius,
     super.key,
   });
 
@@ -63,7 +62,6 @@ class FASnackBar extends StatefulWidget {
   final double iconPositionTop;
   final double iconPositionLeft;
   final EdgeInsetsGeometry messagePadding;
-  final double textScaleFactor;
 
   @override
   State<FASnackBar> createState() => _FASnackBarState();
@@ -73,7 +71,7 @@ class _FASnackBarState extends State<FASnackBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      clipBehavior: Clip.hardEdge,
+      //clipBehavior: Clip.hardEdge,
       height: 80,
       decoration: BoxDecoration(
         color: widget.backgroundColor,
@@ -106,7 +104,7 @@ class _FASnackBarState extends State<FASnackBar> {
                 overflow: TextOverflow.ellipsis,
                 maxLines: widget.maxLines,
                 // ignore: deprecated_member_use
-                textScaleFactor: widget.textScaleFactor,
+                //textScaleFactor: widget.textScaleFactor,
               ),
             ),
           ),
@@ -116,7 +114,7 @@ class _FASnackBarState extends State<FASnackBar> {
   }
 }
 
-const kDefaultBoxShadow = [
+const defaultBoxShadow = [
   BoxShadow(
     color: Colors.black26,
     offset: Offset(0, 8),
@@ -125,4 +123,4 @@ const kDefaultBoxShadow = [
   ),
 ];
 
-const kDefaultBorderRadius = BorderRadius.all(Radius.circular(12));
+const defaultBorderRadius = BorderRadius.all(Radius.circular(12));

@@ -10,6 +10,8 @@
         "type": "dart",
         "program": "apps/fitness_app/lib/main.dart",
         "args": [
+          "--flavor",
+          "production",
           "apps/fitness_app/lib/main.dart"
         ]
       },
