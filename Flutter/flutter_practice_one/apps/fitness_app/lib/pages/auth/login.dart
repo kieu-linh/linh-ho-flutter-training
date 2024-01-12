@@ -126,10 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        s.btnLoginWith,
-                        style: context.textTheme.bodySmall,
-                      ),
+                      Text(s.btnLoginWith, style: context.textTheme.bodySmall),
                     ],
                   ),
                   const SizedBox(height: 20),

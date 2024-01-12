@@ -2,6 +2,7 @@ import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_one/data/models/user_data.dart';
 import 'package:flutter_practice_one/pages/profile/widgets/goal_item.dart';
 import 'package:flutter_practice_one/pages/profile/widgets/macronutrient_goal.dart';
 import 'package:flutter_practice_one/pages/profile/widgets/user_info.dart';
@@ -35,12 +36,18 @@ class _ProfilePageState extends State<ProfilePage> {
                 onTrailingPress: () {},
                 trailing: FAIcon.edit(),
               ),
-              const Column(
+              Column(
                 children: [
-                  FAUserInfo(),
-                  FAGoalItem(),
-                  SizedBox(height: 24),
-                  FAMacronutrientGoal(),
+                  FAUserInfo(
+                    image: user1.image,
+                    name: user1.name,
+                    weight: user1.weight,
+                    height: user1.height,
+                    age: user1.age,
+                  ),
+                  const FAGoalItem(),
+                  const SizedBox(height: 24),
+                  const FAMacronutrientGoal(),
                 ],
               ),
             ],

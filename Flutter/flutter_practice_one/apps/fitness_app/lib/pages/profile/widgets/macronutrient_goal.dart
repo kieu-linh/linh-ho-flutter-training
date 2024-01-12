@@ -35,9 +35,7 @@ class FAMacronutrientGoal extends StatelessWidget {
           children: List.generate(listMacronutrientGoal.length, (index) {
             return Column(
               children: [
-                Image.asset(
-                  listMacronutrientGoal[index].image ?? '',
-                ),
+                Image.asset(listMacronutrientGoal[index].image ?? ''),
                 const SizedBox(height: 10),
                 FAText.bodyLarge(
                   context,

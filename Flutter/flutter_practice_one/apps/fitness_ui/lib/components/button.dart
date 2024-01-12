@@ -46,7 +46,6 @@ class FAButton extends StatelessWidget {
         border = border ??
             Border.all(color: AppColor.outlineColor.withOpacity(0.25));
 
-  // ignore: lines_longer_than_80_chars
   FAButton.text({
     required this.text,
     this.onPressed,
@@ -110,10 +109,7 @@ class FAButton extends StatelessWidget {
                 ),
               ),
             if (isDisable == false)
-              FAText(
-                text: text,
-                style: textStyle,
-              )
+              FAText(text: text, style: textStyle)
             else
               FALoadingIndicator(textColor: textColor),
             if (icon != null) const SizedBox(width: 22),

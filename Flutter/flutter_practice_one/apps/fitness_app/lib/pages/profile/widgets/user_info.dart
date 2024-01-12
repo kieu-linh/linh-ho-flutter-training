@@ -1,16 +1,26 @@
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/user_data.dart';
 
+// ignore: must_be_immutable
 class FAUserInfo extends StatelessWidget {
   const FAUserInfo({
+    required this.image,
+    required this.name,
+    required this.weight,
+    required this.height,
+    required this.age,
     super.key,
   });
+  final String image;
+  final String name;
+  final double weight;
+  final double height;
+  final int age;
 
   @override
   Widget build(BuildContext context) {
-        final s = FAUiS.of(context);
+    final s = FAUiS.of(context);
 
     return Padding(
       padding: const EdgeInsets.only(top: 12, bottom: 33),
@@ -18,11 +28,11 @@ class FAUserInfo extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 52,
-            backgroundImage: AssetImage(user1.image ?? ''),
+            backgroundImage: AssetImage(image),
           ),
           const SizedBox(height: 13),
           Text(
-            '${user1.name?.toUpperCase()}!',
+            '${name.toUpperCase()}!',
             style: context.textTheme.bodyMedium?.copyWith(
               color: context.colorScheme.tertiaryContainer,
             ),
@@ -38,7 +48,7 @@ class FAUserInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FAItemInfo(
-                textFist: '${user1.weight}',
+                textFist: '$weight',
                 textSecond: s.kg,
                 textThird: s.weight,
               ),
@@ -49,7 +59,7 @@ class FAUserInfo extends StatelessWidget {
                 color: context.colorScheme.outlineVariant,
               ),
               FAItemInfo(
-                textFist: '${user1.height}',
+                textFist: '$height',
                 textSecond: s.cm,
                 textThird: s.height,
               ),
@@ -60,7 +70,7 @@ class FAUserInfo extends StatelessWidget {
                 color: context.colorScheme.outlineVariant,
               ),
               FAItemInfo(
-                textFist: '${user1.age}',
+                textFist: '$age',
                 textSecond: s.year,
                 textThird: s.age,
               ),
