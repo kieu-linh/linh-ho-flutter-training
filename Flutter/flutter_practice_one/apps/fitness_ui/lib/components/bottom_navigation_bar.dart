@@ -34,6 +34,9 @@ class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
   void _goToBrach(int? index) {
     widget.navigationShell?.goBranch(
       index ?? 0,
+      // A common pattern when using bottom navigation bars is to support
+      // navigating to the initial location when tapping the item that is
+      // already active.
       initialLocation: index == widget.navigationShell?.currentIndex,
     );
   }

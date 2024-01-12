@@ -354,7 +354,7 @@ Center searchBox(BuildContext context) {
   type: FASnackBar,
 )
 Center snackBarSuccess(BuildContext context) {
-  return const Center(
+  return Center(
     child: FASnackBar.success(message: 'SUCCESS!!!!'),
   );
 }
@@ -366,10 +366,7 @@ Center snackBarSuccess(BuildContext context) {
 )
 Center snackBarError(BuildContext context) {
   return Center(
-    child: FASnackBar.success(
-      message: 'ERROR!!!!',
-      backgroundColor: context.colorScheme.onError,
-    ),
+    child: FASnackBar.error(message: 'ERROR!!!!'),
   );
 }
 
@@ -386,9 +383,7 @@ Center inputBodyMeasurements(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FABodyMeasurementInput(
-            textLeft: FAUiS.current.lbs,
-            textRight: FAUiS.current.kg,
-          ),
+              textLeft: FAUiS.current.lbs, textRight: FAUiS.current.kg),
         ],
       ),
     ),

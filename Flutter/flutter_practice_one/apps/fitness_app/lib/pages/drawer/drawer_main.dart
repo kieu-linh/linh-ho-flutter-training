@@ -24,11 +24,7 @@ class _DrawerMainState extends State<DrawerMain> {
           onTap: () => zoomDrawerController.close?.call(),
           user: user1,
         ),
-        child: HomePage(
-          onTap: () {
-            zoomDrawerController.toggle?.call();
-          },
-        ),
+        child: const HomePage(),
       ),
     );
   }

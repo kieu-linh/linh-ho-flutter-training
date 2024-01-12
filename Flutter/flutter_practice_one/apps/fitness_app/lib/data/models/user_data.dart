@@ -3,11 +3,11 @@ import 'package:fitness_ui/core/constant/images.dart';
 class UserModel {
   UserModel();
 
-  String? image;
-  String? name;
-  int? weight;
-  int? height;
-  int? age;
+  String image = '';
+  String name = '';
+  double weight = 0;
+  double height = 0;
+  int age = 0;
 }
 
 UserModel user1 = UserModel()

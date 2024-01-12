@@ -49,8 +49,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                       FAExerciseProgram(s: s),
                       FAAddExercise(s: s),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20)
-                            .copyWith(top: 35, bottom: 20),
+                        padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
                         child: FAButton(
                           text: s.startNow,
                           onPressed: () {},

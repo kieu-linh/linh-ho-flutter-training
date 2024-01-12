@@ -28,10 +28,7 @@ class FACardContainer extends StatelessWidget {
               color: addExercise.backgroundColor,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Image.asset(
-              addExercise.image ?? '',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset(addExercise.image ?? '', fit: BoxFit.cover),
           ),
           const SizedBox(width: 16),
           Expanded(

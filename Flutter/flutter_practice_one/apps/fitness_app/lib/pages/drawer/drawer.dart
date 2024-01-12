@@ -48,12 +48,12 @@ class _DrawerPageState extends State<DrawerPage> {
                   children: [
                     CircleAvatar(
                       radius: 52,
-                      backgroundImage: AssetImage(widget.user.image ?? ''),
+                      backgroundImage: AssetImage(widget.user.image),
                     ),
                     const SizedBox(height: 7),
                     FAText.headlineLarge(
                       context,
-                      text: '${widget.user.name ?? ''} !',
+                      text: '${widget.user.name} !',
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -65,10 +65,8 @@ class _DrawerPageState extends State<DrawerPage> {
                 const SizedBox(height: 40),
                 Padding(
                   padding: const EdgeInsets.only(left: 26),
-                  child: Text(
-                    s.dashboard,
-                    style: context.textTheme.labelMedium,
-                  ),
+                  child:
+                      Text(s.dashboard, style: context.textTheme.labelMedium),
                 ),
                 Divider(
                   thickness: 1,
@@ -78,30 +76,12 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 Column(
                   children: [
-                    FASideMenu(
-                      icon: FAIcons.iconPlan,
-                      title: s.plan,
-                    ),
-                    FASideMenu(
-                      icon: FAIcons.iconTrain,
-                      title: s.training,
-                    ),
-                    FASideMenu(
-                      icon: FAIcons.iconCategory,
-                      title: s.categories,
-                    ),
-                    FASideMenu(
-                      icon: FAIcons.iconAccount,
-                      title: s.myAccount,
-                    ),
-                    FASideMenu(
-                      icon: FAIcons.iconFavorite,
-                      title: s.myFavorite,
-                    ),
-                    FASideMenu(
-                      icon: FAIcons.iconSetting,
-                      title: s.appSetting,
-                    ),
+                    FASideMenu(icon: FAIcons.iconPlan, title: s.plan),
+                    FASideMenu(icon: FAIcons.iconTrain, title: s.training),
+                    FASideMenu(icon: FAIcons.iconCategory, title: s.categories),
+                    FASideMenu(icon: FAIcons.iconAccount, title: s.myAccount),
+                    FASideMenu(icon: FAIcons.iconFavorite, title: s.myFavorite),
+                    FASideMenu(icon: FAIcons.iconSetting, title: s.appSetting),
                     FASideMenu(
                       icon: FAIcons.iconContact,
                       title: s.contactSupport,
@@ -126,10 +106,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 children: [
                   SvgPicture.asset(FAIcons.iconSignOut),
                   const SizedBox(width: 22),
-                  Text(
-                    s.signOut,
-                    style: context.textTheme.titleMedium,
-                  ),
+                  Text(s.signOut, style: context.textTheme.titleMedium),
                 ],
               ),
             ),
