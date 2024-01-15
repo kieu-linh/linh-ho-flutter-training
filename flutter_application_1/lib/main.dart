@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/responsive/aspect_ratio.dart';
-import 'package:flutter_application_1/responsive/expanded_flexible.dart';
-import 'package:flutter_application_1/responsive/fractionally_sizebox.dart';
-import 'package:flutter_application_1/responsive/orientation_builder.dart';
+import 'package:flutter_application_1/pages/count_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AspectRatioPage(),
+      home: const CountApp(),
     );
   }
 }
