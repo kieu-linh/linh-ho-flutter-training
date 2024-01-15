@@ -1,24 +1,23 @@
+import 'package:fitness_app/data/models/add_exercise_data.dart';
+import 'package:fitness_app/pages/auth/login.dart';
+import 'package:fitness_app/pages/category/category.dart';
+import 'package:fitness_app/pages/drawer/drawer_main.dart';
+import 'package:fitness_app/pages/exercise/exercise.dart';
+import 'package:fitness_app/pages/exercise_detail/exercise_detail.dart';
+import 'package:fitness_app/pages/onboarding/age.dart';
+import 'package:fitness_app/pages/onboarding/favorite.dart';
+import 'package:fitness_app/pages/onboarding/get_start.dart';
+import 'package:fitness_app/pages/onboarding/goal.dart';
+import 'package:fitness_app/pages/onboarding/height.dart';
+import 'package:fitness_app/pages/onboarding/level.dart';
+import 'package:fitness_app/pages/onboarding/weight.dart';
+import 'package:fitness_app/pages/onboarding/weight_goal.dart';
+import 'package:fitness_app/pages/profile/profile.dart';
+import 'package:fitness_app/pages/splash/splash_screen.dart';
+import 'package:fitness_app/pages/welcome/welcome.dart';
 import 'package:fitness_ui/components/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
-import 'package:flutter_practice_one/pages/auth/login.dart';
-import 'package:flutter_practice_one/pages/category/category.dart';
-import 'package:flutter_practice_one/pages/drawer/drawer_main.dart';
-import 'package:flutter_practice_one/pages/exercise/exercise.dart';
-import 'package:flutter_practice_one/pages/exercise_detail/exercise_detail.dart';
-import 'package:flutter_practice_one/pages/onboarding/age.dart';
-import 'package:flutter_practice_one/pages/onboarding/favorite.dart';
-import 'package:flutter_practice_one/pages/onboarding/get_start.dart';
-import 'package:flutter_practice_one/pages/onboarding/goal.dart';
-import 'package:flutter_practice_one/pages/onboarding/height.dart';
-import 'package:flutter_practice_one/pages/onboarding/level.dart';
-import 'package:flutter_practice_one/pages/onboarding/weight.dart';
-import 'package:flutter_practice_one/pages/onboarding/weight_goal.dart';
-import 'package:flutter_practice_one/pages/profile/profile.dart';
-import 'package:flutter_practice_one/pages/splash/splash_screen.dart';
-import 'package:flutter_practice_one/pages/welcome/welcome.dart';
 import 'package:go_router/go_router.dart';
-
 class FARouter {
   FARouter._();
 

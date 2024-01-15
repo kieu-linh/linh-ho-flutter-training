@@ -1,13 +1,13 @@
+import 'package:fitness_app/pages/drawer/drawer_main.dart';
+import 'package:fitness_app/pages/home/widgets/add_exercise.dart';
+import 'package:fitness_app/pages/home/widgets/category_item.dart';
+import 'package:fitness_app/pages/home/widgets/meal_plan.dart';
+import 'package:fitness_app/pages/home/widgets/popular_exercise.dart';
+import 'package:fitness_app/pages/home/widgets/select_goal.dart';
 import 'package:fitness_ui/components/app_bar.dart';
 import 'package:fitness_ui/components/card.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/pages/drawer/drawer_main.dart';
-import 'package:flutter_practice_one/pages/home/widgets/add_exercise.dart';
-import 'package:flutter_practice_one/pages/home/widgets/category_item.dart';
-import 'package:flutter_practice_one/pages/home/widgets/meal_plan.dart';
-import 'package:flutter_practice_one/pages/home/widgets/popular_exercise.dart';
-import 'package:flutter_practice_one/pages/home/widgets/select_goal.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({

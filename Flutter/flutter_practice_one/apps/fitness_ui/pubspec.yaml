@@ -7,14 +7,14 @@ environment:
   sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
+  fitness_app:
+    path: ../fitness_app
+
   flutter:
     sdk: flutter
 
   flutter_localizations:
     sdk: flutter
-
-  flutter_practice_one:
-    path: ../fitness_app
 
   flutter_svg: ^2.0.9
 

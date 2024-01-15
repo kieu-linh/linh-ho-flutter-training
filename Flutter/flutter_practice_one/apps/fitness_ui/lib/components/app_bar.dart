@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/utils/get_string_day.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/core/constant/images.dart';
@@ -5,7 +6,6 @@ import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/core/utils/get_string_day.dart';
 
 class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
   const FAAppBar({
@@ -53,7 +53,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         Positioned(
-          top: MediaQuery.paddingOf(context).top + 20,
+          top: MediaQuery.paddingOf(context).top + 5,
           left: 18,
           right: 18,
           bottom: 16,

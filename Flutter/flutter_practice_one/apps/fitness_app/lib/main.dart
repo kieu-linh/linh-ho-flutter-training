@@ -1,9 +1,9 @@
+import 'package:fitness_app/core/theme/theme.dart';
+import 'package:fitness_app/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_practice_one/core/theme/theme.dart';
-import 'package:flutter_practice_one/l10n/l10n_generated/l10n.dart';
-import 'package:flutter_practice_one/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());

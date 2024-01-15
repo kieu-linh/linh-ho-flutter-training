@@ -87,8 +87,10 @@ Before you continue, ensure you meet the following requirements:
     Run app:
         flutter run ./apps/fitness_app/lib/main.dart
    ```
+   ```
     Run Device Preview:
         flutter run ./apps/fitness_app/lib/main_device_preview.dart
+   ```
    ```
     Run Widgetbook:
         flutter run ./apps/fitness_widgetbook/lib/main.dart

@@ -1,7 +1,7 @@
+import 'package:fitness_app/data/models/add_exercise_data.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/add_exercise_data.dart';
 
 class FAExerciseProgram extends StatefulWidget {
   const FAExerciseProgram({

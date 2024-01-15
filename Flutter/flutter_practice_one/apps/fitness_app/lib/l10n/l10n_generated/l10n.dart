@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+import 'package:fitness_app/l10n/l10n_generated/intl/messages_all.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/l10n/l10n_generated/intl/messages_all.dart';
 import 'package:intl/intl.dart';
 
 // **************************************************************************

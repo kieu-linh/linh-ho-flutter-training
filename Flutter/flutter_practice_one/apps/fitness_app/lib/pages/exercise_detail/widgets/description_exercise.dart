@@ -1,7 +1,7 @@
+import 'package:fitness_app/pages/exercise_detail/exercise_detail.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/pages/exercise_detail/exercise_detail.dart';
 
 class FADescriptionExercise extends StatelessWidget {
   const FADescriptionExercise({

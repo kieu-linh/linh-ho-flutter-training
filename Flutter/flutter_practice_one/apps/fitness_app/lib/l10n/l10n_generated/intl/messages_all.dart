@@ -16,7 +16,7 @@ import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
 import 'package:intl/src/intl_helpers.dart';
 
-import 'package:flutter_practice_one/l10n/l10n_generated/intl/messages_en.dart'
+import 'package:fitness_app/l10n/l10n_generated/intl/messages_en.dart'
     as messages_en;
 
 typedef Future<dynamic> LibraryLoader();

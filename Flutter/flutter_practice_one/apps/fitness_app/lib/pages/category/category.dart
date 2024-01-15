@@ -1,9 +1,9 @@
+import 'package:fitness_app/data/models/category_data.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/category_data.dart';
 import 'package:go_router/go_router.dart';
 
 class CategoryPage extends StatefulWidget {

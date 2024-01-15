@@ -1,10 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:fitness_app/pages/exercise_detail/exercise_detail.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/pages/exercise_detail/exercise_detail.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FAContainerExercise extends StatelessWidget {

@@ -1,11 +1,11 @@
+import 'package:fitness_app/data/models/user_data.dart';
+import 'package:fitness_app/pages/profile/widgets/goal_item.dart';
+import 'package:fitness_app/pages/profile/widgets/macronutrient_goal.dart';
+import 'package:fitness_app/pages/profile/widgets/user_info.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_one/data/models/user_data.dart';
-import 'package:flutter_practice_one/pages/profile/widgets/goal_item.dart';
-import 'package:flutter_practice_one/pages/profile/widgets/macronutrient_goal.dart';
-import 'package:flutter_practice_one/pages/profile/widgets/user_info.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatefulWidget {
