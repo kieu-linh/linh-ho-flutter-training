@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/example/inherited_widget.dart';
+import 'package:flutter_application_1/example/state_manage/change_notifier.dart';
 import 'package:flutter_application_1/example/state_manage/use_getX.dart';
 import 'package:flutter_application_1/example/state_manage/user_bloc.dart';
+import 'package:flutter_application_1/example/state_manage/value_notifier.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 //import 'package:flutter_application_1/example/state_manage/use_provider.dart';
@@ -20,7 +22,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyExample(
+    return MaterialApp(
+      home: ChangeValue(),
+    );
+    /*MyExample(
         onChanged: (p0) {
           print('onChanged: $p0');
           (context as Element).markNeedsBuild();
@@ -28,7 +33,7 @@ class MyApp extends StatelessWidget {
         data: 42,
         child: const MaterialApp(
           home: UpdateData(),
-        ));
+        ));*/
     /*Get.put(CounterController());
     return const MaterialApp(home: CountNumberGetX()
         BlocProvider(
