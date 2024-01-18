@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/example/inherited_widget.dart';
 import 'package:flutter_application_1/example/state_manage/change_notifier.dart';
+import 'package:flutter_application_1/example/state_manage/count_bloc.dart';
 import 'package:flutter_application_1/example/state_manage/provider.dart';
 import 'package:flutter_application_1/example/state_manage/use_getX.dart';
 import 'package:flutter_application_1/example/state_manage/user_bloc.dart';
@@ -15,21 +16,31 @@ void main() {
   /*runApp(const GetMaterialApp(
     home: MyApp(),
   )*/
-  runApp(const MyApp());
+  runApp(MyApp());
   // );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MyModel>(
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: BlocProvider<CounterBloc>(
+        create: (context) => CounterBloc(),
+        child: const CountNumberBloc(title: 'Flutter Demo Home Page'),
+      ),
+    );
+
+    /*ChangeNotifierProvider<MyModel>(
       create: (context) => MyModel(),
       child: MaterialApp(home: TestPage()),
     );
 
-    /*const MaterialApp(
+    const MaterialApp(
       home: ChangeValue(),
     );
     MyExample(
