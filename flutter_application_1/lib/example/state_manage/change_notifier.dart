@@ -37,7 +37,7 @@ class _ChangeValueState extends State<ChangeValue> {
                 // Increase the value when the button is pressed
                 counterModel.increaseCounter();
                 print(counterModel.counter);
-                setState(() {});
+                //setState(() {});
               },
               child: const Text('Increase Counter'),
             ),
