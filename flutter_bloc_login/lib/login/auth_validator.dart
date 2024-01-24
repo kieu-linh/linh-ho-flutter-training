@@ -25,4 +25,11 @@ class FAValidator {
     }
     return null;
   }
+
+  static bool checkLoginInValidator({
+    required String? email,
+    required String? password,
+  }) {
+    return validatorEmail(email) == null && validatorPassword(password) == null;
+  }
 }
