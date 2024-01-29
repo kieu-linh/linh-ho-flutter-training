@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 class FADescriptionExercise extends StatelessWidget {
   const FADescriptionExercise({
     required this.widget,
-    required this.s,
     super.key,
   });
 
   final ExerciseDetailPage widget;
-  final FAUiS s;
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+    
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 20),
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,10 +43,8 @@ class FADescriptionExercise extends StatelessWidget {
               ),
               const Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 22,
-                  vertical: 12,
-                ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
                 height: 38,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),

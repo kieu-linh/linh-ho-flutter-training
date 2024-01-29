@@ -47,9 +47,7 @@ class FACardContainer extends StatelessWidget {
                           context.textTheme.bodySmall?.copyWith(fontSize: 10),
                     ),
                     Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                      ),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
                       width: 1,
                       height: 8,
                       color: context.colorScheme.outlineVariant,

@@ -36,9 +36,7 @@ class FAContainerExercise extends StatelessWidget {
             const SizedBox(width: 8),
             FAText.bodyMedium(context, text: '${widget.exercise.kcal} kcal'),
             Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 30,
-              ),
+              margin: const EdgeInsets.symmetric(horizontal: 30),
               width: 1,
               height: 16,
               color: context.colorScheme.outlineVariant,

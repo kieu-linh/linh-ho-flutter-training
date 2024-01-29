@@ -5,11 +5,8 @@ import 'package:flutter/material.dart';
 
 class FAExerciseProgram extends StatefulWidget {
   const FAExerciseProgram({
-    required this.s,
     super.key,
   });
-
-  final FAUiS s;
 
   @override
   State<FAExerciseProgram> createState() => _FAExerciseProgramState();
@@ -20,15 +17,17 @@ class _FAExerciseProgramState extends State<FAExerciseProgram> {
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 35),
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 35),
       child: Column(
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.s.exerciseProgram,
+                s.exerciseProgram,
                 style: context.textTheme.labelSmall?.copyWith(fontSize: 16),
               ),
             ],

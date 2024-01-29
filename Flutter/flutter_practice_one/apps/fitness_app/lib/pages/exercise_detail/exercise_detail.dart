@@ -43,10 +43,10 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                   padding: const EdgeInsets.only(top: 45),
                   child: Column(
                     children: [
-                      FAExerciseInfo(widget: widget, s: s),
-                      FADescriptionExercise(widget: widget, s: s),
-                      FAExerciseProgram(s: s),
-                      FAAddExercise(s: s),
+                      FAExerciseInfo(widget: widget),
+                      FADescriptionExercise(widget: widget),
+                      const FAExerciseProgram(),
+                      const FAAddExercise(),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
                         child: FAButton(

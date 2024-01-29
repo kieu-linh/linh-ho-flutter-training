@@ -4,7 +4,8 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/card.dart';
 import 'package:fitness_ui/components/carousel.dart';
 import 'package:fitness_ui/components/input.dart';
-import 'package:flutter_practice_one/core/utils/validator.dart';
+import 'package:fitness_ui/components/input_password.dart';
+import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
@@ -22,7 +23,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
-import 'package:flutter_practice_one/core/theme/theme.dart';
+import 'package:fitness_app/core/theme/theme.dart';
 
 void main() {
   runApp(const FAWidgetBook());
@@ -325,9 +326,8 @@ Center input(BuildContext context) {
             },
           ),
           const SizedBox(height: 10),
-          FAInput(
+          FAInputPassword(
             hintText: s.hintTextPassword,
-            icon: FAIcons.iconEye,
             obscureText: true,
             validator: FAValidator.validatorPassword,
           ),

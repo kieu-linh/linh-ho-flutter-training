@@ -16,7 +16,7 @@ class FATitleHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, bottom: 16, right: 20),
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
       child: Row(
         children: [
           Text(

@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 class FAExerciseInfo extends StatelessWidget {
   const FAExerciseInfo({
     required this.widget,
-    required this.s,
     super.key,
   });
 
   final ExerciseDetailPage widget;
-  final FAUiS s;
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+    
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -63,10 +63,7 @@ class ItemContainer extends StatelessWidget {
         const SizedBox(height: 6),
         Container(
           margin: const EdgeInsets.only(right: 13),
-          padding: const EdgeInsets.symmetric(
-            vertical: 12,
-            horizontal: 25,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
           decoration: BoxDecoration(
             color: context.colorScheme.onSurfaceVariant.withOpacity(0.1),
             borderRadius: BorderRadius.circular(6),

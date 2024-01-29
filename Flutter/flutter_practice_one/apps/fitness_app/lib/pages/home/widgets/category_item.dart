@@ -12,14 +12,13 @@ import 'package:go_router/go_router.dart';
 
 class FACategoryItem extends StatelessWidget {
   const FACategoryItem({
-    required this.s,
     super.key,
   });
 
-  final FAUiS s;
-
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+    
     return Column(
       children: [
         FATitleHome(

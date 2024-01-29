@@ -6,11 +6,8 @@ import 'package:flutter/material.dart';
 
 class FASelectGoal extends StatefulWidget {
   const FASelectGoal({
-    required this.s,
     super.key,
   });
-
-  final FAUiS s;
 
   @override
   State<FASelectGoal> createState() => _FASelectGoalState();
@@ -21,9 +18,11 @@ class _FASelectGoalState extends State<FASelectGoal> {
 
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Column(
       children: [
-        FATitleHome(title: widget.s.selectGoal),
+        FATitleHome(title: s.selectGoal),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(
@@ -37,10 +36,8 @@ class _FASelectGoalState extends State<FASelectGoal> {
                   },
                   child: Container(
                     margin: const EdgeInsets.only(right: 13),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 6,
-                    ),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
                     decoration: BoxDecoration(
                       color: _selectIndex == index
                           ? context.colorScheme.tertiary

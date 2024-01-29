@@ -90,8 +90,6 @@ class _ExercisePageState extends State<ExercisePage> {
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              //physics: const NeverScrollableScrollPhysics(),
-              //shrinkWrap: true,
               itemBuilder: (context, index) {
                 final addExercise = _listExercise[index];
                 return FACardContainer(

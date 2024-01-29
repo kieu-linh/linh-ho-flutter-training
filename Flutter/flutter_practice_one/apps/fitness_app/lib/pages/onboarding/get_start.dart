@@ -19,8 +19,7 @@ class GetStartPage extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 70),
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 70),
             child: Column(
               children: [
                 FATopNavigation(
