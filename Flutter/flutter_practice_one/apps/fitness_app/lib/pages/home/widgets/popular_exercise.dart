@@ -10,14 +10,13 @@ import 'package:flutter_svg/svg.dart';
 
 class FAPopularExercise extends StatelessWidget {
   const FAPopularExercise({
-    required this.s,
     super.key,
   });
 
-  final FAUiS s;
-
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+
     return Column(
       children: [
         FATitleHome(

@@ -1,7 +1,7 @@
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 
 class FAValidator {
-  static String? validatorEmail(dynamic value, {bool? check}) {
+  static String? validatorEmail(dynamic value) {
     const pattern =
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
     final regex = RegExp(pattern);
@@ -10,7 +10,6 @@ class FAValidator {
     } else if (!regex.hasMatch(value)) {
       return FAUiS.current.validEmail;
     }
-    check = true;
     return null;
   }
 

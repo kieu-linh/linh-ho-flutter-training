@@ -201,6 +201,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  fitness_app:
+    dependency: "direct dev"
+    description:
+      path: "../fitness_app"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   fitness_ui:
     dependency: "direct dev"
     description:
@@ -234,13 +241,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_practice_one:
-    dependency: "direct dev"
-    description:
-      path: "../fitness_app"
-      relative: true
-    source: path
-    version: "1.0.0+1"
   flutter_screenutil:
     dependency: "direct main"
     description:

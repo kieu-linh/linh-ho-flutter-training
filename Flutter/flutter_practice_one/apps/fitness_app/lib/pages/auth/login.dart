@@ -1,11 +1,11 @@
 // ignore_for_file: directives_ordering, inference_failure_on_instance_creation
 
 import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/components/input_password.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/gestures.dart';
-//import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/routes/routes.dart';
@@ -85,19 +85,13 @@ class _LoginPageState extends State<LoginPage> {
                     controller: emailController,
                     hintText: s.hintTextEmail,
                     icon: checkIcon ? FAIcons.iconTick : null,
-                    validator: (value) {
-                      return FAValidator.validatorEmail(
-                        value,
-                        check: checkIcon,
-                      );
-                    },
+                    validator: FAValidator.validatorEmail,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(height: 14),
-                  FAInput(
+                  FAInputPassword(
                     controller: passwordController,
                     hintText: s.hintTextPassword,
-                    icon: FAIcons.iconEye,
                     obscureText: true,
                     validator: FAValidator.validatorPassword,
                     textInputAction: TextInputAction.done,

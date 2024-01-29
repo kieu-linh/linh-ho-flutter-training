@@ -7,14 +7,13 @@ import 'package:flutter/material.dart';
 
 class FAAddExercise extends StatelessWidget {
   const FAAddExercise({
-    required this.s,
     super.key,
   });
 
-  final FAUiS s;
-
   @override
   Widget build(BuildContext context) {
+    final s = FAUiS.of(context);
+    
     return Column(
       children: [
         FATitleHome(
