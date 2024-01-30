@@ -62,7 +62,7 @@ class _ExercisePageState extends State<ExercisePage> {
                         onTap: () {
                           context
                               .read<ExerciseBloc>()
-                              .add(OnTapExercise(index));
+                              .add(OnTapExercise(index)); 
                         },
                         child: Container(
                           margin: const EdgeInsets.only(right: 13),
