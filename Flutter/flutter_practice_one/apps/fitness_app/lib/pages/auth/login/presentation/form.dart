@@ -27,7 +27,7 @@ class EmailForm extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return FAInput(
-          onChanged: (email) {
+          onChanged: (email) { 
             context.read<LoginBloc>().add(LogInEmailChangedEvent(email: email));
           },
           controller: emailController,

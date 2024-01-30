@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:api_client/api_client.dart';
-import 'package:fitness_app/pages/auth/login/models/user_model.dart';
+import 'package:fitness_app/pages/auth/login/model/user_model.dart';
 
 class AuthRepository {
   Future<List<UserModel>?> users() async {

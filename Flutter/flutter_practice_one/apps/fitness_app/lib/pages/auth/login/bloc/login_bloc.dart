@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_state.dart';
-import 'package:fitness_app/pages/auth/login/models/user_model.dart';
+import 'package:fitness_app/pages/auth/login/model/user_model.dart';
 import 'package:fitness_app/pages/auth/login/repositories/auth_repository.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
