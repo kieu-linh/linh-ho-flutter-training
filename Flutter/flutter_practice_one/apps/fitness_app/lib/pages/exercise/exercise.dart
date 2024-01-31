@@ -19,7 +19,6 @@ class ExercisePage extends StatefulWidget {
 }
 
 class _ExercisePageState extends State<ExercisePage> {
-
   // This is delay fix
   List<AddExerciseModel> _listExercise = listAddExercise
       .where((e) => e.category == listCategoryExercise[0])
@@ -30,95 +29,100 @@ class _ExercisePageState extends State<ExercisePage> {
     final s = FAUiS.of(context);
 
     return ExerciseProvider(
-        child: BlocConsumer<ExerciseBloc, int>(
-      listener: (context, state) {
-        void showListExerciseByCategory(int index) {
-          _listExercise = listAddExercise
-              .where((e) => e.category == listCategoryExercise[index])
-              .toList();
-        }
-        showListExerciseByCategory(state);
-      },
-      builder: (context, state) {
-        return Scaffold(
-          body: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: FATopNavigation(
-                  onLeadingPress: () => GoRouter.of(context).go('/homeScreen'),
-                  title: s.fullExercise,
-                ),
-              ),
-              const SizedBox(height: 22),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Padding(
+      child: BlocConsumer<ExerciseBloc, int>(
+        listener: (context, state) {
+          void showListExerciseByCategory(int index) {
+            _listExercise = listAddExercise
+                .where((e) => e.category == listCategoryExercise[index])
+                .toList();
+          }
+
+          showListExerciseByCategory(state);
+        },
+        builder: (context, state) {
+          return Scaffold(
+            body: Column(
+              children: [
+                Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children:
-                        List.generate(listCategoryExercise.length, (index) {
-                      return GestureDetector(
-                        onTap: () {
-                          context
-                              .read<ExerciseBloc>()
-                              .add(OnTapExercise(index)); 
+                  child: FATopNavigation(
+                    onLeadingPress: () =>
+                        GoRouter.of(context).go('/homeScreen'),
+                    title: s.fullExercise,
+                  ),
+                ),
+                const SizedBox(height: 22),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children:
+                          List.generate(listCategoryExercise.length, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            context
+                                .read<ExerciseBloc>()
+                                .add(OnTapExercise(index));
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 13),
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 12,
+                              horizontal: 25,
+                            ),
+                            decoration: BoxDecoration(
+                              color: state == index
+                                  ? context.colorScheme.tertiary
+                                  : context.colorScheme.onSurfaceVariant
+                                      .withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Text(
+                              listCategoryExercise[index],
+                              style: state == index
+                                  ? context.textTheme.titleLarge?.copyWith(
+                                      fontSize: 12,
+                                      color: context.colorScheme.secondary,
+                                    )
+                                  : context.textTheme.titleLarge
+                                      ?.copyWith(fontSize: 12),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 28),
+                Expanded(
+                  child: ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    itemBuilder: (context, index) {
+                      final addExercise = _listExercise[index];
+                      return FACardContainer(
+                        addExercise: addExercise,
+                        onPressed: () {
+                          GoRouter.of(context).goNamed(
+                            'exerciseDetailScreen',
+                            extra: addExercise,
+                          );
                         },
-                        child: Container(
-                          margin: const EdgeInsets.only(right: 13),
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 12,
-                            horizontal: 25,
-                          ),
-                          decoration: BoxDecoration(
-                            color: state == index
-                                ? context.colorScheme.tertiary
-                                : context.colorScheme.onSurfaceVariant
-                                    .withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            listCategoryExercise[index],
-                            style: state == index
-                                ? context.textTheme.titleLarge?.copyWith(
-                                    fontSize: 12,
-                                    color: context.colorScheme.secondary,
-                                  )
-                                : context.textTheme.titleLarge
-                                    ?.copyWith(fontSize: 12),
-                          ),
-                        ),
                       );
-                    }),
+                    },
+                    separatorBuilder: (context, index) => const FADivider(
+                      height: 40,
+                      endIndent: 0,
+                      indent: 0,
+                    ),
+                    itemCount: _listExercise.length,
                   ),
                 ),
-              ),
-              const SizedBox(height: 28),
-              Expanded(
-                child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  itemBuilder: (context, index) {
-                    final addExercise = _listExercise[index];
-                    return FACardContainer(
-                      addExercise: addExercise,
-                      onPressed: () {
-                        GoRouter.of(context).goNamed('exerciseDetailScreen',
-                            extra: addExercise);
-                      },
-                    );
-                  },
-                  separatorBuilder: (context, index) => const FADivider(
-                    height: 40,
-                    endIndent: 0,
-                    indent: 0,
-                  ),
-                  itemCount: _listExercise.length,
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    ));
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }

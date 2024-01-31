@@ -12,7 +12,7 @@ class AccountServices implements ApiClient {
     try {
       const url = FAConstant.endPointLogin;
       http.Response response = await http.get(Uri.parse(url));
-      print(response.body);
+      //print(response.body);
       return response;
     } catch (e) {
       throw ErrorHandler.handle(e).failure;

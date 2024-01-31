@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/data/models/user_data.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
@@ -98,7 +99,10 @@ class _DrawerPageState extends State<DrawerPage> {
           right: 0,
           bottom: 0,
           child: GestureDetector(
-            onTap: () => GoRouter.of(context).go('/loginScreen'),
+            onTap: () {
+              SharedPrefs().deleteAccount();
+              GoRouter.of(context).go('/loginScreen');
+            },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               color: context.colorScheme.secondary,

@@ -40,10 +40,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } else {
       emit(
         LoginState(
-            status: LoginStatus.onEmailChangedFailure, email: email ?? ''),
+          status: LoginStatus.onEmailChangedFailure,
+          email: email ?? '',
+        ),
       );
     }
-    print('[Log] ${state.status}');
+    //print('[Log] ${state.status}');
   }
 
   Future<void> _onPasswordChanged(
@@ -64,7 +66,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } else {
       emit(const LoginState(status: LoginStatus.onShowPassword));
     }
-    print('[Log] ${state}');
+    //print('[Log] ${state}');
   }
 
   Future<void> _onLoginSubmitted(
@@ -73,17 +75,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   ) async {
     emit(const LoginState(status: LoginStatus.onValueChangedSuccess));
     await Future.delayed(const Duration(seconds: 2));
-
-    /*if (event.email == user1.email && event.password == user1.password) {
-      emit(const LoginState(status: LoginStatus.success));
-    } else {
-      emit(const LoginState(status: LoginStatus.failure));
-    }*/
-    //await AuthRepository().signIn(email: event.email, password: event.password);
     List<UserModel> list = await AuthRepository().users() ?? [];
     final listUser = list
-        .where((element) =>
-            element.email == event.email && element.password == event.password)
+        .where(
+          (element) =>
+              element.email == event.email &&
+              element.password == event.password,
+        )
         .toList();
     if (listUser.isEmpty) {
       emit(const LoginState(status: LoginStatus.failure));

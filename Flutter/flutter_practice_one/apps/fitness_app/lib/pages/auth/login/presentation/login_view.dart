@@ -1,25 +1,23 @@
-// ignore: lines_longer_than_80_chars
-// ignore_for_file: directives_ordering, inference_failure_on_instance_creation,, avoid_bool_literals_in_conditional_expressions
-// avoid_bool_literals_in_conditional_expressions,
-// no_leading_underscores_for_local_identifiers
-
+import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_bloc.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_state.dart';
+import 'package:fitness_app/pages/auth/login/model/user_model.dart';
 import 'package:fitness_app/pages/auth/login/presentation/form.dart';
 import 'package:fitness_app/pages/auth/login/provider/login_provider.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/components/text.dart';
+import 'package:fitness_ui/components/top_navigation.dart';
+import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fitness_app/routes/routes.dart';
-import 'package:fitness_ui/components/text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fitness_ui/core/constant/icons.dart';
-import 'package:fitness_ui/components/top_navigation.dart';
+
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -34,6 +32,10 @@ class LoginView extends StatelessWidget {
       child: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.status == LoginStatus.success) {
+            UserModel user = UserModel()
+              ..email = emailController.text
+              ..password = passwordController.text;
+            SharedPrefs().saveAccount(user);
             GoRouter.of(context).go('/favoriteScreen');
           }
         },
