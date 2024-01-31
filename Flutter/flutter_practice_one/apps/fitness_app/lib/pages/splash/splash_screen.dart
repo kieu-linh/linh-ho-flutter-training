@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_final_locals
-
+import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/pages/welcome/widget/image_filter.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/core/constant/images.dart';
@@ -44,7 +43,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 const SizedBox(height: 42),
                 GestureDetector(
-                  onTap: () => GoRouter.of(context).go('/welcomeScreen'),
+                  onTap: () async {
+                    final user = await SharedPrefs().getAccount();
+                    if (user == null) {
+                      GoRouter.of(context).go('/welcomeScreen');
+                    } else {
+                      GoRouter.of(context).goNamed('homeScreen');
+                    }
+                  },
                   child: Container(
                     width: 180,
                     height: 56,

@@ -1,3 +1,4 @@
+
 import 'package:device_preview/device_preview.dart';
 import 'package:fitness_app/core/theme/theme.dart';
 import 'package:fitness_app/l10n/l10n_generated/l10n.dart';

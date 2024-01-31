@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_bool_literals_in_conditional_expressions
-
 import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_bloc.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_event.dart';
@@ -27,7 +25,7 @@ class EmailForm extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return FAInput(
-          onChanged: (email) { 
+          onChanged: (email) {
             context.read<LoginBloc>().add(LogInEmailChangedEvent(email: email));
           },
           controller: emailController,

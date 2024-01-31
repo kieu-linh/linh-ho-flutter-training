@@ -2,3 +2,5 @@ include: package:very_good_analysis/analysis_options.5.1.0.yaml
 linter:
   rules:
     public_member_api_docs: false
+    depend_on_referenced_packages: false
+    sized_box_shrink_expand: false

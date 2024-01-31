@@ -40,9 +40,6 @@ class _CategoryPageState extends State<CategoryPage> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 0, 18, 22),
-            // padding: const EdgeInsets.symmetric(horizontal: 18).copyWith(
-            //  bottom: 22,
-            // ),
             child: FATopNavigation(
               onLeadingPress: () => GoRouter.of(context).go('/homeScreen'),
               title: s.categories,

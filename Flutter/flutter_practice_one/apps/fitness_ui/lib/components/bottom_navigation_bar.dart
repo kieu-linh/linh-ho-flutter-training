@@ -6,7 +6,6 @@ import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-// ignore: depend_on_referenced_packages
 import 'package:go_router/go_router.dart';
 
 class FABottomNavigationBar extends StatefulWidget {
@@ -60,9 +59,7 @@ class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-          // ignore: sized_box_shrink_expand
-          SizedBox(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: widget.navigationShell,
