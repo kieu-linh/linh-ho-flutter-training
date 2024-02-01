@@ -1,6 +1,4 @@
-import 'package:fitness_ui/components/button.dart';
-import 'package:fitness_ui/components/top_navigation.dart';
-import 'package:fitness_ui/components/top_onboarding.dart';
+import 'package:fitness_app/pages/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -20,83 +18,58 @@ class _AgePageState extends State<AgePage> {
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return FAScaffold(
+      onBack: () => GoRouter.of(context).go('/favoriteScreen'),
+      currentStep: 2,
+      title: s.yourOld,
+      body: SizedBox(
+        height: 300,
+        child: Stack(
           children: [
-            FATopNavigation(
-              trailing: TextButton(
-                onPressed: () => GoRouter.of(context).go('/getStartScreen'),
-                child: Text(
-                  s.skipPage,
-                  style: context.textTheme.labelSmall,
-                ),
-              ),
-              onLeadingPress: () => GoRouter.of(context).go('/favoriteScreen'),
-            ),
-            const SizedBox(height: 9),
-            TopOnBoarding(currentStep: 2, title: s.yourOld),
-            Expanded(
-              child: SizedBox(
-                height: 300,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Container(
-                          width: 70,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: context.colorScheme.tertiary,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      ),
-                    ),
-                    ListWheelScrollView.useDelegate(
-                      diameterRatio: 1,
-                      physics: const FixedExtentScrollPhysics(),
-                      itemExtent: 40,
-                      childDelegate: ListWheelChildBuilderDelegate(
-                        childCount: 56,
-                        builder: (context, index) {
-                          return Center(
-                            child: Text(
-                              '${index + 15}',
-                              style: _selectIndex == index
-                                  ? context.textTheme.bodyMedium
-                                  : context.textTheme.labelMedium
-                                      ?.copyWith(fontSize: 18),
-                            ),
-                          );
-                        },
-                      ),
-                      onSelectedItemChanged: (value) {
-                        _selectIndex = value;
-                        setState(() {});
-                      },
-                    ),
-                  ],
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 70,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: context.colorScheme.tertiary,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 30),
-              child: FAButton(
-                text: s.btnNextStep,
-                onPressed: () => GoRouter.of(context).go('/weightScreen'),
+            ListWheelScrollView.useDelegate(
+              diameterRatio: 1,
+              physics: const FixedExtentScrollPhysics(),
+              itemExtent: 40,
+              childDelegate: ListWheelChildBuilderDelegate(
+                childCount: 56,
+                builder: (context, index) {
+                  return Center(
+                    child: Text(
+                      '${index + 15}',
+                      style: _selectIndex == index
+                          ? context.textTheme.bodyMedium
+                          : context.textTheme.labelMedium
+                              ?.copyWith(fontSize: 18),
+                    ),
+                  );
+                },
               ),
+              onSelectedItemChanged: (value) {
+                _selectIndex = value;
+                setState(() {});
+              },
             ),
           ],
         ),
       ),
+      onNext: () => GoRouter.of(context).go('/weightScreen'),
     );
   }
 }

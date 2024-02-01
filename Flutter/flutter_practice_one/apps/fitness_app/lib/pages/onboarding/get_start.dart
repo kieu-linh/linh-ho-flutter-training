@@ -55,7 +55,6 @@ class GetStartPage extends StatelessWidget {
             child: FAButton(
               text: s.getStarted,
               onPressed: () => GoRouter.of(context).goNamed('homeScreen'),
-              //context.goNamed('homeScreen'),
             ),
           ),
         ],
