@@ -1,6 +1,5 @@
+import 'package:fitness_app/pages/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/button.dart';
-import 'package:fitness_ui/components/top_navigation.dart';
-import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
@@ -33,67 +32,39 @@ class _GoalPageState extends State<GoalPage> {
       FAIcons.iconFitness,
     ];
 
-    return Scaffold(
-      body: Stack(
+    return FAScaffold(
+      onBack: () => GoRouter.of(context).go('/levelScreen'),
+      currentStep: 7,
+      title: s.goal,
+      body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                FATopNavigation(
-                  onLeadingPress: () => GoRouter.of(context).go('/levelScreen'),
-                  trailing: TextButton(
-                    onPressed: () => GoRouter.of(context).go('/getStartScreen'),
-                    child: Text(
-                      s.skipPage,
-                      style: context.textTheme.labelSmall,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 9),
-                TopOnBoarding(
-                  title: s.goal,
-                  currentStep: 7,
-                ),
-                const SizedBox(height: 140),
-                ...List.generate(3, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    child: FAButton.outline(
-                      onPressed: () {
-                        _selectIndex = index;
-                        setState(() {});
-                      },
-                      icon: listIcon[index],
-                      iconColor: _selectIndex == index
-                          ? context.colorScheme.secondary
-                          : context.colorScheme.surface,
-                      color: _selectIndex == index
-                          ? context.colorScheme.tertiary
-                          : context.colorScheme.onSecondary,
-                      textStyle: _selectIndex == index
-                          ? AppTextStyles.textButtonGoal
-                              .copyWith(color: context.colorScheme.onSecondary)
-                          : AppTextStyles.textButtonGoal,
-                      text: listText[index],
-                    ),
-                  );
-                }),
-              ],
-            ),
-          ),
-          Positioned(
-            left: 20,
-            right: 20,
-            bottom: 30,
-            child: FAButton(
-              text: s.finishStep,
-              onPressed: () => GoRouter.of(context).go('/getStartScreen'),
-            ),
-          ),
+          const SizedBox(height: 140),
+          ...List.generate(3, (index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: FAButton.outline(
+                onPressed: () {
+                  _selectIndex = index;
+                  setState(() {});
+                },
+                icon: listIcon[index],
+                iconColor: _selectIndex == index
+                    ? context.colorScheme.secondary
+                    : context.colorScheme.surface,
+                color: _selectIndex == index
+                    ? context.colorScheme.tertiary
+                    : context.colorScheme.onSecondary,
+                textStyle: _selectIndex == index
+                    ? AppTextStyles.textButtonGoal
+                        .copyWith(color: context.colorScheme.onSecondary)
+                    : AppTextStyles.textButtonGoal,
+                text: listText[index],
+              ),
+            );
+          }),
         ],
       ),
+      onNext: () => GoRouter.of(context).go('/getStartScreen'),
     );
   }
 }
