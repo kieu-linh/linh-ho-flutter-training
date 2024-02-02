@@ -2,6 +2,7 @@ import 'package:fitness_app/core/utils/get_string_day.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/core/constant/images.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -27,7 +28,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Stack(
       children: [
         Container(
-          height: 237,
+          height: context.sizeHeight(237),
           decoration: BoxDecoration(
             color: context.colorScheme.primary,
             borderRadius: const BorderRadius.only(

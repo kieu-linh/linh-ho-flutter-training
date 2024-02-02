@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/utils/change_value.dart';
 import 'package:fitness_app/pages/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,7 @@ class _WeightPageState extends State<WeightPage> {
       currentStep: 3,
       title: s.weightTitle,
       body: Padding(
-        padding: const EdgeInsets.only(top: 20),
+        padding: context.padding(top: 20),
         child: FABodyMeasurementInput(
           onLeftPressed: () {
             saveValue = ChangeValue.convertValue(

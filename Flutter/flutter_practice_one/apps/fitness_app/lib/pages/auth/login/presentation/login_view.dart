@@ -10,6 +10,7 @@ import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -17,7 +18,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -55,7 +55,7 @@ class LoginView extends StatelessWidget {
             child: Scaffold(
               body: SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: context.padding(horizontal: 20),
                   child: SingleChildScrollView(
                     child: Form(
                       key: formKey,
@@ -66,14 +66,14 @@ class LoginView extends StatelessWidget {
                             onLeadingPress: () =>
                                 context.go(AppRoutes.welcomeScreen.path),
                           ),
-                          const SizedBox(height: 30),
+                          context.sizedBox(height: 30),
                           FAText.displayLarge(context, text: s.displayLarge),
                           const SizedBox(height: 11),
                           Text(
                             s.displayMedium,
                             style: context.textTheme.headlineMedium,
                           ),
-                          const SizedBox(height: 39),
+                          context.sizedBox(height: 39),
                           EmailForm(emailController: emailController),
                           const SizedBox(height: 14),
                           PasswordForm(
@@ -91,16 +91,14 @@ class LoginView extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 34),
+                          context.sizedBox(height: 34),
                           FAButton(
                             onPressed: submitLogin,
                             text: s.btnLoginIn,
                             isDisable: state.status ==
-                                    LoginStatus.onValueChangedSuccess
-                                ? true
-                                : false,
+                                LoginStatus.onValueChangedSuccess,
                           ),
-                          const SizedBox(height: 24),
+                          context.sizedBox(height: 24),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -124,9 +122,9 @@ class LoginView extends StatelessWidget {
                             text: s.btnFacebook,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           ),
-                          const SizedBox(height: 48),
+                          context.sizedBox(height: 48),
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 24),
+                            padding: context.padding(bottom: 24),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

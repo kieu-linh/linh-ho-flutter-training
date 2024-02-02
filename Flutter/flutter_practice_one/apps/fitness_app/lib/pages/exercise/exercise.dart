@@ -5,6 +5,7 @@ import 'package:fitness_app/pages/exercise/provider/exercise_provider.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -44,18 +45,18 @@ class _ExercisePageState extends State<ExercisePage> {
             body: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: context.padding(horizontal: 20),
                   child: FATopNavigation(
                     onLeadingPress: () =>
                         GoRouter.of(context).go('/homeScreen'),
                     title: s.fullExercise,
                   ),
                 ),
-                const SizedBox(height: 22),
+                context.sizedBox(height: 22),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: context.padding(horizontal: 20),
                     child: Row(
                       children:
                           List.generate(listCategoryExercise.length, (index) {
@@ -67,10 +68,8 @@ class _ExercisePageState extends State<ExercisePage> {
                           },
                           child: Container(
                             margin: const EdgeInsets.only(right: 13),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 12,
-                              horizontal: 25,
-                            ),
+                            padding:
+                                context.padding(vertical: 12, horizontal: 25),
                             decoration: BoxDecoration(
                               color: state == index
                                   ? context.colorScheme.tertiary
@@ -94,10 +93,10 @@ class _ExercisePageState extends State<ExercisePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 28),
+                context.sizedBox(height: 28),
                 Expanded(
                   child: ListView.separated(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: context.padding(horizontal: 20),
                     itemBuilder: (context, index) {
                       final addExercise = _listExercise[index];
                       return FACardContainer(
@@ -110,8 +109,8 @@ class _ExercisePageState extends State<ExercisePage> {
                         },
                       );
                     },
-                    separatorBuilder: (context, index) => const FADivider(
-                      height: 40,
+                    separatorBuilder: (context, index) => FADivider(
+                      height: context.sizeHeight(40),
                       endIndent: 0,
                       indent: 0,
                     ),

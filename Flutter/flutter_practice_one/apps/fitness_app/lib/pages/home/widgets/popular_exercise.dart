@@ -3,6 +3,7 @@ import 'package:fitness_app/pages/home/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -38,14 +39,14 @@ class FAPopularExercise extends StatelessWidget {
                       top: 12,
                       right: 23,
                       child: Container(
-                        width: 24,
-                        height: 24,
+                        width: context.sizeWidth(24),
+                        height: context.sizeHeight(24),
                         decoration: BoxDecoration(
                           color: context.colorScheme.secondary,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(6),
+                          padding: context.padding(all: 6),
                           child: SvgPicture.asset(FAIcons.iconHeart),
                         ),
                       ),
@@ -54,7 +55,7 @@ class FAPopularExercise extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: context.padding(horizontal: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -92,11 +93,11 @@ class FAPopularExercise extends StatelessWidget {
             );
           },
           separatorBuilder: (context, index) {
-            return const FADivider(height: 26);
+            return FADivider(height: context.sizeHeight(26));
           },
           itemCount: listExercise.length,
         ),
-        const FADivider(height: 43),
+        FADivider(height: context.sizeHeight(43)),
       ],
     );
   }

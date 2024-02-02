@@ -19,18 +19,12 @@ class FAImageFilter extends StatelessWidget {
     return Stack(
       children: [
         Positioned.fill(
-          child: Image.asset(
-            image,
-            fit: BoxFit.fill,
-          ),
+          child: Image.asset(image, fit: BoxFit.fill),
         ),
         Positioned.fill(
           child: ClipRRect(
             child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: sigmaX,
-                sigmaY: sigmaY,
-              ),
+              filter: ImageFilter.blur(sigmaX: sigmaX, sigmaY: sigmaY),
               child: const SizedBox(),
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:fitness_app/data/models/add_exercise_data.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -44,10 +45,7 @@ class _FAExerciseProgramState extends State<FAExerciseProgram> {
                   },
                   child: Container(
                     margin: const EdgeInsets.only(right: 13),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                      horizontal: 25,
-                    ),
+                    padding: context.padding(vertical: 12, horizontal: 25),
                     decoration: BoxDecoration(
                       color: _selectIndex == index
                           ? context.colorScheme.tertiary

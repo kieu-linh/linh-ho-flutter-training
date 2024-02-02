@@ -1,5 +1,6 @@
 import 'package:fitness_app/data/models/macronutrient_goal_data.dart';
 import 'package:fitness_ui/components/text.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -17,7 +18,7 @@ class FAMacronutrientGoal extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 20, bottom: 25),
+          padding: context.padding(left: 20, bottom: 25),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -58,7 +59,7 @@ class FAMacronutrientGoal extends StatelessWidget {
             );
           }),
         ),
-        const SizedBox(height: 40),
+        context.sizedBox(height: 40),
       ],
     );
   }

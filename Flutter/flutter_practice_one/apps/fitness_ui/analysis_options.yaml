@@ -4,3 +4,4 @@ linter:
     public_member_api_docs: false
     depend_on_referenced_packages: false
     sized_box_shrink_expand: false
+    omit_local_variable_types: false

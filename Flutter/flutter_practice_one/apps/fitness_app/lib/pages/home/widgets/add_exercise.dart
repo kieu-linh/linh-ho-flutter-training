@@ -2,6 +2,7 @@ import 'package:fitness_app/data/models/add_exercise_data.dart';
 import 'package:fitness_app/pages/home/widgets/title.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class FAAddExercise extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
-    
+
     return Column(
       children: [
         FATitleHome(
@@ -21,15 +22,15 @@ class FAAddExercise extends StatelessWidget {
           titleSmall: s.seeAll,
         ),
         ListView.separated(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: context.padding(horizontal: 20),
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
             final addExercise = listAddExercise[index];
             return FACardContainer(addExercise: addExercise);
           },
-          separatorBuilder: (context, index) => const FADivider(
-            height: 40,
+          separatorBuilder: (context, index) => FADivider(
+            height: context.sizeHeight(40),
             indent: 0,
             endIndent: 0,
           ),

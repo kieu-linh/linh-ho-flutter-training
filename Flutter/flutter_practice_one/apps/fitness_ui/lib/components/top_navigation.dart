@@ -1,4 +1,5 @@
 import 'package:fitness_ui/components/icons.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 
@@ -24,13 +25,13 @@ class FATopNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: padding ??
-          EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 10),
+          context.padding(top: MediaQuery.paddingOf(context).top + 10),
       child: Row(
         children: [
           InkWell(
             onTap: onLeadingPress,
             child: Padding(
-              padding: const EdgeInsets.all(3),
+              padding: context.padding(all: 3),
               child: leading,
             ),
           ),

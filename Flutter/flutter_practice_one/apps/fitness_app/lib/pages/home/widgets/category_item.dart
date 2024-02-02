@@ -2,13 +2,11 @@ import 'package:fitness_app/data/models/category_data.dart';
 import 'package:fitness_app/pages/home/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-
-
 
 class FACategoryItem extends StatelessWidget {
   const FACategoryItem({
@@ -18,7 +16,7 @@ class FACategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
-    
+
     return Column(
       children: [
         FATitleHome(
@@ -31,11 +29,11 @@ class FACategoryItem extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: context.padding(horizontal: 20),
             child: Row(
               children: List.generate(listCategory.length, (index) {
                 return Padding(
-                  padding: const EdgeInsets.only(right: 19),
+                  padding: context.padding(right: 19),
                   child: Column(
                     children: [
                       CircleAvatar(
@@ -57,7 +55,7 @@ class FACategoryItem extends StatelessWidget {
             ),
           ),
         ),
-        const FADivider(height: 36),
+        FADivider(height: context.sizeHeight(36)),
       ],
     );
   }

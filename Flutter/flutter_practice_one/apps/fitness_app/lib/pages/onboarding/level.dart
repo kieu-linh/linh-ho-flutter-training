@@ -1,5 +1,6 @@
 import 'package:fitness_app/pages/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -31,12 +32,12 @@ class _LevelPageState extends State<LevelPage> {
       title: s.level,
       body: Column(
         children: [
-          const SizedBox(height: 140),
+          context.sizedBox(height: 140),
           ...List.generate(
             3,
             (index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                padding: context.padding(vertical: 12),
                 child: FAButton.outline(
                   onPressed: () {
                     _selectIndex = index;

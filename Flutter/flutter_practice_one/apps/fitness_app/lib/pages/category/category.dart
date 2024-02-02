@@ -2,6 +2,7 @@ import 'package:fitness_app/data/models/category_data.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -46,17 +47,17 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: context.padding(horizontal: 20),
             child: FASearchBox(
               onChanged: (value) {
                 _searchCategory(value);
               },
             ),
           ),
-          const SizedBox(height: 62),
+          context.sizedBox(height: 62),
           Expanded(
             child: GridView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: context.padding(horizontal: 24),
               itemCount: listSearchCategory.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -72,7 +73,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       backgroundImage:
                           AssetImage(listSearchCategory[index].image ?? ''),
                     ),
-                    const SizedBox(height: 21),
+                    const SizedBox(height: 20),
                     FAText.bodyLarge(
                       context,
                       text: listSearchCategory[index].name ?? '',
