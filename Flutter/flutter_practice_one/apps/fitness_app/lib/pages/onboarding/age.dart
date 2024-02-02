@@ -1,4 +1,5 @@
 import 'package:fitness_app/pages/onboarding/layout/scaffold.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _AgePageState extends State<AgePage> {
       onBack: () => GoRouter.of(context).go('/favoriteScreen'),
       currentStep: 2,
       title: s.yourOld,
-      body: SizedBox(
+      body: context.sizedBox(
         height: 300,
         child: Stack(
           children: [
@@ -34,8 +35,8 @@ class _AgePageState extends State<AgePage> {
               child: Container(
                 alignment: Alignment.center,
                 child: Container(
-                  width: 70,
-                  height: 40,
+                  width: context.sizeWidth(70),
+                  height: context.sizeHeight(40),
                   decoration: BoxDecoration(
                     color: context.colorScheme.tertiary,
                     borderRadius: BorderRadius.circular(8),

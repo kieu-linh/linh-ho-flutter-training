@@ -1,4 +1,5 @@
 import 'package:fitness_app/pages/exercise_detail/exercise_detail.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class FADescriptionExercise extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
-    
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
       child: Column(
@@ -31,7 +32,7 @@ class FADescriptionExercise extends StatelessWidget {
             widget.exercise.description ?? '',
             style: context.textTheme.titleSmall?.copyWith(fontSize: 12),
           ),
-          const SizedBox(height: 34),
+          context.sizedBox(height: 34),
           Row(
             children: [
               Text(
@@ -45,7 +46,7 @@ class FADescriptionExercise extends StatelessWidget {
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-                height: 38,
+                height: context.sizeHeight(38),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: context.colorScheme.tertiary,

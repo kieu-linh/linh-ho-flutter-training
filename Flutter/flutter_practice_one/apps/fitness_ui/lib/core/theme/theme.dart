@@ -13,5 +13,6 @@ class FAppTheme {
     scaffoldBackgroundColor: AppColor.secondary,
     colorScheme: AppTheme.colorSchemeLight,
     textTheme: AppTheme.textTheme,
+    
   );
 }

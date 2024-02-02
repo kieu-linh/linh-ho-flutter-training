@@ -2,6 +2,7 @@ import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/pages/welcome/widget/image_filter.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/core/constant/images.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(FAImage.imgSplash),
-                const SizedBox(height: 42),
+                context.sizedBox(height: 42),
                 FARichText(
                   fistText: s.firstTitleSplash,
                   secondText: s.secondTitleSplash,
@@ -41,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   textAlign: TextAlign.center,
                   style: context.textTheme.displayMedium,
                 ),
-                const SizedBox(height: 42),
+                context.sizedBox(height: 42),
                 GestureDetector(
                   onTap: () async {
                     final user = await SharedPrefs().getAccount();
@@ -52,8 +53,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     }
                   },
                   child: Container(
-                    width: 180,
-                    height: 56,
+                    width: context.sizeWidth(180),
+                    height: context.sizeHeight(56),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: context.colorScheme.tertiaryContainer,

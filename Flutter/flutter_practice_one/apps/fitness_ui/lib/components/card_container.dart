@@ -1,6 +1,7 @@
 import 'package:fitness_app/data/models/add_exercise_data.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +22,9 @@ class FACardContainer extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(4),
-            height: 90,
-            width: 90,
+            padding: context.padding(all: 4),
+            height: context.sizeHeight(90) ,
+            width: context.sizeWidth(90),
             decoration: BoxDecoration(
               color: addExercise.backgroundColor,
               borderRadius: BorderRadius.circular(10),

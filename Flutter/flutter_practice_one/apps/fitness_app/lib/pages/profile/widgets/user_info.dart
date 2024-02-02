@@ -1,3 +1,4 @@
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class FAUserInfo extends StatelessWidget {
     final s = FAUiS.of(context);
 
     return Padding(
-      padding: const EdgeInsets.only(top: 12, bottom: 33),
+      padding: context.padding(top: 12, bottom: 33),
       child: Column(
         children: [
           CircleAvatar(
@@ -43,7 +44,7 @@ class FAUserInfo extends StatelessWidget {
             style: context.textTheme.titleSmall
                 ?.copyWith(color: context.colorScheme.tertiary),
           ),
-          const SizedBox(height: 46),
+          context.sizedBox(height: 46),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

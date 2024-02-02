@@ -1,4 +1,5 @@
 import 'package:fitness_ui/core/constant/images.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -16,8 +17,8 @@ class FACard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 250,
-          padding: const EdgeInsets.all(30).copyWith(top: 50),
+          height: context.sizeHeight(250),
+          padding: context.padding(all: 30, top: 50),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -40,7 +41,7 @@ class FACard extends StatelessWidget {
               Image.asset(FAImage.imgGirlCard, package: 'fitness_ui'),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 60),
+                  padding: context.padding(top: 60),
                   child: Column(
                     children: [
                       Text(
@@ -56,10 +57,7 @@ class FACard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 6,
-                          ),
+                          padding: context.padding(horizontal: 16, vertical: 6),
                           child: Text(
                             s.textButtonCard,
                             style: AppTextStyles.textAppBar.copyWith(

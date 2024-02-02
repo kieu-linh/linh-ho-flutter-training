@@ -108,7 +108,7 @@ class FAButton extends StatelessWidget {
                   height: 24,
                 ),
               ),
-            if (isDisable == false)
+            if (!isDisable)
               FAText(text: text, style: textStyle)
             else
               FALoadingIndicator(textColor: textColor),

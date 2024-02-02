@@ -7,6 +7,7 @@ import 'package:fitness_app/pages/exercise_detail/widgets/exercise_program.dart'
 import 'package:fitness_app/pages/home/widgets/add_exercise.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -35,12 +36,12 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               children: [
                 Image.asset(
                   widget.exercise.backgroundImage ?? '',
-                  width: MediaQuery.sizeOf(context).width,
+                  width: context.width,
                   height: 379,
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 45),
+                  padding: context.padding(top: 45),
                   child: Column(
                     children: [
                       FAExerciseInfo(widget: widget),

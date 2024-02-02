@@ -2,6 +2,7 @@ import 'package:fitness_app/data/models/welcome_data.dart';
 import 'package:fitness_app/pages/welcome/widget/image_filter.dart';
 import 'package:fitness_ui/components/carousel.dart';
 import 'package:fitness_ui/components/rich_text.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -46,7 +47,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(listWelcomes[index].image ?? ''),
-                        const SizedBox(height: 42),
+                        context.sizedBox(height: 42),
                         FARichText(
                           fistText: listWelcomes[index].firstText,
                           secondText: listWelcomes[index].secondText,

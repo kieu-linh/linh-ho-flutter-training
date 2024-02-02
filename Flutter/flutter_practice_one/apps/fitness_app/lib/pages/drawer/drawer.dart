@@ -2,6 +2,7 @@ import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/data/models/user_data.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +30,8 @@ class _DrawerPageState extends State<DrawerPage> {
     return Stack(
       children: [
         Padding(
-          padding: EdgeInsets.only(
-            left: 20,
-            top: MediaQuery.paddingOf(context).top + 5,
-          ),
+          padding: context.padding(
+              left: 20, top: MediaQuery.paddingOf(context).top + 5),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +39,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 InkWell(
                   onTap: widget.onTap,
                   child: Padding(
-                    padding: const EdgeInsets.all(3),
+                    padding: context.padding(all: 3),
                     child: SvgPicture.asset(FAIcons.iconClose),
                   ),
                 ),
@@ -63,9 +62,9 @@ class _DrawerPageState extends State<DrawerPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 40),
+                context.sizedBox(height: 40),
                 Padding(
-                  padding: const EdgeInsets.only(left: 26),
+                  padding: context.padding(left: 26),
                   child:
                       Text(s.dashboard, style: context.textTheme.labelMedium),
                 ),
@@ -73,7 +72,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   thickness: 1,
                   color: context.colorScheme.onSurfaceVariant.withOpacity(0.15),
                   indent: 0,
-                  height: 32,
+                  height: context.sizeHeight(32),
                 ),
                 Column(
                   children: [
@@ -87,7 +86,7 @@ class _DrawerPageState extends State<DrawerPage> {
                       icon: FAIcons.iconContact,
                       title: s.contactSupport,
                     ),
-                    const SizedBox(height: 60),
+                    context.sizedBox(height: 60),
                   ],
                 ),
               ],
@@ -104,12 +103,12 @@ class _DrawerPageState extends State<DrawerPage> {
               GoRouter.of(context).go('/loginScreen');
             },
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: context.padding(horizontal: 20, vertical: 20),
               color: context.colorScheme.secondary,
               child: Row(
                 children: [
                   SvgPicture.asset(FAIcons.iconSignOut),
-                  const SizedBox(width: 22),
+                  context.sizedBox(width: 22),
                   Text(s.signOut, style: context.textTheme.titleMedium),
                 ],
               ),
@@ -145,7 +144,7 @@ class FASideMenu extends StatelessWidget {
         Divider(
           thickness: 1,
           color: context.colorScheme.onSurfaceVariant.withOpacity(0.15),
-          height: 38,
+          height: context.sizeHeight(38),
         ),
       ],
     );

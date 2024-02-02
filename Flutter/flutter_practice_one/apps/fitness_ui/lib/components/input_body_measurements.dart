@@ -1,4 +1,5 @@
 // ignore_for_file: file_names, inference_failure_on_function_return_type
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 8),
+          padding: context.padding(horizontal: 17, vertical: 8),
           decoration: BoxDecoration(
             color: context.colorScheme.onSurfaceVariant.withOpacity(0.25),
             borderRadius: BorderRadius.circular(12),
@@ -54,7 +55,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
                 },
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                      context.padding(horizontal: 10, vertical: 2),
                   decoration: BoxDecoration(
                     color: _selectIndex == index
                         ? context.colorScheme.secondary
@@ -72,7 +73,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
         ),
         const SizedBox(height: 24),
         Container(
-          padding: const EdgeInsets.symmetric(vertical: 4),
+          padding: context.padding(vertical: 4),
           decoration: BoxDecoration(
             color: context.colorScheme.secondary,
             border: Border.all(

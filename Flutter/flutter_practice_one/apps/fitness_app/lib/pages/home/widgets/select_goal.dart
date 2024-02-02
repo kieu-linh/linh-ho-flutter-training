@@ -1,5 +1,6 @@
 import 'package:fitness_app/data/models/goal_data.dart';
 import 'package:fitness_app/pages/home/widgets/title.dart';
+import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _FASelectGoalState extends State<FASelectGoal> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: context.padding(horizontal: 20),
             child: Row(
               children: List.generate(listGoal.length, (index) {
                 return GestureDetector(
@@ -37,7 +38,7 @@ class _FASelectGoalState extends State<FASelectGoal> {
                   child: Container(
                     margin: const EdgeInsets.only(right: 13),
                     padding:
-                        const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
+                        context.padding(vertical: 10, horizontal: 6),
                     decoration: BoxDecoration(
                       color: _selectIndex == index
                           ? context.colorScheme.tertiary
@@ -61,7 +62,7 @@ class _FASelectGoalState extends State<FASelectGoal> {
             ),
           ),
         ),
-        const SizedBox(height: 28),
+        context.sizedBox(height: 28),
       ],
     );
   }
