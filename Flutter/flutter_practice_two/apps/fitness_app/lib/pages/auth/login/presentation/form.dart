@@ -30,7 +30,7 @@ class EmailForm extends StatelessWidget {
           },
           controller: emailController,
           hintText: s.hintTextEmail,
-          icon: state.status == LoginStatus.onEmailChangedSuccess
+          icon: state.isUsernameValid
               ? FAIcons.iconTick
               : null,
           validator: FAValidator.validatorEmail,

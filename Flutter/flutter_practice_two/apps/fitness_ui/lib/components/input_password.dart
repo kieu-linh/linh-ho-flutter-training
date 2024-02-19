@@ -81,14 +81,8 @@ class FAInputPassword extends StatelessWidget {
             hintText: hintText,
             suffixIcon: GestureDetector(
               onTap: onPressed,
-              /*() {
-                setState(() {
-                  showPassword = !showPassword;
-                });
-              },*/
               child: SvgPicture.asset(
                 icon!,
-                //showPassword ? FAIcons.iconEyeOpen : FAIcons.iconEye,
                 // ignore: deprecated_member_use
                 color: context.colorScheme.onSurface,
               ),

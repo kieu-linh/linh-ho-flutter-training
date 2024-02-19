@@ -13,23 +13,19 @@
 
 - 1 Dev
 
-***Start date:*** 22/12/2023 
+***Start date:*** 19/02/2024
 
-***Timeline:*** 2 weeks ()
+***Timeline:*** 3 weeks ()
 
-***Actual:*** 18 days
+***Actual:*** 
 
 ***Target:***
 
-- Setup tools for check Dart, Flutter code styles (Very Good Analysis)
-- Understanding and apply Flutter Widget for building UI
-- Apply responsive & adaptive for build mobile app support various Android & iOS devices resolution (with device_preview plugin)
-- Interactive (Tap, double tap, swipe, etc..)
-- Multi-languages with L10n and theme (dark, light)
-- Build a form with validation, auto focus, adjust layout, focus when keyboard pop-up
-- Portrait only
-- Understanding and apply navigation for switch between screens
-- Understanding and apply widget_book plugin for building UI documentation
+- Have an understanding at the basic level of how context and state management work in one Flutter application.
+- Become better understood and apply the widget lifecycle.
+- Use storage to persist current data.
+- Become familiar with state management and better understood about BLoC.
+- Get acquainted with working with API (asynchronous) and error handling from apis.
 
 ## Prerequisites
 Before you continue, ensure you meet the following requirements:
@@ -37,35 +33,18 @@ Before you continue, ensure you meet the following requirements:
 - You have installed dart sdk with version >=2.25.0 < 3.1.4
     
 ## Documents
-- [Plan Training Flutter](https://docs.google.com/document/d/1KI6ot3FFpO_LyRkXOgGn5A_lWfGzn5KWObt9h5ucBQw/edit#heading=h.gjdgxs)
-- [Estimate](https://trello.com/b/NiWPfcm1/practice-one)
+- [Plan Training Flutter](https://docs.google.com/document/d/1bjmLeTUwueWhhb4pLz1FWNdS3s0a-jIeuU_kgN5HyD4/edit#heading=h.ar0k1bmftkqn)
+
+- [Estimate](https://trello.com/b/6uJPIPsM/practice-two)
 ​
 ## Deployment Plan
-- [X] Epic 1: Requirement analysis
-- [X] Epic 2: Setup environment
-- [X] Epic 3: Create skeleton structure practice
-- [X] Epic 4: Setup themes, routes
-- [X] Epic 5: Implement the UI
-- [X] Epic 6: Test the application and prepare for the review
+- [] Epic 1: Requirement analysis
+- [] Epic 2: Setup environment
+- [] Epic 3: Create skeleton structure practice
+- [] Epic 4: Apply use Bloc to manager state
+- [] Epic 5: Get data from API 
+- [] Epic 6: Use Shared_preferences to save data 
 
-## UI
-- [X] UI Splash Screen
-- [X] UI Welcome Screen
-- [X] UI Login In Screen
-- [X] UI Select Favorite Screen
-- [X] UI Age Screen
-- [X] UI Weight Screen
-- [X] UI Weight_Goal Screen
-- [X] UI Height Screen
-- [X] UI Level Screen
-- [X] UI Goal Screen
-- [X] UI Get Started Screen
-- [X] UI HomePage Screen
-- [X] UI Category Screen
-- [X] UI Side Menu Screen
-- [X] UI Profile Screen
-- [X] UI Exercise Screen
-- [X] UI Exercise Details Screen
 ## Installation
 1. Clone the repository:
 ​
@@ -75,12 +54,12 @@ Before you continue, ensure you meet the following requirements:
 2. Checkout branch:
 ​
     ```
-    git checkout <flutter/practice-one> 
+    git checkout <flutter/practice-two> 
     ```
 3. Pull origin branch:
 ​
     ```
-    git pull origin <flutter/practice-one> 
+    git pull origin <flutter/practice-two> 
     ```
 4. Run project
    ```

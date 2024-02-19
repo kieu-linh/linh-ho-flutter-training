@@ -32,7 +32,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (isValidEmail == null) {
       emit(
         LoginState(
-          status: LoginStatus.onEmailChangedSuccess,
           email: email ?? '',
           isUsernameValid: true,
         ),
@@ -40,8 +39,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } else {
       emit(
         LoginState(
-          status: LoginStatus.onEmailChangedFailure,
           email: email ?? '',
+          isUsernameValid: false,
         ),
       );
     }

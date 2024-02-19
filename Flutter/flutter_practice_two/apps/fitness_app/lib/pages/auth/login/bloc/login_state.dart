@@ -2,16 +2,9 @@ import 'package:equatable/equatable.dart';
 
 enum LoginStatus {
   initial,
-  inProgress,
-  onValueChangedLoading,
   onValueChangedSuccess,
-  onValueChangedFailure,
   onEmailChangedLoading,
-  onEmailChangedSuccess,
-  onEmailChangedFailure,
   onPasswordChangedLoading,
-  onPasswordChangedSuccess,
-  onPasswordChangedFailure,
   onShowPassword,
   onHiddenPassword,
   success,
