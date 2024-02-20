@@ -10,7 +10,6 @@ import 'package:fitness_app/pages/auth/login/repositories/auth_repository.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const LoginState()) {
     on<LogInEmailChangedEvent>(_onEmailChanged);
-    on<LogInPasswordChangedEvent>(_onPasswordChanged);
     on<LoginSubmitted>(_onLoginSubmitted);
   }
 
@@ -45,27 +44,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       );
     }
     //print('[Log] ${state.status}');
-  }
-
-  Future<void> _onPasswordChanged(
-    LogInPasswordChangedEvent event,
-    Emitter<LoginState> emit,
-  ) async {
-    /// This code is called when the value of the
-    /// password form field on the sign in screen changes.
-    emit(const LoginState(status: LoginStatus.onPasswordChangedLoading));
-
-    /// It checks to see if the email is valid.
-    /// If it is, it emits a [SignInValueChangedSuccessState],
-    /// otherwise it emits a [SignInValueChangedFailureState].
-    final state = event.state;
-
-    if (state == LoginStatus.onShowPassword) {
-      emit(const LoginState(status: LoginStatus.onHiddenPassword));
-    } else {
-      emit(const LoginState(status: LoginStatus.onShowPassword));
-    }
-    //print('[Log] ${state}');
   }
 
   Future<void> _onLoginSubmitted(
