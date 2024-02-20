@@ -62,6 +62,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         .toList();
     if (listUser.isEmpty) {
       emit(const LoginState(status: LoginStatus.failure));
+      
     } else {
       emit(const LoginState(status: LoginStatus.success));
     }

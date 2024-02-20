@@ -101,14 +101,14 @@ final directories = <_i1.WidgetbookNode>[
       _i1.WidgetbookComponent(
         name: 'SnackBar',
         useCases: [
-          _i1.WidgetbookUseCase(
+          /*_i1.WidgetbookUseCase(
             name: 'Snack Bar Error',
-            builder: _i2.snackBarError,
+            //builder: _i2.snackBarSuccess(),
           ),
           _i1.WidgetbookUseCase(
             name: 'Snack Bar Success',
             builder: _i2.snackBarSuccess,
-          ),
+          ),*/
         ],
       ),
     ],

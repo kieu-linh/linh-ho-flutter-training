@@ -353,10 +353,12 @@ Center searchBox(BuildContext context) {
   name: 'Snack Bar Success',
   type: FASnackBar,
 )
-Center snackBarSuccess(BuildContext context) {
-  return Center(
-    child: FASnackBar.success(message: 'SUCCESS!!!!'),
-  );
+snackBarSuccess(BuildContext context) {
+  return ElevatedButton(
+      onPressed: () {
+        FASnackBar.success(context, message: 'SUCCESS!!!!');
+      },
+      child: const Text('Show snackbar success!'));
 }
 
 /// Snack Bar Error
@@ -364,10 +366,12 @@ Center snackBarSuccess(BuildContext context) {
   name: 'Snack Bar Error',
   type: FASnackBar,
 )
-Center snackBarError(BuildContext context) {
-  return Center(
-    child: FASnackBar.error(message: 'ERROR!!!!'),
-  );
+snackBarError(BuildContext context) {
+  return ElevatedButton(
+      onPressed: () {
+        FASnackBar.success(context, message: 'SUCCESS!!!!');
+      },
+      child: const Text('Show snackbar error!'));
 }
 
 /// Input Body Measurements

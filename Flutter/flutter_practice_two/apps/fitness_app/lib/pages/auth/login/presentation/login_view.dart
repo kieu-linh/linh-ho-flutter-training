@@ -7,8 +7,10 @@ import 'package:fitness_app/pages/auth/login/presentation/form.dart';
 import 'package:fitness_app/pages/auth/login/provider/login_provider.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
+//import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -39,6 +41,10 @@ class LoginView extends StatelessWidget {
             SharedPrefs().saveAccount(user);
             GoRouter.of(context).go('/favoriteScreen');
           }
+          if (state.status == LoginStatus.failure) {
+            return FASnackBar.error(context,
+                message: 'Email or password is incorrect!');
+          }
         },
         builder: (context, state) {
           void submitLogin() {
@@ -50,6 +56,7 @@ class LoginView extends StatelessWidget {
                   ),
                 );
           }
+
           return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -85,6 +92,7 @@ class LoginView extends StatelessWidget {
                             ),
                             const SizedBox(height: 17),
                             GestureDetector(
+                              onTap: () {},
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
