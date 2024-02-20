@@ -21,6 +21,7 @@ import 'package:go_router/go_router.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
+
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
@@ -49,7 +50,6 @@ class LoginView extends StatelessWidget {
                   ),
                 );
           }
-
           return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -84,15 +84,17 @@ class LoginView extends StatelessWidget {
                               onSubmit: submitLogin,
                             ),
                             const SizedBox(height: 17),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  s.forgotPassword,
-                                  style: context.textTheme.bodyLarge,
-                                  textAlign: TextAlign.right,
-                                ),
-                              ],
+                            GestureDetector(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    s.forgotPassword,
+                                    style: context.textTheme.bodyLarge,
+                                    textAlign: TextAlign.right,
+                                  ),
+                                ],
+                              ),
                             ),
                             context.sizedBox(height: 34),
                             FAButton(

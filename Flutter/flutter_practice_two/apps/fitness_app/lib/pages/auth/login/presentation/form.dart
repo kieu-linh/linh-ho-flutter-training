@@ -54,28 +54,15 @@ class PasswordForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
-    return BlocBuilder<LoginBloc, LoginState>(
-      builder: (context, state) {
-        return FAInputPassword(
+    return FAInputPassword(
           controller: passwordController,
           hintText: s.hintTextPassword,
-          onPressed: () {
-            context.read<LoginBloc>().add(
-                  LogInPasswordChangedEvent(state: state.status),
-                );
-          },
-          icon: state.status == LoginStatus.onShowPassword
-              ? FAIcons.iconEyeOpen
-              : FAIcons.iconEye,
-          obscureText:
-              state.status == LoginStatus.onShowPassword ? false : true,
+          obscureText: true,
           validator: FAValidator.validatorPassword,
           textInputAction: TextInputAction.done,
           onFieldSubmit: (p0) {
             onSubmit();
           },
         );
-      },
-    );
   }
 }

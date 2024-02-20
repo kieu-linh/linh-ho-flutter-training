@@ -4,12 +4,8 @@ enum LoginStatus {
   initial,
   onValueChangedSuccess,
   onEmailChangedLoading,
-  onPasswordChangedLoading,
-  onShowPassword,
-  onHiddenPassword,
   success,
   failure,
-  canceled,
 }
 
 class LoginState extends Equatable {
