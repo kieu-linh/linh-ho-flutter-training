@@ -42,8 +42,7 @@ class LoginView extends StatelessWidget {
             GoRouter.of(context).go('/favoriteScreen');
           }
           if (state.status == LoginStatus.failure) {
-            return FASnackBar.error(context,
-                message: 'Email or password is incorrect!');
+            return FASnackBar.error(context, message: s.messageError);
           }
         },
         builder: (context, state) {
