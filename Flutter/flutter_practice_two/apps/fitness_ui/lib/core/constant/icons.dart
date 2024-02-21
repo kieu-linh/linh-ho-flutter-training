@@ -54,4 +54,10 @@ class FAIcons {
   static const String iconClose = 'assets/icons/ic_close.svg';
 
   static const String iconEdit = 'assets/icons/ic_edit.svg';
+
+  static const String iconSplash = 'assets/icons/ic_splash.svg';
+
+  static const String iconError = 'assets/icons/ic_error.svg';
+
+  static const String iconTickSuccess = 'assets/icons/ic_tick_success.svg';
 }

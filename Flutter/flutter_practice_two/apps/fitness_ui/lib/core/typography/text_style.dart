@@ -135,4 +135,18 @@ class AppTextStyles {
     fontFamily: 'Montserrat-Medium',
   );
 
+  static TextStyle titleSnackBar = primaryTextStyle(
+    fontSize: 18,
+    color: AppColor.secondary,
+    fontWeight: AppFontWeight.semiBold,
+    fontFamily: 'Montserrat-Medium',
+  );
+
+  static TextStyle messageSnackBar = primaryTextStyle(
+    fontSize: 12,
+    color: AppColor.secondary,
+    fontWeight: AppFontWeight.medium,
+    fontFamily: 'Montserrat-Medium',
+  );
+
 }

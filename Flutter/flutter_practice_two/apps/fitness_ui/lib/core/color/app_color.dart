@@ -44,5 +44,12 @@ class AppColor {
 
   static const error = Colors.red;
 
-  static const onError = Color(0xFFF02626);
+  static const onError = Color(0xFFC72C41);
+
+  static const iconError = Color(0xFF801336);
+
+  static const bgSnackBar = Color(0XFF0C7040);
+
+  static const iconSuccess = Color(0XFF004E32);
+
 }

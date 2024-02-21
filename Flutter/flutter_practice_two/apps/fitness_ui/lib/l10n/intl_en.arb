@@ -132,5 +132,11 @@
     "requiredValue": "This field is required",
     "validEmail": "Enter a valid email address",
     "lengthPass": "Password must be at least 6 digits long",
-    "characterPass": "Password least uppercase and special character."
+    "characterPass": "Password least uppercase and special character.",
+    "wellDone" : "Well Done!",
+    "ohSnap" : "Oh snap!",
+    "messageSuccess" : "Login success!",
+    "messageError" : "Email or password is incorrect!"
+
+
 }
