@@ -1,6 +1,5 @@
 import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_bloc.dart';
-import 'package:fitness_app/pages/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_state.dart';
 import 'package:fitness_ui/components/input.dart';
 import 'package:fitness_ui/components/input_password.dart';
@@ -13,9 +12,11 @@ class EmailForm extends StatelessWidget {
   const EmailForm({
     required this.emailController,
     super.key,
+    this.onChanged,
   });
 
   final TextEditingController emailController;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +26,10 @@ class EmailForm extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return FAInput(
-          onChanged: (email) {
-            context.read<LoginBloc>().add(LogInEmailChangedEvent(email: email));
-          },
+          onChanged: onChanged,
           controller: emailController,
           hintText: s.hintTextEmail,
-          icon: state.isUsernameValid
-              ? FAIcons.iconTick
-              : null,
+          icon: state.isUsernameValid ? FAIcons.iconTick : null,
           validator: FAValidator.validatorEmail,
           textInputAction: TextInputAction.next,
         );
@@ -46,23 +43,26 @@ class PasswordForm extends StatelessWidget {
     required this.passwordController,
     required this.onSubmit,
     super.key,
+    this.onChanged,
   });
   final TextEditingController passwordController;
   final VoidCallback onSubmit;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
     return FAInputPassword(
-          controller: passwordController,
-          hintText: s.hintTextPassword,
-          obscureText: true,
-          validator: FAValidator.validatorPassword,
-          textInputAction: TextInputAction.done,
-          onFieldSubmit: (p0) {
-            onSubmit();
-          },
-        );
+      controller: passwordController,
+      hintText: s.hintTextPassword,
+      obscureText: true,
+      validator: FAValidator.validatorPassword,
+      textInputAction: TextInputAction.done,
+      onChanged: onChanged,
+      onFieldSubmit: (p0) {
+        onSubmit();
+      },
+    );
   }
 }

@@ -31,7 +31,6 @@ class AppTheme {
     );
   }
 
-
   /// Define the text theme for the app
   static final TextTheme textTheme = TextTheme(
     displayLarge: AppTextStyles.titlePrimary,
