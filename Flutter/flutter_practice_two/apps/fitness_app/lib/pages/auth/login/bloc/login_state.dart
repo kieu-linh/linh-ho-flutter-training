@@ -2,8 +2,9 @@ import 'package:equatable/equatable.dart';
 
 enum LoginStatus {
   initial,
-  onValueChangedSuccess,
+  onLoading,
   onEmailChangedLoading,
+  onPasswordChangedLoading,
   success,
   failure,
 }
@@ -15,14 +16,14 @@ class LoginState extends Equatable {
     this.password = '',
     this.errorMessage = '',
     this.isUsernameValid = false,
-    this.isPasswordValid = false,
+    this.isValid = false,
   });
 
   final LoginStatus status;
   final String email;
   final String password;
   final bool isUsernameValid;
-  final bool isPasswordValid;
+  final bool isValid;
   final String errorMessage;
 
   @override
@@ -31,7 +32,7 @@ class LoginState extends Equatable {
         email,
         password,
         isUsernameValid,
-        isPasswordValid,
+        isValid,
         errorMessage,
       ];
 }

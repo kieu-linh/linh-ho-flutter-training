@@ -4,13 +4,11 @@ import 'package:fitness_app/pages/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/pages/auth/login/bloc/login_state.dart';
 import 'package:fitness_app/pages/auth/login/model/user_model.dart';
 import 'package:fitness_app/pages/auth/login/presentation/form.dart';
-import 'package:fitness_app/pages/auth/login/provider/login_provider.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
-//import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -31,7 +29,8 @@ class LoginView extends StatelessWidget {
     final passwordController = TextEditingController();
     final formKey = GlobalKey<FormState>();
 
-    return LoginProvider(
+    return BlocProvider(
+      create: (context) => LoginBloc(),
       child: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.status == LoginStatus.success) {
@@ -42,8 +41,11 @@ class LoginView extends StatelessWidget {
             GoRouter.of(context).go('/favoriteScreen');
           }
           if (state.status == LoginStatus.failure) {
-            return FASnackBar.error(context, message: s.messageError);
+            emailController.clear();
+            passwordController.clear();
+            FASnackBar.error(context, message: s.messageError);
           }
+          print(state.isValid);
         },
         builder: (context, state) {
           void submitLogin() {
@@ -83,11 +85,28 @@ class LoginView extends StatelessWidget {
                               style: context.textTheme.headlineMedium,
                             ),
                             context.sizedBox(height: 39),
-                            EmailForm(emailController: emailController),
+                            EmailForm(
+                              emailController: emailController,
+                              onChanged: (email) {
+                                context
+                                    .read<LoginBloc>()
+                                    .add(LogInEmailChangedEvent(email: email));
+                                /*context.read<LoginBloc>().add(
+                                    LogInButtonChangedEvent(
+                                        email: email,
+                                        password: passwordController.text));*/
+                              },
+                            ),
                             const SizedBox(height: 14),
                             PasswordForm(
                               passwordController: passwordController,
                               onSubmit: submitLogin,
+                              onChanged: (p0) {
+                                context.read<LoginBloc>().add(
+                                    LogInButtonChangedEvent(
+                                        email: emailController.text,
+                                        password: passwordController.text));
+                              },
                             ),
                             const SizedBox(height: 17),
                             GestureDetector(
@@ -105,10 +124,12 @@ class LoginView extends StatelessWidget {
                             ),
                             context.sizedBox(height: 34),
                             FAButton(
-                              onPressed: submitLogin,
+                              onPressed: state.isValid ? submitLogin : null,
+                              color: state.isValid
+                                  ? context.colorScheme.primary
+                                  : context.colorScheme.outlineVariant,
                               text: s.btnLoginIn,
-                              isDisable: state.status ==
-                                  LoginStatus.onValueChangedSuccess,
+                              isDisable: state.status == LoginStatus.onLoading,
                             ),
                             context.sizedBox(height: 24),
                             Row(

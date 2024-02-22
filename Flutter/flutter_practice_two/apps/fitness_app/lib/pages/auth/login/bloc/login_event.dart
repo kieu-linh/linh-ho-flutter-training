@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:fitness_app/pages/auth/login/bloc/login_state.dart';
 
 abstract class LoginEvent extends Equatable {
   const LoginEvent();
@@ -34,15 +33,19 @@ class LogInEmailChangedEvent extends LoginEvent {
   List<Object> get props => [email ?? ''];
 }
 
-/// The [LogInPasswordChangedEvent] is used to notify
+/// The [LogInButtonChangedEvent] is used to notify
 /// when the User input the password form.
-class LogInPasswordChangedEvent extends LoginEvent {
-  const LogInPasswordChangedEvent({required this.state});
+class LogInButtonChangedEvent extends LoginEvent {
+  const LogInButtonChangedEvent({
+    required this.email,
+    required this.password,
+  });
 
-  final LoginStatus state;
+  final String email;
+  final String password;
 
   @override
-  List<Object> get props => [state];
+  List<Object> get props => [email, password];
 }
 
 /// The [LogOutRequestedEvent] is used to notify
