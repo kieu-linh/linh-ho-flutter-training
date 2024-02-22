@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-import 'package:fitness_ui/l10n/l10n_generated/intl/messages_all.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,10 +18,8 @@ class FAUiS {
   static FAUiS? _current;
 
   static FAUiS get current {
-    assert(
-      _current != null,
-      'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.',
-    );
+    assert(_current != null,
+        'No instance of FAUiS was loaded. Try to initialize the FAUiS delegate before accessing FAUiS.current.');
     return _current!;
   }
 
@@ -43,10 +41,8 @@ class FAUiS {
 
   static FAUiS of(BuildContext context) {
     final instance = FAUiS.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of FAUiS present in the widget tree. Did you add FAUiS.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -1179,6 +1175,16 @@ class FAUiS {
     return Intl.message(
       'Password least uppercase and special character.',
       name: 'characterPass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CREATE ACCOUNTS`
+  String get createUser {
+    return Intl.message(
+      'CREATE ACCOUNTS',
+      name: 'createUser',
       desc: '',
       args: [],
     );

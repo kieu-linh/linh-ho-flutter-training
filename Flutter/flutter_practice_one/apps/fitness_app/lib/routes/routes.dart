@@ -1,6 +1,8 @@
 import 'package:fitness_app/data/models/add_exercise_data.dart';
 //import 'package:fitness_app/pages/auth/login.dart';
 import 'package:fitness_app/pages/auth/login/presentation/login_view.dart';
+import 'package:fitness_app/pages/auth/sign_in/forget_pass.dart';
+import 'package:fitness_app/pages/auth/sign_in/sign_in.dart';
 import 'package:fitness_app/pages/category/category.dart';
 import 'package:fitness_app/pages/drawer/drawer_main.dart';
 import 'package:fitness_app/pages/exercise/exercise.dart';
@@ -57,6 +59,16 @@ class FARouter {
         name: AppRoutes.loginScreen.name,
         builder: (context, state) => const LoginView(),
         //const LoginPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.signInScreen.path,
+        name: AppRoutes.signInScreen.name,
+        builder: (context, state) => const SignInPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.forgotPassScreen.path,
+        name: AppRoutes.forgotPassScreen.name,
+        builder: (context, state) => const ForgetPassword(),
       ),
       GoRoute(
         path: AppRoutes.favoriteScreen.path,
@@ -198,10 +210,17 @@ enum AppRoutes {
     name: 'splashScreen',
     path: '/splashScreen',
   ),
-
   loginScreen(
     name: 'loginScreen',
     path: '/loginScreen',
+  ),
+  signInScreen(
+    name: 'signInScreen',
+    path: '/signInScreen',
+  ),
+  forgotPassScreen(
+    name: 'forgotPassScreen',
+    path: '/forgotPassScreen',
   ),
   favoriteScreen(
     name: 'favoriteScreen',

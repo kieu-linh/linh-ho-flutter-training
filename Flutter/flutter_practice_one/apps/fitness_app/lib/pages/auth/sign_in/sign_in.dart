@@ -7,6 +7,7 @@ import 'package:fitness_app/pages/auth/login/presentation/form.dart';
 import 'package:fitness_app/pages/auth/login/provider/login_provider.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
+import 'package:fitness_ui/components/input.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
@@ -19,8 +20,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignInPage extends StatelessWidget {
+  const SignInPage({super.key});
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
@@ -36,7 +37,7 @@ class LoginView extends StatelessWidget {
               ..email = emailController.text
               ..password = passwordController.text;
             SharedPrefs().saveAccount(user);
-            GoRouter.of(context).go('/favoriteScreen');
+            GoRouter.of(context).go('/loginScreen');
           }
         },
         builder: (context, state) {
@@ -67,38 +68,27 @@ class LoginView extends StatelessWidget {
                                 context.go(AppRoutes.welcomeScreen.path),
                           ),
                           context.sizedBox(height: 30),
-                          FAText.displayLarge(context, text: s.displayLarge),
+                          FAText.displayLarge(context, text: 'CREATE ACCOUNTS'),
                           const SizedBox(height: 11),
                           Text(
-                            s.displayMedium,
+                            'Please enter your credentials to \nproceed ',
                             style: context.textTheme.headlineMedium,
                           ),
                           context.sizedBox(height: 39),
+                          FAInput(hintText: 'Full Name'),
+                          const SizedBox(height: 14),
+                          FAInput(hintText: 'Phone'),
+                          const SizedBox(height: 14),
                           EmailForm(emailController: emailController),
                           const SizedBox(height: 14),
                           PasswordForm(
                             passwordController: passwordController,
-                            onSubmit: submitLogin,
+                            onSubmit: () {},
                           ),
-                          const SizedBox(height: 17),
-                          GestureDetector(
-                            onTap: () =>
-                                GoRouter.of(context).go('/forgotPassScreen'),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  s.forgotPassword,
-                                  style: context.textTheme.bodyLarge,
-                                  textAlign: TextAlign.right,
-                                ),
-                              ],
-                            ),
-                          ),
-                          context.sizedBox(height: 34),
+                          context.sizedBox(height: 36),
                           FAButton(
                             onPressed: submitLogin,
-                            text: s.btnLoginIn,
+                            text: 'CREATE ACCOUNTS',
                             isDisable: state.status ==
                                 LoginStatus.onValueChangedSuccess,
                           ),
@@ -107,7 +97,7 @@ class LoginView extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                s.btnLoginWith,
+                                'Or Register with',
                                 style: context.textTheme.bodySmall,
                               ),
                             ],
@@ -136,20 +126,18 @@ class LoginView extends StatelessWidget {
                                   text: TextSpan(
                                     children: [
                                       TextSpan(
-                                        text: s.descriptionSignIn,
+                                        text: 'Already have an account?',
                                         style: context.textTheme.labelSmall
                                             ?.copyWith(
                                           fontWeight: AppFontWeight.medium,
                                         ),
                                       ),
                                       TextSpan(
-                                        text: s.btnRegister,
+                                        text: ' Login',
                                         style: context.textTheme.labelSmall,
                                         recognizer: TapGestureRecognizer()
-                                          ..onTap = () {
-                                            GoRouter.of(context)
-                                                .go('/signInScreen');
-                                          },
+                                          ..onTap = () => GoRouter.of(context)
+                                              .go('/loginScreen'),
                                       ),
                                     ],
                                   ),
