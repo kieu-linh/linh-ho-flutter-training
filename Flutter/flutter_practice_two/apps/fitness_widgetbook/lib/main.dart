@@ -23,7 +23,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
-import 'package:fitness_app/core/theme/theme.dart';
+import 'package:fitness_ui/core/theme/theme.dart';
 
 void main() {
   runApp(const FAWidgetBook());
@@ -115,7 +115,7 @@ Widget primaryButton(BuildContext context) {
           const SizedBox(height: 20),
           FAButton.outline(
             onPressed: () {},
-            icon: FAIcons.iconGainMuscle,
+            icon: FAIcon.iconGainMuscle,
             iconColor: context.colorScheme.secondary,
             color: Colors.black,
             textStyle: AppTextStyles.textButtonGoal
@@ -125,7 +125,7 @@ Widget primaryButton(BuildContext context) {
           const SizedBox(height: 20),
           FAButton.outline(
             onPressed: () {},
-            icon: FAIcons.iconGoogle,
+            icon: FAIcon.iconGoogle,
             text: 'Connect with Google',
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
@@ -320,13 +320,13 @@ Center input(BuildContext context) {
         children: [
           FAInput(
             hintText: s.hintTextEmail,
-            icon: FAIcons.iconTick,
+            icon: FAIcon.iconTick,
             validator: (value) {
               return FAValidator.validatorEmail(value);
             },
           ),
           const SizedBox(height: 10),
-          FAInputPassword(
+          FAPasswordInput(
             hintText: s.hintTextPassword,
             obscureText: true,
             validator: FAValidator.validatorPassword,

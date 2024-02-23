@@ -4,9 +4,9 @@ import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class FAIcon extends StatelessWidget {
+class FAIcons extends StatelessWidget {
   /// Constructor for creating an instance of FAIcon
-  const FAIcon({
+  const FAIcons({
     required this.iconLink,
     super.key,
     this.color,
@@ -15,12 +15,12 @@ class FAIcon extends StatelessWidget {
   });
 
   /// Factory constructor for back icon
-  factory FAIcon.primary({
+  factory FAIcons.primary({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
+    return FAIcons(
       iconLink: '',
       color: color,
       height: height,
@@ -29,13 +29,13 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for back icon
-  factory FAIcon.back({
+  factory FAIcons.back({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconBack,
+    return FAIcons(
+      iconLink: FAIcon.iconBack,
       color: color,
       height: height,
       width: width,
@@ -43,13 +43,13 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for eye icon
-  factory FAIcon.eye({
+  factory FAIcons.eye({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconEye,
+    return FAIcons(
+      iconLink: FAIcon.iconEye,
       color: color,
       height: height,
       width: width,
@@ -57,13 +57,13 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for facebook icon
-  factory FAIcon.facebook({
+  factory FAIcons.facebook({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconFacebook,
+    return FAIcons(
+      iconLink: FAIcon.iconFacebook,
       color: color,
       height: height,
       width: width,
@@ -71,13 +71,13 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for google icon
-  factory FAIcon.google({
+  factory FAIcons.google({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconGoogle,
+    return FAIcons(
+      iconLink: FAIcon.iconGoogle,
       color: color,
       height: height,
       width: width,
@@ -85,13 +85,13 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for tick icon
-  factory FAIcon.tick({
+  factory FAIcons.tick({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconTick,
+    return FAIcons(
+      iconLink: FAIcon.iconTick,
       color: color,
       height: height,
       width: width,
@@ -99,13 +99,13 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for eyeOpen icon
-  factory FAIcon.eyeOpen({
+  factory FAIcons.eyeOpen({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconEyeOpen,
+    return FAIcons(
+      iconLink: FAIcon.iconEyeOpen,
       color: color,
       height: height,
       width: width,
@@ -113,13 +113,13 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for weightLoss icon
-  factory FAIcon.weightLoss({
+  factory FAIcons.weightLoss({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconWeightLoss,
+    return FAIcons(
+      iconLink: FAIcon.iconWeightLoss,
       color: color,
       height: height,
       width: width,
@@ -127,246 +127,246 @@ class FAIcon extends StatelessWidget {
   }
 
   /// Factory constructor for gainMuscle icon
-  factory FAIcon.gainMuscle({
+  factory FAIcons.gainMuscle({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconGainMuscle,
+    return FAIcons(
+      iconLink: FAIcon.iconGainMuscle,
       color: color,
       height: height,
       width: width,
     );
   }
-  factory FAIcon.fitness({
+  factory FAIcons.fitness({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconFitness,
-      color: color,
-      height: height,
-      width: width,
-    );
-  }
-
-  factory FAIcon.menu({
-    Color? color,
-    double? width,
-    double? height,
-  }) {
-    return FAIcon(
-      iconLink: FAIcons.iconMenu,
+    return FAIcons(
+      iconLink: FAIcon.iconFitness,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.notification({
+  factory FAIcons.menu({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconNotification,
+    return FAIcons(
+      iconLink: FAIcon.iconMenu,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.search({
+  factory FAIcons.notification({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconSearch,
+    return FAIcons(
+      iconLink: FAIcon.iconNotification,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.heart({
+  factory FAIcons.search({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconHeart,
+    return FAIcons(
+      iconLink: FAIcon.iconSearch,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.clock({
+  factory FAIcons.heart({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconClock,
+    return FAIcons(
+      iconLink: FAIcon.iconHeart,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.calories({
+  factory FAIcons.clock({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconCalories,
+    return FAIcons(
+      iconLink: FAIcon.iconClock,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.plan({
+  factory FAIcons.calories({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconPlan,
+    return FAIcons(
+      iconLink: FAIcon.iconCalories,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.train({
+  factory FAIcons.plan({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconTrain,
+    return FAIcons(
+      iconLink: FAIcon.iconPlan,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.category({
+  factory FAIcons.train({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconCategory,
+    return FAIcons(
+      iconLink: FAIcon.iconTrain,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.account({
+  factory FAIcons.category({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconAccount,
+    return FAIcons(
+      iconLink: FAIcon.iconCategory,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.favorite({
+  factory FAIcons.account({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconFavorite,
+    return FAIcons(
+      iconLink: FAIcon.iconAccount,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.setting({
+  factory FAIcons.favorite({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconSetting,
+    return FAIcons(
+      iconLink: FAIcon.iconFavorite,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.contact({
+  factory FAIcons.setting({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconContact,
+    return FAIcons(
+      iconLink: FAIcon.iconSetting,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.signOut({
+  factory FAIcons.contact({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconSignOut,
+    return FAIcons(
+      iconLink: FAIcon.iconContact,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.close({
+  factory FAIcons.signOut({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconClose,
+    return FAIcons(
+      iconLink: FAIcon.iconSignOut,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.edit({
+  factory FAIcons.close({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconEdit,
+    return FAIcons(
+      iconLink: FAIcon.iconClose,
       color: color,
       height: height,
       width: width,
     );
   }
 
-  factory FAIcon.home({
+  factory FAIcons.edit({
     Color? color,
     double? width,
     double? height,
   }) {
-    return FAIcon(
-      iconLink: FAIcons.iconHome,
+    return FAIcons(
+      iconLink: FAIcon.iconEdit,
+      color: color,
+      height: height,
+      width: width,
+    );
+  }
+
+  factory FAIcons.home({
+    Color? color,
+    double? width,
+    double? height,
+  }) {
+    return FAIcons(
+      iconLink: FAIcon.iconHome,
       color: color,
       height: height,
       width: width,

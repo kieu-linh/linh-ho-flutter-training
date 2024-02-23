@@ -7,8 +7,8 @@ import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
 import 'package:flutter/material.dart';
 
-class FAInputPassword extends StatefulWidget {
-  const FAInputPassword({
+class FAPasswordInput extends StatefulWidget {
+  const FAPasswordInput({
     this.hintText = '',
     this.controller,
     this.textInputAction,
@@ -32,10 +32,10 @@ class FAInputPassword extends StatefulWidget {
   final Function(String)? onChanged;
 
   @override
-  State<FAInputPassword> createState() => _FAInputPasswordState();
+  State<FAPasswordInput> createState() => _FAPasswordInputState();
 }
 
-class _FAInputPasswordState extends State<FAInputPassword> {
+class _FAPasswordInputState extends State<FAPasswordInput> {
   //Define value for show password
   bool showPassword = false;
 
@@ -94,8 +94,8 @@ class _FAInputPasswordState extends State<FAInputPassword> {
                       setState(() {});
                     }
                   : null,
-              child: FAIcon(
-                iconLink: showPassword ? FAIcons.iconEyeOpen : FAIcons.iconEye,
+              child: FAIcons(
+                iconLink: showPassword ? FAIcon.iconEyeOpen : FAIcon.iconEye,
                 color: context.colorScheme.onSurface,
               ),
             ),

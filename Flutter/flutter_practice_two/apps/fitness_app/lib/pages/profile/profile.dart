@@ -35,7 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: const EdgeInsets.only(top: 2),
                 title: s.profile,
                 onTrailingPress: () {},
-                trailing: FAIcon.edit(),
+                trailing: FAIcons.edit(),
               ),
               Column(
                 children: [

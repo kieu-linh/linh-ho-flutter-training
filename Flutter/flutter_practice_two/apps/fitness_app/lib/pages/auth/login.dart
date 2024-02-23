@@ -84,12 +84,12 @@ class _LoginPageState extends State<LoginPage> {
                     onChanged: _checkValidatorEmail,
                     controller: emailController,
                     hintText: s.hintTextEmail,
-                    icon: checkIcon ? FAIcons.iconTick : null,
+                    icon: checkIcon ? FAIcon.iconTick : null,
                     validator: FAValidator.validatorEmail,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(height: 14),
-                  FAInputPassword(
+                  FAPasswordInput(
                     controller: passwordController,
                     hintText: s.hintTextPassword,
                     obscureText: true,
@@ -126,14 +126,14 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 20),
                   FAButton.outline(
                     onPressed: () {},
-                    icon: FAIcons.iconGoogle,
+                    icon: FAIcon.iconGoogle,
                     text: s.btnGoogle,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
                   const SizedBox(height: 8),
                   FAButton.text(
                     onPressed: () {},
-                    icon: FAIcons.iconFacebook,
+                    icon: FAIcon.iconFacebook,
                     text: s.btnFacebook,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),

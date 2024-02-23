@@ -47,7 +47,7 @@ class FAPopularExercise extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: context.padding(all: 6),
-                          child: SvgPicture.asset(FAIcons.iconHeart),
+                          child: SvgPicture.asset(FAIcon.iconHeart),
                         ),
                       ),
                     ),
@@ -77,7 +77,7 @@ class FAPopularExercise extends StatelessWidget {
                             height: 8,
                             color: context.colorScheme.outlineVariant,
                           ),
-                          SvgPicture.asset(FAIcons.iconClock),
+                          SvgPicture.asset(FAIcon.iconClock),
                           const SizedBox(width: 6),
                           Text(
                             '${listExercise[index].time} min',

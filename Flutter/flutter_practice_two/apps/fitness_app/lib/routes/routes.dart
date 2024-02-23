@@ -1,5 +1,4 @@
 import 'package:fitness_app/data/models/add_exercise_data.dart';
-//import 'package:fitness_app/pages/auth/login.dart';
 import 'package:fitness_app/pages/auth/login/presentation/login_view.dart';
 import 'package:fitness_app/pages/category/category.dart';
 import 'package:fitness_app/pages/drawer/drawer_main.dart';

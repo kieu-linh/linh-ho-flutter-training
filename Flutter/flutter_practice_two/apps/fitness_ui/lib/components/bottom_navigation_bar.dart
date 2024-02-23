@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:fitness_app/pages/drawer/drawer_main.dart';
 import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
-import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -51,10 +50,10 @@ class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
   }
 
   List<String> listIcon = [
-    FAIcons.iconHome,
-    FAIcons.iconMeal,
-    FAIcons.iconGainMuscle,
-    FAIcons.iconProfile,
+    FAIcon.iconHome,
+    FAIcon.iconMeal,
+    FAIcon.iconGainMuscle,
+    FAIcon.iconProfile,
   ];
 
   @override
@@ -65,52 +64,32 @@ class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
         height: double.infinity,
         child: widget.navigationShell,
       ),
-      bottomNavigationBar: Container(
-        height: 75,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 14,
-              color: context.colorScheme.tertiary.withOpacity(0.1),
-            ),
-          ],
-          color: context.colorScheme.secondary,
-        ),
-        child: Row(
-          children: List.generate(listIcon.length, (index) {
-            return InkWell(
-              onTap: () {
-                changePage(index);
-              },
-              child: SizedBox(
-                width: context.width / 4,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SvgPicture.asset(
-                      listIcon[index],
-                      // ignore: deprecated_member_use
-                      color: currentIndex == index
-                          ? context.colorScheme.tertiary
-                          : AppColor.bottomNavigationColor,
-                      package: 'fitness_ui',
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      titles[index],
-                      style: context.textTheme.headlineMedium?.copyWith(
-                        fontSize: 12,
-                        color: currentIndex == index
-                            ? context.colorScheme.tertiary
-                            : AppColor.bottomNavigationColor,
-                      ),
-                    ),
-                  ],
-                ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: changePage,
+        currentIndex: currentIndex,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedLabelStyle: const TextStyle(fontFamily: 'Montserrat-Medium'),
+        unselectedLabelStyle: const TextStyle(fontFamily: 'Montserrat-Medium'),
+        selectedItemColor: context.colorScheme.tertiary,
+        unselectedItemColor: AppColor.bottomNavigationColor,
+        items: List.generate(listIcon.length, (index) {
+          return BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 10),
+              child: SvgPicture.asset(
+                listIcon[index],
+                // ignore: deprecated_member_use
+                color: currentIndex == index
+                    ? context.colorScheme.tertiary
+                    : AppColor.bottomNavigationColor,
+                package: 'fitness_ui',
               ),
-            );
-          }),
-        ),
+            ),
+            label: titles[index],
+            backgroundColor: context.colorScheme.secondary,
+          );
+        }),
       ),
     );
   }

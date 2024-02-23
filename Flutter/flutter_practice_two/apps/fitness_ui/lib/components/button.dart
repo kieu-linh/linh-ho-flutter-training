@@ -101,7 +101,7 @@ class FAButton extends StatelessWidget {
             if (icon != null)
               Padding(
                 padding: const EdgeInsets.only(right: 11),
-                child: FAIcon(
+                child: FAIcons(
                   iconLink: icon!,
                   color: iconColor,
                   width: 24,
