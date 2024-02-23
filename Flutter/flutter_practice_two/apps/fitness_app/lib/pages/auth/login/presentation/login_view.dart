@@ -40,6 +40,7 @@ class LoginView extends StatelessWidget {
             SharedPrefs().saveAccount(user);
             GoRouter.of(context).go('/favoriteScreen');
           }
+
           if (state.status == LoginStatus.failure) {
             emailController.clear();
             passwordController.clear();
@@ -144,14 +145,14 @@ class LoginView extends StatelessWidget {
                             const SizedBox(height: 20),
                             FAButton.outline(
                               onPressed: () {},
-                              icon: FAIcons.iconGoogle,
+                              icon: FAIcon.iconGoogle,
                               text: s.btnGoogle,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             ),
                             const SizedBox(height: 8),
                             FAButton.text(
                               onPressed: () {},
-                              icon: FAIcons.iconFacebook,
+                              icon: FAIcon.iconFacebook,
                               text: s.btnFacebook,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             ),

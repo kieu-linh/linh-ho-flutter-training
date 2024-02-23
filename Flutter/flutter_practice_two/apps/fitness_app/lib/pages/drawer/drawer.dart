@@ -40,7 +40,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   onTap: widget.onTap,
                   child: Padding(
                     padding: context.padding(all: 3),
-                    child: SvgPicture.asset(FAIcons.iconClose),
+                    child: SvgPicture.asset(FAIcon.iconClose),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -76,14 +76,14 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 Column(
                   children: [
-                    FASideMenu(icon: FAIcons.iconPlan, title: s.plan),
-                    FASideMenu(icon: FAIcons.iconTrain, title: s.training),
-                    FASideMenu(icon: FAIcons.iconCategory, title: s.categories),
-                    FASideMenu(icon: FAIcons.iconAccount, title: s.myAccount),
-                    FASideMenu(icon: FAIcons.iconFavorite, title: s.myFavorite),
-                    FASideMenu(icon: FAIcons.iconSetting, title: s.appSetting),
+                    FASideMenu(icon: FAIcon.iconPlan, title: s.plan),
+                    FASideMenu(icon: FAIcon.iconTrain, title: s.training),
+                    FASideMenu(icon: FAIcon.iconCategory, title: s.categories),
+                    FASideMenu(icon: FAIcon.iconAccount, title: s.myAccount),
+                    FASideMenu(icon: FAIcon.iconFavorite, title: s.myFavorite),
+                    FASideMenu(icon: FAIcon.iconSetting, title: s.appSetting),
                     FASideMenu(
-                      icon: FAIcons.iconContact,
+                      icon: FAIcon.iconContact,
                       title: s.contactSupport,
                     ),
                     context.sizedBox(height: 60),
@@ -107,7 +107,7 @@ class _DrawerPageState extends State<DrawerPage> {
               color: context.colorScheme.secondary,
               child: Row(
                 children: [
-                  SvgPicture.asset(FAIcons.iconSignOut),
+                  SvgPicture.asset(FAIcon.iconSignOut),
                   context.sizedBox(width: 22),
                   Text(s.signOut, style: context.textTheme.titleMedium),
                 ],

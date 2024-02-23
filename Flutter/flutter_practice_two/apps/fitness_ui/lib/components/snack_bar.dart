@@ -54,7 +54,7 @@ class FASnackBar {
             Positioned(
               bottom: 0,
               child: SvgPicture.asset(
-                FAIcons.iconSplash,
+                FAIcon.iconSplash,
                 height: context.sizeHeight(48),
                 width: context.sizeWidth(40),
                 // ignore: deprecated_member_use
@@ -65,7 +65,7 @@ class FASnackBar {
               top: -13,
               left: 10,
               child: SvgPicture.asset(
-                iconPath ?? FAIcons.iconError,
+                iconPath ?? FAIcon.iconError,
                 height: context.sizeHeight(50),
               ),
             ),
@@ -89,7 +89,7 @@ class FASnackBar {
       message: message,
       color: AppColor.bgSnackBar,
       iconColor: AppColor.iconSuccess,
-      iconPath: FAIcons.iconTickSuccess,
+      iconPath: FAIcon.iconTickSuccess,
     );
   }
 

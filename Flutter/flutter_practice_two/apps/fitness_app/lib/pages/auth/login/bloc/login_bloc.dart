@@ -11,6 +11,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LogInButtonChangedEvent>(_onButtonChange);
     on<LoginSubmitted>(_onLoginSubmitted);
   }
+
   Future<void> _onEmailChanged(
     LogInEmailChangedEvent event,
     Emitter<LoginState> emit,
@@ -64,6 +65,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(const LoginState(status: LoginStatus.failure));
     } else {
       emit(const LoginState(status: LoginStatus.success));
+      
     }
   }
 }

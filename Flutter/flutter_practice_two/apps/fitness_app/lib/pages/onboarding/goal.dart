@@ -28,9 +28,9 @@ class _GoalPageState extends State<GoalPage> {
       s.improveFitness,
     ];
     final listIcon = [
-      FAIcons.iconWeightLoss,
-      FAIcons.iconGainMuscle,
-      FAIcons.iconFitness,
+      FAIcon.iconWeightLoss,
+      FAIcon.iconGainMuscle,
+      FAIcon.iconFitness,
     ];
 
     return FAScaffold(

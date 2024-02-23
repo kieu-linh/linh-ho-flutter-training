@@ -1,4 +1,4 @@
-import 'package:fitness_app/core/theme/theme.dart';
+import 'package:fitness_ui/core/theme/theme.dart';
 import 'package:fitness_app/l10n/l10n_generated/l10n.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';

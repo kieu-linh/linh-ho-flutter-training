@@ -29,7 +29,7 @@ class FAContainerExercise extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              FAIcons.iconCalories,
+              FAIcon.iconCalories,
               color: context.colorScheme.tertiary,
               height: context.sizeHeight(22),
             ),
@@ -42,7 +42,7 @@ class FAContainerExercise extends StatelessWidget {
               color: context.colorScheme.outlineVariant,
             ),
             SvgPicture.asset(
-              FAIcons.iconClock,
+              FAIcon.iconClock,
               color: context.colorScheme.tertiary,
               height: context.sizeHeight(22),
             ),

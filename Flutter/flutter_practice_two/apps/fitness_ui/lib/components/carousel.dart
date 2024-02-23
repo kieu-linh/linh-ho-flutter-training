@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 class FACarousel extends StatelessWidget {
   const FACarousel({
-    required this.onSkip,
-    required this.onNext,
+    this.onSkip,
+    this.onNext,
     this.pageIndex = 0,
     this.pageController,
     super.key,
@@ -15,8 +15,8 @@ class FACarousel extends StatelessWidget {
 
   final int? pageIndex;
   final PageController? pageController;
-  final VoidCallback onSkip;
-  final VoidCallback onNext;
+  final VoidCallback? onSkip;
+  final VoidCallback? onNext;
 
   @override
   Widget build(BuildContext context) {

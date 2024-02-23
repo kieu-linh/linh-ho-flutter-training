@@ -1,4 +1,4 @@
-class FAIcons {
+class FAIcon {
   static const String iconBack = 'assets/icons/ic_back.svg';
 
   static const String iconEye = 'assets/icons/ic_eye.svg';

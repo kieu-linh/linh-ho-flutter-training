@@ -5,11 +5,13 @@ class FAValidator {
     const pattern =
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
     final regex = RegExp(pattern);
+
     if ((value as String).isEmpty) {
       return FAUiS.current.requiredValue;
     } else if (!regex.hasMatch(value)) {
       return FAUiS.current.validEmail;
     }
+
     return null;
   }
 
@@ -24,6 +26,7 @@ class FAValidator {
     } else if (!regex.hasMatch(value)) {
       return FAUiS.current.characterPass;
     }
+    
     return null;
   }
 }

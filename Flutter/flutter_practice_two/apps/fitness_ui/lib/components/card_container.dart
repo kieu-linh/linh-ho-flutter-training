@@ -23,7 +23,7 @@ class FACardContainer extends StatelessWidget {
         children: [
           Container(
             padding: context.padding(all: 4),
-            height: context.sizeHeight(90) ,
+            height: context.sizeHeight(90),
             width: context.sizeWidth(90),
             decoration: BoxDecoration(
               color: addExercise.backgroundColor,
@@ -40,7 +40,7 @@ class FACardContainer extends StatelessWidget {
                 const SizedBox(height: 13),
                 Row(
                   children: [
-                    FAIcon.calories(),
+                    FAIcons.calories(),
                     const SizedBox(width: 7),
                     Text(
                       '${addExercise.kcal} kcal',
@@ -53,7 +53,7 @@ class FACardContainer extends StatelessWidget {
                       height: 8,
                       color: context.colorScheme.outlineVariant,
                     ),
-                    FAIcon.clock(),
+                    FAIcons.clock(),
                     const SizedBox(width: 6),
                     Text(
                       '${addExercise.min} min',

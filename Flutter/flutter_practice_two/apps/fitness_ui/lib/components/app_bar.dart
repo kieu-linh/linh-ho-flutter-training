@@ -65,7 +65,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   GestureDetector(
                     onTap: onPressed,
-                    child: FAIcon.menu(),
+                    child: FAIcons.menu(),
                   ),
                   const SizedBox(width: 5),
                   const CircleAvatar(
@@ -76,7 +76,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                   const Spacer(),
-                  FAIcon.notification(),
+                  FAIcons.notification(),
                 ],
               ),
               const SizedBox(height: 12),

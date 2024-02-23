@@ -28,6 +28,7 @@ class FABodyMeasurementInput extends StatefulWidget {
 
 class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
   int _selectIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -54,8 +55,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
                   setState(() {});
                 },
                 child: Container(
-                  padding:
-                      context.padding(horizontal: 10, vertical: 2),
+                  padding: context.padding(horizontal: 10, vertical: 2),
                   decoration: BoxDecoration(
                     color: _selectIndex == index
                         ? context.colorScheme.secondary

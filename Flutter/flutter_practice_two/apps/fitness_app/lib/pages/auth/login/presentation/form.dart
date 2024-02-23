@@ -29,7 +29,7 @@ class EmailForm extends StatelessWidget {
           onChanged: onChanged,
           controller: emailController,
           hintText: s.hintTextEmail,
-          icon: state.isUsernameValid ? FAIcons.iconTick : null,
+          icon: state.isUsernameValid ? FAIcon.iconTick : null,
           validator: FAValidator.validatorEmail,
           textInputAction: TextInputAction.next,
         );
@@ -53,7 +53,7 @@ class PasswordForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
-    return FAInputPassword(
+    return FAPasswordInput(
       controller: passwordController,
       hintText: s.hintTextPassword,
       obscureText: true,

@@ -12,7 +12,7 @@ class FATopNavigation extends StatelessWidget {
     this.onLeadingPress,
     this.onTrailingPress,
     this.padding,
-  }) : leading = leading ?? FAIcon.back();
+  }) : leading = leading ?? FAIcons.back();
 
   final Widget? trailing;
   final Widget? leading;
