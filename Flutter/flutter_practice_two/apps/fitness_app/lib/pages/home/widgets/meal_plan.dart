@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/meal_data.dart';
+import 'package:fitness_app/data/seeds/meal.dart';
 import 'package:fitness_app/pages/home/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
@@ -31,14 +31,14 @@ class FAMealPlan extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  listMeal[index].image ?? '',
+                  MealSeeds.listMeal[index].image ?? '',
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 11),
                 FAText.bodySmall(context, text: s.saladVegetables),
                 const SizedBox(height: 5),
                 Text(
-                  '${listMeal[index].kcal} kcal',
+                  '${MealSeeds.listMeal[index].kcal} kcal',
                   style: context.textTheme.bodySmall?.copyWith(fontSize: 10),
                 ),
               ],
@@ -49,7 +49,7 @@ class FAMealPlan extends StatelessWidget {
             endIndent: 0,
             indent: 0,
           ),
-          itemCount: listMeal.length,
+          itemCount: MealSeeds.listMeal.length,
         ),
         FADivider(height: context.sizeHeight(46)),
       ],

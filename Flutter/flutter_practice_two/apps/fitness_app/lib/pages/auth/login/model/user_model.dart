@@ -1,12 +1,12 @@
-class UserModel {
-  UserModel({
+class User {
+  User({
     this.userId,
     this.email,
     this.password,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
       userId: json['userId'] as String?,
       email: json['email'] as String?,
       password: json['password'] as String?,

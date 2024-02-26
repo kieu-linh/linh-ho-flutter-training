@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/user_data.dart';
+import 'package:fitness_app/data/seeds/user.dart';
 import 'package:fitness_app/pages/profile/widgets/goal_item.dart';
 import 'package:fitness_app/pages/profile/widgets/macronutrient_goal.dart';
 import 'package:fitness_app/pages/profile/widgets/user_info.dart';
@@ -40,11 +40,11 @@ class _ProfilePageState extends State<ProfilePage> {
               Column(
                 children: [
                   FAUserInfo(
-                    image: user1.image,
-                    name: user1.name,
-                    weight: user1.weight,
-                    height: user1.height,
-                    age: user1.age,
+                    image: UserSeeds.user1.image,
+                    name: UserSeeds.user1.name,
+                    weight: UserSeeds.user1.weight,
+                    height: UserSeeds.user1.height,
+                    age: UserSeeds.user1.age,
                   ),
                   const FAGoalItem(),
                   context.sizedBox(height: 24),

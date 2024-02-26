@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/exercise_data.dart';
+import 'package:fitness_app/data/seeds/exercise.dart';
 import 'package:fitness_app/pages/home/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
@@ -33,7 +33,7 @@ class FAPopularExercise extends StatelessWidget {
                 Stack(
                   children: [
                     Image.asset(
-                      listExercise[index].image ?? '',
+                      ExerciseSeeds.listExercise[index].image ?? '',
                     ),
                     Positioned(
                       top: 12,
@@ -61,13 +61,13 @@ class FAPopularExercise extends StatelessWidget {
                     children: [
                       FAText.bodySmall(
                         context,
-                        text: listExercise[index].title ?? '',
+                        text: ExerciseSeeds.listExercise[index].title ?? '',
                       ),
                       const SizedBox(height: 8),
                       Row(
                         children: [
                           Text(
-                            listExercise[index].level ?? '',
+                            ExerciseSeeds.listExercise[index].level ?? '',
                             style: context.textTheme.bodySmall
                                 ?.copyWith(fontSize: 10),
                           ),
@@ -80,7 +80,7 @@ class FAPopularExercise extends StatelessWidget {
                           SvgPicture.asset(FAIcon.iconClock),
                           const SizedBox(width: 6),
                           Text(
-                            '${listExercise[index].time} min',
+                            '${ExerciseSeeds.listExercise[index].time} min',
                             style: context.textTheme.bodySmall
                                 ?.copyWith(fontSize: 10),
                           ),
@@ -95,7 +95,7 @@ class FAPopularExercise extends StatelessWidget {
           separatorBuilder: (context, index) {
             return FADivider(height: context.sizeHeight(26));
           },
-          itemCount: listExercise.length,
+          itemCount: ExerciseSeeds.listExercise.length,
         ),
         FADivider(height: context.sizeHeight(43)),
       ],

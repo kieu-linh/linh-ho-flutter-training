@@ -1,4 +1,5 @@
 import 'package:fitness_app/data/models/add_exercise_data.dart';
+import 'package:fitness_app/data/seeds/add_exercise.dart';
 import 'package:fitness_app/pages/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/pages/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/pages/exercise/provider/exercise_provider.dart';
@@ -21,7 +22,7 @@ class ExercisePage extends StatefulWidget {
 
 class _ExercisePageState extends State<ExercisePage> {
   // This is delay fix
-  List<AddExerciseModel> _listExercise = listAddExercise
+  List<AddExercise> _listExercise = AddExerciseSeeds.listAddExercise
       .where((e) => e.category == listCategoryExercise[0])
       .toList();
 
@@ -33,11 +34,10 @@ class _ExercisePageState extends State<ExercisePage> {
       child: BlocConsumer<ExerciseBloc, int>(
         listener: (context, state) {
           void showListExerciseByCategory(int index) {
-            _listExercise = listAddExercise
+            _listExercise = AddExerciseSeeds.listAddExercise
                 .where((e) => e.category == listCategoryExercise[index])
                 .toList();
           }
-
           showListExerciseByCategory(state);
         },
         builder: (context, state) {

@@ -1,5 +1,5 @@
 import 'package:fitness_app/data/models/add_exercise_data.dart';
-import 'package:fitness_app/pages/auth/login/presentation/login_view.dart';
+import 'package:fitness_app/pages/auth/login/presentation/login.dart';
 import 'package:fitness_app/pages/category/category.dart';
 import 'package:fitness_app/pages/drawer/drawer_main.dart';
 import 'package:fitness_app/pages/exercise/exercise.dart';
@@ -34,8 +34,6 @@ class FARouter {
   static final _shellNavigatorProfile =
       GlobalKey<NavigatorState>(debugLabel: 'shellProfile');
 
-  //static final _navigatorKey = GlobalKey<NavigatorState>();
-
   static final GoRouter appRouter = GoRouter(
     initialLocation: AppRoutes.splashScreen.path,
     navigatorKey: _rootNavigatorKey,
@@ -54,8 +52,7 @@ class FARouter {
       GoRoute(
         path: AppRoutes.loginScreen.path,
         name: AppRoutes.loginScreen.name,
-        builder: (context, state) => const LoginView(),
-        //const LoginPage(),
+        builder: (context, state) => const LoginPage(),
       ),
       GoRoute(
         path: AppRoutes.favoriteScreen.path,
@@ -161,7 +158,7 @@ class FARouter {
                     builder: (context, state) {
                       return ExerciseDetailPage(
                         key: state.pageKey,
-                        exercise: state.extra! as AddExerciseModel,
+                        exercise: state.extra! as AddExercise,
                       );
                     },
                   ),

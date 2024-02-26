@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/add_exercise_data.dart';
+import 'package:fitness_app/data/seeds/add_exercise.dart';
 import 'package:fitness_app/pages/home/widgets/title.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
@@ -26,7 +26,7 @@ class FAAddExercise extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            final addExercise = listAddExercise[index];
+            final addExercise = AddExerciseSeeds.listAddExercise[index];
             return FACardContainer(addExercise: addExercise);
           },
           separatorBuilder: (context, index) => FADivider(
@@ -34,7 +34,7 @@ class FAAddExercise extends StatelessWidget {
             indent: 0,
             endIndent: 0,
           ),
-          itemCount: listAddExercise.length,
+          itemCount: AddExerciseSeeds.listAddExercise.length,
         ),
         const SizedBox(height: 20),
       ],

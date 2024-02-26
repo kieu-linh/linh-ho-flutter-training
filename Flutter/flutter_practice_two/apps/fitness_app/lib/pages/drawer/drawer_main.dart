@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/user_data.dart';
+import 'package:fitness_app/data/seeds/user.dart';
 import 'package:fitness_app/pages/drawer/drawer.dart';
 import 'package:fitness_app/pages/home/home.dart';
 import 'package:fitness_ui/components/zoom_drawer.dart';
@@ -22,7 +22,7 @@ class _DrawerMainState extends State<DrawerMain> {
         controller: zoomDrawerController,
         menu: DrawerPage(
           onTap: () => zoomDrawerController.close?.call(),
-          user: user1,
+          user: UserSeeds.user1,
         ),
         child: const HomePage(),
       ),

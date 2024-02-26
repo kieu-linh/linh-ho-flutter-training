@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, lines_longer_than_80_chars
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -20,9 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
+  // ignore: inference_failure_on_untyped_parameter
   static String m0(weekNumber, exerciseNumber) =>
       "${weekNumber} Weeks - ${exerciseNumber} Exercises";
 
+  // ignore: inference_failure_on_untyped_parameter
   static String m1(currentStep, numberOfSteps) =>
       "Step ${currentStep} of ${numberOfSteps}";
 
@@ -54,7 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
         "characterPass": MessageLookupByLibrary.simpleMessage(
-            "Password least uppercase and special character."),
+            "Password least uppercase and special character.",),
         "chest": MessageLookupByLibrary.simpleMessage("Chest"),
         "cm": MessageLookupByLibrary.simpleMessage("CM"),
         "cmToFeet": MessageLookupByLibrary.simpleMessage("0.032808399"),

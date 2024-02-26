@@ -1,7 +1,5 @@
-import 'package:fitness_ui/core/constant/images.dart';
-
-class UserModel {
-  UserModel();
+class User {
+  User();
 
   String image = '';
   String name = '';
@@ -10,9 +8,4 @@ class UserModel {
   int age = 0;
 }
 
-UserModel user1 = UserModel()
-  ..image = FAImage.imgAvatar
-  ..name = 'Sophia'
-  ..weight = 55
-  ..height = 170
-  ..age = 18;
+

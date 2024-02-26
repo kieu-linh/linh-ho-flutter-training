@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 class FABodyMeasurementInput extends StatefulWidget {
   const FABodyMeasurementInput({
-    required this.textRight,
-    required this.textLeft,
+    this.textRight,
+    this.textLeft,
     this.controller,
     super.key,
     this.onLeftPressed,
@@ -16,8 +16,8 @@ class FABodyMeasurementInput extends StatefulWidget {
   });
 
   final TextEditingController? controller;
-  final String textRight;
-  final String textLeft;
+  final String? textRight;
+  final String? textLeft;
   final Function(String)? onChange;
   final Function()? onLeftPressed;
   final Function()? onRightPressed;
@@ -63,7 +63,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
-                    index == 0 ? widget.textLeft : widget.textRight,
+                    index == 0 ? widget.textLeft ?? '' : widget.textRight ?? '',
                     style: AppTextStyles.textBottom.copyWith(fontSize: 22),
                   ),
                 ),
@@ -103,8 +103,8 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
               ),
               Text(
                 _selectIndex != 0
-                    ? widget.textRight.toLowerCase()
-                    : widget.textLeft.toLowerCase(),
+                    ? widget.textRight!.toLowerCase()
+                    : widget.textLeft!.toLowerCase(),
                 style: AppTextStyles.textStepPage.copyWith(fontSize: 22),
               ),
             ],

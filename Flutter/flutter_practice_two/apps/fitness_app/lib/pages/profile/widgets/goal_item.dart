@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/category_data.dart';
+import 'package:fitness_app/data/seeds/category.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -34,7 +34,7 @@ class FAGoalItem extends StatelessWidget {
           child: Padding(
             padding: context.padding(horizontal: 20),
             child: Row(
-              children: List.generate(listCategory.length, (index) {
+              children: List.generate(CategorySeeds.listCategory.length, (index) {
                 return Padding(
                   padding: context.padding(right: 19),
                   child: Column(
@@ -42,13 +42,13 @@ class FAGoalItem extends StatelessWidget {
                       CircleAvatar(
                         radius: 30,
                         backgroundImage: AssetImage(
-                          listCategory[index].image ?? '',
+                          CategorySeeds.listCategory[index].image ?? '',
                         ),
                       ),
                       const SizedBox(height: 10),
                       FAText.bodyLarge(
                         context,
-                        text: listCategory[index].name ?? '',
+                        text: CategorySeeds.listCategory[index].name ?? '',
                         style:
                             context.textTheme.bodyLarge?.copyWith(fontSize: 12),
                       ),

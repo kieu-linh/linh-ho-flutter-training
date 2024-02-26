@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/macronutrient_goal_data.dart';
+import 'package:fitness_app/data/seeds/macronutrient_goal.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -33,25 +33,29 @@ class FAMacronutrientGoal extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(listMacronutrientGoal.length, (index) {
+          children: List.generate(
+              MacronutrientGoalSeeds.listMacronutrientGoal.length, (index) {
             return Column(
               children: [
-                Image.asset(listMacronutrientGoal[index].image ?? ''),
+                Image.asset(
+                    MacronutrientGoalSeeds.listMacronutrientGoal[index].image ??
+                        ''),
                 const SizedBox(height: 10),
                 FAText.bodyLarge(
                   context,
-                  text: '${listMacronutrientGoal[index].title}',
+                  text:
+                      '${MacronutrientGoalSeeds.listMacronutrientGoal[index].title}',
                   style: context.textTheme.bodyLarge?.copyWith(fontSize: 12),
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  '${listMacronutrientGoal[index].gam}',
+                  '${MacronutrientGoalSeeds.listMacronutrientGoal[index].gam}',
                   style:
                       context.textTheme.headlineSmall?.copyWith(fontSize: 12),
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  '${listMacronutrientGoal[index].description}',
+                  '${MacronutrientGoalSeeds.listMacronutrientGoal[index].description}',
                   style:
                       context.textTheme.displayMedium?.copyWith(fontSize: 10),
                 ),

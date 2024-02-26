@@ -1,4 +1,5 @@
 import 'package:fitness_app/data/models/category_data.dart';
+import 'package:fitness_app/data/seeds/category.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
@@ -15,16 +16,16 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-  List<CategoryModel> listSearchCategory = [];
+  List<Category> listSearchCategory = [];
 
   @override
   void initState() {
-    listSearchCategory = listCategory;
+    listSearchCategory = CategorySeeds.listCategory;
     super.initState();
   }
 
   void _searchCategory(String value) {
-    listSearchCategory = listCategory
+    listSearchCategory = CategorySeeds.listCategory
         .where(
           (e) => (e.name ?? '').toLowerCase().contains(value.toLowerCase()),
         )
