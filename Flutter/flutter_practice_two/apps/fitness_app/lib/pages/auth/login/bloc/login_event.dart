@@ -33,19 +33,17 @@ class LogInEmailChangedEvent extends LoginEvent {
   List<Object> get props => [email ?? ''];
 }
 
-/// The [LogInButtonChangedEvent] is used to notify
+/// The [LogInPasswordChangedEvent] is used to notify
 /// when the User input the password form.
-class LogInButtonChangedEvent extends LoginEvent {
-  const LogInButtonChangedEvent({
-    required this.email,
+class LogInPasswordChangedEvent extends LoginEvent {
+  const LogInPasswordChangedEvent({
     required this.password,
   });
 
-  final String email;
   final String password;
 
   @override
-  List<Object> get props => [email, password];
+  List<Object> get props => [password];
 }
 
 /// The [LogOutRequestedEvent] is used to notify

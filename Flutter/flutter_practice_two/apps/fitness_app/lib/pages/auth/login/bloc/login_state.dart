@@ -3,8 +3,6 @@ import 'package:equatable/equatable.dart';
 enum LoginStatus {
   initial,
   onLoading,
-  onEmailChangedLoading,
-  onPasswordChangedLoading,
   success,
   failure,
 }
@@ -15,23 +13,41 @@ class LoginState extends Equatable {
     this.email = '',
     this.password = '',
     this.errorMessage = '',
-    this.isUsernameValid = false,
+    this.isEmailValid = false,
     this.isValid = false,
   });
 
   final LoginStatus status;
   final String email;
   final String password;
-  final bool isUsernameValid;
+  final bool isEmailValid;
   final bool isValid;
   final String errorMessage;
+
+  LoginState copyWith({
+    LoginStatus? status,
+    String? email,
+    String? password,
+    bool? isEmailValid,
+    bool? isValid,
+    String? errorMessage,
+  }) {
+    return LoginState(
+      status: status ?? this.status,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      isEmailValid: isEmailValid ?? this.isEmailValid,
+      isValid: isValid ?? this.isValid,
+      errorMessage: errorMessage ?? this.errorMessage,
+    );
+  }
 
   @override
   List<Object?> get props => [
         status,
         email,
         password,
-        isUsernameValid,
+        isEmailValid,
         isValid,
         errorMessage,
       ];

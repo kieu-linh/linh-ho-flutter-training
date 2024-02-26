@@ -9,7 +9,7 @@ import 'package:fitness_app/pages/auth/login/repositories/auth_repository.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const LoginState()) {
     on<LogInEmailChangedEvent>(_onEmailChanged);
-    on<LogInButtonChangedEvent>(_onButtonChange);
+    on<LogInPasswordChangedEvent>(_onPasswordChange);
     on<LoginSubmittedEvent>(_onLoginSubmitted);
   }
 
@@ -20,48 +20,45 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     /// This code is called when the value of the
     /// email form field on the sign in screen changes.
 
-    emit(const LoginState(status: LoginStatus.onEmailChangedLoading));
-
     /// It checks to see if the email is valid.
     final email = event.email;
-    final isValidEmail = FAValidator.validatorEmail(email);
+    final isCheckEmail = FAValidator.validatorEmail(email);
 
-    /// If the email is valid, it emits isUsernameValid true,
-    /// otherwise it emits isUsernameValid false.
-    isValidEmail == null
-        ? emit(LoginState(email: email ?? '', isUsernameValid: true))
-        : emit(LoginState(email: email ?? '', isUsernameValid: false));
+    /// If the email is valid, it emits isEmailValid true,
+    /// otherwise it emits isEmailValid false.
+    bool isFormValid = _checkFormValid(event.email ?? '', state.password);
+
+    emit(state.copyWith(
+      status: LoginStatus.initial,
+      email: email ?? '',
+      isEmailValid: isCheckEmail == null ? true : false,
+      isValid: isFormValid,
+    ));
   }
 
-  Future<void> _onButtonChange(
-    LogInButtonChangedEvent event,
+  Future<void> _onPasswordChange(
+    LogInPasswordChangedEvent event,
     Emitter<LoginState> emit,
   ) async {
-
     /// This code is called when the value of the password and email form field changes.
-    final password = event.password;
-    final email = event.email;
+    bool isFormValid = _checkFormValid(state.email, event.password);
 
-    /// It checks to see if the email and password are valid.
-    final isValidEmail = FAValidator.validatorEmail(email);
-    final isValidPassword = FAValidator.validatorPassword(password);
-
-    /// If the email and password are valid, it emits isValid true,
-    /// otherwise it emits isValid false.
-    isValidEmail == null && isValidPassword == null
-        ? emit(LoginState(isValid: true))
-        : emit(LoginState(isValid: false));
+    emit(state.copyWith(
+      status: LoginStatus.initial,
+      password: event.password,
+      email: state.email,
+      isValid: isFormValid,
+    ));
   }
 
   Future<void> _onLoginSubmitted(
     LoginSubmittedEvent event,
     Emitter<LoginState> emit,
   ) async {
-
     /// This code is called when the user presses the sign in button.
-    emit(const LoginState(
-        status: LoginStatus.onLoading, isUsernameValid: true, isValid: true));
-    
+    emit(state.copyWith(
+        status: LoginStatus.onLoading, isEmailValid: true, isValid: true));
+
     // get data from repository
     List<User> list = await AuthRepository().users() ?? [];
 
@@ -73,19 +70,30 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               element.password == event.password,
         )
         .toList();
-    
+
     /// If the email and password are empty, it emits a [SignInFailureState],
     /// otherwise it emits a [SignInSuccessState].
     if (listUser.isEmpty) {
-      emit(const LoginState(status: LoginStatus.failure));
+      emit(state.copyWith(status: LoginStatus.failure));
     } else {
-      emit(const LoginState(status: LoginStatus.success));
-    }
+      emit(state.copyWith(status: LoginStatus.success));
 
-    /// Save the user data to the local storage.
-    User user = User()
-      ..email = event.email
-      ..password = event.password;
-    SharedPrefs().saveAccount(user);
+      /// Save the user data to the local storage.
+      User user = User()
+        ..email = event.email
+        ..password = event.password;
+      SharedPrefs().saveAccount(user);
+    }
+  }
+
+  /// This method is used to check the email and password are valid.
+  bool _checkFormValid(
+    String email,
+    String pass,
+  ) {
+    final isValidEmail = FAValidator.validatorEmail(email);
+    final isValidPassword = FAValidator.validatorPassword(pass);
+
+    return isValidEmail == null && isValidPassword == null;
   }
 }
