@@ -29,7 +29,7 @@ class EmailForm extends StatelessWidget {
           onChanged: onChanged,
           controller: emailController,
           hintText: s.hintTextEmail,
-          icon: state.isUsernameValid ? FAIcon.iconTick : null,
+          icon: state.isEmailValid ? FAIcon.iconTick : null,
           validator: FAValidator.validatorEmail,
           textInputAction: TextInputAction.next,
         );

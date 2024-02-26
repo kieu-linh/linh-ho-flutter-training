@@ -30,6 +30,7 @@ class LoginPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => LoginBloc(),
       child: BlocConsumer<LoginBloc, LoginState>(
+        //buildWhen: (previous, current) => previous.status != current.status,
         // function listener use to listen the state of the bloc
         listener: (context, state) {
           // check state success or failure
@@ -38,11 +39,9 @@ class LoginPage extends StatelessWidget {
           }
 
           if (state.status == LoginStatus.failure) {
-            emailController.clear();
-            passwordController.clear();
             FASnackBar.error(context, message: s.messageError);
           }
-          //print(state.isValid);
+          print('isValid: ${state.isValid}');
         },
         builder: (context, state) {
           return Scaffold(
@@ -93,8 +92,7 @@ class LoginPage extends StatelessWidget {
                             },
                             onChanged: (p0) {
                               context.read<LoginBloc>().add(
-                                  LogInButtonChangedEvent(
-                                      email: emailController.text,
+                                  LogInPasswordChangedEvent(
                                       password: passwordController.text));
                             },
                           ),
