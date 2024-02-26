@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/add_exercise_data.dart';
+import 'package:fitness_app/data/seeds/add_exercise.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';

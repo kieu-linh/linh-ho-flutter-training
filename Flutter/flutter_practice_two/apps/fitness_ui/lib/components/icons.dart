@@ -360,6 +360,19 @@ class FAIcons extends StatelessWidget {
     );
   }
 
+  factory FAIcons.splash({
+    Color? color,
+    double width = 48,
+    double height = 50,
+  }) {
+    return FAIcons(
+      iconLink: FAIcon.iconSplash,
+      color: color,
+      height: height,
+      width: width,
+    );
+  }
+
   factory FAIcons.home({
     Color? color,
     double? width,

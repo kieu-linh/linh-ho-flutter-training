@@ -1,4 +1,4 @@
-import 'package:fitness_app/core/utils/get_string_day.dart';
+import 'package:fitness_app/core/extension/date.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/core/constant/images.dart';

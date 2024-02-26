@@ -45,6 +45,7 @@ class FAInput extends StatelessWidget {
           validator: validator,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           textInputAction: textInputAction,
+          onTapOutside: (event) => FocusScope.of(context).unfocus(),
           decoration: InputDecoration(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),

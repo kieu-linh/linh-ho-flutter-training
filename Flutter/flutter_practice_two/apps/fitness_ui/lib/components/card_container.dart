@@ -12,7 +12,7 @@ class FACardContainer extends StatelessWidget {
     this.onPressed,
   });
 
-  final AddExerciseModel addExercise;
+  final AddExercise addExercise;
   final VoidCallback? onPressed;
 
   @override

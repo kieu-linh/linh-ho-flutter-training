@@ -15,7 +15,7 @@ class DrawerPage extends StatefulWidget {
     super.key,
     this.onTap,
   });
-  final UserModel user;
+  final User user;
   final VoidCallback? onTap;
 
   @override

@@ -2,7 +2,6 @@
 // This is a library that provides messages for a en locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
-
 // Ignore issues from commonly used lints in this file.
 // ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, lines_longer_than_80_chars
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering

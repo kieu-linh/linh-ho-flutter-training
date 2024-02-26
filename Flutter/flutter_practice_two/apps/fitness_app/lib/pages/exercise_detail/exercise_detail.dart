@@ -18,7 +18,7 @@ class ExerciseDetailPage extends StatefulWidget {
     super.key,
   });
 
-  final AddExerciseModel exercise;
+  final AddExercise exercise;
   @override
   State<ExerciseDetailPage> createState() => _ExerciseDetailPageState();
 }

@@ -7,10 +7,10 @@ abstract class LoginEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-/// The [LoginSubmitted] is used to notify
+/// The [LoginSubmittedEvent] is used to notify
 /// when the User pressed the LoginButton.
-class LoginSubmitted extends LoginEvent {
-  const LoginSubmitted({
+class LoginSubmittedEvent extends LoginEvent {
+  const LoginSubmittedEvent({
     required this.email,
     required this.password,
   });

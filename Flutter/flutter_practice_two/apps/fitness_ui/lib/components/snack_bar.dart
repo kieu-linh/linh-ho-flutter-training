@@ -1,4 +1,5 @@
 //import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -53,20 +54,17 @@ class FASnackBar {
             ),
             Positioned(
               bottom: 0,
-              child: SvgPicture.asset(
-                FAIcon.iconSplash,
-                height: context.sizeHeight(48),
-                width: context.sizeWidth(40),
-                // ignore: deprecated_member_use
-                color: iconColor ?? AppColor.iconError,
-              ),
+              child: Positioned(
+              bottom: 0,
+              child: FAIcons.splash(color: iconColor ?? AppColor.iconError),
+            ),
             ),
             Positioned(
               top: -13,
               left: 10,
               child: SvgPicture.asset(
                 iconPath ?? FAIcon.iconError,
-                height: context.sizeHeight(50),
+                
               ),
             ),
           ],

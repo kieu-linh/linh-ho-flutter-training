@@ -1,4 +1,4 @@
-import 'package:fitness_app/core/utils/change_value.dart';
+import 'package:fitness_app/core/extension/string.dart';
 import 'package:fitness_app/pages/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -28,14 +28,14 @@ class _HeightPageState extends State<HeightPage> {
         padding: context.padding(top: 20),
         child: FABodyMeasurementInput(
           onLeftPressed: () {
-            saveValue = ChangeValue.convertValue(
+            saveValue = ChangeValue.toDouble(
               saveValue,
               heightController,
               double.parse(FAUiS.current.cmToFeet),
             );
           },
           onRightPressed: () {
-            saveValue = ChangeValue.convertValue(
+            saveValue = ChangeValue.toDouble(
               saveValue,
               heightController,
               double.parse(FAUiS.current.feetToCm),

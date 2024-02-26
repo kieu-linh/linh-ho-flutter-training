@@ -101,12 +101,7 @@ class FAButton extends StatelessWidget {
             if (icon != null)
               Padding(
                 padding: const EdgeInsets.only(right: 11),
-                child: FAIcons(
-                  iconLink: icon!,
-                  color: iconColor,
-                  width: 24,
-                  height: 24,
-                ),
+                child: FAIcons(iconLink: icon!, color: iconColor),
               ),
             if (!isDisable)
               FAText(text: text, style: textStyle)

@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/favorite_data.dart';
+import 'package:fitness_app/data/seeds/favorite.dart';
 import 'package:fitness_app/pages/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -19,7 +19,7 @@ class FavoritePage extends StatelessWidget {
       body: context.sizedBox(
         height: 430,
         child: GridView.builder(
-          itemCount: listFavorite.length,
+          itemCount: FavoriteSeeds.listFavorite.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 10,
@@ -30,13 +30,13 @@ class FavoritePage extends StatelessWidget {
             return Column(
               children: [
                 Image.asset(
-                  listFavorite[index].image ?? '',
+                  FavoriteSeeds.listFavorite[index].image ?? '',
                   height: 100,
                 ),
                 const SizedBox(height: 11),
                 FAText.titleLarge(
                   context,
-                  text: listFavorite[index].title ?? '',
+                  text: FavoriteSeeds.listFavorite[index].title ?? '',
                 ),
               ],
             );

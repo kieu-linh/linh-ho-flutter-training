@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/welcome_data.dart';
+import 'package:fitness_app/data/seeds/welcome.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
@@ -32,7 +32,7 @@ class FACarousel extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        ...List.generate(listWelcomes.length, (index) {
+        ...List.generate(WelcomeSeeds.listWelcomes.length, (index) {
           return AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             //if _pageIndex == index, width = 15, else width = 8
