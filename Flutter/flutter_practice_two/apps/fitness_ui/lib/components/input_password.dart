@@ -19,6 +19,7 @@ class FAPasswordInput extends StatefulWidget {
     this.onPressed,
     this.obscureText = false,
     this.onChanged,
+    this.onTap,
   });
 
   final TextEditingController? controller;
@@ -30,6 +31,7 @@ class FAPasswordInput extends StatefulWidget {
   final TextInputAction? textInputAction;
   final bool obscureText;
   final Function(String)? onChanged;
+  final VoidCallback? onTap;
 
   @override
   State<FAPasswordInput> createState() => _FAPasswordInputState();
@@ -51,6 +53,7 @@ class _FAPasswordInputState extends State<FAPasswordInput> {
           onFieldSubmitted: widget.onFieldSubmit,
           keyboardType: widget.keyboardType,
           onChanged: widget.onChanged,
+          onTap: widget.onTap,
           //obscureText = true => can show,hidden password
           //obscureText = false => only show text
           // ignore: avoid_bool_literals_in_conditional_expressions

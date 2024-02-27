@@ -32,6 +32,8 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final sizeText = size.width * 0.5 - 28;
+    
     return Column(
       children: [
         Container(
@@ -90,7 +92,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
                 onChanged: widget.onChange,
                 decoration: InputDecoration(
                   constraints: BoxConstraints(
-                    maxWidth: size.width * 0.5 - 28,
+                    maxWidth: sizeText,
                   ),
                   border: InputBorder.none,
                 ),
