@@ -1,4 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages
+import 'package:device_preview/device_preview.dart';
 import 'package:fitness_widgetbook/main.directories.g.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/card.dart';
@@ -26,7 +27,10 @@ import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
 
 void main() {
-  runApp(const FAWidgetBook());
+  //runApp(const FAWidgetBook());
+  runApp(
+    DevicePreview(builder: (context) => const FAWidgetBook()),
+  );
 }
 
 @widgetbook.App()

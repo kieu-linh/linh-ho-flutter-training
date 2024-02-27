@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:fitness_app/pages/drawer/drawer_main.dart';
+import 'package:fitness_app/features/drawer/drawer_main.dart';
 import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
