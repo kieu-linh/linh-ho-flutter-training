@@ -38,6 +38,9 @@ class LoginPage extends StatelessWidget {
           if (state.status == LoginStatus.failure) {
             FASnackBar.error(context, message: s.messageError);
           }
+          if (state.status == LoginStatus.error) {
+            FASnackBar.error(context, message: 'Error');
+          }
         },
         builder: (context, state) {
           return Scaffold(
