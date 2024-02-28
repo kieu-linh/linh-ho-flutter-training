@@ -5,6 +5,7 @@ enum LoginStatus {
   onLoading,
   success,
   failure,
+  error,
 }
 
 class LoginState extends Equatable {

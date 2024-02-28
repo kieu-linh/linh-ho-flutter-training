@@ -1,3 +1,5 @@
+// ignore_for_file: body_might_complete_normally_catch_error
+
 import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/core/utils/validator.dart';
@@ -54,9 +56,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(state.copyWith(status: LoginStatus.onLoading));
 
     // get data from repository
-    List<User> list = await AuthRepository().users() ?? [];
+    List<User>? list = await AuthRepository().users().catchError((onError) {
+      emit(state.copyWith(status: LoginStatus.error));
+    });
 
     /// It checks to see if the email and password are exist in the list data.
+    if (list == null) return;
     final listUser = list
         .where(
           (element) =>

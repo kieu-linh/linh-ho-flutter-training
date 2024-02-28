@@ -6,7 +6,7 @@ import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+void main() async {
   runApp(
     DevicePreview(builder: (context) => const MyApp()),
   );

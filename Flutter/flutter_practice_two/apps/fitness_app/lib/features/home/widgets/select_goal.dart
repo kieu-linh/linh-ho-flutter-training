@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/seeds/goal.dart';
+import 'package:fitness_app/features/home/model/goal.dart';
 import 'package:fitness_app/features/home/widgets/title.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -7,8 +7,11 @@ import 'package:flutter/material.dart';
 
 class FASelectGoal extends StatefulWidget {
   const FASelectGoal({
+    required this.goals,
     super.key,
   });
+
+  final List<Goal> goals;
 
   @override
   State<FASelectGoal> createState() => _FASelectGoalState();
@@ -29,7 +32,7 @@ class _FASelectGoalState extends State<FASelectGoal> {
           child: Padding(
             padding: context.padding(horizontal: 20),
             child: Row(
-              children: List.generate(GoalSeeds.listGoal.length, (index) {
+              children: List.generate(widget.goals.length, (index) {
                 return GestureDetector(
                   onTap: () {
                     _selectIndex = index;
@@ -46,7 +49,7 @@ class _FASelectGoalState extends State<FASelectGoal> {
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Text(
-                      GoalSeeds.listGoal[index].name ?? '',
+                      widget.goals[index].name ?? '',
                       style: _selectIndex == index
                           ? context.textTheme.labelMedium?.copyWith(
                               fontSize: 11,
