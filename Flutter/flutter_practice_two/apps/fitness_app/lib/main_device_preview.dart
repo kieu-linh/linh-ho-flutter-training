@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      // ignore: avoid_redundant_argument_values
       themeMode: ThemeMode.light,
       darkTheme: ThemeData.dark(),
       theme: FAppTheme.lightTheme,
