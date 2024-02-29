@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/seeds/meal.dart';
+import 'package:fitness_app/features/home/model/meal.dart';
 import 'package:fitness_app/features/home/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
@@ -9,9 +9,11 @@ import 'package:flutter/material.dart';
 
 class FAMealPlan extends StatelessWidget {
   const FAMealPlan({
+    required this.meals,
     super.key,
   });
 
+  final List<Meal> meals;
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
@@ -31,14 +33,14 @@ class FAMealPlan extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  MealSeeds.listMeal[index].image ?? '',
+                  meals[index].image ?? '',
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 11),
-                FAText.bodySmall(context, text: s.saladVegetables),
+                FAText.bodySmall(context, text: meals[index].description ?? ''),
                 const SizedBox(height: 5),
                 Text(
-                  '${MealSeeds.listMeal[index].kcal} kcal',
+                  '${meals[index].kcal} kcal',
                   style: context.textTheme.bodySmall?.copyWith(fontSize: 10),
                 ),
               ],
@@ -49,7 +51,7 @@ class FAMealPlan extends StatelessWidget {
             endIndent: 0,
             indent: 0,
           ),
-          itemCount: MealSeeds.listMeal.length,
+          itemCount: meals.length,
         ),
         FADivider(height: context.sizeHeight(46)),
       ],

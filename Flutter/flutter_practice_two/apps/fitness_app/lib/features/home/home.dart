@@ -40,12 +40,10 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FACard(),
-                  FASelectGoal(
-                    goals: state.goals ?? [],
-                  ),
-                  FACategoryItem(),
+                  FASelectGoal(goals: state.goals ?? []),
+                  FACategoryItem(categories: state.categories ?? []),
                   FAPopularExercise(),
-                  FAMealPlan(),
+                  FAMealPlan(meals: state.meals ?? []),
                   FAAddExercise(),
                 ],
               ),
