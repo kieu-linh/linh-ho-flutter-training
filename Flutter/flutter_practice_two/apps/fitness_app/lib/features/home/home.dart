@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                   FACard(),
                   FASelectGoal(goals: state.goals ?? []),
                   FACategoryItem(categories: state.categories ?? []),
-                  FAPopularExercise(),
+                  FAPopularExercise(popularExercise: state.popularExercises ?? []),
                   FAMealPlan(meals: state.meals ?? []),
                   FAAddExercise(),
                 ],

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:fitness_app/features/home/model/category.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/model/goal.dart';
 import 'package:fitness_app/features/home/model/meal.dart';
 
@@ -16,6 +17,7 @@ class HomeState extends Equatable {
     this.goals,
     this.categories,
     this.meals,
+    this.popularExercises,
     this.errorMessage = '',
   });
 
@@ -23,6 +25,7 @@ class HomeState extends Equatable {
   final List<Goal>? goals;
   final List<Category>? categories;
   final List<Meal>? meals;
+  final List<Exercise>? popularExercises;
   final String errorMessage;
 
   HomeState copyWith({
@@ -30,6 +33,7 @@ class HomeState extends Equatable {
     List<Goal>? goals,
     List<Category>? categories,
     List<Meal>? meals,
+    List<Exercise>? popularExercises,
     String? errorMessage,
   }) {
     return HomeState(
@@ -37,6 +41,7 @@ class HomeState extends Equatable {
       goals: goals ?? this.goals,
       categories: categories ?? this.categories,
       meals: meals ?? this.meals,
+      popularExercises: popularExercises ?? this.popularExercises,
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
@@ -47,6 +52,7 @@ class HomeState extends Equatable {
         goals,
         categories,
         meals,
+        popularExercises,
         errorMessage,
       ];
 }

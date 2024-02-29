@@ -6,4 +6,8 @@ class FALink {
   static const endPointCategory = '/Category?select=*';
 
   static const endPointMeal = '/Meal?select=*';
+
+  static const endPointExercise = '/Exercise?select=*';
+
+  static const endPointPopularExercise = '/Exercise?type=eq.2&select=*';
 }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:api_client/api_client.dart';
 import 'package:fitness_app/core/constant/link.dart';
 import 'package:fitness_app/features/home/model/category.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/model/goal.dart';
 import 'package:fitness_app/features/home/model/meal.dart';
 
@@ -51,11 +52,30 @@ class HomeRepository {
       final response =
           await AccountServices().get(endPoint: FALink.endPointMeal);
       if (response.statusCode == 200) {
-        print(response.body);
+        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final meals =
             data.map((e) => Meal.fromJson(e as Map<String, dynamic>)).toList();
         return meals;
+      } else {
+        throw Exception('Failed to load users');
+      }
+    } on Failure {
+      rethrow;
+    }
+  }
+
+  Future<List<Exercise>?> fetchPopularExercise() async {
+    try {
+      final response =
+          await AccountServices().get(endPoint: FALink.endPointPopularExercise);
+      if (response.statusCode == 200) {
+        print(response.body);
+        final data = jsonDecode(response.body) as List<dynamic>;
+        final exercises = data
+            .map((e) => Exercise.fromJson(e as Map<String, dynamic>))
+            .toList();
+        return exercises;
       } else {
         throw Exception('Failed to load users');
       }

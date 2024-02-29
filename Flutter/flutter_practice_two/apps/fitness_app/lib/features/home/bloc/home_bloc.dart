@@ -18,12 +18,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final goals = await HomeRepository().fetchGoals();
       final categories = await HomeRepository().fetchCategory();
       final meals = await HomeRepository().fetchMeal();
+      final popularExercises = await HomeRepository().fetchPopularExercise();
 
       emit(state.copyWith(
         status: HomePageStatus.success,
         goals: goals,
         categories: categories,
         meals: meals,
+        popularExercises: popularExercises,
       ));
     } catch (e) {
       emit(state.copyWith(

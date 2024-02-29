@@ -1,4 +1,5 @@
 import 'package:fitness_app/data/seeds/exercise.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
@@ -11,8 +12,11 @@ import 'package:flutter_svg/svg.dart';
 
 class FAPopularExercise extends StatelessWidget {
   const FAPopularExercise({
+    required this.popularExercise,
     super.key,
   });
+
+  final List<Exercise> popularExercise;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,7 @@ class FAPopularExercise extends StatelessWidget {
                 Stack(
                   children: [
                     Image.asset(
-                      ExerciseSeeds.listExercise[index].image ?? '',
+                      popularExercise[index].image ?? '',
                     ),
                     Positioned(
                       top: 12,
@@ -61,13 +65,13 @@ class FAPopularExercise extends StatelessWidget {
                     children: [
                       FAText.bodySmall(
                         context,
-                        text: ExerciseSeeds.listExercise[index].title ?? '',
+                        text: popularExercise[index].title ?? '',
                       ),
                       const SizedBox(height: 8),
                       Row(
                         children: [
                           Text(
-                            ExerciseSeeds.listExercise[index].level ?? '',
+                            popularExercise[index].level ?? '',
                             style: context.textTheme.bodySmall
                                 ?.copyWith(fontSize: 10),
                           ),
@@ -80,7 +84,7 @@ class FAPopularExercise extends StatelessWidget {
                           SvgPicture.asset(FAIcon.iconClock),
                           const SizedBox(width: 6),
                           Text(
-                            '${ExerciseSeeds.listExercise[index].time} min',
+                            '${popularExercise[index].min} min',
                             style: context.textTheme.bodySmall
                                 ?.copyWith(fontSize: 10),
                           ),
