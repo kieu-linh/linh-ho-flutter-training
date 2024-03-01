@@ -31,7 +31,8 @@ class _HomePageState extends State<HomePage> {
         ..add(HomeFetchGoalData())
         ..add(HomeFetchCategoryData())
         ..add(HomeFetchMealData())
-        ..add(HomeFetchPopularExerciseData()),
+        ..add(HomeFetchPopularExerciseData())
+        ..add(HomeFetchAddExerciseData()),
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return Scaffold(
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                   FAPopularExercise(
                       popularExercise: state.popularExercises ?? []),
                   FAMealPlan(meals: state.meals ?? []),
-                  FAAddExercise(),
+                  FAAddExercise(addExercises: state.addExercises ?? []),
                 ],
               ),
             ),

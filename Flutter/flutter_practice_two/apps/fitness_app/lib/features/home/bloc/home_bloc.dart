@@ -17,16 +17,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     emit(state
-        .copyWith(fetchGoalsStatus: HomePageStatus.onLoadingData, goals: []));
+        .copyWith(fetchGoalsStatus: SubmissionStatus.onLoadingData, goals: []));
 
     try {
       final goals = await HomeRepository().fetchGoals();
 
       emit(state.copyWith(
-          fetchGoalsStatus: HomePageStatus.success, goals: goals));
+          fetchGoalsStatus: SubmissionStatus.success, goals: goals));
     } catch (e) {
       emit(state.copyWith(
-          fetchGoalsStatus: HomePageStatus.failure,
+          fetchGoalsStatus: SubmissionStatus.failure,
           errorMessage: e.toString()));
     }
   }
@@ -36,16 +36,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     emit(state.copyWith(
-        fetchCategoryStatus: HomePageStatus.onLoadingData, categories: []));
+        fetchCategoryStatus: SubmissionStatus.onLoadingData, categories: []));
 
     try {
       final categories = await HomeRepository().fetchCategory();
 
       emit(state.copyWith(
-          fetchCategoryStatus: HomePageStatus.success, categories: categories));
+          fetchCategoryStatus: SubmissionStatus.success,
+          categories: categories));
     } catch (e) {
       emit(state.copyWith(
-          fetchCategoryStatus: HomePageStatus.failure,
+          fetchCategoryStatus: SubmissionStatus.failure,
           errorMessage: e.toString()));
     }
   }
@@ -55,16 +56,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     emit(state
-        .copyWith(fetchMealStatus: HomePageStatus.onLoadingData, meals: []));
+        .copyWith(fetchMealStatus: SubmissionStatus.onLoadingData, meals: []));
 
     try {
       final meals = await HomeRepository().fetchMeal();
 
       emit(state.copyWith(
-          fetchMealStatus: HomePageStatus.success, meals: meals));
+          fetchMealStatus: SubmissionStatus.success, meals: meals));
     } catch (e) {
       emit(state.copyWith(
-          fetchMealStatus: HomePageStatus.failure, errorMessage: e.toString()));
+          fetchMealStatus: SubmissionStatus.failure,
+          errorMessage: e.toString()));
     }
   }
 
@@ -73,18 +75,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     emit(state.copyWith(
-        fetchPopularExerciseStatus: HomePageStatus.onLoadingData,
+        fetchPopularExerciseStatus: SubmissionStatus.onLoadingData,
         popularExercises: []));
 
     try {
       final popularExercises = await HomeRepository().fetchPopularExercise();
 
       emit(state.copyWith(
-          fetchPopularExerciseStatus: HomePageStatus.success,
+          fetchPopularExerciseStatus: SubmissionStatus.success,
           popularExercises: popularExercises));
     } catch (e) {
       emit(state.copyWith(
-          fetchPopularExerciseStatus: HomePageStatus.failure,
+          fetchPopularExerciseStatus: SubmissionStatus.failure,
           errorMessage: e.toString()));
     }
   }
@@ -95,23 +97,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     emit(
       state.copyWith(
-        fetchAddExercisesStatus: HomePageStatus.onLoadingData,
+        fetchAddExercisesStatus: SubmissionStatus.onLoadingData,
         addExercises: [],
       ),
     );
 
     try {
       final addExercises = await HomeRepository().fetchAddExercise();
-
+      //print('object1: ${addExercises?[1].benefit?.title}');
       emit(
         state.copyWith(
-            fetchAddExercisesStatus: HomePageStatus.success,
+            fetchAddExercisesStatus: SubmissionStatus.success,
             addExercises: addExercises),
       );
     } catch (e) {
       emit(
         state.copyWith(
-          fetchAddExercisesStatus: HomePageStatus.failure,
+          fetchAddExercisesStatus: SubmissionStatus.failure,
           errorMessage: e.toString(),
         ),
       );

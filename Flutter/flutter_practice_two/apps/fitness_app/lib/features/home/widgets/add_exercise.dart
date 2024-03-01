@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/seeds/add_exercise.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/widgets/title.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
@@ -8,8 +8,11 @@ import 'package:flutter/material.dart';
 
 class FAAddExercise extends StatelessWidget {
   const FAAddExercise({
+    required this.addExercises,
     super.key,
   });
+
+  final List<Exercise> addExercises;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,7 @@ class FAAddExercise extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            final addExercise = AddExerciseSeeds.listAddExercise[index];
+            final addExercise = addExercises[index];
             return FACardContainer(addExercise: addExercise);
           },
           separatorBuilder: (context, index) => FADivider(
@@ -34,7 +37,7 @@ class FAAddExercise extends StatelessWidget {
             indent: 0,
             endIndent: 0,
           ),
-          itemCount: AddExerciseSeeds.listAddExercise.length,
+          itemCount: addExercises.length,
         ),
         const SizedBox(height: 20),
       ],

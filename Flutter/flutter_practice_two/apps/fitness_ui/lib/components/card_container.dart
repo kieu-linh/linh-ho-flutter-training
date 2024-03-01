@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/add_exercise_data.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -12,7 +12,7 @@ class FACardContainer extends StatelessWidget {
     this.onPressed,
   });
 
-  final AddExercise addExercise;
+  final Exercise addExercise;
   final VoidCallback? onPressed;
 
   @override
@@ -21,7 +21,12 @@ class FACardContainer extends StatelessWidget {
       onTap: onPressed,
       child: Row(
         children: [
-          Image.asset(addExercise.image ?? '', fit: BoxFit.fill),
+          Image.asset(
+            addExercise.image ?? '',
+            height: context.sizeHeight(91),
+            width: context.sizeWidth(91),
+            fit: BoxFit.fill,
+          ),
           const SizedBox(width: 16),
           Expanded(
             child: Column(

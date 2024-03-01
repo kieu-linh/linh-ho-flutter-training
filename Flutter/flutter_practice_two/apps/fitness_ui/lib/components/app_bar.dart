@@ -28,7 +28,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Stack(
       children: [
         Container(
-          height: context.sizeHeight(237),
+          height: context.sizeHeight(247),
           decoration: BoxDecoration(
             color: context.colorScheme.primary,
             borderRadius: const BorderRadius.only(

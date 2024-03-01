@@ -159,6 +159,8 @@ class FAText extends StatelessWidget {
       text,
       style: style,
       textAlign: textAlign,
+      maxLines: 3,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

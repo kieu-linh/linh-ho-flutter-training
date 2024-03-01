@@ -70,7 +70,7 @@ class HomeRepository {
       final response =
           await AccountServices().get(endPoint: FALink.endPointPopularExercise);
       if (response.statusCode == 200) {
-        print(response.body);
+        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final exercises = data
             .map((e) => Exercise.fromJson(e as Map<String, dynamic>))
@@ -91,6 +91,7 @@ class HomeRepository {
       if (response.statusCode == 200) {
         print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
+        //print(data);
         final exercises = data
             .map((e) => Exercise.fromJson(e as Map<String, dynamic>))
             .toList();

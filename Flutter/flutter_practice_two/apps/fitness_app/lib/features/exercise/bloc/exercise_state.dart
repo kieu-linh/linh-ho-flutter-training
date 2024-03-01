@@ -1,54 +1,55 @@
 import 'package:equatable/equatable.dart';
-import 'package:fitness_app/features/exercise/model/add_exercise.dart';
+import 'package:fitness_app/features/exercise/model/benefit.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 
 enum ExerciseStatus {
   initial,
-  loading,
-  fetchExerciseData,
+  onLoadingData,
   success,
   failure,
-  cancel,
 }
 
-abstract class ExerciseState extends Equatable {
+class ExerciseState extends Equatable {
   const ExerciseState({
-    required this.exerciseViewModel,
-  });
-
-  final ExerciseViewModel exerciseViewModel;
-
-  @override
-  List<Object> get props => [exerciseViewModel];
-}
-
-
-class ExerciseViewModel extends Equatable {
-  const ExerciseViewModel({
-    this.status = ExerciseStatus.initial,
-    this.exercises = const [],
+    this.fetchBenefitStatus = ExerciseStatus.initial,
+    this.benefits = const [],
     this.errorMessage = '',
+    this.index = 0,
+    this.fetchExercisesStatus = ExerciseStatus.initial,
+    this.exercises = const [],
   });
 
-  final ExerciseStatus status;
-  final List<AddExerciseModel>? exercises;
+  final ExerciseStatus fetchBenefitStatus;
+  final List<Benefit>? benefits;
+  final int index;
+
+  final ExerciseStatus fetchExercisesStatus;
+  final List<Exercise>? exercises;
+
   final String errorMessage;
 
-  ExerciseViewModel copyWith({
-    ExerciseStatus? status,
-    List<AddExerciseModel>? exercises,
+  ExerciseState copyWith({
+    ExerciseStatus? fetchBenefitStatus,
+    List<Benefit>? benefits,
+    int? index,
+    ExerciseStatus? fetchExercisesStatus,
+    List<Exercise>? exercises,
     String? errorMessage,
-
   }) {
-    return ExerciseViewModel(
-      status: status ?? this.status,
-      exercises: exercises ?? this.exercises,
-      errorMessage: errorMessage ?? this.errorMessage,
-    );
+    return ExerciseState(
+        fetchBenefitStatus: fetchBenefitStatus ?? this.fetchBenefitStatus,
+        benefits: benefits ?? this.benefits,
+        index: index ?? this.index,
+        errorMessage: errorMessage ?? this.errorMessage,
+        fetchExercisesStatus: fetchExercisesStatus ?? this.fetchExercisesStatus,
+        exercises: exercises ?? this.exercises);
   }
 
   @override
   List<Object?> get props => [
-        status,
+        fetchBenefitStatus,
+        benefits,
+        index,
         exercises,
         errorMessage,
       ];

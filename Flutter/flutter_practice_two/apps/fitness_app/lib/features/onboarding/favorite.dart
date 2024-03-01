@@ -31,7 +31,7 @@ class FavoritePage extends StatelessWidget {
               children: [
                 Image.asset(
                   FavoriteSeeds.listFavorite[index].image ?? '',
-                  height: 100,
+                  height: context.sizeHeight(100),
                 ),
                 const SizedBox(height: 11),
                 FAText.titleLarge(

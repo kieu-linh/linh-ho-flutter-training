@@ -2,6 +2,8 @@ import 'package:fitness_app/data/models/add_exercise_data.dart';
 import 'package:fitness_app/data/seeds/add_exercise.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
+import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
@@ -23,17 +25,10 @@ class ExercisePage extends StatelessWidget {
         .toList();
 
     return BlocProvider(
-      create: (context) => ExerciseBloc(),
-      child: BlocConsumer<ExerciseBloc, int>(
-        listener: (context, state) {
-          void showListExerciseByCategory(int index) {
-            _listExercise = AddExerciseSeeds.listAddExercise
-                .where((e) => e.category == listCategoryExercise[index])
-                .toList();
-          }
-
-          showListExerciseByCategory(state);
-        },
+      create: (context) => ExerciseBloc()
+        ..add(ExerciseFetchBenefitData())
+        ..add(ExerciseFetchExerciseData()),
+      child: BlocBuilder<ExerciseBloc, ExerciseState>(
         builder: (context, state) {
           return Scaffold(
             body: Column(
@@ -52,8 +47,7 @@ class ExercisePage extends StatelessWidget {
                   child: Padding(
                     padding: context.padding(horizontal: 20),
                     child: Row(
-                      children:
-                          List.generate(listCategoryExercise.length, (index) {
+                      children: List.generate(state.benefits!.length, (index) {
                         return GestureDetector(
                           onTap: () {
                             context
@@ -65,15 +59,15 @@ class ExercisePage extends StatelessWidget {
                             padding:
                                 context.padding(vertical: 12, horizontal: 25),
                             decoration: BoxDecoration(
-                              color: state == index
+                              color: state.index == index
                                   ? context.colorScheme.tertiary
                                   : context.colorScheme.onSurfaceVariant
                                       .withOpacity(0.1),
                               borderRadius: BorderRadius.circular(6),
                             ),
                             child: Text(
-                              listCategoryExercise[index],
-                              style: state == index
+                              state.benefits![index].title ?? '',
+                              style: state.index == index
                                   ? context.textTheme.titleLarge?.copyWith(
                                       fontSize: 12,
                                       color: context.colorScheme.secondary,
@@ -89,26 +83,31 @@ class ExercisePage extends StatelessWidget {
                 ),
                 context.sizedBox(height: 28),
                 Expanded(
-                  child: ListView.separated(
-                    padding: context.padding(horizontal: 20),
-                    itemBuilder: (context, index) {
-                      final addExercise = _listExercise[index];
-                      return FACardContainer(
-                        addExercise: addExercise,
-                        onPressed: () {
-                          GoRouter.of(context).goNamed(
-                            'exerciseDetailScreen',
-                            extra: addExercise,
+                  child: BlocBuilder<ExerciseBloc, ExerciseState>(
+                    builder: (context, state) {
+                      return ListView.separated(
+                        padding: context.padding(horizontal: 20),
+                        itemBuilder: (context, index) {
+                          final exercise =
+                              state.exercises?[index] ?? Exercise();
+                          return FACardContainer(
+                            addExercise: exercise,
+                            onPressed: () {
+                              GoRouter.of(context).goNamed(
+                                'exerciseDetailScreen',
+                                extra: exercise,
+                              );
+                            },
                           );
                         },
+                        separatorBuilder: (context, index) => FADivider(
+                          height: context.sizeHeight(40),
+                          endIndent: 0,
+                          indent: 0,
+                        ),
+                        itemCount: state.exercises?.length ?? 0,
                       );
                     },
-                    separatorBuilder: (context, index) => FADivider(
-                      height: context.sizeHeight(40),
-                      endIndent: 0,
-                      indent: 0,
-                    ),
-                    itemCount: _listExercise.length,
                   ),
                 ),
               ],
