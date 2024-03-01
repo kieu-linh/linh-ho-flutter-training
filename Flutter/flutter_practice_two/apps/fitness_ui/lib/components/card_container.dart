@@ -21,16 +21,7 @@ class FACardContainer extends StatelessWidget {
       onTap: onPressed,
       child: Row(
         children: [
-          Container(
-            padding: context.padding(all: 4),
-            height: context.sizeHeight(90),
-            width: context.sizeWidth(90),
-            decoration: BoxDecoration(
-              color: addExercise.backgroundColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset(addExercise.image ?? '', fit: BoxFit.cover),
-          ),
+          Image.asset(addExercise.image ?? '', fit: BoxFit.fill),
           const SizedBox(width: 16),
           Expanded(
             child: Column(

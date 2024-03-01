@@ -7,7 +7,7 @@ class FALink {
 
   static const endPointMeal = '/Meal?select=*';
 
-  static const endPointExercise = '/Exercise?select=*';
+  static const endPointExercise = '/Exercise?type=eq.1&select=*';
 
   static const endPointPopularExercise = '/Exercise?type=eq.2&select=*';
 }

@@ -9,4 +9,12 @@ abstract class HomeEvent extends Equatable {
 
 class HomeInitial extends HomeEvent {}
 
-class HomeFetchDataEvent extends HomeEvent {}
+class HomeFetchGoalData extends HomeEvent {}
+
+class HomeFetchCategoryData extends HomeEvent {}
+
+class HomeFetchMealData extends HomeEvent {}
+
+class HomeFetchPopularExerciseData extends HomeEvent {}
+
+class HomeFetchAddExerciseData extends HomeEvent {}
