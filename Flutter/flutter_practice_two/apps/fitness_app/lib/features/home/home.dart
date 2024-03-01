@@ -27,7 +27,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeBloc()..add(HomeFetchDataEvent()),
+      create: (context) => HomeBloc()
+        ..add(HomeFetchGoalData())
+        ..add(HomeFetchCategoryData())
+        ..add(HomeFetchMealData())
+        ..add(HomeFetchPopularExerciseData()),
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return Scaffold(
@@ -42,7 +46,8 @@ class _HomePageState extends State<HomePage> {
                   FACard(),
                   FASelectGoal(goals: state.goals ?? []),
                   FACategoryItem(categories: state.categories ?? []),
-                  FAPopularExercise(popularExercise: state.popularExercises ?? []),
+                  FAPopularExercise(
+                      popularExercise: state.popularExercises ?? []),
                   FAMealPlan(meals: state.meals ?? []),
                   FAAddExercise(),
                 ],

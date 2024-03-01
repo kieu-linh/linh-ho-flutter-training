@@ -83,4 +83,23 @@ class HomeRepository {
       rethrow;
     }
   }
+
+  Future<List<Exercise>?> fetchAddExercise() async {
+    try {
+      final response =
+          await AccountServices().get(endPoint: FALink.endPointExercise);
+      if (response.statusCode == 200) {
+        print(response.body);
+        final data = jsonDecode(response.body) as List<dynamic>;
+        final exercises = data
+            .map((e) => Exercise.fromJson(e as Map<String, dynamic>))
+            .toList();
+        return exercises;
+      } else {
+        throw Exception('Failed to load users');
+      }
+    } on Failure {
+      rethrow;
+    }
+  }
 }

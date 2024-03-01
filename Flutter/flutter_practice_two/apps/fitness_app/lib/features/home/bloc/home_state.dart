@@ -13,46 +13,90 @@ enum HomePageStatus {
 
 class HomeState extends Equatable {
   const HomeState({
-    this.status = HomePageStatus.initial,
-    this.goals,
-    this.categories,
-    this.meals,
-    this.popularExercises,
+    this.fetchGoalStatus = HomePageStatus.initial,
+    this.fetchCategoryStatus = HomePageStatus.initial,
+    this.fetchMealStatus = HomePageStatus.initial,
+    this.fetchPopularExerciseStatus = HomePageStatus.initial,
+    this.fetchAddExercisesStatus = HomePageStatus.initial,
+
+    this.goals = const [],
+    this.categories = const [],
+    this.meals = const [],
+    this.popularExercises = const [],
+    this.addExercises = const [],
+
     this.errorMessage = '',
   });
 
-  final HomePageStatus status;
+  final HomePageStatus fetchGoalStatus;
   final List<Goal>? goals;
+
+  final HomePageStatus fetchCategoryStatus;
   final List<Category>? categories;
+
+  final HomePageStatus fetchMealStatus;
   final List<Meal>? meals;
+
+  final HomePageStatus fetchPopularExerciseStatus;
   final List<Exercise>? popularExercises;
+
+  final HomePageStatus fetchAddExercisesStatus;
+  final List<Exercise>? addExercises;
+
   final String errorMessage;
 
   HomeState copyWith({
-    HomePageStatus? status,
+    HomePageStatus? fetchGoalsStatus,
     List<Goal>? goals,
+
+    HomePageStatus? fetchCategoryStatus,
     List<Category>? categories,
+
+    HomePageStatus? fetchMealStatus,
     List<Meal>? meals,
+
+    HomePageStatus? fetchPopularExerciseStatus,
     List<Exercise>? popularExercises,
+
+    HomePageStatus? fetchAddExercisesStatus,
+    List<Exercise>? addExercises,
+
     String? errorMessage,
   }) {
     return HomeState(
-      status: status ?? this.status,
+      fetchGoalStatus: fetchGoalsStatus ?? this.fetchGoalStatus,
       goals: goals ?? this.goals,
+
+      fetchCategoryStatus: fetchCategoryStatus ?? this.fetchCategoryStatus,
       categories: categories ?? this.categories,
+
+      fetchMealStatus: fetchMealStatus ?? this.fetchMealStatus,
       meals: meals ?? this.meals,
+
+      fetchPopularExerciseStatus:
+          fetchPopularExerciseStatus ?? this.fetchPopularExerciseStatus,
       popularExercises: popularExercises ?? this.popularExercises,
+
+      fetchAddExercisesStatus:
+          fetchAddExercisesStatus ?? this.fetchAddExercisesStatus,
+      addExercises: addExercises ?? this.addExercises,
+
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 
   @override
   List<Object?> get props => [
-        status,
+        fetchGoalStatus,
         goals,
+        fetchCategoryStatus,
         categories,
+        fetchMealStatus,
         meals,
+        fetchPopularExerciseStatus,
         popularExercises,
+        fetchAddExercisesStatus,
+        addExercises,
         errorMessage,
       ];
 }
