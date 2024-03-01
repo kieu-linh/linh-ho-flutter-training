@@ -4,7 +4,7 @@ import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/model/goal.dart';
 import 'package:fitness_app/features/home/model/meal.dart';
 
-enum HomePageStatus {
+enum SubmissionStatus {
   initial,
   onLoadingData,
   success,
@@ -13,74 +13,62 @@ enum HomePageStatus {
 
 class HomeState extends Equatable {
   const HomeState({
-    this.fetchGoalStatus = HomePageStatus.initial,
-    this.fetchCategoryStatus = HomePageStatus.initial,
-    this.fetchMealStatus = HomePageStatus.initial,
-    this.fetchPopularExerciseStatus = HomePageStatus.initial,
-    this.fetchAddExercisesStatus = HomePageStatus.initial,
-
+    this.fetchGoalStatus = SubmissionStatus.initial,
+    this.fetchCategoryStatus = SubmissionStatus.initial,
+    this.fetchMealStatus = SubmissionStatus.initial,
+    this.fetchPopularExerciseStatus = SubmissionStatus.initial,
+    this.fetchAddExercisesStatus = SubmissionStatus.initial,
     this.goals = const [],
     this.categories = const [],
     this.meals = const [],
     this.popularExercises = const [],
     this.addExercises = const [],
-
     this.errorMessage = '',
   });
 
-  final HomePageStatus fetchGoalStatus;
+  final SubmissionStatus fetchGoalStatus;
   final List<Goal>? goals;
 
-  final HomePageStatus fetchCategoryStatus;
+  final SubmissionStatus fetchCategoryStatus;
   final List<Category>? categories;
 
-  final HomePageStatus fetchMealStatus;
+  final SubmissionStatus fetchMealStatus;
   final List<Meal>? meals;
 
-  final HomePageStatus fetchPopularExerciseStatus;
+  final SubmissionStatus fetchPopularExerciseStatus;
   final List<Exercise>? popularExercises;
 
-  final HomePageStatus fetchAddExercisesStatus;
+  final SubmissionStatus fetchAddExercisesStatus;
   final List<Exercise>? addExercises;
 
   final String errorMessage;
 
   HomeState copyWith({
-    HomePageStatus? fetchGoalsStatus,
+    SubmissionStatus? fetchGoalsStatus,
     List<Goal>? goals,
-
-    HomePageStatus? fetchCategoryStatus,
+    SubmissionStatus? fetchCategoryStatus,
     List<Category>? categories,
-
-    HomePageStatus? fetchMealStatus,
+    SubmissionStatus? fetchMealStatus,
     List<Meal>? meals,
-
-    HomePageStatus? fetchPopularExerciseStatus,
+    SubmissionStatus? fetchPopularExerciseStatus,
     List<Exercise>? popularExercises,
-
-    HomePageStatus? fetchAddExercisesStatus,
+    SubmissionStatus? fetchAddExercisesStatus,
     List<Exercise>? addExercises,
-
     String? errorMessage,
   }) {
     return HomeState(
       fetchGoalStatus: fetchGoalsStatus ?? this.fetchGoalStatus,
       goals: goals ?? this.goals,
-
       fetchCategoryStatus: fetchCategoryStatus ?? this.fetchCategoryStatus,
       categories: categories ?? this.categories,
-
       fetchMealStatus: fetchMealStatus ?? this.fetchMealStatus,
       meals: meals ?? this.meals,
-
       fetchPopularExerciseStatus:
           fetchPopularExerciseStatus ?? this.fetchPopularExerciseStatus,
       popularExercises: popularExercises ?? this.popularExercises,
-
       fetchAddExercisesStatus:
           fetchAddExercisesStatus ?? this.fetchAddExercisesStatus,
       addExercises: addExercises ?? this.addExercises,
-
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }

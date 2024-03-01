@@ -15,3 +15,8 @@ class ExerciseOnTap extends ExerciseEvent {
   @override
   List<Object> get props => [index];
 }
+
+class ExerciseFetchBenefitData extends ExerciseEvent {}
+
+class ExerciseFetchExerciseData extends ExerciseEvent {}
+

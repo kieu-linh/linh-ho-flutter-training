@@ -1,19 +1,20 @@
+import 'package:fitness_app/features/exercise/model/benefit.dart';
+
 class Exercise {
-  Exercise({
-    this.exerciseID,
-    this.image,
-    this.title,
-    this.kcal,
-    this.min,
-    this.level,
-    this.backgroundImage,
-    this.weight,
-    this.description,
-    this.weeks,
-    this.exerciseNumber,
-    this.type,
-    this.benefitID,
-  });
+  Exercise(
+      {this.exerciseID,
+      this.image,
+      this.title,
+      this.kcal,
+      this.min,
+      this.level,
+      this.backgroundImage,
+      this.weight,
+      this.description,
+      this.weeks,
+      this.exerciseNumber,
+      this.type,
+      this.benefit});
   int? exerciseID;
   String? image;
   String? title;
@@ -26,9 +27,11 @@ class Exercise {
   int? weeks;
   int? exerciseNumber;
   int? type;
-  int? benefitID;
+
+  Benefit? benefit;
 
   factory Exercise.fromJson(Map<String, dynamic> json) {
+    print(json);
     return Exercise(
       exerciseID: json['exerciseID'] as int?,
       image: json['image'] as String?,
@@ -42,7 +45,10 @@ class Exercise {
       weeks: json['weeks'] as int?,
       exerciseNumber: json['exerciseNumber'] as int?,
       type: json['type'] as int?,
-      benefitID: json['benefitID'] as int?,
+      benefit: json['Benefit'] != null
+          ? Benefit.fromJson(json['Benefit'] as Map<String, dynamic>)
+              as Benefit?
+          : null,
     );
   }
 
@@ -60,7 +66,7 @@ class Exercise {
       'weeks': weeks,
       'exerciseNumber': exerciseNumber,
       'type': type,
-      'benefitID': benefitID,
+      'benefit': benefit?.toJson(),
     };
   }
 }
