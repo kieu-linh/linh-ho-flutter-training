@@ -20,3 +20,12 @@ class ExerciseFetchBenefitData extends ExerciseEvent {}
 
 class ExerciseFetchExerciseData extends ExerciseEvent {}
 
+class ExerciseFetchExerciseDataByBenefitID extends ExerciseEvent {
+  ExerciseFetchExerciseDataByBenefitID(this.benefitID, this.index);
+
+  final int benefitID;
+  final int index;
+
+  @override
+  List<Object> get props => [benefitID, index];
+}

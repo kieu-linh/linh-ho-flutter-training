@@ -8,6 +8,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
     on<ExerciseOnTap>(_onChangeBenefit);
     on<ExerciseFetchBenefitData>(_onFetchBenefitData);
     on<ExerciseFetchExerciseData>(_onFetchExerciseData);
+    on<ExerciseFetchExerciseDataByBenefitID>(_onFetchExerciseDataByBenefitID);
   }
 
   Future<void> _onChangeBenefit(
@@ -48,7 +49,39 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
 
     try {
       final exercises = await ExerciseRepository().fetchExercise();
-      print('object 1 ${exercises}');
+      print('object 1 ${exercises![1].benefit?.title}');
+      emit(
+        state.copyWith(
+            fetchExercisesStatus: ExerciseStatus.success, exercises: exercises),
+      );
+      print('obb :${state.exercises}');
+    } catch (e) {
+      emit(
+        state.copyWith(
+          fetchExercisesStatus: ExerciseStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
+    }
+  }
+
+  Future<void> _onFetchExerciseDataByBenefitID(
+    ExerciseFetchExerciseDataByBenefitID event,
+    Emitter<ExerciseState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        fetchExercisesStatus: ExerciseStatus.onLoadingData,
+        exercises: [],
+        index: event.index,
+      ),
+    );
+
+    try {
+      final exercises = await ExerciseRepository().fetchExercise();
+      exercises?.where((element) => element.benefit?.benefitID == event.index);
+      print('object 1 ${exercises![1].benefit?.title}');
+      //print('object 1 ${exercises![1].benefit?.title}');
       emit(
         state.copyWith(
             fetchExercisesStatus: ExerciseStatus.success, exercises: exercises),

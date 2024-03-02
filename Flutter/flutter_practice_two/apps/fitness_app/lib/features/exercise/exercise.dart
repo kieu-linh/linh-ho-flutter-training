@@ -1,5 +1,3 @@
-import 'package:fitness_app/data/models/add_exercise_data.dart';
-import 'package:fitness_app/data/seeds/add_exercise.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
@@ -20,9 +18,6 @@ class ExercisePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
-    List<AddExercise> _listExercise = AddExerciseSeeds.listAddExercise
-        .where((e) => e.category == listCategoryExercise[0])
-        .toList();
 
     return BlocProvider(
       create: (context) => ExerciseBloc()
@@ -30,6 +25,11 @@ class ExercisePage extends StatelessWidget {
         ..add(ExerciseFetchExerciseData()),
       child: BlocBuilder<ExerciseBloc, ExerciseState>(
         builder: (context, state) {
+          final listExercise = state.exercises?.where((e) {
+            return e.benefit?.benefitID ==
+                state.benefits![state.index].benefitID;
+          }).toList();
+
           return Scaffold(
             body: Column(
               children: [
@@ -53,6 +53,8 @@ class ExercisePage extends StatelessWidget {
                             context
                                 .read<ExerciseBloc>()
                                 .add(ExerciseOnTap(index));
+
+                            print('abc : ${state.benefits![index].benefitID}');
                           },
                           child: Container(
                             margin: const EdgeInsets.only(right: 13),
@@ -88,8 +90,7 @@ class ExercisePage extends StatelessWidget {
                       return ListView.separated(
                         padding: context.padding(horizontal: 20),
                         itemBuilder: (context, index) {
-                          final exercise =
-                              state.exercises?[index] ?? Exercise();
+                          final exercise = listExercise?[index] ?? Exercise();
                           return FACardContainer(
                             addExercise: exercise,
                             onPressed: () {
@@ -105,7 +106,7 @@ class ExercisePage extends StatelessWidget {
                           endIndent: 0,
                           indent: 0,
                         ),
-                        itemCount: state.exercises?.length ?? 0,
+                        itemCount: listExercise?.length ?? 0,
                       );
                     },
                   ),

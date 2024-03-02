@@ -48,6 +48,7 @@ class ExerciseState extends Equatable {
   @override
   List<Object?> get props => [
         fetchBenefitStatus,
+        fetchExercisesStatus,
         benefits,
         index,
         exercises,

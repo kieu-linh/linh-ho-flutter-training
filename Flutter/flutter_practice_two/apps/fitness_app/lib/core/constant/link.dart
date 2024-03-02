@@ -12,7 +12,8 @@ class FALink {
 
   static const endPointPopularExercise = '/Exercise?type=eq.2&select=*';
 
-  static const endPointBenefit = '/Benefit?select=*';
+  static const endPointBenefit = '/Benefit?select=*&order=benefitID.asc';
 
-  static const endPointExerciseByBenefit= '/Exercise?select=*,Benefit(title)';
+  static const endPointExerciseByBenefit =
+      '/Exercise?type=eq.1&order=exerciseID.asc&select=*,Benefit(*)';
 }

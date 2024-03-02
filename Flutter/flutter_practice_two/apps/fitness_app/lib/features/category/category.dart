@@ -1,8 +1,6 @@
-import 'package:fitness_app/data/models/category_data.dart';
-import 'package:fitness_app/data/seeds/category.dart';
-import 'package:fitness_app/features/home/bloc/home_bloc.dart';
-import 'package:fitness_app/features/home/bloc/home_event.dart';
-import 'package:fitness_app/features/home/bloc/home_state.dart';
+import 'package:fitness_app/features/category/bloc/category_bloc.dart';
+import 'package:fitness_app/features/category/bloc/category_event.dart';
+import 'package:fitness_app/features/category/bloc/category_state.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
@@ -12,39 +10,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class CategoryPage extends StatefulWidget {
+class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});
-
-  @override
-  State<CategoryPage> createState() => _CategoryPageState();
-}
-
-class _CategoryPageState extends State<CategoryPage> {
-  List<Category> listSearchCategory = [];
-
-  @override
-  void initState() {
-    listSearchCategory = CategorySeeds.listCategory;
-    super.initState();
-  }
-
-  void _searchCategory(String value) {
-    listSearchCategory = CategorySeeds.listCategory
-        .where(
-          (e) => (e.name ?? '').toLowerCase().contains(value.toLowerCase()),
-        )
-        .toList();
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
     return BlocProvider(
-      create: (context) => HomeBloc()..add(HomeFetchCategoryData()),
-      child: BlocBuilder<HomeBloc, HomeState>(
+      create: (context) => CategoryBloc()..add(CategoryFetchData()),
+      child: BlocBuilder<CategoryBloc, CategoryState>(
         builder: (context, state) {
+          final listCategory = state.searchKey?.isNotEmpty == true
+              ? state.categories
+                  ?.where(
+                    (e) => (e.name ?? '')
+                        .toLowerCase()
+                        .contains(state.searchKey!.toLowerCase()),
+                  )
+                  .toList()
+              : state.categories;
           return Scaffold(
             body: Column(
               children: [
@@ -60,7 +45,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   padding: context.padding(horizontal: 20),
                   child: FASearchBox(
                     onChanged: (value) {
-                      _searchCategory(value);
+                      context.read<CategoryBloc>().add(CategorySearch(value));
                     },
                   ),
                 ),
@@ -68,7 +53,7 @@ class _CategoryPageState extends State<CategoryPage> {
                 Expanded(
                   child: GridView.builder(
                     padding: context.padding(horizontal: 24),
-                    itemCount: state.categories?.length ?? 0,
+                    itemCount: listCategory?.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
@@ -81,13 +66,13 @@ class _CategoryPageState extends State<CategoryPage> {
                         children: [
                           CircleAvatar(
                             radius: 56,
-                            backgroundImage: AssetImage(
-                                state.categories![index].image ?? ''),
+                            backgroundImage:
+                                AssetImage(listCategory![index].image ?? ''),
                           ),
                           const SizedBox(height: 20),
                           FAText.bodyLarge(
                             context,
-                            text: state.categories![index].name ?? '',
+                            text: listCategory[index].name ?? '',
                           ),
                         ],
                       );
