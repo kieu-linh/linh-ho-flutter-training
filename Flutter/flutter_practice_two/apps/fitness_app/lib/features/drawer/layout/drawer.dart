@@ -1,5 +1,7 @@
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/data/models/user_data.dart';
+import 'package:fitness_ui/components/dialog.dart';
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -31,7 +33,9 @@ class _DrawerPageState extends State<DrawerPage> {
       children: [
         Padding(
           padding: context.padding(
-              left: 20, top: MediaQuery.paddingOf(context).top + 5),
+            left: 20,
+            top: MediaQuery.paddingOf(context).top + 5,
+          ),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +44,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   onTap: widget.onTap,
                   child: Padding(
                     padding: context.padding(all: 3),
-                    child: SvgPicture.asset(FAIcon.iconClose),
+                    child: FAIcons.close(),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -99,15 +103,21 @@ class _DrawerPageState extends State<DrawerPage> {
           bottom: 0,
           child: GestureDetector(
             onTap: () {
-              SharedPrefs().deleteAccount();
-              GoRouter.of(context).go('/loginScreen');
+              FADialog.question(
+                context,
+                title: 'Do you want logout?',
+                action: () {
+                  SharedPrefs().deleteAccount();
+                  GoRouter.of(context).go('/loginScreen');
+                },
+              );
             },
             child: Container(
               padding: context.padding(horizontal: 20, vertical: 20),
               color: context.colorScheme.secondary,
               child: Row(
                 children: [
-                  SvgPicture.asset(FAIcon.iconSignOut),
+                  FAIcons.signOut(),
                   context.sizedBox(width: 22),
                   Text(s.signOut, style: context.textTheme.titleMedium),
                 ],

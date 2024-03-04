@@ -19,9 +19,10 @@ class FAIcons extends StatelessWidget {
     Color? color,
     double? width,
     double? height,
+    String iconLink = '',
   }) {
     return FAIcons(
-      iconLink: '',
+      iconLink: iconLink,
       color: color,
       height: height,
       width: width,
@@ -206,27 +207,23 @@ class FAIcons extends StatelessWidget {
 
   factory FAIcons.clock({
     Color? color,
-    double? width,
-    double? height,
   }) {
     return FAIcons(
       iconLink: FAIcon.iconClock,
       color: color,
-      height: height,
-      width: width,
+      height: 14,
+      width: 14,
     );
   }
 
   factory FAIcons.calories({
     Color? color,
-    double? width,
-    double? height,
   }) {
     return FAIcons(
       iconLink: FAIcon.iconCalories,
       color: color,
-      height: height,
-      width: width,
+      height: 14,
+      width: 12,
     );
   }
 

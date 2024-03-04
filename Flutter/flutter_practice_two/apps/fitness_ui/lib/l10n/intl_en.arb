@@ -6,8 +6,8 @@
     "btnLetStart": "LET'S START",
     "skipPage": "Skip",
     "nextPage": "NEXT",
-    "displayLarge": "Welcome to Pro Fitness!",
-    "displayMedium": "Hello there, sign in to \ncontinue!",
+    "titleFitness": "Welcome to Pro Fitness!",
+    "textSignIn": "Hello there, sign in to \ncontinue!",
     "hintTextEmail": "Email Address",
     "hintTextPassword": "Password",
     "forgotPassword": "Forgot Password?",
@@ -133,10 +133,11 @@
     "validEmail": "Enter a valid email address",
     "lengthPass": "Password must be at least 6 digits long",
     "characterPass": "Password least uppercase and special character.",
-    "wellDone" : "Well Done!",
-    "ohSnap" : "Oh snap!",
-    "messageSuccess" : "Login success!",
-    "messageError" : "Email or password is incorrect!"
-
-
+    "wellDone": "Well Done!",
+    "ohSnap": "Oh snap!",
+    "messageSuccess": "Login success!",
+    "messageError": "Email or password is incorrect!",
+    "titleLogOut": "Log out of your account?",
+    "cancel": "Cancel",
+    "logOut": "Log out"
 }

@@ -20,7 +20,7 @@ class FAButton extends StatelessWidget {
     this.border,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.iconColor,
-    this.isDisable = false,
+    this.isLoading = false,
     this.textColor = AppColor.secondary,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonMedium;
@@ -39,7 +39,7 @@ class FAButton extends StatelessWidget {
     Border? border,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.iconColor,
-    this.isDisable = false,
+    this.isLoading = false,
     this.textColor = AppColor.error,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ?? AppTextStyles.textButtonSmall,
@@ -60,7 +60,7 @@ class FAButton extends StatelessWidget {
     this.border,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.iconColor,
-    this.isDisable = false,
+    this.isLoading = false,
     this.textColor = AppColor.error,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(10),
         textStyle = textStyle ??
@@ -80,7 +80,7 @@ class FAButton extends StatelessWidget {
   final EdgeInsets padding;
   final MainAxisAlignment mainAxisAlignment;
   final Color? iconColor;
-  final bool isDisable;
+  final bool isLoading;
   final Color textColor;
 
   @override
@@ -103,7 +103,7 @@ class FAButton extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 11),
                 child: FAIcons(iconLink: icon!, color: iconColor),
               ),
-            if (!isDisable)
+            if (!isLoading)
               FAText(text: text, style: textStyle)
             else
               FALoadingIndicator(textColor: textColor),

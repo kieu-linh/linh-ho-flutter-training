@@ -9,3 +9,4 @@ linter:
     prefer_final_locals : false
     unnecessary_lambdas : false
     require_trailing_commas : false
+    

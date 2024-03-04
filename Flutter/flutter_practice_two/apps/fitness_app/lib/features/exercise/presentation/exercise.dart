@@ -55,8 +55,6 @@ class ExercisePage extends StatelessWidget {
                             context
                                 .read<ExerciseBloc>()
                                 .add(ExerciseOnTap(index));
-
-                            print('abc : ${state.benefits![index].benefitID}');
                           },
                           child: Container(
                             margin: const EdgeInsets.only(right: 13),

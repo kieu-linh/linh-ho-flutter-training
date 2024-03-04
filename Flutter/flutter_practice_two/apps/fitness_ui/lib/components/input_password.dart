@@ -20,6 +20,7 @@ class FAPasswordInput extends StatefulWidget {
     this.obscureText = false,
     this.onChanged,
     this.onTap,
+    this.readOnly = false,
   });
 
   final TextEditingController? controller;
@@ -32,6 +33,7 @@ class FAPasswordInput extends StatefulWidget {
   final bool obscureText;
   final Function(String)? onChanged;
   final VoidCallback? onTap;
+  final bool readOnly;
 
   @override
   State<FAPasswordInput> createState() => _FAPasswordInputState();
@@ -61,6 +63,7 @@ class _FAPasswordInputState extends State<FAPasswordInput> {
           obscuringCharacter: '*',
           validator: widget.validator,
           autovalidateMode: AutovalidateMode.onUserInteraction,
+          readOnly: widget.readOnly,
           textInputAction: widget.textInputAction,
           decoration: InputDecoration(
             border: OutlineInputBorder(

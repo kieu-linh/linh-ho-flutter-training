@@ -111,20 +111,20 @@ class FAUiS {
   }
 
   /// `Welcome to Pro Fitness!`
-  String get displayLarge {
+  String get titleFitness {
     return Intl.message(
       'Welcome to Pro Fitness!',
-      name: 'displayLarge',
+      name: 'titleFitness',
       desc: '',
       args: [],
     );
   }
 
   /// `Hello there, sign in to \ncontinue!`
-  String get displayMedium {
+  String get textSignIn {
     return Intl.message(
       'Hello there, sign in to \ncontinue!',
-      name: 'displayMedium',
+      name: 'textSignIn',
       desc: '',
       args: [],
     );
@@ -1215,6 +1215,36 @@ class FAUiS {
     return Intl.message(
       'Email or password is incorrect!',
       name: 'messageError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out of your account?`
+  String get titleLogOut {
+    return Intl.message(
+      'Log out of your account?',
+      name: 'titleLogOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get logOut {
+    return Intl.message(
+      'Log out',
+      name: 'logOut',
       desc: '',
       args: [],
     );

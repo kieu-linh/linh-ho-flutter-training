@@ -51,12 +51,12 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
 
     try {
       final exercises = await this.repository.fetchExercise();
-      print('object 1 ${exercises![1].benefit?.title}');
       emit(
         state.copyWith(
-            fetchExercisesStatus: ExerciseStatus.success, exercises: exercises),
+          fetchExercisesStatus: ExerciseStatus.success,
+          exercises: exercises,
+        ),
       );
-      print('obb :${state.exercises}');
     } catch (e) {
       emit(
         state.copyWith(
@@ -82,13 +82,10 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
     try {
       final exercises = await this.repository.fetchExercise();
       exercises?.where((element) => element.benefit?.benefitID == event.index);
-      print('object 1 ${exercises![1].benefit?.title}');
-      //print('object 1 ${exercises![1].benefit?.title}');
       emit(
         state.copyWith(
             fetchExercisesStatus: ExerciseStatus.success, exercises: exercises),
       );
-      print('obb :${state.exercises}');
     } catch (e) {
       emit(
         state.copyWith(

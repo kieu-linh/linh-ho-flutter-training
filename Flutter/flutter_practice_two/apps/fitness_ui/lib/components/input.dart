@@ -18,6 +18,7 @@ class FAInput extends StatelessWidget {
     this.validator,
     this.onPressed,
     this.onChanged,
+    this.readOnly = false,
   });
 
   final TextEditingController? controller;
@@ -29,6 +30,7 @@ class FAInput extends StatelessWidget {
   final String? icon;
   final TextInputAction? textInputAction;
   final Function(String)? onChanged;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class FAInput extends StatelessWidget {
           onChanged: onChanged,
           validator: validator,
           autovalidateMode: AutovalidateMode.onUserInteraction,
+          readOnly: readOnly,
           textInputAction: textInputAction,
           onTapOutside: (event) => FocusScope.of(context).unfocus(),
           decoration: InputDecoration(

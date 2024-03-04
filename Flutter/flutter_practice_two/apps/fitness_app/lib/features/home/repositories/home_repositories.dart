@@ -16,7 +16,6 @@ class HomeRepository {
     try {
       final response = await this.apiClient.get(endPoint: FALink.goal);
       if (response.statusCode == 200) {
-        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final goals =
             data.map((e) => Goal.fromJson(e as Map<String, dynamic>)).toList();
@@ -33,7 +32,6 @@ class HomeRepository {
     try {
       final response = await this.apiClient.get(endPoint: FALink.category);
       if (response.statusCode == 200) {
-        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final categories = data
             .map((e) => Category.fromJson(e as Map<String, dynamic>))
@@ -51,7 +49,6 @@ class HomeRepository {
     try {
       final response = await this.apiClient.get(endPoint: FALink.meal);
       if (response.statusCode == 200) {
-        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final meals =
             data.map((e) => Meal.fromJson(e as Map<String, dynamic>)).toList();
@@ -69,7 +66,6 @@ class HomeRepository {
       final response =
           await this.apiClient.get(endPoint: FALink.popularExercise);
       if (response.statusCode == 200) {
-        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final exercises = data
             .map((e) => Exercise.fromJson(e as Map<String, dynamic>))
@@ -87,9 +83,7 @@ class HomeRepository {
     try {
       final response = await this.apiClient.get(endPoint: FALink.exercise);
       if (response.statusCode == 200) {
-        print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
-        //print(data);
         final exercises = data
             .map((e) => Exercise.fromJson(e as Map<String, dynamic>))
             .toList();

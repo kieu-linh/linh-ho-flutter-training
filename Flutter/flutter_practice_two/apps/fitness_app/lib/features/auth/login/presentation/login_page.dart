@@ -35,20 +35,20 @@ class _LoginPageState extends State<LoginPage> {
     return BlocProvider<LoginBloc>(
       create: (context) =>
           LoginBloc(RepositoryProvider.of<AuthRepository>(context)),
-      child: BlocConsumer<LoginBloc, LoginState>(
+      child: BlocListener<LoginBloc, LoginState>(
         // function listener use to listen the state of the bloc
         listener: (context, state) {
           // check state success or failure
           if (state.status == LoginStatus.success) {
             GoRouter.of(context).go('/favoriteScreen');
           }
-
           if (state.status == LoginStatus.failure) {
             FASnackBar.error(context, message: state.errorMessage);
           }
         },
-        builder: (context, state) {
-          return Scaffold(
+        child: GestureDetector(
+          onTap: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+          child: Scaffold(
             body: SafeArea(
               child: Padding(
                 padding: context.padding(horizontal: 20),
@@ -66,47 +66,72 @@ class _LoginPageState extends State<LoginPage> {
                                 context.go(AppRoutes.welcomeScreen.path),
                           ),
                           context.sizedBox(height: 30),
-                          FAText.displayLarge(context, text: s.displayLarge),
+                          FAText.displayLarge(context, text: s.titleFitness),
                           const SizedBox(height: 11),
                           Text(
-                            s.displayMedium,
+                            s.textSignIn,
                             style: context.textTheme.headlineMedium,
                           ),
                           context.sizedBox(height: 39),
-                          EmailInput(
-                            onChanged: (email) {
-                              context
-                                  .read<LoginBloc>()
-                                  .add(LogInEmailChanged(email: email));
+                          BlocBuilder<LoginBloc, LoginState>(
+                            builder: (context, state) {
+                              return EmailInput(
+                                onChanged: (email) {
+                                  context
+                                      .read<LoginBloc>()
+                                      .add(LogInEmailChanged(email: email));
+                                },
+                                isEmailValid: state.isEmailValid,
+                                readOnly: state.status == LoginStatus.loading
+                                    ? true
+                                    : false,
+                              );
+                            },
+                            buildWhen: (previous, current) {
+                              return previous.isEmailValid !=
+                                      current.isEmailValid ||
+                                  previous.status != current.status;
                             },
                           ),
                           const SizedBox(height: 14),
-                          PasswordInput(
-                            onTap: () {
-                              Future.delayed(const Duration(milliseconds: 500),
-                                  () {
-                                _scrollController.animateTo(
-                                  _scrollController.position.maxScrollExtent -
-                                      400,
-                                  duration: const Duration(milliseconds: 50),
-                                  curve: Curves.ease,
-                                );
-                              });
+                          BlocBuilder<LoginBloc, LoginState>(
+                            buildWhen: (previous, current) {
+                              return previous.isValid != current.isValid ||
+                                  previous.status != current.status;
                             },
-                            onSubmit: state.isValid
-                                ? () {
-                                    context.read<LoginBloc>().add(
-                                          LoginSubmitted(
-                                            email: state.email,
-                                            password: state.password,
-                                          ),
-                                        );
-                                  }
-                                : null,
-                            onChanged: (value) {
-                              context
-                                  .read<LoginBloc>()
-                                  .add(LogInPasswordChanged(password: value));
+                            builder: (context, state) {
+                              return PasswordInput(
+                                onTap: () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 500), () {
+                                    _scrollController.animateTo(
+                                      _scrollController
+                                              .position.maxScrollExtent -
+                                          400,
+                                      duration:
+                                          const Duration(milliseconds: 50),
+                                      curve: Curves.ease,
+                                    );
+                                  });
+                                },
+                                onSubmit: state.isValid
+                                    ? () {
+                                        context.read<LoginBloc>().add(
+                                              LoginSubmitted(
+                                                email: state.email,
+                                                password: state.password,
+                                              ),
+                                            );
+                                      }
+                                    : null,
+                                onChanged: (value) {
+                                  context.read<LoginBloc>().add(
+                                      LogInPasswordChanged(password: value));
+                                },
+                                readOnly: state.status == LoginStatus.loading
+                                    ? true
+                                    : false,
+                              );
                             },
                           ),
                           const SizedBox(height: 17),
@@ -124,22 +149,25 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           context.sizedBox(height: 34),
-                          FAButton(
-                            onPressed: state.isValid
-                                ? () {
-                                    context.read<LoginBloc>().add(
-                                          LoginSubmitted(
-                                            email: state.email,
-                                            password: state.password,
-                                          ),
-                                        );
-                                  }
-                                : null,
-                            color: state.isValid
-                                ? context.colorScheme.primary
-                                : context.colorScheme.outlineVariant,
-                            text: s.btnLoginIn,
-                            isDisable: state.status == LoginStatus.loading,
+                          BlocBuilder<LoginBloc, LoginState>(
+                            buildWhen: (previous, current) =>
+                                previous.isValid != current.isValid ||
+                                previous.status != current.status,
+                            builder: (context, state) {
+                              return FAButton(
+                                onPressed: () => context.read<LoginBloc>().add(
+                                      LoginSubmitted(
+                                        email: state.email,
+                                        password: state.password,
+                                      ),
+                                    ),
+                                color: state.isValid
+                                    ? context.colorScheme.primary
+                                    : context.colorScheme.outlineVariant,
+                                text: s.btnLoginIn,
+                                isLoading: state.status == LoginStatus.loading,
+                              );
+                            },
                           ),
                           context.sizedBox(height: 24),
                           Row(
@@ -202,8 +230,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }

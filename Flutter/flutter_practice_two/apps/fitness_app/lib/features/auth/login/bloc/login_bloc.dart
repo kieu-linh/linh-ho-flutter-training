@@ -8,6 +8,7 @@ import 'package:fitness_app/features/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_state.dart';
 import 'package:fitness_app/features/auth/login/model/user_model.dart';
 import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
+import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(this.repository) : super(const LoginState()) {
@@ -58,42 +59,29 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginSubmitted event,
     Emitter<LoginState> emit,
   ) async {
+    // if (!state.isValid) return;
+
     /// This code is called when the user presses the sign in button.
     emit(state.copyWith(status: LoginStatus.loading));
 
     // get data from repository
     try {
-      List<User>? list = await this.repository.users();
+      User user = await this
+          .repository
+          .login(email: event.email, password: event.password);
 
-      /// It checks the email and password are empty.
-      if (list == null) {
-        throw Failure('300', 'Email or password is incorrect!');
-      }
-      ;
-      final listUser = list
-          .where(
-            (element) =>
-                element.email == event.email &&
-                element.password == event.password,
-          )
-          .toList();
+      /// If the user account is found, it will emit the success state.
+      emit(state.copyWith(status: LoginStatus.success));
 
-      /// If the email and password are empty, it emits a [LoginInFailureState],
-      /// otherwise it emits a [LoginInSuccessState].
-      if (listUser.isEmpty) {
-        throw Failure('300', 'empty');
-      } else {
-        emit(state.copyWith(status: LoginStatus.success));
-
-        /// Save the user data to the local storage.
-        User user = User()
-          ..email = event.email
-          ..password = event.password;
-        SharedPrefs().saveAccount(user);
-      }
+      /// Save the user data to the local storage.
+      SharedPrefs().saveAccount(user);
     } catch (e) {
-      emit(state.copyWith(
-          status: LoginStatus.failure, errorMessage: (e as Failure).message));
+      emit(
+        state.copyWith(
+          status: LoginStatus.failure,
+          errorMessage: (e as Failure).message,
+        ),
+      );
     }
   }
 

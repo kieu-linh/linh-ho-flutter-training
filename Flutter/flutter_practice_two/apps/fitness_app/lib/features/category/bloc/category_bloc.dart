@@ -19,12 +19,18 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         .copyWith(fetchCategoryStatus: CategoryStatus.loading, categories: []));
     try {
       final categories = await this.repository.fetchCategory();
-      emit(state.copyWith(
-          fetchCategoryStatus: CategoryStatus.success, categories: categories));
+      emit(
+        state.copyWith(
+            fetchCategoryStatus: CategoryStatus.success,
+            categories: categories),
+      );
     } catch (e) {
-      emit(state.copyWith(
+      emit(
+        state.copyWith(
           fetchCategoryStatus: CategoryStatus.failure,
-          errorMessage: e.toString()));
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 

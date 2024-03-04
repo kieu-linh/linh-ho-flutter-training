@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, lines_longer_than_80_chars
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, inference_failure_on_untyped_parameter, lines_longer_than_80_chars
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -20,11 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
-  // ignore: inference_failure_on_untyped_parameter
   static String m0(weekNumber, exerciseNumber) =>
       "${weekNumber} Weeks - ${exerciseNumber} Exercises";
 
-  // ignore: inference_failure_on_untyped_parameter
   static String m1(currentStep, numberOfSteps) =>
       "Step ${currentStep} of ${numberOfSteps}";
 
@@ -51,12 +49,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "btnLoginWith": MessageLookupByLibrary.simpleMessage("Or Login with"),
         "btnNextStep": MessageLookupByLibrary.simpleMessage("NEXT STEPS"),
         "btnRegister": MessageLookupByLibrary.simpleMessage("Register!"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "carbs": MessageLookupByLibrary.simpleMessage("Carbs"),
         "cardio": MessageLookupByLibrary.simpleMessage("Cardio"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
         "characterPass": MessageLookupByLibrary.simpleMessage(
-            "Password least uppercase and special character.",),
+            "Password least uppercase and special character."),
         "chest": MessageLookupByLibrary.simpleMessage("Chest"),
         "cm": MessageLookupByLibrary.simpleMessage("CM"),
         "cmToFeet": MessageLookupByLibrary.simpleMessage("0.032808399"),
@@ -71,10 +70,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
         "descriptionSplash": MessageLookupByLibrary.simpleMessage(
             "We train your body to be \n great and fit."),
-        "displayLarge":
-            MessageLookupByLibrary.simpleMessage("Welcome to Pro Fitness!"),
-        "displayMedium": MessageLookupByLibrary.simpleMessage(
-            "Hello there, sign in to \ncontinue!"),
         "evening": MessageLookupByLibrary.simpleMessage("Hello, Good Evening"),
         "exercise": MessageLookupByLibrary.simpleMessage("Exercise"),
         "exerciseDetail": m0,
@@ -123,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "level":
             MessageLookupByLibrary.simpleMessage("What\'s your fitness level?"),
         "levelTitle": MessageLookupByLibrary.simpleMessage("Level"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Log out"),
         "looseWeight": MessageLookupByLibrary.simpleMessage("Loose Weight"),
         "macronutrient":
             MessageLookupByLibrary.simpleMessage("Macronutrient Goals"),
@@ -163,13 +159,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Start Exercise"),
         "textFirstStart": MessageLookupByLibrary.simpleMessage("Sculpt your "),
         "textSecondStart": MessageLookupByLibrary.simpleMessage("ideal body, "),
+        "textSignIn": MessageLookupByLibrary.simpleMessage(
+            "Hello there, sign in to \ncontinue!"),
         "textStart": MessageLookupByLibrary.simpleMessage(
             "The standard chunk of Lorem Ipsum \n used since the 1500s is reproduced below \n for those interested."),
         "textThirdStart": MessageLookupByLibrary.simpleMessage(
             "free your \n true self, transform your life."),
         "titleCard": MessageLookupByLibrary.simpleMessage(
             "Fit Young Woman Doing Battle Stretch Training"),
+        "titleFitness":
+            MessageLookupByLibrary.simpleMessage("Welcome to Pro Fitness!"),
         "titleGoal": MessageLookupByLibrary.simpleMessage("Goal"),
+        "titleLogOut":
+            MessageLookupByLibrary.simpleMessage("Log out of your account?"),
         "training": MessageLookupByLibrary.simpleMessage("Training"),
         "userName": MessageLookupByLibrary.simpleMessage("Sophia !"),
         "validEmail":

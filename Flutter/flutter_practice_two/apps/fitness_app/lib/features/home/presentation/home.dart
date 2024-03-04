@@ -36,7 +36,23 @@ class _HomePageState extends State<HomePage> {
             ..add(HomeFetchPopularExerciseData())
             ..add(HomeFetchAddExerciseData()),
       child: BlocBuilder<HomeBloc, HomeState>(
+        buildWhen: (previous, current) => previous.fetchGoalStatus != current,
         builder: (context, state) {
+          // switch (state.fetchGoalStatus) {
+          //   case SubmissionStatus.loading:
+          //     //TODO: Add loading widget
+          //     break;
+          //   case SubmissionStatus.success:
+          //    FASelectGoal(goals: state.goals ?? []);
+          //   case SubmissionStatus.failure:
+          //                  //TODO: Add loading widget
+          //                  break;
+
+          //   case SubmissionStatus.failure:
+          //     break;
+          //    case SubmissionStatus.initial:
+          //     break;
+          // }
           return Scaffold(
             appBar: FAAppBar(
               onPressed: () => zoomDrawerController.toggle?.call(),

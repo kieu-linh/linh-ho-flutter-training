@@ -21,15 +21,16 @@ class FASnackBar {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        margin: EdgeInsets.zero,
         content: Stack(
           clipBehavior: Clip.none,
           children: [
             Container(
               padding: const EdgeInsets.all(16),
-              height: context.sizeHeight(90),
+              height: context.sizeHeight(80),
               decoration: BoxDecoration(
                 color: color ?? context.colorScheme.onError,
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
               ),
               child: Row(
                 children: [
@@ -43,7 +44,7 @@ class FASnackBar {
                         Text(
                           message,
                           style: AppTextStyles.messageSnackBar,
-                          maxLines: 2,
+                          maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
@@ -55,16 +56,15 @@ class FASnackBar {
             Positioned(
               bottom: 0,
               child: Positioned(
-              bottom: 0,
-              child: FAIcons.splash(color: iconColor ?? AppColor.iconError),
-            ),
+                bottom: 0,
+                child: FAIcons.splash(color: iconColor ?? AppColor.iconError),
+              ),
             ),
             Positioned(
               top: -13,
               left: 10,
               child: SvgPicture.asset(
                 iconPath ?? FAIcon.iconError,
-                
               ),
             ),
           ],

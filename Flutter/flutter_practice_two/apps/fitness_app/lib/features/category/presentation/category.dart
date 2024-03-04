@@ -34,55 +34,57 @@ class CategoryPage extends StatelessWidget {
                   .toList()
               : state.categories;
           return Scaffold(
-            body: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(18, 0, 18, 22),
-                  child: FATopNavigation(
-                    onLeadingPress: () =>
-                        GoRouter.of(context).go('/homeScreen'),
-                    title: s.categories,
-                  ),
-                ),
-                Padding(
-                  padding: context.padding(horizontal: 20),
-                  child: FASearchBox(
-                    onChanged: (value) {
-                      context.read<CategoryBloc>().add(CategorySearch(value));
-                    },
-                  ),
-                ),
-                context.sizedBox(height: 62),
-                Expanded(
-                  child: GridView.builder(
-                    padding: context.padding(horizontal: 24),
-                    itemCount: listCategory?.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 22,
-                      crossAxisSpacing: 65,
-                      childAspectRatio: 2 / 2.5,
+            body: SafeArea(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(18, 0, 18, 22),
+                    child: FATopNavigation(
+                      onLeadingPress: () =>
+                          GoRouter.of(context).go('/homeScreen'),
+                      title: s.categories,
                     ),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 56,
-                            backgroundImage:
-                                AssetImage(listCategory![index].image ?? ''),
-                          ),
-                          const SizedBox(height: 20),
-                          FAText.bodyLarge(
-                            context,
-                            text: listCategory[index].name ?? '',
-                          ),
-                        ],
-                      );
-                    },
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: context.padding(horizontal: 20),
+                    child: FASearchBox(
+                      onChanged: (value) {
+                        context.read<CategoryBloc>().add(CategorySearch(value));
+                      },
+                    ),
+                  ),
+                  context.sizedBox(height: 62),
+                  Expanded(
+                    child: GridView.builder(
+                      padding: context.padding(horizontal: 24),
+                      itemCount: listCategory?.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 22,
+                        crossAxisSpacing: 65,
+                        childAspectRatio: 2 / 2.5,
+                      ),
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 56,
+                              backgroundImage:
+                                  AssetImage(listCategory![index].image ?? ''),
+                            ),
+                            const SizedBox(height: 20),
+                            FAText.bodyLarge(
+                              context,
+                              text: listCategory[index].name ?? '',
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },

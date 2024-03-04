@@ -2,13 +2,12 @@ import 'package:fitness_app/data/seeds/exercise.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/presentation/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
-import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FAPopularExercise extends StatelessWidget {
   const FAPopularExercise({
@@ -51,7 +50,7 @@ class FAPopularExercise extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: context.padding(all: 6),
-                          child: SvgPicture.asset(FAIcon.iconHeart),
+                          child: FAIcons.heart(),
                         ),
                       ),
                     ),
@@ -81,7 +80,7 @@ class FAPopularExercise extends StatelessWidget {
                             height: 8,
                             color: context.colorScheme.outlineVariant,
                           ),
-                          SvgPicture.asset(FAIcon.iconClock),
+                          FAIcons.clock(),
                           const SizedBox(width: 6),
                           Text(
                             '${popularExercise[index].min} min',

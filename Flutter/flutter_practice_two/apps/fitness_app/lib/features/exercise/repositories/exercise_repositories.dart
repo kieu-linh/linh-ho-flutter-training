@@ -14,7 +14,6 @@ class ExerciseRepository {
     try {
       final response = await this.apiClient.get(endPoint: FALink.benefit);
       if (response.statusCode == 200) {
-        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final benefits = data
             .map((e) => Benefit.fromJson(e as Map<String, dynamic>))
@@ -33,12 +32,10 @@ class ExerciseRepository {
       final response =
           await this.apiClient.get(endPoint: FALink.exerciseByBenefit);
       if (response.statusCode == 200) {
-        //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
         final exercises = data
             .map((e) => Exercise.fromJson(e as Map<String, dynamic>))
             .toList();
-        //print('object  ${exercises[1].benefit?.title}');
         return exercises;
       } else {
         throw Exception('Failed to load exercise');

@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:fitness_app/features/drawer/drawer_main.dart';
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/core/color/app_color.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class FABottomNavigationBar extends StatefulWidget {
@@ -77,13 +77,11 @@ class _FABottomNavigationBarState extends State<FABottomNavigationBar> {
           return BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 8, bottom: 10),
-              child: SvgPicture.asset(
-                listIcon[index],
-                // ignore: deprecated_member_use
+              child: FAIcons.primary(
+                iconLink: listIcon[index],
                 color: currentIndex == index
                     ? context.colorScheme.tertiary
                     : AppColor.bottomNavigationColor,
-                package: 'fitness_ui',
               ),
             ),
             label: titles[index],
