@@ -3,7 +3,7 @@ import 'package:fitness_app/features/home/model/category.dart';
 
 enum CategoryStatus {
   initial,
-  onLoadingData,
+  loading,
   success,
   failure,
 }
@@ -14,7 +14,6 @@ class CategoryState extends Equatable {
     this.categories = const [],
     this.searchKey = '',
     this.errorMessage = '',
-
   });
 
   final CategoryStatus fetchCategoryStatus;

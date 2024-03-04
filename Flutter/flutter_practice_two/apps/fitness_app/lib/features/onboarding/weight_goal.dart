@@ -1,4 +1,4 @@
-import 'package:fitness_app/core/extension/string.dart';
+import 'package:fitness_app/core/extension/number.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -15,7 +15,7 @@ class WeightGoalPage extends StatefulWidget {
 
 class _WeightGoalPageState extends State<WeightGoalPage> {
   TextEditingController weightController = TextEditingController();
-  double saveValue = 0;
+  double weightValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +30,19 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
         padding: context.padding(top: 20),
         child: FABodyMeasurementInput(
           onLeftPressed: () {
-            saveValue = ChangeValue.toDouble(
-              saveValue,
-              weightController,
+            weightValue = weightValue.toDoubleValue(
               double.parse(FAUiS.current.kgToLbs),
             );
+            weightController.text = weightValue.toStringAsFixed(2);
           },
           onRightPressed: () {
-            saveValue = ChangeValue.toDouble(
-              saveValue,
-              weightController,
+            weightValue = weightValue.toDoubleValue(
               double.parse(FAUiS.current.LbsToKg),
             );
+            weightController.text = weightValue.toStringAsFixed(2);
           },
           onChange: (value) {
-            saveValue = double.parse(value);
+            weightValue = double.parse(value);
           },
           textLeft: s.lbs,
           textRight: s.kg,

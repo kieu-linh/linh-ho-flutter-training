@@ -2,6 +2,7 @@ import 'package:fitness_app/features/auth/login/bloc/login_bloc.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_state.dart';
 import 'package:fitness_app/features/auth/login/presentation/form.dart';
+import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/snack_bar.dart';
@@ -17,16 +18,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
-    final _scrollController = ScrollController();
 
-    return BlocProvider(
-      create: (context) => LoginBloc(),
+    return BlocProvider<LoginBloc>(
+      create: (context) =>
+          LoginBloc(RepositoryProvider.of<AuthRepository>(context)),
       child: BlocConsumer<LoginBloc, LoginState>(
         // function listener use to listen the state of the bloc
         listener: (context, state) {
@@ -36,10 +44,7 @@ class LoginPage extends StatelessWidget {
           }
 
           if (state.status == LoginStatus.failure) {
-            FASnackBar.error(context, message: s.messageError);
-          }
-          if (state.status == LoginStatus.error) {
-            FASnackBar.error(context, message: 'Error');
+            FASnackBar.error(context, message: state.errorMessage);
           }
         },
         builder: (context, state) {
@@ -134,7 +139,7 @@ class LoginPage extends StatelessWidget {
                                 ? context.colorScheme.primary
                                 : context.colorScheme.outlineVariant,
                             text: s.btnLoginIn,
-                            isDisable: state.status == LoginStatus.onLoading,
+                            isDisable: state.status == LoginStatus.loading,
                           ),
                           context.sizedBox(height: 24),
                           Row(

@@ -1,8 +1,8 @@
 import 'package:fitness_app/data/models/add_exercise_data.dart';
 import 'package:fitness_app/features/auth/login/presentation/login_page.dart';
-import 'package:fitness_app/features/category/category.dart';
+import 'package:fitness_app/features/category/presentation/category.dart';
 import 'package:fitness_app/features/drawer/drawer_main.dart';
-import 'package:fitness_app/features/exercise/exercise.dart';
+import 'package:fitness_app/features/exercise/presentation/exercise.dart';
 import 'package:fitness_app/features/exercise_detail/exercise_detail.dart';
 import 'package:fitness_app/features/onboarding/age.dart';
 import 'package:fitness_app/features/onboarding/favorite.dart';

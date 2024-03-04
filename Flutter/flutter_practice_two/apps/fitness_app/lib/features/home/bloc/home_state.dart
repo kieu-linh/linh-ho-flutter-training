@@ -6,7 +6,7 @@ import 'package:fitness_app/features/home/model/meal.dart';
 
 enum SubmissionStatus {
   initial,
-  onLoadingData,
+  loading,
   success,
   failure,
 }

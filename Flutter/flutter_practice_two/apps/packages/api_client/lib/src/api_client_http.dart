@@ -2,11 +2,12 @@ import 'package:api_client/api_client.dart';
 import 'package:api_client/constants/app_constant.dart';
 import 'package:http/http.dart' as http;
 
-abstract class ApiClient {
+abstract class ApiClientBase {
   Future<http.Response> get();
   Future<http.Response> post();
 }
-class AccountServices implements ApiClient {
+
+class ApiClient implements ApiClientBase {
   @override
   Future<http.Response> get(
       {String baseUrl = FAConstant.baseUrl, String? endPoint}) async {

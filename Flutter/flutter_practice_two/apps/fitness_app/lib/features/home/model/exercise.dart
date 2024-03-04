@@ -1,20 +1,23 @@
+// ignore_for_file: unnecessary_cast
+
 import 'package:fitness_app/features/exercise/model/benefit.dart';
 
 class Exercise {
-  Exercise(
-      {this.exerciseID,
-      this.image,
-      this.title,
-      this.kcal,
-      this.min,
-      this.level,
-      this.backgroundImage,
-      this.weight,
-      this.description,
-      this.weeks,
-      this.exerciseNumber,
-      this.type,
-      this.benefit});
+  Exercise({
+    this.exerciseID,
+    this.image,
+    this.title,
+    this.kcal,
+    this.min,
+    this.level,
+    this.backgroundImage,
+    this.weight,
+    this.description,
+    this.weeks,
+    this.exerciseNumber,
+    this.type,
+    this.benefit,
+  });
   int? exerciseID;
   String? image;
   String? title;
@@ -47,7 +50,6 @@ class Exercise {
       type: json['type'] as int?,
       benefit: json['Benefit'] != null
           ? Benefit.fromJson(json['Benefit'] as Map<String, dynamic>)
-              as Benefit?
           : null,
     );
   }

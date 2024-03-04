@@ -7,7 +7,8 @@ import 'package:fitness_app/features/exercise_detail/widgets/exercise_program.da
 import 'package:fitness_app/features/home/bloc/home_bloc.dart';
 import 'package:fitness_app/features/home/bloc/home_event.dart';
 import 'package:fitness_app/features/home/bloc/home_state.dart';
-import 'package:fitness_app/features/home/widgets/add_exercise.dart';
+import 'package:fitness_app/features/home/presentation/widgets/add_exercise.dart';
+import 'package:fitness_app/features/home/repositories/home_repositories.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -52,12 +53,14 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                       FADescriptionExercise(widget: widget),
                       const FAExerciseProgram(),
                       BlocProvider(
-                          create: (context) =>
-                              HomeBloc()..add(HomeFetchAddExerciseData()),
+                          create: (context) => HomeBloc(
+                                context.read<HomeRepository>(),
+                              )..add(HomeFetchAddExerciseData()),
                           child: BlocBuilder<HomeBloc, HomeState>(
                             builder: (context, state) {
                               return FAAddExercise(
-                                  addExercises: state.addExercises ?? []);
+                                addExercises: state.addExercises ?? [],
+                              );
                             },
                           )),
                       //const FAAddExercise(),

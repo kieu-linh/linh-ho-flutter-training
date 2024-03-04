@@ -2,10 +2,9 @@ import 'package:equatable/equatable.dart';
 
 enum LoginStatus {
   initial,
-  onLoading,
+  loading,
   success,
   failure,
-  error,
 }
 
 class LoginState extends Equatable {

@@ -81,7 +81,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                GetStringDay.getTitle(),
+                DateTime.now().getDaySession(),
                 style: AppTextStyles.textSmall.copyWith(
                   color: context.colorScheme.secondary,
                   fontSize: 10,

@@ -1,6 +1,7 @@
 import 'package:fitness_app/features/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
+import 'package:fitness_app/features/exercise/repositories/exercise_repositories.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
@@ -20,9 +21,10 @@ class ExercisePage extends StatelessWidget {
     final s = FAUiS.of(context);
 
     return BlocProvider(
-      create: (context) => ExerciseBloc()
-        ..add(ExerciseFetchBenefitData())
-        ..add(ExerciseFetchExerciseData()),
+      create: (context) =>
+          ExerciseBloc(RepositoryProvider.of<ExerciseRepository>(context))
+            ..add(ExerciseFetchBenefitData())
+            ..add(ExerciseFetchExerciseData()),
       child: BlocBuilder<ExerciseBloc, ExerciseState>(
         builder: (context, state) {
           final listExercise = state.exercises?.where((e) {

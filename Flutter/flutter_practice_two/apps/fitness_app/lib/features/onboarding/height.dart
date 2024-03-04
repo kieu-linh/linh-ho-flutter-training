@@ -1,4 +1,4 @@
-import 'package:fitness_app/core/extension/string.dart';
+import 'package:fitness_app/core/extension/number.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -15,7 +15,7 @@ class HeightPage extends StatefulWidget {
 
 class _HeightPageState extends State<HeightPage> {
   TextEditingController heightController = TextEditingController();
-  double saveValue = 0;
+  double heightValue = 0;
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
@@ -28,21 +28,18 @@ class _HeightPageState extends State<HeightPage> {
         padding: context.padding(top: 20),
         child: FABodyMeasurementInput(
           onLeftPressed: () {
-            saveValue = ChangeValue.toDouble(
-              saveValue,
-              heightController,
-              double.parse(FAUiS.current.cmToFeet),
-            );
+            heightValue =
+                heightValue.toDoubleValue(double.parse(FAUiS.current.cmToFeet));
+            heightController.text = heightValue.toStringAsFixed(2);
           },
           onRightPressed: () {
-            saveValue = ChangeValue.toDouble(
-              saveValue,
-              heightController,
+            heightValue = heightValue.toDoubleValue(
               double.parse(FAUiS.current.feetToCm),
             );
+            heightController.text = heightValue.toStringAsFixed(2);
           },
           onChange: (value) {
-            saveValue = double.parse(value);
+            heightValue = double.parse(value);
           },
           textLeft: s.feet,
           textRight: s.cm,

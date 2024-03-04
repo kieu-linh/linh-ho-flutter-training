@@ -4,7 +4,7 @@ import 'package:fitness_app/features/home/bloc/home_state.dart';
 import 'package:fitness_app/features/home/repositories/home_repositories.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(const HomeState()) {
+  HomeBloc(this.repository) : super(const HomeState()) {
     on<HomeFetchGoalData>(_onFetchGoalData);
     on<HomeFetchCategoryData>(_onFetchCategoryData);
     on<HomeFetchMealData>(_onFetchMealData);
@@ -12,15 +12,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeFetchAddExerciseData>(_onFetchAddExerciseData);
   }
 
+  final HomeRepository repository;
+
   Future<void> _onFetchGoalData(
     HomeFetchGoalData event,
     Emitter<HomeState> emit,
   ) async {
-    emit(state
-        .copyWith(fetchGoalsStatus: SubmissionStatus.onLoadingData, goals: []));
+    emit(state.copyWith(fetchGoalsStatus: SubmissionStatus.loading, goals: []));
 
     try {
-      final goals = await HomeRepository().fetchGoals();
+      final goals = await this.repository.fetchGoals();
 
       emit(state.copyWith(
           fetchGoalsStatus: SubmissionStatus.success, goals: goals));
@@ -36,10 +37,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     emit(state.copyWith(
-        fetchCategoryStatus: SubmissionStatus.onLoadingData, categories: []));
+        fetchCategoryStatus: SubmissionStatus.loading, categories: []));
 
     try {
-      final categories = await HomeRepository().fetchCategory();
+      final categories = await this.repository.fetchCategory();
 
       emit(state.copyWith(
           fetchCategoryStatus: SubmissionStatus.success,
@@ -55,11 +56,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     HomeFetchMealData event,
     Emitter<HomeState> emit,
   ) async {
-    emit(state
-        .copyWith(fetchMealStatus: SubmissionStatus.onLoadingData, meals: []));
+    emit(state.copyWith(fetchMealStatus: SubmissionStatus.loading, meals: []));
 
     try {
-      final meals = await HomeRepository().fetchMeal();
+      final meals = await this.repository.fetchMeal();
 
       emit(state.copyWith(
           fetchMealStatus: SubmissionStatus.success, meals: meals));
@@ -75,11 +75,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     emit(state.copyWith(
-        fetchPopularExerciseStatus: SubmissionStatus.onLoadingData,
+        fetchPopularExerciseStatus: SubmissionStatus.loading,
         popularExercises: []));
 
     try {
-      final popularExercises = await HomeRepository().fetchPopularExercise();
+      final popularExercises = await this.repository.fetchPopularExercise();
 
       emit(state.copyWith(
           fetchPopularExerciseStatus: SubmissionStatus.success,
@@ -97,13 +97,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     emit(
       state.copyWith(
-        fetchAddExercisesStatus: SubmissionStatus.onLoadingData,
+        fetchAddExercisesStatus: SubmissionStatus.loading,
         addExercises: [],
       ),
     );
 
     try {
-      final addExercises = await HomeRepository().fetchAddExercise();
+      final addExercises = await this.repository.fetchAddExercise();
       //print('object1: ${addExercises?[1].benefit?.title}');
       emit(
         state.copyWith(

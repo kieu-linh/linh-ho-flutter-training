@@ -1,6 +1,6 @@
 import 'package:fitness_app/data/seeds/user.dart';
 import 'package:fitness_app/features/drawer/drawer.dart';
-import 'package:fitness_app/features/home/home.dart';
+import 'package:fitness_app/features/home/presentation/home.dart';
 import 'package:fitness_ui/components/zoom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';

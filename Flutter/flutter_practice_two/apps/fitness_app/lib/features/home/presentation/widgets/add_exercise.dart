@@ -1,5 +1,5 @@
 import 'package:fitness_app/features/home/model/exercise.dart';
-import 'package:fitness_app/features/home/widgets/title.dart';
+import 'package:fitness_app/features/home/presentation/widgets/title.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';

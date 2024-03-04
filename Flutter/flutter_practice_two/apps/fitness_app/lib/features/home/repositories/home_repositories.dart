@@ -1,19 +1,20 @@
 import 'dart:convert';
 
 import 'package:api_client/api_client.dart';
-import 'package:fitness_app/core/constant/link.dart';
+import 'package:fitness_app/core/constant/path.dart';
 import 'package:fitness_app/features/home/model/category.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/model/goal.dart';
 import 'package:fitness_app/features/home/model/meal.dart';
 
 class HomeRepository {
-  const HomeRepository();
+  const HomeRepository(this.apiClient);
+
+  final ApiClient apiClient;
 
   Future<List<Goal>?> fetchGoals() async {
     try {
-      final response =
-          await AccountServices().get(endPoint: FALink.endPointGoal);
+      final response = await this.apiClient.get(endPoint: FALink.goal);
       if (response.statusCode == 200) {
         //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
@@ -30,8 +31,7 @@ class HomeRepository {
 
   Future<List<Category>?> fetchCategory() async {
     try {
-      final response =
-          await AccountServices().get(endPoint: FALink.endPointCategory);
+      final response = await this.apiClient.get(endPoint: FALink.category);
       if (response.statusCode == 200) {
         //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
@@ -49,8 +49,7 @@ class HomeRepository {
 
   Future<List<Meal>?> fetchMeal() async {
     try {
-      final response =
-          await AccountServices().get(endPoint: FALink.endPointMeal);
+      final response = await this.apiClient.get(endPoint: FALink.meal);
       if (response.statusCode == 200) {
         //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
@@ -68,7 +67,7 @@ class HomeRepository {
   Future<List<Exercise>?> fetchPopularExercise() async {
     try {
       final response =
-          await AccountServices().get(endPoint: FALink.endPointPopularExercise);
+          await this.apiClient.get(endPoint: FALink.popularExercise);
       if (response.statusCode == 200) {
         //print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;
@@ -86,8 +85,7 @@ class HomeRepository {
 
   Future<List<Exercise>?> fetchAddExercise() async {
     try {
-      final response =
-          await AccountServices().get(endPoint: FALink.endPointExercise);
+      final response = await this.apiClient.get(endPoint: FALink.exercise);
       if (response.statusCode == 200) {
         print(response.body);
         final data = jsonDecode(response.body) as List<dynamic>;

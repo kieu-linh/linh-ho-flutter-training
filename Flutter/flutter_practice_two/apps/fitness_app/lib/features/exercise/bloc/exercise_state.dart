@@ -4,7 +4,7 @@ import 'package:fitness_app/features/home/model/exercise.dart';
 
 enum ExerciseStatus {
   initial,
-  onLoadingData,
+  loading,
   success,
   failure,
 }

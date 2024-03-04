@@ -1,6 +1,6 @@
 import 'package:fitness_app/data/seeds/exercise.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
-import 'package:fitness_app/features/home/widgets/title.dart';
+import 'package:fitness_app/features/home/presentation/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';

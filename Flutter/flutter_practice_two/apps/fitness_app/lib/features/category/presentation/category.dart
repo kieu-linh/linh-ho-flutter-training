@@ -1,6 +1,7 @@
 import 'package:fitness_app/features/category/bloc/category_bloc.dart';
 import 'package:fitness_app/features/category/bloc/category_event.dart';
 import 'package:fitness_app/features/category/bloc/category_state.dart';
+import 'package:fitness_app/features/category/repositories/category_repository.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
@@ -18,7 +19,9 @@ class CategoryPage extends StatelessWidget {
     final s = FAUiS.of(context);
 
     return BlocProvider(
-      create: (context) => CategoryBloc()..add(CategoryFetchData()),
+      create: (context) => CategoryBloc(
+        RepositoryProvider.of<CategoryRepository>(context),
+      )..add(CategoryFetchData()),
       child: BlocBuilder<CategoryBloc, CategoryState>(
         builder: (context, state) {
           final listCategory = state.searchKey?.isNotEmpty == true

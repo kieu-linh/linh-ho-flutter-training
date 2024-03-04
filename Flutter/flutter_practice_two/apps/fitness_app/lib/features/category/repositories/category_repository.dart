@@ -1,16 +1,17 @@
 import 'dart:convert';
 
 import 'package:api_client/api_client.dart';
-import 'package:fitness_app/core/constant/link.dart';
+import 'package:fitness_app/core/constant/path.dart';
 import 'package:fitness_app/features/home/model/category.dart';
 
 class CategoryRepository {
-  const CategoryRepository();
+  const CategoryRepository(this.apiClient);
+
+  final ApiClient apiClient;
 
   Future<List<Category>?> fetchCategory() async {
     try {
-      final response =
-          await AccountServices().get(endPoint: FALink.endPointCategory);
+      final response = await this.apiClient.get(endPoint: FALink.category);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final categories = data
