@@ -12,31 +12,29 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   flutter_localizations:
     sdk: flutter
-
   flutter_screenutil: ^5.9.0
-
+  shimmer: ^3.0.0
   widgetbook: ^3.7.1
   widgetbook_annotation: ^3.1.0
 
 dev_dependencies:
+
+  build_runner: ^2.4.7
   device_preview: ^1.1.0
-  
-  very_good_analysis: ^5.1.0
 
   fitness_app:
     path: ../fitness_app
-  
+
   fitness_ui:
     path: ../fitness_ui
-
-  build_runner: ^2.4.7
 
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+
+  very_good_analysis: ^5.1.0
   widgetbook_generator: ^3.7.0
 
 flutter:

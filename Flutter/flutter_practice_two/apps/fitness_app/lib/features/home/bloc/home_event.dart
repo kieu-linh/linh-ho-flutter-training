@@ -18,3 +18,5 @@ class HomeFetchMealData extends HomeEvent {}
 class HomeFetchPopularExerciseData extends HomeEvent {}
 
 class HomeFetchAddExerciseData extends HomeEvent {}
+
+class HomeFetchUserData extends HomeEvent {}

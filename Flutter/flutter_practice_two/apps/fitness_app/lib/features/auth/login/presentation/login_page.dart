@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_bloc.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_state.dart';
@@ -39,10 +40,10 @@ class _LoginPageState extends State<LoginPage> {
         // function listener use to listen the state of the bloc
         listener: (context, state) {
           // check state success or failure
-          if (state.status == LoginStatus.success) {
+          if (state.status == SubmissionStatus.success) {
             GoRouter.of(context).go('/favoriteScreen');
           }
-          if (state.status == LoginStatus.failure) {
+          if (state.status == SubmissionStatus.failure) {
             FASnackBar.error(context, message: state.errorMessage);
           }
         },
@@ -82,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                                       .add(LogInEmailChanged(email: email));
                                 },
                                 isEmailValid: state.isEmailValid,
-                                readOnly: state.status == LoginStatus.loading
+                                readOnly: state.status == SubmissionStatus.loading
                                     ? true
                                     : false,
                               );
@@ -128,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                                   context.read<LoginBloc>().add(
                                       LogInPasswordChanged(password: value));
                                 },
-                                readOnly: state.status == LoginStatus.loading
+                                readOnly: state.status == SubmissionStatus.loading
                                     ? true
                                     : false,
                               );
@@ -155,17 +156,21 @@ class _LoginPageState extends State<LoginPage> {
                                 previous.status != current.status,
                             builder: (context, state) {
                               return FAButton(
-                                onPressed: () => context.read<LoginBloc>().add(
-                                      LoginSubmitted(
-                                        email: state.email,
-                                        password: state.password,
-                                      ),
-                                    ),
+                                onPressed: state.isValid
+                                    ? () {
+                                        context.read<LoginBloc>().add(
+                                              LoginSubmitted(
+                                                email: state.email,
+                                                password: state.password,
+                                              ),
+                                            );
+                                      }
+                                    : null,
                                 color: state.isValid
                                     ? context.colorScheme.primary
                                     : context.colorScheme.outlineVariant,
                                 text: s.btnLoginIn,
-                                isLoading: state.status == LoginStatus.loading,
+                                isLoading: state.status == SubmissionStatus.loading,
                               );
                             },
                           ),

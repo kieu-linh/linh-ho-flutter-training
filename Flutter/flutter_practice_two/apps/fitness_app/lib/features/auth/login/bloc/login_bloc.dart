@@ -3,12 +3,12 @@
 import 'package:api_client/api_client.dart';
 import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
+import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_state.dart';
 import 'package:fitness_app/features/auth/login/model/user_model.dart';
 import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(this.repository) : super(const LoginState()) {
@@ -30,7 +30,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     /// emit new state with new values and status initial
     emit(state.copyWith(
-      status: LoginStatus.initial,
+      status: SubmissionStatus.initial,
       email: event.email ?? '',
       isEmailValid: FAValidator.validatorEmail(event.email) == null,
       isValid: isFormValid,
@@ -47,7 +47,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     bool isFormValid = _checkFormValid(state.email, event.password);
 
     emit(state.copyWith(
-      status: LoginStatus.initial,
+      status: SubmissionStatus.initial,
       password: event.password,
       email: state.email,
       isValid: isFormValid,
@@ -59,10 +59,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginSubmitted event,
     Emitter<LoginState> emit,
   ) async {
-    // if (!state.isValid) return;
-
     /// This code is called when the user presses the sign in button.
-    emit(state.copyWith(status: LoginStatus.loading));
+    emit(state.copyWith(status: SubmissionStatus.loading));
 
     // get data from repository
     try {
@@ -70,15 +68,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           .repository
           .login(email: event.email, password: event.password);
 
-      /// If the user account is found, it will emit the success state.
-      emit(state.copyWith(status: LoginStatus.success));
+      /// emit the success state.
+      emit(state.copyWith(status: SubmissionStatus.success));
 
       /// Save the user data to the local storage.
       SharedPrefs().saveAccount(user);
     } catch (e) {
       emit(
         state.copyWith(
-          status: LoginStatus.failure,
+          status: SubmissionStatus.failure,
           errorMessage: (e as Failure).message,
         ),
       );

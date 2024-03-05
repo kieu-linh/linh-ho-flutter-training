@@ -5,6 +5,7 @@ import 'package:fitness_app/features/exercise/repositories/exercise_repositories
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
+import 'package:fitness_ui/components/shimmer.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -86,28 +87,40 @@ class ExercisePage extends StatelessWidget {
                 context.sizedBox(height: 28),
                 Expanded(
                   child: BlocBuilder<ExerciseBloc, ExerciseState>(
+                    buildWhen: (previous, current) =>
+                        previous.exercises != current.exercises,
                     builder: (context, state) {
-                      return ListView.separated(
-                        padding: context.padding(horizontal: 20),
-                        itemBuilder: (context, index) {
-                          final exercise = listExercise?[index] ?? Exercise();
-                          return FACardContainer(
-                            addExercise: exercise,
-                            onPressed: () {
-                              GoRouter.of(context).goNamed(
-                                'exerciseDetailScreen',
-                                extra: exercise,
+                      switch (state.fetchExercisesStatus) {
+                        case ExerciseStatus.initial:
+                          return SizedBox(height: 32);
+                        case ExerciseStatus.loading:
+                          return FAShimmer.exercise();
+                        case ExerciseStatus.success:
+                          return ListView.separated(
+                            padding: context.padding(horizontal: 20),
+                            itemBuilder: (context, index) {
+                              final exercise =
+                                  listExercise?[index] ?? Exercise();
+                              return FACardContainer(
+                                addExercise: exercise,
+                                onPressed: () {
+                                  GoRouter.of(context).goNamed(
+                                    'exerciseDetailScreen',
+                                    extra: exercise,
+                                  );
+                                },
                               );
                             },
+                            separatorBuilder: (context, index) => FADivider(
+                              height: context.sizeHeight(40),
+                              endIndent: 0,
+                              indent: 0,
+                            ),
+                            itemCount: listExercise?.length ?? 0,
                           );
-                        },
-                        separatorBuilder: (context, index) => FADivider(
-                          height: context.sizeHeight(40),
-                          endIndent: 0,
-                          indent: 0,
-                        ),
-                        itemCount: listExercise?.length ?? 0,
-                      );
+                        case ExerciseStatus.failure:
+                          return Text('Error: ${state.errorMessage}');
+                      }
                     },
                   ),
                 ),

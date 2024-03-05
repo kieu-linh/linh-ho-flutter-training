@@ -70,12 +70,12 @@ class FAWidgetBook extends StatelessWidget {
             GlobalMaterialLocalizations.delegate,
           ],
         ),
-        DeviceFrameAddon(
-          devices: [
-            Devices.ios.iPhoneSE,
-            Devices.ios.iPhone13,
-          ],
-        ),
+        // DeviceFrameAddon(
+        //   devices: [
+        //     Devices.ios.iPhoneSE,
+        //     Devices.ios.iPhone13,
+        //   ],
+        // ),
         TimeDilationAddon(),
         AlignmentAddon(
           initialAlignment: Alignment.center,

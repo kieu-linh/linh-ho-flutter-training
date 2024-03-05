@@ -1,8 +1,6 @@
 import 'package:fitness_app/features/home/model/goal.dart';
-import 'package:fitness_app/features/home/presentation/widgets/title.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FASelectGoal extends StatefulWidget {
@@ -22,11 +20,8 @@ class _FASelectGoalState extends State<FASelectGoal> {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Column(
       children: [
-        FATitleHome(title: s.selectGoal),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(

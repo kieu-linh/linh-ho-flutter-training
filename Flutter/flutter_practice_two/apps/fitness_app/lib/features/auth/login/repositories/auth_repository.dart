@@ -30,8 +30,7 @@ class AuthRepository {
     if (listUser.isEmpty) {
       throw Failure('300', FAUiS.current.messageError);
     } else {
-      return listUser.first;
+      return listUser.first  ;
     }
-
   }
 }

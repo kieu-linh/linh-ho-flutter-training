@@ -1,15 +1,10 @@
 import 'package:equatable/equatable.dart';
+import 'package:fitness_app/core/utils/status.dart';
+import 'package:fitness_app/features/auth/login/model/user_model.dart';
 import 'package:fitness_app/features/home/model/category.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/model/goal.dart';
 import 'package:fitness_app/features/home/model/meal.dart';
-
-enum SubmissionStatus {
-  initial,
-  loading,
-  success,
-  failure,
-}
 
 class HomeState extends Equatable {
   const HomeState({
@@ -24,6 +19,7 @@ class HomeState extends Equatable {
     this.popularExercises = const [],
     this.addExercises = const [],
     this.errorMessage = '',
+    this.user,
   });
 
   final SubmissionStatus fetchGoalStatus;
@@ -43,6 +39,8 @@ class HomeState extends Equatable {
 
   final String errorMessage;
 
+  final User? user;
+
   HomeState copyWith({
     SubmissionStatus? fetchGoalsStatus,
     List<Goal>? goals,
@@ -55,6 +53,7 @@ class HomeState extends Equatable {
     SubmissionStatus? fetchAddExercisesStatus,
     List<Exercise>? addExercises,
     String? errorMessage,
+    User? user,
   }) {
     return HomeState(
       fetchGoalStatus: fetchGoalsStatus ?? this.fetchGoalStatus,
@@ -70,6 +69,7 @@ class HomeState extends Equatable {
           fetchAddExercisesStatus ?? this.fetchAddExercisesStatus,
       addExercises: addExercises ?? this.addExercises,
       errorMessage: errorMessage ?? this.errorMessage,
+      user: user ?? this.user,
     );
   }
 
@@ -86,5 +86,6 @@ class HomeState extends Equatable {
         fetchAddExercisesStatus,
         addExercises,
         errorMessage,
+        user,
       ];
 }

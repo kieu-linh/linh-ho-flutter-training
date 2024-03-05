@@ -1,5 +1,4 @@
 // ignore_for_file: deprecated_member_use
-import 'package:fitness_app/data/models/add_exercise_data.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/container_exercise.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/description_exercise.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/exercise_info.dart';
@@ -7,6 +6,7 @@ import 'package:fitness_app/features/exercise_detail/widgets/exercise_program.da
 import 'package:fitness_app/features/home/bloc/home_bloc.dart';
 import 'package:fitness_app/features/home/bloc/home_event.dart';
 import 'package:fitness_app/features/home/bloc/home_state.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/presentation/widgets/add_exercise.dart';
 import 'package:fitness_app/features/home/repositories/home_repositories.dart';
 import 'package:fitness_ui/components/button.dart';
@@ -23,7 +23,7 @@ class ExerciseDetailPage extends StatefulWidget {
     super.key,
   });
 
-  final AddExercise exercise;
+  final Exercise exercise;
   @override
   State<ExerciseDetailPage> createState() => _ExerciseDetailPageState();
 }
@@ -85,7 +85,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               ),
             ),
             Positioned(
-              top: 349,
+              top: 380,
               left: 20,
               right: 20,
               child: FAContainerExercise(widget: widget),

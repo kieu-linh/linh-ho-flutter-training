@@ -1,70 +1,155 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
-class FAShimmer extends StatefulWidget {
+class FAShimmer extends StatelessWidget {
   const FAShimmer({
+    required this.child,
     super.key,
-    required this.width,
-    required this.height,
-    this.duration = const Duration(milliseconds: 1000),
   });
 
-  final double width;
-  final double height;
-  final Duration duration;
-
-  @override
-  _FAShimmerState createState() => _FAShimmerState();
-}
-
-class _FAShimmerState extends State<FAShimmer>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: widget.duration,
-    )..repeat();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.width,
-      height: widget.height,
-      child: AnimatedBuilder(
-        animation: _controller,
-        builder: (BuildContext context, Widget? child) {
-          final gradient = LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Colors.grey.shade200,
-              Colors.grey.shade300,
-              Colors.grey.shade200,
-            ],
-            stops: [
-              0.0,
-              0.5,
-              1.0,
-            ],
-          );
-          return DecoratedBox(
-              decoration: BoxDecoration(
-            gradient: gradient,
-          ));
-        },
+  factory FAShimmer.goal() {
+    return FAShimmer(
+      child: SizedBox(
+        height: 55,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          itemCount: 4,
+          itemBuilder: (context, index) {
+            return const Column(
+              children: [
+                ShimmerWidget.rectangular(height: 32, width: 90),
+                SizedBox(height: 20),
+              ],
+            );
+          },
+          separatorBuilder: (context, index) => const SizedBox(width: 16),
+        ),
       ),
     );
   }
 
+  factory FAShimmer.category() {
+    return FAShimmer(
+        child: SizedBox(
+      height: 95,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return const Column(
+            children: [
+              ShimmerWidget.circular(height: 60, width: 60),
+              SizedBox(height: 10),
+              ShimmerWidget.rectangular(height: 15, width: 30),
+              SizedBox(height: 10),
+            ],
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(width: 16),
+      ),
+    ));
+  }
+
+  factory FAShimmer.meal() {
+    return FAShimmer(
+        child: SizedBox(
+      height: 350,
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        itemCount: 2,
+        itemBuilder: (context, index) {
+          return const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ShimmerWidget.rectangular(height: 150, width: 300),
+              SizedBox(height: 10),
+              ShimmerWidget.rectangular(height: 15, width: 200),
+              SizedBox(height: 5),
+              ShimmerWidget.rectangular(height: 15, width: 100),
+              SizedBox(height: 5),
+            ],
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(height: 10),
+      ),
+    ));
+  }
+
+  factory FAShimmer.exercise() {
+    return FAShimmer(
+        child: SizedBox(
+      height: 500,
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return const Row(
+            children: [
+              ShimmerWidget.rectangular(height: 90, width: 90),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ShimmerWidget.rectangular(height: 20, width: 200),
+                  SizedBox(height: 5),
+                  ShimmerWidget.rectangular(height: 15, width: 100),
+                  SizedBox(height: 5),
+                  ShimmerWidget.rectangular(height: 10, width: 50),
+                  SizedBox(height: 5),
+                ],
+              ),
+            ],
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(height: 10),
+      ),
+    ));
+  }
+
+  final Widget child;
+
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  Widget build(BuildContext context) {
+    return child;
+  }
+}
+
+class ShimmerWidget extends StatelessWidget {
+  const ShimmerWidget.rectangular({
+    required this.height,
+    this.shape = const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+    ),
+    this.width = double.infinity,
+    super.key,
+  });
+
+  const ShimmerWidget.circular({
+    required this.height,
+    this.shape = const CircleBorder(),
+    this.width = double.infinity,
+    super.key,
+  });
+
+  final double width;
+  final double height;
+  final ShapeBorder shape;
+
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey[400]!,
+      highlightColor: Colors.grey[200]!,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: ShapeDecoration(
+          color: Colors.grey[200],
+          shape: shape,
+        ),
+      ),
+    );
   }
 }

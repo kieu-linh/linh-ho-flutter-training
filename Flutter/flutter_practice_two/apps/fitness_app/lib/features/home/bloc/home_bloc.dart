@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:fitness_app/core/storage/shared_prefs.dart';
+import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/home/bloc/home_event.dart';
 import 'package:fitness_app/features/home/bloc/home_state.dart';
 import 'package:fitness_app/features/home/repositories/home_repositories.dart';
@@ -10,9 +12,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeFetchMealData>(_onFetchMealData);
     on<HomeFetchPopularExerciseData>(_onFetchPopularExerciseData);
     on<HomeFetchAddExerciseData>(_onFetchAddExerciseData);
+    on<HomeFetchUserData>(_onFetchUserData);
   }
-
   final HomeRepository repository;
+
+  Future<void> _onFetchUserData(
+    HomeFetchUserData event,
+    Emitter<HomeState> emit,
+  ) async {
+    SharedPrefs sharedPrefs = SharedPrefs();
+    final user = await sharedPrefs.getAccount();
+    emit(state.copyWith(user: user));
+  }
 
   Future<void> _onFetchGoalData(
     HomeFetchGoalData event,
@@ -20,6 +31,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     emit(state.copyWith(fetchGoalsStatus: SubmissionStatus.loading, goals: []));
 
+    await Future.delayed(Duration(seconds: 2));
     try {
       final goals = await this.repository.fetchGoals();
 
@@ -38,6 +50,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     emit(state.copyWith(
         fetchCategoryStatus: SubmissionStatus.loading, categories: []));
+
+    await Future.delayed(Duration(seconds: 2));
 
     try {
       final categories = await this.repository.fetchCategory();
@@ -58,6 +72,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     emit(state.copyWith(fetchMealStatus: SubmissionStatus.loading, meals: []));
 
+    await Future.delayed(Duration(seconds: 2));
+
     try {
       final meals = await this.repository.fetchMeal();
 
@@ -77,6 +93,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(state.copyWith(
         fetchPopularExerciseStatus: SubmissionStatus.loading,
         popularExercises: []));
+
+    await Future.delayed(Duration(seconds: 3));
 
     try {
       final popularExercises = await this.repository.fetchPopularExercise();
@@ -102,9 +120,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       ),
     );
 
+    await Future.delayed(Duration(seconds: 2));
+
     try {
       final addExercises = await this.repository.fetchAddExercise();
-      //print('object1: ${addExercises?[1].benefit?.title}');
+
       emit(
         state.copyWith(
             fetchAddExercisesStatus: SubmissionStatus.success,

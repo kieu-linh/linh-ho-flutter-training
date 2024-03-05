@@ -1,13 +1,9 @@
 import 'package:fitness_app/features/home/model/category.dart';
-import 'package:fitness_app/features/home/presentation/widgets/title.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 class FACategoryItem extends StatelessWidget {
   const FACategoryItem({
     required this.categories,
@@ -18,17 +14,9 @@ class FACategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
 
     return Column(
       children: [
-        FATitleHome(
-          onPressed: () {
-            GoRouter.of(context).goNamed('categoryScreen');
-          },
-          title: s.category,
-          titleSmall: s.seeAll,
-        ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(

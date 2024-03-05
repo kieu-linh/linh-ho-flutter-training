@@ -28,7 +28,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Stack(
       children: [
         Container(
-          height: context.sizeHeight(247),
+          height: context.sizeHeight(230),
           decoration: BoxDecoration(
             color: context.colorScheme.primary,
             borderRadius: const BorderRadius.only(
@@ -88,7 +88,7 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              Text(s.userName, style: AppTextStyles.nameUser),
+              Text(name ?? s.userName, style: AppTextStyles.nameUser),
               const Spacer(),
               FASearchBox(controller: controller),
             ],

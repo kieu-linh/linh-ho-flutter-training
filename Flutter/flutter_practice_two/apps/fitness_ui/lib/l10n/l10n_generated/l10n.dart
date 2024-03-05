@@ -530,10 +530,10 @@ class FAUiS {
     );
   }
 
-  /// `Fit Young Woman Doing Battle Stretch Training`
+  /// `Fit Young Woman Doing \nBattle Stretch Training`
   String get titleCard {
     return Intl.message(
-      'Fit Young Woman Doing Battle Stretch Training',
+      'Fit Young Woman Doing \nBattle Stretch Training',
       name: 'titleCard',
       desc: '',
       args: [],

@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, inference_failure_on_untyped_parameter, lines_longer_than_80_chars
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, inference_failure_on_untyped_parameter
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -166,7 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "textThirdStart": MessageLookupByLibrary.simpleMessage(
             "free your \n true self, transform your life."),
         "titleCard": MessageLookupByLibrary.simpleMessage(
-            "Fit Young Woman Doing Battle Stretch Training"),
+            "Fit Young Woman Doing \nBattle Stretch Training"),
         "titleFitness":
             MessageLookupByLibrary.simpleMessage("Welcome to Pro Fitness!"),
         "titleGoal": MessageLookupByLibrary.simpleMessage("Goal"),

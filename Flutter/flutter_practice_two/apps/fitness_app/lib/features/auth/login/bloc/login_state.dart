@@ -1,15 +1,9 @@
 import 'package:equatable/equatable.dart';
-
-enum LoginStatus {
-  initial,
-  loading,
-  success,
-  failure,
-}
+import 'package:fitness_app/core/utils/status.dart';
 
 class LoginState extends Equatable {
   const LoginState({
-    this.status = LoginStatus.initial,
+    this.status = SubmissionStatus.initial,
     this.email = '',
     this.password = '',
     this.errorMessage = '',
@@ -17,7 +11,7 @@ class LoginState extends Equatable {
     this.isValid = false,
   });
 
-  final LoginStatus status;
+  final SubmissionStatus status;
   final String email;
   final String password;
   final bool isEmailValid;
@@ -25,7 +19,7 @@ class LoginState extends Equatable {
   final String errorMessage;
 
   LoginState copyWith({
-    LoginStatus? status,
+    SubmissionStatus? status,
     String? email,
     String? password,
     bool? isEmailValid,
