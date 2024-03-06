@@ -22,7 +22,7 @@ class _AgePageState extends State<AgePage> {
     return FAScaffold(
       onBack: () => GoRouter.of(context).go('/favoriteScreen'),
       currentStep: 2,
-      title: s.yourOld,
+      title: s.yourOldText,
       body: context.sizedBox(
         height: 300,
         child: Stack(

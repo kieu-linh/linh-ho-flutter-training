@@ -38,9 +38,7 @@ class _HeightPageState extends State<HeightPage> {
             );
             heightController.text = heightValue.toStringAsFixed(2);
           },
-          onChange: (value) {
-            heightValue = double.parse(value);
-          },
+          onChange: (value) => heightValue = double.parse(value),
           textLeft: s.feet,
           textRight: s.cm,
           controller: heightController,

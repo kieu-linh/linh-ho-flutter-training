@@ -1,25 +1,25 @@
-import 'package:fitness_app/data/models/category_data.dart';
+import 'package:fitness_app/models/category.dart';
 import 'package:fitness_ui/core/constant/images.dart';
 
 class CategorySeeds {
   static List<Category> listCategory = [
     Category()
-      ..image = FAImage.imgYogaHome
+      ..imagePath = FAImage.imgYogaHome
       ..name = 'Yoga',
     Category()
-      ..image = FAImage.imgGym
+      ..imagePath = FAImage.imgGym
       ..name = 'Gym',
     Category()
-      ..image = FAImage.imgCardio
+      ..imagePath = FAImage.imgCardio
       ..name = 'Cardio',
     Category()
-      ..image = FAImage.imgStretch
+      ..imagePath = FAImage.imgStretch
       ..name = 'Stretch',
     Category()
-      ..image = FAImage.imgFullBody
+      ..imagePath = FAImage.imgFullBody
       ..name = 'Full Body',
     Category()
-      ..image = FAImage.imgLegs
+      ..imagePath = FAImage.imgLegs
       ..name = 'Legs',
   ];
 }

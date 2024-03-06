@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/seeds/macronutrient_goal.dart';
+import 'package:fitness_app/seeds/macronutrient_goal.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -38,8 +38,10 @@ class FAMacronutrientGoal extends StatelessWidget {
             return Column(
               children: [
                 Image.asset(
-                    MacronutrientGoalSeeds.listMacronutrientGoal[index].image ??
-                        ''),
+                  MacronutrientGoalSeeds
+                          .listMacronutrientGoal[index].imagePath ??
+                      '',
+                ),
                 const SizedBox(height: 10),
                 FAText.bodyLarge(
                   context,

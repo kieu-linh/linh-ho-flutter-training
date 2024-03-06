@@ -2,8 +2,6 @@ import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
-
-// ignore: must_be_immutable
 class FAUserInfo extends StatelessWidget {
   const FAUserInfo({
     required this.image,
@@ -40,7 +38,7 @@ class FAUserInfo extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           Text(
-            s.basicMember,
+            s.basicMemberText,
             style: context.textTheme.titleSmall
                 ?.copyWith(color: context.colorScheme.tertiary),
           ),

@@ -1,38 +1,31 @@
 import 'package:equatable/equatable.dart';
+import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/exercise/model/benefit.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
-
-enum ExerciseStatus {
-  initial,
-  loading,
-  success,
-  failure,
-}
-
 class ExerciseState extends Equatable {
   const ExerciseState({
-    this.fetchBenefitStatus = ExerciseStatus.initial,
+    this.fetchBenefitStatus = SubmissionStatus.initial,
     this.benefits = const [],
     this.errorMessage = '',
     this.index = 0,
-    this.fetchExercisesStatus = ExerciseStatus.initial,
+    this.fetchExercisesStatus = SubmissionStatus.initial,
     this.exercises = const [],
   });
 
-  final ExerciseStatus fetchBenefitStatus;
+  final SubmissionStatus fetchBenefitStatus;
   final List<Benefit>? benefits;
   final int index;
 
-  final ExerciseStatus fetchExercisesStatus;
+  final SubmissionStatus fetchExercisesStatus;
   final List<Exercise>? exercises;
 
   final String errorMessage;
 
   ExerciseState copyWith({
-    ExerciseStatus? fetchBenefitStatus,
+    SubmissionStatus? fetchBenefitStatus,
     List<Benefit>? benefits,
     int? index,
-    ExerciseStatus? fetchExercisesStatus,
+    SubmissionStatus? fetchExercisesStatus,
     List<Exercise>? exercises,
     String? errorMessage,
   }) {

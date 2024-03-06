@@ -41,9 +41,7 @@ class _WeightPageState extends State<WeightPage> {
 
             weightController.text = weightValue.toStringAsFixed(2);
           },
-          onChange: (value) {
-            weightValue = double.parse(value);
-          },
+          onChange: (value) => weightValue = double.parse(value),
           textLeft: s.lbs,
           textRight: s.kg,
           controller: weightController,

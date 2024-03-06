@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/seeds/user.dart';
+import 'package:fitness_app/seeds/user.dart';
 import 'package:fitness_app/features/profile/widgets/goal_item.dart';
 import 'package:fitness_app/features/profile/widgets/macronutrient_goal.dart';
 import 'package:fitness_app/features/profile/widgets/user_info.dart';

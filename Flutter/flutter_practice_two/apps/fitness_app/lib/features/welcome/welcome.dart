@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/seeds/welcome.dart';
+import 'package:fitness_app/core/constant/constant.dart';
 import 'package:fitness_app/features/welcome/widget/image_filter.dart';
 import 'package:fitness_ui/components/carousel.dart';
 import 'package:fitness_ui/components/rich_text.dart';
@@ -35,23 +35,23 @@ class _WelcomePageState extends State<WelcomePage> {
               pageIndex = value;
               setState(() {});
             },
-            itemCount: WelcomeSeeds.listWelcomes.length,
+            itemCount: splashInfos.length,
             itemBuilder: (context, index) {
               return Stack(
                 children: [
                   FAImageFilter(
-                    image: WelcomeSeeds.listWelcomes[index].backgroundImage ?? '',
+                    image: splashInfos[index].backgroundImage ?? '',
                   ),
                   Positioned.fill(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(WelcomeSeeds.listWelcomes[index].image ?? ''),
+                        Image.asset(splashInfos[index].image ?? ''),
                         context.sizedBox(height: 42),
                         FARichText(
-                          fistText: WelcomeSeeds.listWelcomes[index].firstText,
-                          secondText: WelcomeSeeds.listWelcomes[index].secondText,
-                          thirdText: WelcomeSeeds.listWelcomes[index].thirdText,
+                          fistText: splashInfos[index].firstText,
+                          secondText: splashInfos[index].secondText,
+                          thirdText: splashInfos[index].thirdText,
                         ),
                       ],
                     ),
@@ -69,7 +69,7 @@ class _WelcomePageState extends State<WelcomePage> {
               onNext: () {
                 //if pageIndex < listWelcomes.length - 1 then next page
                 //else: page is the last page, navigate to login page
-                if (pageIndex < WelcomeSeeds.listWelcomes.length - 1) {
+                if (pageIndex < splashInfos.length - 1) {
                   pageController.nextPage(
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.bounceIn,

@@ -34,7 +34,6 @@ class Exercise {
   Benefit? benefit;
 
   factory Exercise.fromJson(Map<String, dynamic> json) {
-    print(json);
     return Exercise(
       exerciseID: json['exerciseID'] as int?,
       image: json['image'] as String?,

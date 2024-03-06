@@ -39,7 +39,7 @@ class FASearchBox extends StatelessWidget {
         focusedBorder: outlineInputBorder(),
         enabledBorder: outlineInputBorder(),
         prefixIcon: FAIcons.search(),
-        hintText: s.search,
+        hintText: s.searchText,
         prefixIconConstraints:
             const BoxConstraints(maxHeight: 24, minWidth: 50),
       ),

@@ -1,3 +1,4 @@
+import 'package:api_client/api_client.dart';
 import 'package:fitness_app/features/category/bloc/category_bloc.dart';
 import 'package:fitness_app/features/category/bloc/category_event.dart';
 import 'package:fitness_app/features/category/bloc/category_state.dart';
@@ -19,9 +20,9 @@ class CategoryPage extends StatelessWidget {
     final s = FAUiS.of(context);
 
     return BlocProvider(
-      create: (context) => CategoryBloc(
-        RepositoryProvider.of<CategoryRepository>(context),
-      )..add(CategoryFetchData()),
+      create: (context) =>
+          CategoryBloc(CategoryRepository(context.read<ApiClient>()))
+            ..add(CategoryFetchData()),
       child: BlocBuilder<CategoryBloc, CategoryState>(
         builder: (context, state) {
           final listCategory = state.searchKey?.isNotEmpty == true
@@ -48,9 +49,9 @@ class CategoryPage extends StatelessWidget {
                   Padding(
                     padding: context.padding(horizontal: 20),
                     child: FASearchBox(
-                      onChanged: (value) {
-                        context.read<CategoryBloc>().add(CategorySearch(value));
-                      },
+                      onChanged: (value) => context
+                          .read<CategoryBloc>()
+                          .add(CategorySearch(value)),
                     ),
                   ),
                   context.sizedBox(height: 62),
@@ -71,7 +72,7 @@ class CategoryPage extends StatelessWidget {
                             CircleAvatar(
                               radius: 56,
                               backgroundImage:
-                                  AssetImage(listCategory![index].image ?? ''),
+                                  AssetImage(listCategory![index].imagePath ?? ''),
                             ),
                             const SizedBox(height: 20),
                             FAText.bodyLarge(

@@ -11,7 +11,7 @@ class CategoryRepository {
 
   Future<List<Category>?> fetchCategory() async {
     try {
-      final response = await this.apiClient.get(endPoint: FALink.category);
+      final response = await this.apiClient.get(endPoint: FAPath.category);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final categories = data

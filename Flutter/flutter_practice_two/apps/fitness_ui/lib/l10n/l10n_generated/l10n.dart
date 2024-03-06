@@ -51,230 +51,230 @@ class FAUiS {
   }
 
   /// `PRO `
-  String get firstTitleSplash {
+  String get firstSplashTitle {
     return Intl.message(
       'PRO ',
-      name: 'firstTitleSplash',
+      name: 'firstSplashTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `FITNESS`
-  String get secondTitleSplash {
+  String get secondSplashTitle {
     return Intl.message(
       'FITNESS',
-      name: 'secondTitleSplash',
+      name: 'secondSplashTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `We train your body to be \n great and fit.`
-  String get descriptionSplash {
+  String get splashDescription {
     return Intl.message(
       'We train your body to be \n great and fit.',
-      name: 'descriptionSplash',
+      name: 'splashDescription',
       desc: '',
       args: [],
     );
   }
 
   /// `LET'S START`
-  String get btnLetStart {
+  String get buttonStartText {
     return Intl.message(
       'LET\'S START',
-      name: 'btnLetStart',
+      name: 'buttonStartText',
       desc: '',
       args: [],
     );
   }
 
   /// `Skip`
-  String get skipPage {
+  String get skipPageText {
     return Intl.message(
       'Skip',
-      name: 'skipPage',
+      name: 'skipPageText',
       desc: '',
       args: [],
     );
   }
 
   /// `NEXT`
-  String get nextPage {
+  String get nextPageText {
     return Intl.message(
       'NEXT',
-      name: 'nextPage',
+      name: 'nextPageText',
       desc: '',
       args: [],
     );
   }
 
   /// `Welcome to Pro Fitness!`
-  String get titleFitness {
+  String get fitnessTitle {
     return Intl.message(
       'Welcome to Pro Fitness!',
-      name: 'titleFitness',
+      name: 'fitnessTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Hello there, sign in to \ncontinue!`
-  String get textSignIn {
+  String get signInText {
     return Intl.message(
       'Hello there, sign in to \ncontinue!',
-      name: 'textSignIn',
+      name: 'signInText',
       desc: '',
       args: [],
     );
   }
 
   /// `Email Address`
-  String get hintTextEmail {
+  String get EmailHintText {
     return Intl.message(
       'Email Address',
-      name: 'hintTextEmail',
+      name: 'EmailHintText',
       desc: '',
       args: [],
     );
   }
 
   /// `Password`
-  String get hintTextPassword {
+  String get passwordHintText {
     return Intl.message(
       'Password',
-      name: 'hintTextPassword',
+      name: 'passwordHintText',
       desc: '',
       args: [],
     );
   }
 
   /// `Forgot Password?`
-  String get forgotPassword {
+  String get forgotPasswordText {
     return Intl.message(
       'Forgot Password?',
-      name: 'forgotPassword',
+      name: 'forgotPasswordText',
       desc: '',
       args: [],
     );
   }
 
   /// `Login`
-  String get btnLoginIn {
+  String get loginText {
     return Intl.message(
       'Login',
-      name: 'btnLoginIn',
+      name: 'loginText',
       desc: '',
       args: [],
     );
   }
 
   /// `Or Login with`
-  String get btnLoginWith {
+  String get loginWithText {
     return Intl.message(
       'Or Login with',
-      name: 'btnLoginWith',
+      name: 'loginWithText',
       desc: '',
       args: [],
     );
   }
 
   /// `Connect with Google`
-  String get btnGoogle {
+  String get googleText {
     return Intl.message(
       'Connect with Google',
-      name: 'btnGoogle',
+      name: 'googleText',
       desc: '',
       args: [],
     );
   }
 
   /// `Connect with Facebook`
-  String get btnFacebook {
+  String get facebookText {
     return Intl.message(
       'Connect with Facebook',
-      name: 'btnFacebook',
+      name: 'facebookText',
       desc: '',
       args: [],
     );
   }
 
   /// `Register!`
-  String get btnRegister {
+  String get registerText {
     return Intl.message(
       'Register!',
-      name: 'btnRegister',
+      name: 'registerText',
       desc: '',
       args: [],
     );
   }
 
   /// `Don't have an account? `
-  String get descriptionSignIn {
+  String get signInDescription {
     return Intl.message(
       'Don\'t have an account? ',
-      name: 'descriptionSignIn',
+      name: 'signInDescription',
       desc: '',
       args: [],
     );
   }
 
   /// `Select Your Favorite`
-  String get yourFavorite {
+  String get yourFavoriteText {
     return Intl.message(
       'Select Your Favorite',
-      name: 'yourFavorite',
+      name: 'yourFavoriteText',
       desc: '',
       args: [],
     );
   }
 
   /// `NEXT STEPS`
-  String get btnNextStep {
+  String get nextStepText {
     return Intl.message(
       'NEXT STEPS',
-      name: 'btnNextStep',
+      name: 'nextStepText',
       desc: '',
       args: [],
     );
   }
 
   /// `Finish Steps`
-  String get finishStep {
+  String get finishStepText {
     return Intl.message(
       'Finish Steps',
-      name: 'finishStep',
+      name: 'finishStepText',
       desc: '',
       args: [],
     );
   }
 
   /// `Get Started!`
-  String get getStarted {
+  String get getStartedText {
     return Intl.message(
       'Get Started!',
-      name: 'getStarted',
+      name: 'getStartedText',
       desc: '',
       args: [],
     );
   }
 
   /// `How old are you?`
-  String get yourOld {
+  String get yourOldText {
     return Intl.message(
       'How old are you?',
-      name: 'yourOld',
+      name: 'yourOldText',
       desc: '',
       args: [],
     );
   }
 
   /// `Step {currentStep} of {numberOfSteps}`
-  String stepPage(int currentStep, int numberOfSteps) {
+  String stepPageText(int currentStep, int numberOfSteps) {
     return Intl.message(
       'Step $currentStep of $numberOfSteps',
-      name: 'stepPage',
+      name: 'stepPageText',
       desc: '',
       args: [currentStep, numberOfSteps],
     );
@@ -301,10 +301,10 @@ class FAUiS {
   }
 
   /// `What's your goal weight?`
-  String get goalWeight {
+  String get goalWeightTitle {
     return Intl.message(
       'What\'s your goal weight?',
-      name: 'goalWeight',
+      name: 'goalWeightTitle',
       desc: '',
       args: [],
     );
@@ -321,30 +321,30 @@ class FAUiS {
   }
 
   /// `What's your fitness level?`
-  String get level {
+  String get levelText {
     return Intl.message(
       'What\'s your fitness level?',
-      name: 'level',
+      name: 'levelText',
       desc: '',
       args: [],
     );
   }
 
   /// `What's your goal`
-  String get goal {
+  String get goalText {
     return Intl.message(
       'What\'s your goal',
-      name: 'goal',
+      name: 'goalText',
       desc: '',
       args: [],
     );
   }
 
   /// `Let's get started`
-  String get start {
+  String get startText {
     return Intl.message(
       'Let\'s get started',
-      name: 'start',
+      name: 'startText',
       desc: '',
       args: [],
     );
@@ -451,140 +451,140 @@ class FAUiS {
   }
 
   /// `The standard chunk of Lorem Ipsum \n used since the 1500s is reproduced below \n for those interested.`
-  String get textStart {
+  String get startDescription {
     return Intl.message(
       'The standard chunk of Lorem Ipsum \n used since the 1500s is reproduced below \n for those interested.',
-      name: 'textStart',
+      name: 'startDescription',
       desc: '',
       args: [],
     );
   }
 
   /// `Sculpt your `
-  String get textFirstStart {
+  String get firstStartText {
     return Intl.message(
       'Sculpt your ',
-      name: 'textFirstStart',
+      name: 'firstStartText',
       desc: '',
       args: [],
     );
   }
 
   /// `ideal body, `
-  String get textSecondStart {
+  String get secondStartText {
     return Intl.message(
       'ideal body, ',
-      name: 'textSecondStart',
+      name: 'secondStartText',
       desc: '',
       args: [],
     );
   }
 
   /// `free your \n true self, transform your life.`
-  String get textThirdStart {
+  String get thirdStartText {
     return Intl.message(
       'free your \n true self, transform your life.',
-      name: 'textThirdStart',
+      name: 'thirdStartText',
       desc: '',
       args: [],
     );
   }
 
   /// `Hello, Good Morning`
-  String get morning {
+  String get morningTitle {
     return Intl.message(
       'Hello, Good Morning',
-      name: 'morning',
+      name: 'morningTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Hello, Good Afternoon`
-  String get afternoon {
+  String get afternoonTitle {
     return Intl.message(
       'Hello, Good Afternoon',
-      name: 'afternoon',
+      name: 'afternoonTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Hello, Good Evening`
-  String get evening {
+  String get eveningTitle {
     return Intl.message(
       'Hello, Good Evening',
-      name: 'evening',
+      name: 'eveningTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Search`
-  String get search {
+  String get searchText {
     return Intl.message(
       'Search',
-      name: 'search',
+      name: 'searchText',
       desc: '',
       args: [],
     );
   }
 
   /// `Fit Young Woman Doing \nBattle Stretch Training`
-  String get titleCard {
+  String get cardTitle {
     return Intl.message(
       'Fit Young Woman Doing \nBattle Stretch Training',
-      name: 'titleCard',
+      name: 'cardTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Start Exercise`
-  String get textButtonCard {
+  String get buttonCardText {
     return Intl.message(
       'Start Exercise',
-      name: 'textButtonCard',
+      name: 'buttonCardText',
       desc: '',
       args: [],
     );
   }
 
   /// `Select your Goal`
-  String get selectGoal {
+  String get selectGoalText {
     return Intl.message(
       'Select your Goal',
-      name: 'selectGoal',
+      name: 'selectGoalText',
       desc: '',
       args: [],
     );
   }
 
   /// `Loose Weight`
-  String get looseWeight {
+  String get looseWeightText {
     return Intl.message(
       'Loose Weight',
-      name: 'looseWeight',
+      name: 'looseWeightText',
       desc: '',
       args: [],
     );
   }
 
   /// `Gain Weight`
-  String get gainWeight {
+  String get gainWeightText {
     return Intl.message(
       'Gain Weight',
-      name: 'gainWeight',
+      name: 'gainWeightText',
       desc: '',
       args: [],
     );
   }
 
   /// `Body Building`
-  String get bodyBuilding {
+  String get bodyBuildingText {
     return Intl.message(
       'Body Building',
-      name: 'bodyBuilding',
+      name: 'bodyBuildingText',
       desc: '',
       args: [],
     );
@@ -711,20 +711,20 @@ class FAUiS {
   }
 
   /// `Popular Exercise`
-  String get descriptionPopularExercise {
+  String get popularExerciseDescription {
     return Intl.message(
       'Popular Exercise',
-      name: 'descriptionPopularExercise',
+      name: 'popularExerciseDescription',
       desc: '',
       args: [],
     );
   }
 
   /// `Full Shot Woman Stretching Arm`
-  String get stretchingArm {
+  String get stretchingArmText {
     return Intl.message(
       'Full Shot Woman Stretching Arm',
-      name: 'stretchingArm',
+      name: 'stretchingArmText',
       desc: '',
       args: [],
     );
@@ -741,20 +741,20 @@ class FAUiS {
   }
 
   /// `Athlete Practicing Monochrome`
-  String get descriptionAthlete {
+  String get athleteDescription {
     return Intl.message(
       'Athlete Practicing Monochrome',
-      name: 'descriptionAthlete',
+      name: 'athleteDescription',
       desc: '',
       args: [],
     );
   }
 
   /// `Greek salad with lettuce, green onion,`
-  String get greekSalad {
+  String get greekSaladText {
     return Intl.message(
       'Greek salad with lettuce, green onion,',
-      name: 'greekSalad',
+      name: 'greekSaladText',
       desc: '',
       args: [],
     );
@@ -771,60 +771,60 @@ class FAUiS {
   }
 
   /// `Salad of fresh vegetables`
-  String get saladVegetables {
+  String get saladVegetablesText {
     return Intl.message(
       'Salad of fresh vegetables',
-      name: 'saladVegetables',
+      name: 'saladVegetablesText',
       desc: '',
       args: [],
     );
   }
 
   /// `Additional Exercise`
-  String get addExercise {
+  String get addExerciseText {
     return Intl.message(
       'Additional Exercise',
-      name: 'addExercise',
+      name: 'addExerciseText',
       desc: '',
       args: [],
     );
   }
 
   /// `Exercises with Jumping Rope`
-  String get jumpingRope {
+  String get jumpingRopeText {
     return Intl.message(
       'Exercises with Jumping Rope',
-      name: 'jumpingRope',
+      name: 'jumpingRopeText',
       desc: '',
       args: [],
     );
   }
 
   /// `Exercises with Holding Jumping Rope `
-  String get holdingJumping {
+  String get holdingJumpingText {
     return Intl.message(
       'Exercises with Holding Jumping Rope ',
-      name: 'holdingJumping',
+      name: 'holdingJumpingText',
       desc: '',
       args: [],
     );
   }
 
   /// `Exercises with Sitting Dumbbells`
-  String get sittingDumbbells {
+  String get sittingDumbbellsText {
     return Intl.message(
       'Exercises with Sitting Dumbbells',
-      name: 'sittingDumbbells',
+      name: 'sittingDumbbellsText',
       desc: '',
       args: [],
     );
   }
 
   /// `Basic member`
-  String get basicMember {
+  String get basicMemberText {
     return Intl.message(
       'Basic member',
-      name: 'basicMember',
+      name: 'basicMemberText',
       desc: '',
       args: [],
     );
@@ -1151,30 +1151,40 @@ class FAUiS {
   }
 
   /// `Enter a valid email address`
-  String get validEmail {
+  String get emailValid {
     return Intl.message(
       'Enter a valid email address',
-      name: 'validEmail',
+      name: 'emailValid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid password`
+  String get passwordValid {
+    return Intl.message(
+      'Enter a valid password',
+      name: 'passwordValid',
       desc: '',
       args: [],
     );
   }
 
   /// `Password must be at least 6 digits long`
-  String get lengthPass {
+  String get lengthPassText {
     return Intl.message(
       'Password must be at least 6 digits long',
-      name: 'lengthPass',
+      name: 'lengthPassText',
       desc: '',
       args: [],
     );
   }
 
   /// `Password least uppercase and special character.`
-  String get characterPass {
+  String get characterPassText {
     return Intl.message(
       'Password least uppercase and special character.',
-      name: 'characterPass',
+      name: 'characterPassText',
       desc: '',
       args: [],
     );
@@ -1211,20 +1221,20 @@ class FAUiS {
   }
 
   /// `Email or password is incorrect!`
-  String get messageError {
+  String get errorMessage {
     return Intl.message(
       'Email or password is incorrect!',
-      name: 'messageError',
+      name: 'errorMessage',
       desc: '',
       args: [],
     );
   }
 
   /// `Log out of your account?`
-  String get titleLogOut {
+  String get logOutTitle {
     return Intl.message(
       'Log out of your account?',
-      name: 'titleLogOut',
+      name: 'logOutTitle',
       desc: '',
       args: [],
     );
@@ -1245,6 +1255,96 @@ class FAUiS {
     return Intl.message(
       'Log out',
       name: 'logOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Perfect Body \n Doing `
+  String get bodyText {
+    return Intl.message(
+      'Perfect Body \n Doing ',
+      name: 'bodyText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Crossfit \n`
+  String get crossfitText {
+    return Intl.message(
+      'Crossfit \n',
+      name: 'crossfitText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercises`
+  String get exercises {
+    return Intl.message(
+      'Exercises',
+      name: 'exercises',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shot Strong \n`
+  String get strongText {
+    return Intl.message(
+      'Shot Strong \n',
+      name: 'strongText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Timeless \n`
+  String get timelessText {
+    return Intl.message(
+      'Timeless \n',
+      name: 'timelessText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Woman Training`
+  String get womanText {
+    return Intl.message(
+      'Woman Training',
+      name: 'womanText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Healthy Muscular \n`
+  String get healthyText {
+    return Intl.message(
+      'Healthy Muscular \n',
+      name: 'healthyText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sportswoman \n`
+  String get sportswomanText {
+    return Intl.message(
+      'Sportswoman \n',
+      name: 'sportswomanText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Standing`
+  String get standingText {
+    return Intl.message(
+      'Standing',
+      name: 'standingText',
       desc: '',
       args: [],
     );

@@ -1,3 +1,4 @@
+import 'package:api_client/api_client.dart';
 import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/drawer/drawer_main.dart';
 import 'package:fitness_app/features/home/bloc/home_bloc.dart';
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
 
     return BlocProvider(
       create: (context) =>
-          HomeBloc(RepositoryProvider.of<HomeRepository>(context))
+          HomeBloc(HomeRepository(context.read<ApiClient>()))
             ..add(HomeFetchGoalData())
             ..add(HomeFetchCategoryData())
             ..add(HomeFetchMealData())
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FACard(),
-                  FATitleHome(title: s.selectGoal),
+                  FATitleHome(title: s.selectGoalText),
                   BlocBuilder<HomeBloc, HomeState>(
                     buildWhen: (previous, current) =>
                         previous.fetchGoalStatus != current.fetchGoalStatus,
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                   FATitleHome(
-                    title: s.descriptionPopularExercise,
+                    title: s.popularExerciseDescription,
                     titleSmall: s.seeAll,
                   ),
                   BlocBuilder<HomeBloc, HomeState>(
@@ -137,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                       }
                     },
                   ),
-                  FATitleHome(title: s.addExercise, titleSmall: s.seeAll),
+                  FATitleHome(title: s.addExerciseText, titleSmall: s.seeAll),
                   BlocBuilder<HomeBloc, HomeState>(
                     buildWhen: (previous, current) =>
                         previous.fetchAddExercisesStatus !=

@@ -12,7 +12,7 @@ class ExerciseRepository {
 
   Future<List<Benefit>?> fetchBenefit() async {
     try {
-      final response = await this.apiClient.get(endPoint: FALink.benefit);
+      final response = await this.apiClient.get(endPoint: FAPath.benefit);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final benefits = data
@@ -30,7 +30,7 @@ class ExerciseRepository {
   Future<List<Exercise>?> fetchExercise() async {
     try {
       final response =
-          await this.apiClient.get(endPoint: FALink.exerciseByBenefit);
+          await this.apiClient.get(endPoint: FAPath.exerciseByBenefit);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final exercises = data

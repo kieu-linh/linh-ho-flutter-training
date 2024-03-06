@@ -1,4 +1,4 @@
-import 'package:fitness_app/data/models/goal_data.dart';
+import 'package:fitness_app/models/goal.dart';
 
 class GoalSeeds {
   static List<Goal> listGoal = [

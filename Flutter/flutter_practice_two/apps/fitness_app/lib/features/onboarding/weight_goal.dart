@@ -21,11 +21,10 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
-    // ignore: omit_local_variable_types, prefer_final_locals
     return FAScaffold(
       onBack: () => GoRouter.of(context).go('/weightScreen'),
       currentStep: 4,
-      title: s.goalWeight,
+      title: s.goalWeightTitle,
       body: Padding(
         padding: context.padding(top: 20),
         child: FABodyMeasurementInput(
@@ -41,9 +40,7 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
             );
             weightController.text = weightValue.toStringAsFixed(2);
           },
-          onChange: (value) {
-            weightValue = double.parse(value);
-          },
+          onChange: (value) => weightValue = double.parse(value),
           textLeft: s.lbs,
           textRight: s.kg,
           controller: weightController,

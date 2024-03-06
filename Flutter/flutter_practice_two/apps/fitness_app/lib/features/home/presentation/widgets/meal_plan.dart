@@ -25,7 +25,7 @@ class FAMealPlan extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(meals[index].image ?? '', fit: BoxFit.cover),
+                Image.asset(meals[index].imagePath ?? '', fit: BoxFit.cover),
                 const SizedBox(height: 11),
                 FAText.bodySmall(context, text: meals[index].description ?? ''),
                 const SizedBox(height: 5),

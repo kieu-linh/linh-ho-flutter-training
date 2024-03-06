@@ -1,29 +1,22 @@
 import 'package:equatable/equatable.dart';
+import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/home/model/category.dart';
-
-enum CategoryStatus {
-  initial,
-  loading,
-  success,
-  failure,
-}
-
 class CategoryState extends Equatable {
   const CategoryState({
-    this.fetchCategoryStatus = CategoryStatus.initial,
+    this.fetchCategoryStatus = SubmissionStatus.initial,
     this.categories = const [],
     this.searchKey = '',
     this.errorMessage = '',
   });
 
-  final CategoryStatus fetchCategoryStatus;
+  final SubmissionStatus fetchCategoryStatus;
   final List<Category>? categories;
   final String? searchKey;
 
   final String errorMessage;
 
   CategoryState copyWith({
-    CategoryStatus? fetchCategoryStatus,
+    SubmissionStatus? fetchCategoryStatus,
     List<Category>? categories,
     String? searchKey,
     String? errorMessage,

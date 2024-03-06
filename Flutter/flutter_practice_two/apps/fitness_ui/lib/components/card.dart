@@ -45,7 +45,7 @@ class FACard extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        s.titleCard,
+                        s.cardTitle,
                         style: AppTextStyles.textButtonMedium
                             .copyWith(fontSize: 17),
                       ),
@@ -59,7 +59,7 @@ class FACard extends StatelessWidget {
                         child: Padding(
                           padding: context.padding(horizontal: 16, vertical: 6),
                           child: Text(
-                            s.textButtonCard,
+                            s.buttonCardText,
                             style: AppTextStyles.textAppBar.copyWith(
                               fontSize: 12,
                               color: context.colorScheme.secondary,

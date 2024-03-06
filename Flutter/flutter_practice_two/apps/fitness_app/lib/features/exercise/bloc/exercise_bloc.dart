@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
 import 'package:fitness_app/features/exercise/repositories/exercise_repositories.dart';
@@ -25,16 +26,19 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
     Emitter<ExerciseState> emit,
   ) async {
     emit(state
-        .copyWith(fetchBenefitStatus: ExerciseStatus.loading, benefits: []));
+        .copyWith(fetchBenefitStatus: SubmissionStatus.loading, benefits: []));
     try {
       final benefits = await this.repository.fetchBenefit();
 
       emit(state.copyWith(
-          fetchBenefitStatus: ExerciseStatus.success, benefits: benefits));
+          fetchBenefitStatus: SubmissionStatus.success, benefits: benefits));
     } catch (e) {
-      emit(state.copyWith(
-          fetchBenefitStatus: ExerciseStatus.failure,
-          errorMessage: e.toString()));
+      emit(
+        state.copyWith(
+          fetchBenefitStatus: SubmissionStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 
@@ -44,7 +48,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
   ) async {
     emit(
       state.copyWith(
-        fetchExercisesStatus: ExerciseStatus.loading,
+        fetchExercisesStatus: SubmissionStatus.loading,
         exercises: [],
       ),
     );
@@ -53,14 +57,14 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       final exercises = await this.repository.fetchExercise();
       emit(
         state.copyWith(
-          fetchExercisesStatus: ExerciseStatus.success,
+          fetchExercisesStatus: SubmissionStatus.success,
           exercises: exercises,
         ),
       );
     } catch (e) {
       emit(
         state.copyWith(
-          fetchExercisesStatus: ExerciseStatus.failure,
+          fetchExercisesStatus: SubmissionStatus.failure,
           errorMessage: e.toString(),
         ),
       );
@@ -73,7 +77,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
   ) async {
     emit(
       state.copyWith(
-        fetchExercisesStatus: ExerciseStatus.loading,
+        fetchExercisesStatus: SubmissionStatus.loading,
         exercises: [],
         index: event.index,
       ),
@@ -84,12 +88,13 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       exercises?.where((element) => element.benefit?.benefitID == event.index);
       emit(
         state.copyWith(
-            fetchExercisesStatus: ExerciseStatus.success, exercises: exercises),
+            fetchExercisesStatus: SubmissionStatus.success,
+            exercises: exercises),
       );
     } catch (e) {
       emit(
         state.copyWith(
-          fetchExercisesStatus: ExerciseStatus.failure,
+          fetchExercisesStatus: SubmissionStatus.failure,
           errorMessage: e.toString(),
         ),
       );

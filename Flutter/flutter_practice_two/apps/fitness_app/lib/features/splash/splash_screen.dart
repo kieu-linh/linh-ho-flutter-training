@@ -6,6 +6,7 @@ import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,19 +34,19 @@ class _SplashScreenState extends State<SplashScreen> {
                 Image.asset(FAImage.imgSplash),
                 context.sizedBox(height: 42),
                 FARichText(
-                  fistText: s.firstTitleSplash,
-                  secondText: s.secondTitleSplash,
+                  fistText: s.firstSplashTitle,
+                  secondText: s.secondSplashTitle,
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  s.descriptionSplash,
+                  s.splashDescription,
                   textAlign: TextAlign.center,
                   style: context.textTheme.displayMedium,
                 ),
                 context.sizedBox(height: 42),
                 GestureDetector(
                   onTap: () async {
-                    final user = await SharedPrefs().getAccount();
+                    final user = await context.read<SharedPrefs>().getAccount();
                     if (user == null) {
                       GoRouter.of(context).go('/welcomeScreen');
                     } else {
@@ -61,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     child: Center(
                       child: Text(
-                        s.btnLetStart,
+                        s.buttonStartText,
                         style: context.textTheme.displaySmall,
                       ),
                     ),

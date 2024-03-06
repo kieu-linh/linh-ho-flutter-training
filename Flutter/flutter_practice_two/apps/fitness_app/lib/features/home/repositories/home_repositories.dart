@@ -14,7 +14,7 @@ class HomeRepository {
 
   Future<List<Goal>?> fetchGoals() async {
     try {
-      final response = await this.apiClient.get(endPoint: FALink.goal);
+      final response = await this.apiClient.get(endPoint: FAPath.goal);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final goals =
@@ -30,7 +30,7 @@ class HomeRepository {
 
   Future<List<Category>?> fetchCategory() async {
     try {
-      final response = await this.apiClient.get(endPoint: FALink.category);
+      final response = await this.apiClient.get(endPoint: FAPath.category);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final categories = data
@@ -47,7 +47,7 @@ class HomeRepository {
 
   Future<List<Meal>?> fetchMeal() async {
     try {
-      final response = await this.apiClient.get(endPoint: FALink.meal);
+      final response = await this.apiClient.get(endPoint: FAPath.meal);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final meals =
@@ -64,7 +64,7 @@ class HomeRepository {
   Future<List<Exercise>?> fetchPopularExercise() async {
     try {
       final response =
-          await this.apiClient.get(endPoint: FALink.popularExercise);
+          await this.apiClient.get(endPoint: FAPath.popularExercise);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final exercises = data
@@ -81,7 +81,7 @@ class HomeRepository {
 
   Future<List<Exercise>?> fetchAddExercise() async {
     try {
-      final response = await this.apiClient.get(endPoint: FALink.exercise);
+      final response = await this.apiClient.get(endPoint: FAPath.exercise);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final exercises = data

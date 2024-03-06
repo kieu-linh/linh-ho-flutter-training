@@ -29,7 +29,7 @@ class _LevelPageState extends State<LevelPage> {
     return FAScaffold(
       onBack: () => GoRouter.of(context).go('/heightScreen'),
       currentStep: 6,
-      title: s.level,
+      title: s.levelText,
       body: Column(
         children: [
           context.sizedBox(height: 140),

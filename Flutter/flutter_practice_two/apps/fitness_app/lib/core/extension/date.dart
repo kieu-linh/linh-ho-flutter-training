@@ -6,13 +6,13 @@ extension DateHelper on DateTime {
 
     /// Set up time now: 5h -> 11h: morning
     if (time.hour >= 5 && time.hour < 12) {
-      return FAUiS.current.morning;
+      return FAUiS.current.morningTitle;
     } else if (time.hour >= 12 && time.hour <= 17) {
       // 11h -> 17h: afternoon
-      return FAUiS.current.afternoon;
+      return FAUiS.current.afternoonTitle;
     } else {
       // else: evening
-      return FAUiS.current.evening;
+      return FAUiS.current.eveningTitle;
     }
   }
 }

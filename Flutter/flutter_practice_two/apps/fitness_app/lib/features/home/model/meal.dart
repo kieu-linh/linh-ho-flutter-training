@@ -2,11 +2,11 @@ class Meal {
   Meal({
     this.mealID,
     this.description,
-    this.image,
+    this.imagePath,
     this.kcal,
   });
   int? mealID;
-  String? image;
+  String? imagePath;
   String? description;
   int? kcal;
 
@@ -14,7 +14,7 @@ class Meal {
     return Meal(
       mealID: json['mealID'] as int?,
       description: json['description'] as String?,
-      image: json['image'] as String?,
+      imagePath: json['image'] as String?,
       kcal: json['kcal'] as int?,
     );
   }
@@ -23,7 +23,7 @@ class Meal {
     return {
       'mealID': mealID,
       'description': description,
-      'image': image,
+      'image': imagePath,
       'kcal': kcal,
     };
   }
