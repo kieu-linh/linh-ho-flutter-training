@@ -30,7 +30,7 @@ class FACategoryItem extends StatelessWidget {
                       CircleAvatar(
                         radius: 30,
                         backgroundImage:
-                            AssetImage(categories[index].image ?? ''),
+                            AssetImage(categories[index].imagePath ?? ''),
                       ),
                       const SizedBox(height: 10),
                       FAText.bodyLarge(

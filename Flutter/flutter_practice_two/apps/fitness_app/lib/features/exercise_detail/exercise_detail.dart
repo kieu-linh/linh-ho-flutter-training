@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:api_client/api_client.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/container_exercise.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/description_exercise.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/exercise_info.dart';
@@ -51,10 +52,10 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     children: [
                       FAExerciseInfo(widget: widget),
                       FADescriptionExercise(widget: widget),
-                      const FAExerciseProgram(),
+                      FAExerciseProgram(widget: widget),
                       BlocProvider(
                           create: (context) => HomeBloc(
-                                context.read<HomeRepository>(),
+                                HomeRepository(context.read<ApiClient>()),
                               )..add(HomeFetchAddExerciseData()),
                           child: BlocBuilder<HomeBloc, HomeState>(
                             builder: (context, state) {
@@ -63,7 +64,6 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                               );
                             },
                           )),
-                      //const FAAddExercise(),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
                         child: FAButton(

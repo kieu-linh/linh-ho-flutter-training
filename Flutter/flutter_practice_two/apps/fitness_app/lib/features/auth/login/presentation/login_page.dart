@@ -34,202 +34,191 @@ class _LoginPageState extends State<LoginPage> {
     final s = FAUiS.of(context);
 
     return BlocProvider<LoginBloc>(
-      create: (context) =>
-          LoginBloc(RepositoryProvider.of<AuthRepository>(context)),
+      create: (context) => LoginBloc(context.read<AuthRepository>()),
       child: BlocListener<LoginBloc, LoginState>(
         // function listener use to listen the state of the bloc
         listener: (context, state) {
-          // check state success or failure
+          // if success go to favoriteScreen
           if (state.status == SubmissionStatus.success) {
             GoRouter.of(context).go('/favoriteScreen');
           }
-          if (state.status == SubmissionStatus.failure) {
+
+          // if failure show snackbar with error message
+          else if (state.status == SubmissionStatus.failure) {
             FASnackBar.error(context, message: state.errorMessage);
+          } else {
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
           }
         },
-        child: GestureDetector(
-          onTap: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
-          child: Scaffold(
-            body: SafeArea(
-              child: Padding(
-                padding: context.padding(horizontal: 20),
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context)
-                      .copyWith(scrollbars: false),
-                  child: SingleChildScrollView(
-                    controller: _scrollController,
-                    child: Form(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          FATopNavigation(
-                            onLeadingPress: () =>
-                                context.go(AppRoutes.welcomeScreen.path),
-                          ),
-                          context.sizedBox(height: 30),
-                          FAText.displayLarge(context, text: s.titleFitness),
-                          const SizedBox(height: 11),
-                          Text(
-                            s.textSignIn,
-                            style: context.textTheme.headlineMedium,
-                          ),
-                          context.sizedBox(height: 39),
-                          BlocBuilder<LoginBloc, LoginState>(
-                            builder: (context, state) {
-                              return EmailInput(
-                                onChanged: (email) {
-                                  context
-                                      .read<LoginBloc>()
-                                      .add(LogInEmailChanged(email: email));
-                                },
-                                isEmailValid: state.isEmailValid,
-                                readOnly: state.status == SubmissionStatus.loading
-                                    ? true
-                                    : false,
-                              );
-                            },
-                            buildWhen: (previous, current) {
-                              return previous.isEmailValid !=
-                                      current.isEmailValid ||
-                                  previous.status != current.status;
-                            },
-                          ),
-                          const SizedBox(height: 14),
-                          BlocBuilder<LoginBloc, LoginState>(
-                            buildWhen: (previous, current) {
-                              return previous.isValid != current.isValid ||
-                                  previous.status != current.status;
-                            },
-                            builder: (context, state) {
-                              return PasswordInput(
-                                onTap: () {
-                                  Future.delayed(
-                                      const Duration(milliseconds: 500), () {
-                                    _scrollController.animateTo(
-                                      _scrollController
-                                              .position.maxScrollExtent -
-                                          400,
-                                      duration:
-                                          const Duration(milliseconds: 50),
-                                      curve: Curves.ease,
-                                    );
-                                  });
-                                },
-                                onSubmit: state.isValid
-                                    ? () {
-                                        context.read<LoginBloc>().add(
-                                              LoginSubmitted(
-                                                email: state.email,
-                                                password: state.password,
-                                              ),
-                                            );
-                                      }
-                                    : null,
-                                onChanged: (value) {
-                                  context.read<LoginBloc>().add(
-                                      LogInPasswordChanged(password: value));
-                                },
-                                readOnly: state.status == SubmissionStatus.loading
-                                    ? true
-                                    : false,
-                              );
-                            },
-                          ),
-                          const SizedBox(height: 17),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  s.forgotPassword,
-                                  style: context.textTheme.bodyLarge,
-                                  textAlign: TextAlign.right,
-                                ),
-                              ],
-                            ),
-                          ),
-                          context.sizedBox(height: 34),
-                          BlocBuilder<LoginBloc, LoginState>(
-                            buildWhen: (previous, current) =>
-                                previous.isValid != current.isValid ||
-                                previous.status != current.status,
-                            builder: (context, state) {
-                              return FAButton(
-                                onPressed: state.isValid
-                                    ? () {
-                                        context.read<LoginBloc>().add(
-                                              LoginSubmitted(
-                                                email: state.email,
-                                                password: state.password,
-                                              ),
-                                            );
-                                      }
-                                    : null,
-                                color: state.isValid
-                                    ? context.colorScheme.primary
-                                    : context.colorScheme.outlineVariant,
-                                text: s.btnLoginIn,
-                                isLoading: state.status == SubmissionStatus.loading,
-                              );
-                            },
-                          ),
-                          context.sizedBox(height: 24),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+        child: Scaffold(
+          body: SafeArea(
+            child: Padding(
+              padding: context.padding(horizontal: 20),
+              child: ScrollConfiguration(
+                behavior:
+                    ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Form(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FATopNavigation(
+                          onLeadingPress: () =>
+                              context.go(AppRoutes.welcomeScreen.path),
+                        ),
+                        context.sizedBox(height: 30),
+                        FAText.displayLarge(context, text: s.fitnessTitle),
+                        const SizedBox(height: 11),
+                        Text(
+                          s.signInText,
+                          style: context.textTheme.headlineMedium,
+                        ),
+                        context.sizedBox(height: 39),
+                        BlocBuilder<LoginBloc, LoginState>(
+                          builder: (context, state) {
+                            return EmailInput(
+                              onChanged: (email) => context
+                                  .read<LoginBloc>()
+                                  .add(LogInEmailChanged(email: email)),
+                              isValid: state.isEmailValid,
+                              readOnly:
+                                  state.status == SubmissionStatus.loading,
+                            );
+                          },
+                          buildWhen: (previous, current) =>
+                              previous.isEmailValid != current.isEmailValid ||
+                              previous.status != current.status,
+                        ),
+                        const SizedBox(height: 14),
+                        BlocBuilder<LoginBloc, LoginState>(
+                          buildWhen: (previous, current) =>
+                              previous.isValid != current.isValid ||
+                              previous.status != current.status,
+                          builder: (context, state) {
+                            return PasswordInput(
+                              onTap: () => Future.delayed(
+                                  const Duration(milliseconds: 500), () {
+                                _scrollController.animateTo(
+                                  _scrollController.position.maxScrollExtent -
+                                      400,
+                                  duration: const Duration(milliseconds: 50),
+                                  curve: Curves.ease,
+                                );
+                              }),
+                              onSubmit: state.isValid
+                                  ? () {
+                                      context.read<LoginBloc>().add(
+                                            LoginSubmitted(
+                                              email: state.email,
+                                              password: state.password,
+                                            ),
+                                          );
+                                    }
+                                  : null,
+                              onChanged: (value) => context
+                                  .read<LoginBloc>()
+                                  .add(LogInPasswordChanged(password: value)),
+                              readOnly:
+                                  state.status == SubmissionStatus.loading,
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 17),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                s.btnLoginWith,
-                                style: context.textTheme.bodySmall,
+                                s.forgotPasswordText,
+                                style: context.textTheme.bodyLarge,
+                                textAlign: TextAlign.right,
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20),
-                          FAButton.outline(
-                            onPressed: () {},
-                            icon: FAIcon.iconGoogle,
-                            text: s.btnGoogle,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          ),
-                          const SizedBox(height: 8),
-                          FAButton.text(
-                            onPressed: () {},
-                            icon: FAIcon.iconFacebook,
-                            text: s.btnFacebook,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          ),
-                          context.sizedBox(height: 48),
-                          Padding(
-                            padding: context.padding(bottom: 24),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: s.descriptionSignIn,
-                                        style: context.textTheme.labelSmall
-                                            ?.copyWith(
-                                          fontWeight: AppFontWeight.medium,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: s.btnRegister,
-                                        style: context.textTheme.labelSmall,
-                                        recognizer: TapGestureRecognizer()
-                                          ..onTap = () {
-                                            // Go to Register page
-                                          },
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                        ),
+                        context.sizedBox(height: 34),
+                        BlocBuilder<LoginBloc, LoginState>(
+                          buildWhen: (previous, current) =>
+                              previous.isValid != current.isValid ||
+                              previous.status != current.status,
+                          builder: (context, state) {
+                            return FAButton(
+                              onPressed: state.isValid
+                                  ? () {
+                                      context.read<LoginBloc>().add(
+                                            LoginSubmitted(
+                                              email: state.email,
+                                              password: state.password,
+                                            ),
+                                          );
+                                    }
+                                  : null,
+                              color: state.isValid
+                                  ? context.colorScheme.primary
+                                  : context.colorScheme.outlineVariant,
+                              text: s.loginText,
+                              isLoading:
+                                  state.status == SubmissionStatus.loading,
+                            );
+                          },
+                        ),
+                        context.sizedBox(height: 24),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              s.loginWithText,
+                              style: context.textTheme.bodySmall,
                             ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        FAButton.outline(
+                          onPressed: () {},
+                          icon: FAIcon.iconGoogle,
+                          text: s.googleText,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ),
+                        const SizedBox(height: 8),
+                        FAButton.text(
+                          onPressed: () {},
+                          icon: FAIcon.iconFacebook,
+                          text: s.facebookText,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ),
+                        context.sizedBox(height: 48),
+                        Padding(
+                          padding: context.padding(bottom: 24),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: s.signInDescription,
+                                      style: context.textTheme.labelSmall
+                                          ?.copyWith(
+                                        fontWeight: AppFontWeight.medium,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: s.registerText,
+                                      style: context.textTheme.labelSmall,
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () {
+                                          // Go to Register page
+                                        },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

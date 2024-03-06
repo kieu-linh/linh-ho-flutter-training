@@ -1,4 +1,3 @@
-import 'package:fitness_app/data/seeds/exercise.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/icons.dart';
@@ -90,7 +89,7 @@ class FAPopularExercise extends StatelessWidget {
           separatorBuilder: (context, index) {
             return FADivider(height: context.sizeHeight(26));
           },
-          itemCount: ExerciseSeeds.listExercise.length,
+          itemCount: popularExercise.length,
         ),
         FADivider(height: context.sizeHeight(43)),
       ],

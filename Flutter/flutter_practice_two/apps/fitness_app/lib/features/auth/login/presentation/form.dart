@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 
 class EmailInput extends StatelessWidget {
   const EmailInput({
-    required this.isEmailValid,
-    super.key,
-    this.onChanged,
+    this.isValid = true,
     this.readOnly = false,
+    this.onChanged,
+    super.key,
   });
 
-  final bool isEmailValid;
+  final bool isValid;
   final Function(String)? onChanged;
   final bool readOnly;
 
@@ -23,8 +23,8 @@ class EmailInput extends StatelessWidget {
 
     return FAInput(
       onChanged: onChanged,
-      hintText: s.hintTextEmail,
-      icon: isEmailValid ? FAIcon.iconTick : null,
+      hintText: s.EmailHintText,
+      icon: isValid ? FAIcon.iconTick : null,
       validator: FAValidator.validatorEmail,
       textInputAction: TextInputAction.next,
       readOnly: readOnly,
@@ -34,11 +34,11 @@ class EmailInput extends StatelessWidget {
 
 class PasswordInput extends StatelessWidget {
   const PasswordInput({
+    this.readOnly = false,
     this.onSubmit,
-    super.key,
     this.onChanged,
     this.onTap,
-    this.readOnly = false,
+    super.key,
   });
   final VoidCallback? onSubmit;
   final Function(String)? onChanged;
@@ -50,15 +50,13 @@ class PasswordInput extends StatelessWidget {
     final s = FAUiS.of(context);
 
     return FAPasswordInput(
-      hintText: s.hintTextPassword,
+      hintText: s.passwordHintText,
       obscureText: true,
       validator: FAValidator.validatorPassword,
       textInputAction: TextInputAction.done,
       onChanged: onChanged,
       onTap: onTap,
-      onFieldSubmit: (_) {
-        onSubmit?.call();
-      },
+      onFieldSubmit: (_) => onSubmit?.call(),
       readOnly: readOnly,
     );
   }

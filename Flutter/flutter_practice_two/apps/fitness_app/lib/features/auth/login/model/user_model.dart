@@ -1,18 +1,18 @@
 class User {
   User({
-    this.userID,
+    required this.userID,
     this.email,
     this.password,
     this.name,
   });
-  int? userID;
+  int userID;
   String? email;
   String? password;
   String? name;
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      userID: json['userID'] as int?,
+      userID: json['userID'],
       email: json['email'] as String?,
       password: json['password'] as String?,
       name: json['name'] as String?,

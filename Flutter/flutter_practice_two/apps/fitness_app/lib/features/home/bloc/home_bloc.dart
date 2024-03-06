@@ -4,6 +4,7 @@ import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/home/bloc/home_event.dart';
 import 'package:fitness_app/features/home/bloc/home_state.dart';
 import 'package:fitness_app/features/home/repositories/home_repositories.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc(this.repository) : super(const HomeState()) {
@@ -15,12 +16,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeFetchUserData>(_onFetchUserData);
   }
   final HomeRepository repository;
+  // SharedPrefs sharedPrefs = SharedPrefs(SharedPreferences.getInstance());
 
   Future<void> _onFetchUserData(
     HomeFetchUserData event,
     Emitter<HomeState> emit,
   ) async {
-    SharedPrefs sharedPrefs = SharedPrefs();
+    SharedPrefs sharedPrefs = SharedPrefs(SharedPreferences.getInstance());
+
     final user = await sharedPrefs.getAccount();
     emit(state.copyWith(user: user));
   }
@@ -94,7 +97,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         fetchPopularExerciseStatus: SubmissionStatus.loading,
         popularExercises: []));
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 2));
 
     try {
       final popularExercises = await this.repository.fetchPopularExercise();

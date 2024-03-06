@@ -1,20 +1,13 @@
-import 'package:fitness_app/data/seeds/user.dart';
+import 'package:fitness_app/seeds/user.dart';
 import 'package:fitness_app/features/drawer/layout/drawer.dart';
 import 'package:fitness_app/features/home/presentation/home.dart';
 import 'package:fitness_ui/components/zoom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class DrawerMain extends StatefulWidget {
+class DrawerMain extends StatelessWidget {
   const DrawerMain({super.key});
 
-  @override
-  State<DrawerMain> createState() => _DrawerMainState();
-}
-
-ZoomDrawerController zoomDrawerController = ZoomDrawerController();
-
-class _DrawerMainState extends State<DrawerMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,3 +22,5 @@ class _DrawerMainState extends State<DrawerMain> {
     );
   }
 }
+
+ZoomDrawerController zoomDrawerController = ZoomDrawerController();

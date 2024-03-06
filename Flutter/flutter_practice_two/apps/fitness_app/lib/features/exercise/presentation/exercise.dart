@@ -1,3 +1,5 @@
+import 'package:api_client/api_client.dart';
+import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
@@ -23,7 +25,7 @@ class ExercisePage extends StatelessWidget {
 
     return BlocProvider(
       create: (context) =>
-          ExerciseBloc(RepositoryProvider.of<ExerciseRepository>(context))
+          ExerciseBloc(ExerciseRepository(context.read<ApiClient>()))
             ..add(ExerciseFetchBenefitData())
             ..add(ExerciseFetchExerciseData()),
       child: BlocBuilder<ExerciseBloc, ExerciseState>(
@@ -52,11 +54,9 @@ class ExercisePage extends StatelessWidget {
                     child: Row(
                       children: List.generate(state.benefits!.length, (index) {
                         return GestureDetector(
-                          onTap: () {
-                            context
-                                .read<ExerciseBloc>()
-                                .add(ExerciseOnTap(index));
-                          },
+                          onTap: () => context
+                              .read<ExerciseBloc>()
+                              .add(ExerciseOnTap(index)),
                           child: Container(
                             margin: const EdgeInsets.only(right: 13),
                             padding:
@@ -91,11 +91,11 @@ class ExercisePage extends StatelessWidget {
                         previous.exercises != current.exercises,
                     builder: (context, state) {
                       switch (state.fetchExercisesStatus) {
-                        case ExerciseStatus.initial:
+                        case SubmissionStatus.initial:
                           return SizedBox(height: 32);
-                        case ExerciseStatus.loading:
+                        case SubmissionStatus.loading:
                           return FAShimmer.exercise();
-                        case ExerciseStatus.success:
+                        case SubmissionStatus.success:
                           return ListView.separated(
                             padding: context.padding(horizontal: 20),
                             itemBuilder: (context, index) {
@@ -118,7 +118,7 @@ class ExercisePage extends StatelessWidget {
                             ),
                             itemCount: listExercise?.length ?? 0,
                           );
-                        case ExerciseStatus.failure:
+                        case SubmissionStatus.failure:
                           return Text('Error: ${state.errorMessage}');
                       }
                     },

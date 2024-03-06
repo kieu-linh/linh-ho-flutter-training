@@ -1,8 +1,6 @@
 import 'package:api_client/api_client.dart';
+import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
-import 'package:fitness_app/features/category/repositories/category_repository.dart';
-import 'package:fitness_app/features/exercise/repositories/exercise_repositories.dart';
-import 'package:fitness_app/features/home/repositories/home_repositories.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
 import 'package:fitness_app/l10n/l10n_generated/l10n.dart';
 import 'package:fitness_app/routes/routes.dart';
@@ -10,6 +8,7 @@ import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,20 +38,16 @@ class _MyAppState extends State<MyApp> {
           RepositoryProvider<AuthRepository>(
             create: (context) => AuthRepository(apiClient),
           ),
-          RepositoryProvider<CategoryRepository>(
-            create: (context) => CategoryRepository(apiClient),
+          RepositoryProvider<ApiClient>(
+            create: (context) => ApiClient(),
           ),
-          RepositoryProvider<ExerciseRepository>(
-            create: (context) => ExerciseRepository(apiClient),
-          ),
-          RepositoryProvider<HomeRepository>(
-            create: (context) => HomeRepository(apiClient),
+          RepositoryProvider<SharedPrefs>(
+            create: (context) => SharedPrefs(SharedPreferences.getInstance()),
           ),
         ],
         child: MaterialApp.router(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
-          // ignore: avoid_redundant_argument_values
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: FAppTheme.lightTheme,

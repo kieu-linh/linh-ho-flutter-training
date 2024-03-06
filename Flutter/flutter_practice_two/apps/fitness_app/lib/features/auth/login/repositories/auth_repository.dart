@@ -11,26 +11,35 @@ class AuthRepository {
   final ApiClient apiClient;
 
   Future<User> login({
-    String? email,
-    String? password,
+    String email = '',
+    String password = '',
   }) async {
-    final response = await this.apiClient.get(endPoint: FALink.login);
-    final data = jsonDecode(response.body) as List<dynamic>;
-    final users =
-        data.map((e) => User.fromJson(e as Map<String, dynamic>)).toList();
+    final response = await this.apiClient.get(endPoint: FAPath.login);
 
-    /// check user account has in list data or not
-    final listUser = users
-        .where(
-          (element) => element.email == email && element.password == password,
-        )
-        .toList();
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as List<dynamic>;
 
-    /// If user account is not found, it will throw an error.
-    if (listUser.isEmpty) {
-      throw Failure('300', FAUiS.current.messageError);
+      final listUser =
+          data.map((e) => User.fromJson(e as Map<String, dynamic>)).toList();
+
+      /// check user account has in list data or not
+      final user = listUser
+          .where(
+            (element) => element.email == email && element.password == password,
+          )
+          .toList();
+
+      /// If user account is not found, it will throw an error.
+      if (user.isEmpty) {
+        throw Failure(400, FAUiS.current.errorMessage);
+      } else {
+        return user.first;
+      }
     } else {
-      return listUser.first  ;
+      throw Failure(
+        response.statusCode,
+        jsonDecode(response.body)['message'],
+      );
     }
   }
 }

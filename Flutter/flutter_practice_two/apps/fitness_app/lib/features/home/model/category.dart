@@ -2,17 +2,17 @@ class Category {
   Category({
     this.categoryID,
     this.name,
-    this.image,
+    this.imagePath,
   });
   int? categoryID;
-  String? image;
+  String? imagePath;
   String? name;
 
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
       categoryID: json['categoryID'] as int?,
       name: json['name'] as String?,
-      image: json['image'] as String?,
+      imagePath: json['image'] as String?,
     );
   }
 
@@ -20,7 +20,7 @@ class Category {
     return {
       'categoryID': categoryID,
       'name': name,
-      'image': image,
+      'image': imagePath,
     };
   }
 }

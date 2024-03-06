@@ -1,4 +1,4 @@
-class FALink {
+class FAPath {
   static const login = '/User?select=*';
 
   static const goal = '/Goal?select=*';

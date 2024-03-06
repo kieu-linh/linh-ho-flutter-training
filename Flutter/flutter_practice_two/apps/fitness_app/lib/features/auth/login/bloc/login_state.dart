@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:fitness_app/core/utils/status.dart';
-
 class LoginState extends Equatable {
   const LoginState({
     this.status = SubmissionStatus.initial,

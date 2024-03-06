@@ -27,7 +27,7 @@ class FADialog {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FAText.bodyMedium(context, text: FAUiS.current.titleLogOut),
+            FAText.bodyMedium(context, text: FAUiS.current.logOutTitle),
             const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

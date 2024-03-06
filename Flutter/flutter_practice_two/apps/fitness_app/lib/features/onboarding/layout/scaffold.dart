@@ -37,7 +37,7 @@ class FAScaffold extends StatelessWidget {
               trailing: TextButton(
                 onPressed: () => GoRouter.of(context).go('/getStartScreen'),
                 child: Text(
-                  s.skipPage,
+                  s.skipPageText,
                   style: context.textTheme.labelSmall,
                 ),
               ),
@@ -49,7 +49,7 @@ class FAScaffold extends StatelessWidget {
             Padding(
               padding: context.padding(bottom: 30),
               child: FAButton(
-                text: s.btnNextStep,
+                text: s.nextStepText,
                 onPressed: onNext,
               ),
             ),

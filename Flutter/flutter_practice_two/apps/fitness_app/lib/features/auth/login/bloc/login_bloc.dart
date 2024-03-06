@@ -9,6 +9,7 @@ import 'package:fitness_app/features/auth/login/bloc/login_event.dart';
 import 'package:fitness_app/features/auth/login/bloc/login_state.dart';
 import 'package:fitness_app/features/auth/login/model/user_model.dart';
 import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(this.repository) : super(const LoginState()) {
@@ -72,7 +73,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(status: SubmissionStatus.success));
 
       /// Save the user data to the local storage.
-      SharedPrefs().saveAccount(user);
+      SharedPrefs(SharedPreferences.getInstance()).saveAccount(user);
     } catch (e) {
       emit(
         state.copyWith(

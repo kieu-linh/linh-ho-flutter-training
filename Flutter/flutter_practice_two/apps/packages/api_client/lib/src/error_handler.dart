@@ -76,78 +76,75 @@ extension DataSourceExtension on DataSource {
   Failure getFailure() {
     switch (this) {
       case DataSource.success:
-        return Failure(
-          ResponseCode.success.toString(),
-          ResponseMessage.success,
-        );
+        return const Failure(ResponseCode.success, ResponseMessage.success);
       case DataSource.noContent:
-        return Failure(
-          ResponseCode.noContent.toString(),
+        return const Failure(
+          ResponseCode.noContent,
           ResponseMessage.noContent,
         );
       case DataSource.badRequest:
-        return Failure(
-          ResponseCode.badRequest.toString(),
+        return const Failure(
+          ResponseCode.badRequest,
           ResponseMessage.badRequest,
         );
       case DataSource.forbidden:
-        return Failure(
-          ResponseCode.forbidden.toString(),
+        return const Failure(
+          ResponseCode.forbidden,
           ResponseMessage.forbidden,
         );
       case DataSource.unAuthorised:
-        return Failure(
-          ResponseCode.unAuthorised.toString(),
+        return const Failure(
+          ResponseCode.unAuthorised,
           ResponseMessage.unAuthorised,
         );
       case DataSource.notFound:
-        return Failure(
-          ResponseCode.notFound.toString(),
+        return const Failure(
+          ResponseCode.notFound,
           ResponseMessage.notFound,
         );
       case DataSource.internalServerError:
-        return Failure(
-          ResponseCode.internalServerError.toString(),
+        return const Failure(
+          ResponseCode.internalServerError,
           ResponseMessage.internalServerError,
         );
       case DataSource.connectTimeout:
-        return Failure(
-          ResponseCode.connectTimeout.toString(),
+        return const Failure(
+          ResponseCode.connectTimeout,
           ResponseMessage.connectTimeout,
         );
       case DataSource.cancel:
-        return Failure(
-          ResponseCode.cancel.toString(),
+        return const Failure(
+          ResponseCode.cancel,
           ResponseMessage.cancel,
         );
       case DataSource.receiveTimeout:
-        return Failure(
-          ResponseCode.receiveTimeout.toString(),
+        return const Failure(
+          ResponseCode.receiveTimeout,
           ResponseMessage.receiveTimeout,
         );
       case DataSource.sendTimeout:
-        return Failure(
-          ResponseCode.sendTimeout.toString(),
+        return const Failure(
+          ResponseCode.sendTimeout,
           ResponseMessage.sendTimeout,
         );
       case DataSource.cacheError:
-        return Failure(
-          ResponseCode.cacheError.toString(),
+        return const Failure(
+          ResponseCode.cacheError,
           ResponseMessage.cacheError,
         );
       case DataSource.noInternetConnection:
-        return Failure(
-          ResponseCode.noInternetConnection.toString(),
+        return const Failure(
+          ResponseCode.noInternetConnection,
           ResponseMessage.noInternetConnection,
         );
       case DataSource.unknown:
-        return Failure(
-          ResponseCode.unknown.toString(),
+        return const Failure(
+          ResponseCode.unknown,
           ResponseMessage.unknown,
         );
       default:
-        return Failure(
-          ResponseCode.unknown.toString(),
+        return const Failure(
+          ResponseCode.unknown,
           ResponseMessage.unknown,
         );
     }

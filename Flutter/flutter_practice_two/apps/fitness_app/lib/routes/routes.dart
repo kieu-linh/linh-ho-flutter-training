@@ -97,11 +97,9 @@ class FARouter {
 
       /// Home Router
       StatefulShellRoute.indexedStack(
-        builder: (context, state, navigationShell) {
-          return FABottomNavigationBar(
-            navigationShell: navigationShell,
-          );
-        },
+        builder: (context, state, navigationShell) => FABottomNavigationBar(
+          navigationShell: navigationShell,
+        ),
         branches: <StatefulShellBranch>[
           /// Branch Home
           StatefulShellBranch(
@@ -110,17 +108,14 @@ class FARouter {
               GoRoute(
                 path: AppRoutes.homeScreen.path,
                 name: AppRoutes.homeScreen.name,
-                builder: (context, state) {
-                  return DrawerMain(key: state.pageKey);
-                },
+                builder: (context, state) => DrawerMain(key: state.pageKey),
                 routes: [
                   /// CategoryPage
                   GoRoute(
                     path: AppRoutes.categoryScreen.path,
                     name: AppRoutes.categoryScreen.name,
-                    builder: (context, state) {
-                      return CategoryPage(key: state.pageKey);
-                    },
+                    builder: (context, state) =>
+                        CategoryPage(key: state.pageKey),
                   ),
                 ],
               ),
@@ -155,12 +150,10 @@ class FARouter {
                     parentNavigatorKey: _rootNavigatorKey,
                     path: AppRoutes.exerciseDetailScreen.path,
                     name: AppRoutes.exerciseDetailScreen.name,
-                    builder: (context, state) {
-                      return ExerciseDetailPage(
-                        key: state.pageKey,
-                        exercise: state.extra as Exercise,
-                      );
-                    },
+                    builder: (context, state) => ExerciseDetailPage(
+                      key: state.pageKey,
+                      exercise: state.extra as Exercise,
+                    ),
                   ),
                 ],
               ),

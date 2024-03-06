@@ -23,7 +23,7 @@ class TopOnBoarding extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          s.stepPage(currentStep, numberOfSteps),
+          s.stepPageText(currentStep, numberOfSteps),
           style: AppTextStyles.textStepPage,
         ),
         const SizedBox(height: 10),

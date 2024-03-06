@@ -1,5 +1,5 @@
 import 'package:fitness_app/core/storage/shared_prefs.dart';
-import 'package:fitness_app/data/models/user_data.dart';
+import 'package:fitness_app/models/user_data.dart';
 import 'package:fitness_ui/components/dialog.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
@@ -8,23 +8,19 @@ import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-class DrawerPage extends StatefulWidget {
+class DrawerPage extends StatelessWidget {
   const DrawerPage({
     required this.user,
-    super.key,
     this.onTap,
+    super.key,
   });
   final User user;
   final VoidCallback? onTap;
 
-  @override
-  State<DrawerPage> createState() => _DrawerPageState();
-}
-
-class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
@@ -41,7 +37,7 @@ class _DrawerPageState extends State<DrawerPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  onTap: widget.onTap,
+                  onTap: onTap,
                   child: Padding(
                     padding: context.padding(all: 3),
                     child: FAIcons.close(),
@@ -52,18 +48,16 @@ class _DrawerPageState extends State<DrawerPage> {
                   children: [
                     CircleAvatar(
                       radius: 52,
-                      backgroundImage: AssetImage(widget.user.image),
+                      backgroundImage: AssetImage(user.image),
                     ),
                     const SizedBox(height: 7),
                     FAText.headlineLarge(
                       context,
-                      text: '${widget.user.name} !',
+                      text: '${user.name} !',
                     ),
                     const SizedBox(height: 8),
-                    Text(
-                      s.basicMember,
-                      style: context.textTheme.titleSmall,
-                    ),
+                    Text(s.basicMemberText,
+                        style: context.textTheme.titleSmall),
                   ],
                 ),
                 context.sizedBox(height: 40),
@@ -107,7 +101,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 context,
                 title: 'Do you want logout?',
                 action: () {
-                  SharedPrefs().deleteAccount();
+                  context.read<SharedPrefs>().deleteAccount();
                   GoRouter.of(context).go('/loginScreen');
                 },
               );

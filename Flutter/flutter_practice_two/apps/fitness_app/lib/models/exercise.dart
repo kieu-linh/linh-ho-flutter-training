@@ -1,8 +1,7 @@
 import 'dart:ui';
 
-class AddExerciseModel {
-  AddExerciseModel({
-    required this.exerciseID,
+class Exercise {
+  Exercise({
     this.imagePath,
     this.title,
     this.kcal,
@@ -16,8 +15,6 @@ class AddExerciseModel {
     this.weeks,
     this.exerciseNumber,
   });
-
-  int exerciseID;
   String? imagePath;
   String? title;
   int? kcal;
@@ -31,9 +28,8 @@ class AddExerciseModel {
   int? weeks;
   int? exerciseNumber;
 
-  factory AddExerciseModel.fromJson(Map<String, dynamic> json) {
-    return AddExerciseModel(
-      exerciseID: json['exerciseID'],
+  factory Exercise.fromJson(Map<String, dynamic> json) {
+    return Exercise(
       imagePath: json['image'] as String?,
       title: json['title'] as String?,
       kcal: json['kcal'] as int?,
@@ -51,7 +47,6 @@ class AddExerciseModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'exerciseID': exerciseID,
       'image': imagePath,
       'title': title,
       'kcal': kcal,

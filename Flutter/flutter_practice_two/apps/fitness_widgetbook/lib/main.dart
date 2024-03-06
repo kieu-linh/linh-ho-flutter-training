@@ -323,7 +323,7 @@ Center input(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FAInput(
-            hintText: s.hintTextEmail,
+            hintText: s.EmailHintText,
             icon: FAIcon.iconTick,
             validator: (value) {
               return FAValidator.validatorEmail(value);
@@ -331,7 +331,7 @@ Center input(BuildContext context) {
           ),
           const SizedBox(height: 10),
           FAPasswordInput(
-            hintText: s.hintTextPassword,
+            hintText: s.passwordHintText,
             obscureText: true,
             validator: FAValidator.validatorPassword,
           ),
