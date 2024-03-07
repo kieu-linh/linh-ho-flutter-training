@@ -24,7 +24,7 @@ class GetStartPage extends StatelessWidget {
             child: Column(
               children: [
                 FATopNavigation(
-                  onLeadingPress: () => GoRouter.of(context).go('/goalScreen'),
+                  onLeadingPress: () => GoRouter.of(context).go('/goal'),
                 ),
                 const Spacer(),
                 FAText.displayLarge(context, text: s.startText),

@@ -32,62 +32,69 @@ class DrawerPage extends StatelessWidget {
             left: 20,
             top: MediaQuery.paddingOf(context).top + 5,
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                InkWell(
-                  onTap: onTap,
-                  child: Padding(
-                    padding: context.padding(all: 3),
-                    child: FAIcons.close(),
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: onTap,
+                    child: Padding(
+                      padding: context.padding(all: 3),
+                      child: FAIcons.close(),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 52,
-                      backgroundImage: AssetImage(user.image),
-                    ),
-                    const SizedBox(height: 7),
-                    FAText.headlineLarge(
-                      context,
-                      text: '${user.name} !',
-                    ),
-                    const SizedBox(height: 8),
-                    Text(s.basicMemberText,
-                        style: context.textTheme.titleSmall),
-                  ],
-                ),
-                context.sizedBox(height: 40),
-                Padding(
-                  padding: context.padding(left: 26),
-                  child:
-                      Text(s.dashboard, style: context.textTheme.labelMedium),
-                ),
-                Divider(
-                  thickness: 1,
-                  color: context.colorScheme.onSurfaceVariant.withOpacity(0.15),
-                  indent: 0,
-                  height: context.sizeHeight(32),
-                ),
-                Column(
-                  children: [
-                    FASideMenu(icon: FAIcon.iconPlan, title: s.plan),
-                    FASideMenu(icon: FAIcon.iconTrain, title: s.training),
-                    FASideMenu(icon: FAIcon.iconCategory, title: s.categories),
-                    FASideMenu(icon: FAIcon.iconAccount, title: s.myAccount),
-                    FASideMenu(icon: FAIcon.iconFavorite, title: s.myFavorite),
-                    FASideMenu(icon: FAIcon.iconSetting, title: s.appSetting),
-                    FASideMenu(
-                      icon: FAIcon.iconContact,
-                      title: s.contactSupport,
-                    ),
-                    context.sizedBox(height: 60),
-                  ],
-                ),
-              ],
+                  const SizedBox(height: 10),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 52,
+                        backgroundImage: AssetImage(user.image),
+                      ),
+                      const SizedBox(height: 7),
+                      FAText.headlineLarge(
+                        context,
+                        text: '${user.name} !',
+                      ),
+                      const SizedBox(height: 8),
+                      Text(s.basicMemberText,
+                          style: context.textTheme.titleSmall),
+                    ],
+                  ),
+                  context.sizedBox(height: 40),
+                  Padding(
+                    padding: context.padding(left: 26),
+                    child:
+                        Text(s.dashboard, style: context.textTheme.labelMedium),
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color:
+                        context.colorScheme.onSurfaceVariant.withOpacity(0.15),
+                    indent: 0,
+                    height: context.sizeHeight(32),
+                  ),
+                  Column(
+                    children: [
+                      FASideMenu(icon: FAIcon.iconPlan, title: s.plan),
+                      FASideMenu(icon: FAIcon.iconTrain, title: s.training),
+                      FASideMenu(
+                          icon: FAIcon.iconCategory, title: s.categories),
+                      FASideMenu(icon: FAIcon.iconAccount, title: s.myAccount),
+                      FASideMenu(
+                          icon: FAIcon.iconFavorite, title: s.myFavorite),
+                      FASideMenu(icon: FAIcon.iconSetting, title: s.appSetting),
+                      FASideMenu(
+                        icon: FAIcon.iconContact,
+                        title: s.contactSupport,
+                      ),
+                      context.sizedBox(height: 60),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -102,7 +109,7 @@ class DrawerPage extends StatelessWidget {
                 title: 'Do you want logout?',
                 action: () {
                   context.read<SharedPrefs>().deleteAccount();
-                  GoRouter.of(context).go('/loginScreen');
+                  GoRouter.of(context).go('/login');
                 },
               );
             },

@@ -35,8 +35,10 @@ class ApiClient implements ApiClientBase {
         url,
         headers: headers ??
             {
+              'apikey': FAConstant.apiKey,
               'Content-Type': 'application/json;charset=UTF-8',
               'Charset': 'utf-8',
+              'Prefer': 'return=minimal',
             },
         body: body,
       );

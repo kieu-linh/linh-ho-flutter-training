@@ -27,31 +27,34 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Padding(
         padding: context.padding(
             horizontal: 20, top: MediaQuery.paddingOf(context).top + 6),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              FATopNavigation(
-                onLeadingPress: () => GoRouter.of(context).go('/homeScreen'),
-                padding: const EdgeInsets.only(top: 2),
-                title: s.profile,
-                onTrailingPress: () {},
-                trailing: FAIcons.edit(),
-              ),
-              Column(
-                children: [
-                  FAUserInfo(
-                    image: UserSeeds.user1.image,
-                    name: UserSeeds.user1.name,
-                    weight: UserSeeds.user1.weight,
-                    height: UserSeeds.user1.height,
-                    age: UserSeeds.user1.age,
-                  ),
-                  const FAGoalItem(),
-                  context.sizedBox(height: 24),
-                  const FAMacronutrientGoal(),
-                ],
-              ),
-            ],
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                FATopNavigation(
+                  onLeadingPress: () => GoRouter.of(context).go('/home'),
+                  padding: const EdgeInsets.only(top: 2),
+                  title: s.profile,
+                  onTrailingPress: () {},
+                  trailing: FAIcons.edit(),
+                ),
+                Column(
+                  children: [
+                    FAUserInfo(
+                      image: UserSeeds.user1.image,
+                      name: UserSeeds.user1.name,
+                      weight: UserSeeds.user1.weight,
+                      height: UserSeeds.user1.height,
+                      age: UserSeeds.user1.age,
+                    ),
+                    const FAGoalItem(),
+                    context.sizedBox(height: 24),
+                    const FAMacronutrientGoal(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

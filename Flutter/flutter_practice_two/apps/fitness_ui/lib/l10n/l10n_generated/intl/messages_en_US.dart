@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, inference_failure_on_untyped_parameter
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, inference_failure_on_untyped_parameter, lines_longer_than_80_chars
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -61,8 +61,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "chest": MessageLookupByLibrary.simpleMessage("Chest"),
         "cm": MessageLookupByLibrary.simpleMessage("CM"),
         "cmToFeet": MessageLookupByLibrary.simpleMessage("0.032808399"),
+        "confirmPassText":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "contactSupport":
             MessageLookupByLibrary.simpleMessage("Contact Support"),
+        "createAccountTitle":
+            MessageLookupByLibrary.simpleMessage("CREATE ACCOUNTS"),
         "crossfitText": MessageLookupByLibrary.simpleMessage("Crossfit \n"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "emailValid":
@@ -90,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "fullBody": MessageLookupByLibrary.simpleMessage("Full Body"),
         "fullExercise": MessageLookupByLibrary.simpleMessage("Full Exercise"),
+        "fullNameText": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gainMuscle": MessageLookupByLibrary.simpleMessage("Gain muscle"),
         "gainWeightText": MessageLookupByLibrary.simpleMessage("Gain Weight"),
         "getStartedText": MessageLookupByLibrary.simpleMessage("Get Started!"),
@@ -102,6 +107,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "greekSaladText": MessageLookupByLibrary.simpleMessage(
             "Greek salad with lettuce, green onion,"),
         "gym": MessageLookupByLibrary.simpleMessage("Gym"),
+        "haveAccountText":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "healthy": MessageLookupByLibrary.simpleMessage("Healthy"),
         "healthyText":
             MessageLookupByLibrary.simpleMessage("Healthy Muscular \n"),
@@ -129,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logOut": MessageLookupByLibrary.simpleMessage("Log out"),
         "logOutTitle":
             MessageLookupByLibrary.simpleMessage("Log out of your account?"),
+        "loginButtonText": MessageLookupByLibrary.simpleMessage(" Login"),
         "loginText": MessageLookupByLibrary.simpleMessage("Login"),
         "loginWithText": MessageLookupByLibrary.simpleMessage("Or Login with"),
         "looseWeightText": MessageLookupByLibrary.simpleMessage("Loose Weight"),
@@ -154,6 +162,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "protein": MessageLookupByLibrary.simpleMessage("Protein"),
         "registerText": MessageLookupByLibrary.simpleMessage("Register!"),
+        "registerWithText":
+            MessageLookupByLibrary.simpleMessage("Or Register with"),
         "requiredValue":
             MessageLookupByLibrary.simpleMessage("This field is required"),
         "saladVegetablesText":
@@ -170,6 +180,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signInText": MessageLookupByLibrary.simpleMessage(
             "Hello there, sign in to \ncontinue!"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "signUpDescription": MessageLookupByLibrary.simpleMessage(
+            "Please enter your credentials to \nproceed "),
         "sittingDumbbellsText": MessageLookupByLibrary.simpleMessage(
             "Exercises with Sitting Dumbbells"),
         "skipPageText": MessageLookupByLibrary.simpleMessage("Skip"),

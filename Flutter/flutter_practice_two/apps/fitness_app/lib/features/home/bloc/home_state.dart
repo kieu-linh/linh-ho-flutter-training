@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:fitness_app/core/utils/status.dart';
-import 'package:fitness_app/features/auth/login/model/user_model.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/features/home/model/category.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/model/goal.dart';

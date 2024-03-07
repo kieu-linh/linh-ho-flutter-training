@@ -1349,6 +1349,76 @@ class FAUiS {
       args: [],
     );
   }
+
+  /// `CREATE ACCOUNTS`
+  String get createAccountTitle {
+    return Intl.message(
+      'CREATE ACCOUNTS',
+      name: 'createAccountTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your credentials to \nproceed `
+  String get signUpDescription {
+    return Intl.message(
+      'Please enter your credentials to \nproceed ',
+      name: 'signUpDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get fullNameText {
+    return Intl.message(
+      'Full Name',
+      name: 'fullNameText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirmPassText {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or Register with`
+  String get registerWithText {
+    return Intl.message(
+      'Or Register with',
+      name: 'registerWithText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get haveAccountText {
+    return Intl.message(
+      'Already have an account?',
+      name: 'haveAccountText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Login`
+  String get loginButtonText {
+    return Intl.message(
+      ' Login',
+      name: 'loginButtonText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FAUiS> {

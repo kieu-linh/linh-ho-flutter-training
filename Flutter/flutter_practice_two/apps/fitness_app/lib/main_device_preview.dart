@@ -7,7 +7,7 @@ import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
+import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
