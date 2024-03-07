@@ -18,32 +18,35 @@ class FavoritePage extends StatelessWidget {
       title: s.yourFavoriteText,
       body: context.sizedBox(
         height: 430,
-        child: GridView.builder(
-          itemCount: FavoriteSeeds.listFavorite.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 4 / 4.1,
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: GridView.builder(
+            itemCount: FavoriteSeeds.listFavorite.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: 4 / 4.1,
+            ),
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  Image.asset(
+                    FavoriteSeeds.listFavorite[index].imagePath,
+                    height: context.sizeHeight(100),
+                  ),
+                  const SizedBox(height: 11),
+                  FAText.titleLarge(
+                    context,
+                    text: FavoriteSeeds.listFavorite[index].title,
+                  ),
+                ],
+              );
+            },
           ),
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                Image.asset(
-                  FavoriteSeeds.listFavorite[index].imagePath,
-                  height: context.sizeHeight(100),
-                ),
-                const SizedBox(height: 11),
-                FAText.titleLarge(
-                  context,
-                  text: FavoriteSeeds.listFavorite[index].title,
-                ),
-              ],
-            );
-          },
         ),
       ),
-      onNext: () => GoRouter.of(context).push('/ageScreen'),
+      onNext: () => GoRouter.of(context).push('/age'),
     );
   }
 }

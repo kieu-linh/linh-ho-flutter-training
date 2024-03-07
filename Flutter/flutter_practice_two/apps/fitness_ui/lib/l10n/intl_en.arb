@@ -149,5 +149,12 @@
     "womanText": "Woman Training",
     "healthyText": "Healthy Muscular \n",
     "sportswomanText": "Sportswoman \n",
-    "standingText": "Standing"
+    "standingText": "Standing",
+    "createAccountTitle" : "CREATE ACCOUNTS",
+    "signUpDescription" : "Please enter your credentials to \nproceed ",
+    "fullNameText" : "Full Name",
+    "confirmPassText" : "Confirm Password",
+    "registerWithText" : "Or Register with",
+    "haveAccountText" : "Already have an account?",
+    "loginButtonText" : " Login"
 }

@@ -1,4 +1,5 @@
-import 'package:fitness_app/features/auth/login/presentation/login_page.dart';
+import 'package:fitness_app/features/auth/sign_in/presentation/sign_in.dart';
+import 'package:fitness_app/features/auth/sign_up/presentation/sign_up.dart';
 import 'package:fitness_app/features/category/presentation/category.dart';
 import 'package:fitness_app/features/drawer/drawer_main.dart';
 import 'package:fitness_app/features/exercise/presentation/exercise.dart';
@@ -52,7 +53,12 @@ class FARouter {
       GoRoute(
         path: AppRoutes.loginScreen.path,
         name: AppRoutes.loginScreen.name,
-        builder: (context, state) => const LoginPage(),
+        builder: (context, state) => const SignInPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.signUpScreen.path,
+        name: AppRoutes.signUpScreen.name,
+        builder: (context, state) => const SignUpPage(),
       ),
       GoRoute(
         path: AppRoutes.favoriteScreen.path,
@@ -75,8 +81,8 @@ class FARouter {
         builder: (context, state) => const WeightGoalPage(),
       ),
       GoRoute(
-        path: AppRoutes.heightScreen.path,
-        name: AppRoutes.heightScreen.name,
+        path: AppRoutes.height.path,
+        name: AppRoutes.height.name,
         builder: (context, state) => const HeightPage(),
       ),
       GoRoute(
@@ -112,8 +118,8 @@ class FARouter {
                 routes: [
                   /// CategoryPage
                   GoRoute(
-                    path: AppRoutes.categoryScreen.path,
-                    name: AppRoutes.categoryScreen.name,
+                    path: AppRoutes.category.path,
+                    name: AppRoutes.category.name,
                     builder: (context, state) =>
                         CategoryPage(key: state.pageKey),
                   ),
@@ -181,72 +187,78 @@ class FARouter {
 enum AppRoutes {
   welcomeScreen(
     name: 'welcomeScreen',
-    path: '/welcomeScreen',
+    path: '/welcome',
   ),
   splashScreen(
     name: 'splashScreen',
-    path: '/splashScreen',
+    path: '/splash',
   ),
 
   loginScreen(
     name: 'loginScreen',
-    path: '/loginScreen',
+    path: '/login',
   ),
+
+  signUpScreen(
+    name: 'signUpScreen',
+    path: '/sign-up',
+  ),
+
   favoriteScreen(
     name: 'favoriteScreen',
-    path: '/favoriteScreen',
+    path: '/favorite',
   ),
   ageScreen(
     name: 'ageScreen',
-    path: '/ageScreen',
+    path: '/age',
   ),
   weightScreen(
     name: 'weightScreen',
-    path: '/weightScreen',
+    path: '/weight',
   ),
   weightGoalScreen(
     name: 'weightGoalScreen',
-    path: '/weightGoalScreen',
+    path: '/weight-goal',
   ),
-  heightScreen(
-    name: 'heightScreen',
-    path: '/heightScreen',
+  height(
+    name: 'height',
+    path: '/height',
   ),
   levelScreen(
     name: 'levelScreen',
-    path: '/levelScreen',
+    path: '/level',
   ),
   goalScreen(
     name: 'goalScreen',
-    path: '/goalScreen',
+    path: '/goal',
   ),
   getStartScreen(
     name: 'getStartScreen',
-    path: '/getStartScreen',
+    path: '/get-start',
   ),
   homeScreen(
     name: 'homeScreen',
-    path: '/homeScreen',
+    path: '/home',
   ),
   controllerScreen(
     name: 'controllerScreen',
-    path: '/controllerScreen',
+    path: '/controller',
   ),
-  categoryScreen(
-    name: 'categoryScreen',
-    path: 'categoryScreen',
+  category(
+    name: 'category',
+    path: 'category',
   ),
   profileScreen(
     name: 'profileScreen',
-    path: '/profileScreen',
+    path: '/profile',
   ),
   exerciseScreen(
     name: 'exerciseScreen',
-    path: '/exerciseScreen',
+    path: '/exercise',
   ),
   exerciseDetailScreen(
-    name: 'exerciseDetailScreen',
-    path: 'exerciseDetailScreen',
+    name: 'exercise-detail',
+    path: 'exercise-detail',
   );
 
   const AppRoutes({

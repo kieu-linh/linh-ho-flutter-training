@@ -65,7 +65,7 @@ class _WelcomePageState extends State<WelcomePage> {
             right: 24,
             bottom: 24,
             child: FACarousel(
-              onSkip: () => GoRouter.of(context).go('/loginScreen'),
+              onSkip: () => GoRouter.of(context).go('/login'),
               onNext: () {
                 //if pageIndex < listWelcomes.length - 1 then next page
                 //else: page is the last page, navigate to login page
@@ -75,7 +75,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     curve: Curves.bounceIn,
                   );
                 } else {
-                  GoRouter.of(context).go('/loginScreen');
+                  GoRouter.of(context).go('/login');
                 }
               },
               pageIndex: pageIndex,

@@ -1,6 +1,8 @@
 class FAPath {
   static const login = '/User?select=*';
 
+  static const signUp = '/User';
+
   static const goal = '/Goal?select=*';
 
   static const category = '/Category?select=*';

@@ -21,7 +21,7 @@ class _WeightPageState extends State<WeightPage> {
     final s = FAUiS.of(context);
 
     return FAScaffold(
-      onBack: () => GoRouter.of(context).go('/ageScreen'),
+      onBack: () => GoRouter.of(context).go('/age'),
       currentStep: 3,
       title: s.weightTitle,
       body: Padding(
@@ -47,7 +47,7 @@ class _WeightPageState extends State<WeightPage> {
           controller: weightController,
         ),
       ),
-      onNext: () => GoRouter.of(context).go('/weightGoalScreen'),
+      onNext: () => GoRouter.of(context).go('/weight-goal'),
     );
   }
 }

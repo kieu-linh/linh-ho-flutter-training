@@ -41,8 +41,7 @@ class CategoryPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(18, 0, 18, 22),
                     child: FATopNavigation(
-                      onLeadingPress: () =>
-                          GoRouter.of(context).go('/homeScreen'),
+                      onLeadingPress: () => GoRouter.of(context).go('/home'),
                       title: s.categories,
                     ),
                   ),
@@ -71,8 +70,8 @@ class CategoryPage extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               radius: 56,
-                              backgroundImage:
-                                  AssetImage(listCategory![index].imagePath ?? ''),
+                              backgroundImage: AssetImage(
+                                  listCategory![index].imagePath ?? ''),
                             ),
                             const SizedBox(height: 20),
                             FAText.bodyLarge(

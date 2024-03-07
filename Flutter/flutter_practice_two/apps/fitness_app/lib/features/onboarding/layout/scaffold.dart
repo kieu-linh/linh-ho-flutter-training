@@ -35,7 +35,7 @@ class FAScaffold extends StatelessWidget {
           children: [
             FATopNavigation(
               trailing: TextButton(
-                onPressed: () => GoRouter.of(context).go('/getStartScreen'),
+                onPressed: () => GoRouter.of(context).go('/get-start'),
                 child: Text(
                   s.skipPageText,
                   style: context.textTheme.labelSmall,

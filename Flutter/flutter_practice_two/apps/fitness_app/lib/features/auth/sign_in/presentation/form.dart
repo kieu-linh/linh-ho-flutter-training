@@ -34,7 +34,9 @@ class EmailInput extends StatelessWidget {
 
 class PasswordInput extends StatelessWidget {
   const PasswordInput({
+    this.textInputAction = TextInputAction.done,
     this.readOnly = false,
+    this.hintText = '',
     this.onSubmit,
     this.onChanged,
     this.onTap,
@@ -44,16 +46,16 @@ class PasswordInput extends StatelessWidget {
   final Function(String)? onChanged;
   final VoidCallback? onTap;
   final bool readOnly;
+  final String hintText;
+  final TextInputAction textInputAction;
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return FAPasswordInput(
-      hintText: s.passwordHintText,
+      hintText: hintText,
       obscureText: true,
       validator: FAValidator.validatorPassword,
-      textInputAction: TextInputAction.done,
+      textInputAction: textInputAction,
       onChanged: onChanged,
       onTap: onTap,
       onFieldSubmit: (_) => onSubmit?.call(),

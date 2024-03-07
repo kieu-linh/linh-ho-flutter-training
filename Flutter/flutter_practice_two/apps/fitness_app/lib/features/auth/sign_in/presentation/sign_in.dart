@@ -1,9 +1,9 @@
 import 'package:fitness_app/core/utils/status.dart';
-import 'package:fitness_app/features/auth/login/bloc/login_bloc.dart';
-import 'package:fitness_app/features/auth/login/bloc/login_event.dart';
-import 'package:fitness_app/features/auth/login/bloc/login_state.dart';
-import 'package:fitness_app/features/auth/login/presentation/form.dart';
-import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
+import 'package:fitness_app/features/auth/sign_in/bloc/sign_in_bloc.dart';
+import 'package:fitness_app/features/auth/sign_in/bloc/sign_in_event.dart';
+import 'package:fitness_app/features/auth/sign_in/bloc/sign_in_state.dart';
+import 'package:fitness_app/features/auth/sign_in/presentation/form.dart';
+import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/snack_bar.dart';
@@ -19,28 +19,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignInPageState extends State<SignInPage> {
   final _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final s = FAUiS.of(context);
 
-    return BlocProvider<LoginBloc>(
-      create: (context) => LoginBloc(context.read<AuthRepository>()),
-      child: BlocListener<LoginBloc, LoginState>(
+    return BlocProvider(
+      create: (context) => SignInBloc(context.read<AuthRepository>()),
+      child: BlocListener<SignInBloc, SignInState>(
         // function listener use to listen the state of the bloc
         listener: (context, state) {
           // if success go to favoriteScreen
           if (state.status == SubmissionStatus.success) {
-            GoRouter.of(context).go('/favoriteScreen');
+            GoRouter.of(context).go('/favorite');
           }
 
           // if failure show snackbar with error message
@@ -75,28 +81,25 @@ class _LoginPageState extends State<LoginPage> {
                           style: context.textTheme.headlineMedium,
                         ),
                         context.sizedBox(height: 39),
-                        BlocBuilder<LoginBloc, LoginState>(
-                          builder: (context, state) {
-                            return EmailInput(
-                              onChanged: (email) => context
-                                  .read<LoginBloc>()
-                                  .add(LogInEmailChanged(email: email)),
-                              isValid: state.isEmailValid,
-                              readOnly:
-                                  state.status == SubmissionStatus.loading,
-                            );
-                          },
+                        BlocBuilder<SignInBloc, SignInState>(
                           buildWhen: (previous, current) =>
                               previous.isEmailValid != current.isEmailValid ||
                               previous.status != current.status,
+                          builder: (context, state) => EmailInput(
+                            onChanged: (email) => context
+                                .read<SignInBloc>()
+                                .add(SignInEmailChanged(email: email)),
+                            isValid: state.isEmailValid,
+                            readOnly: state.status == SubmissionStatus.loading,
+                          ),
                         ),
-                        const SizedBox(height: 14),
-                        BlocBuilder<LoginBloc, LoginState>(
+                        BlocBuilder<SignInBloc, SignInState>(
                           buildWhen: (previous, current) =>
                               previous.isValid != current.isValid ||
                               previous.status != current.status,
                           builder: (context, state) {
                             return PasswordInput(
+                              hintText: s.passwordHintText,
                               onTap: () => Future.delayed(
                                   const Duration(milliseconds: 500), () {
                                 _scrollController.animateTo(
@@ -108,17 +111,18 @@ class _LoginPageState extends State<LoginPage> {
                               }),
                               onSubmit: state.isValid
                                   ? () {
-                                      context.read<LoginBloc>().add(
-                                            LoginSubmitted(
+                                      context.read<SignInBloc>().add(
+                                            SignInSubmitted(
                                               email: state.email,
                                               password: state.password,
                                             ),
                                           );
                                     }
                                   : null,
-                              onChanged: (value) => context
-                                  .read<LoginBloc>()
-                                  .add(LogInPasswordChanged(password: value)),
+                              onChanged: (password) => context
+                                  .read<SignInBloc>()
+                                  .add(SignInPasswordChanged(
+                                      password: password)),
                               readOnly:
                                   state.status == SubmissionStatus.loading,
                             );
@@ -139,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         context.sizedBox(height: 34),
-                        BlocBuilder<LoginBloc, LoginState>(
+                        BlocBuilder<SignInBloc, SignInState>(
                           buildWhen: (previous, current) =>
                               previous.isValid != current.isValid ||
                               previous.status != current.status,
@@ -147,8 +151,8 @@ class _LoginPageState extends State<LoginPage> {
                             return FAButton(
                               onPressed: state.isValid
                                   ? () {
-                                      context.read<LoginBloc>().add(
-                                            LoginSubmitted(
+                                      context.read<SignInBloc>().add(
+                                            SignInSubmitted(
                                               email: state.email,
                                               password: state.password,
                                             ),
@@ -208,9 +212,8 @@ class _LoginPageState extends State<LoginPage> {
                                       text: s.registerText,
                                       style: context.textTheme.labelSmall,
                                       recognizer: TapGestureRecognizer()
-                                        ..onTap = () {
-                                          // Go to Register page
-                                        },
+                                        ..onTap = () =>
+                                            GoRouter.of(context).go('/sign-up'),
                                     ),
                                   ],
                                 ),

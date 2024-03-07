@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:fitness_app/features/auth/login/model/user_model.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class SharedPrefs {
   SharedPrefs(this.sharedPreferences);

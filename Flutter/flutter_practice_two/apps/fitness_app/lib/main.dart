@@ -1,6 +1,6 @@
 import 'package:api_client/api_client.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
-import 'package:fitness_app/features/auth/login/repositories/auth_repository.dart';
+import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
 import 'package:fitness_app/l10n/l10n_generated/l10n.dart';
 import 'package:fitness_app/routes/routes.dart';

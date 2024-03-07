@@ -20,7 +20,7 @@ class _AgePageState extends State<AgePage> {
     final s = FAUiS.of(context);
 
     return FAScaffold(
-      onBack: () => GoRouter.of(context).go('/favoriteScreen'),
+      onBack: () => GoRouter.of(context).go('/favorite'),
       currentStep: 2,
       title: s.yourOldText,
       body: context.sizedBox(
@@ -70,7 +70,7 @@ class _AgePageState extends State<AgePage> {
           ],
         ),
       ),
-      onNext: () => GoRouter.of(context).go('/weightScreen'),
+      onNext: () => GoRouter.of(context).go('/weight'),
     );
   }
 }

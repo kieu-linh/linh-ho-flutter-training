@@ -35,62 +35,64 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
     final s = FAUiS.of(context);
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                Image.asset(
-                  widget.exercise.backgroundImage ?? '',
-                  width: context.width,
-                  height: context.sizeHeight(379),
-                  fit: BoxFit.cover,
-                ),
-                Padding(
-                  padding: context.padding(top: 45),
-                  child: Column(
-                    children: [
-                      FAExerciseInfo(widget: widget),
-                      FADescriptionExercise(widget: widget),
-                      FAExerciseProgram(widget: widget),
-                      BlocProvider(
-                          create: (context) => HomeBloc(
-                                HomeRepository(context.read<ApiClient>()),
-                              )..add(HomeFetchAddExerciseData()),
-                          child: BlocBuilder<HomeBloc, HomeState>(
-                            builder: (context, state) {
-                              return FAAddExercise(
-                                addExercises: state.addExercises ?? [],
-                              );
-                            },
-                          )),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
-                        child: FAButton(
-                          text: s.startNow,
-                          onPressed: () {},
-                        ),
-                      ),
-                    ],
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Image.asset(
+                    widget.exercise.backgroundImage ?? '',
+                    width: context.width,
+                    height: context.sizeHeight(379),
+                    fit: BoxFit.cover,
                   ),
-                ),
-              ],
-            ),
-            Positioned(
-              left: 24,
-              right: 24,
-              child: FATopNavigation(
-                onLeadingPress: () =>
-                    GoRouter.of(context).go('/exerciseScreen'),
+                  Padding(
+                    padding: context.padding(top: 45),
+                    child: Column(
+                      children: [
+                        FAExerciseInfo(widget: widget),
+                        FADescriptionExercise(widget: widget),
+                        FAExerciseProgram(widget: widget),
+                        BlocProvider(
+                            create: (context) => HomeBloc(
+                                  HomeRepository(context.read<ApiClient>()),
+                                )..add(HomeFetchAddExerciseData()),
+                            child: BlocBuilder<HomeBloc, HomeState>(
+                              builder: (context, state) {
+                                return FAAddExercise(
+                                  addExercises: state.addExercises ?? [],
+                                );
+                              },
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
+                          child: FAButton(
+                            text: s.startNow,
+                            onPressed: () {},
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Positioned(
-              top: 380,
-              left: 20,
-              right: 20,
-              child: FAContainerExercise(widget: widget),
-            ),
-          ],
+              Positioned(
+                left: 24,
+                right: 24,
+                child: FATopNavigation(
+                  onLeadingPress: () => GoRouter.of(context).go('/exercise'),
+                ),
+              ),
+              Positioned(
+                top: 380,
+                left: 20,
+                right: 20,
+                child: FAContainerExercise(widget: widget),
+              ),
+            ],
+          ),
         ),
       ),
     );

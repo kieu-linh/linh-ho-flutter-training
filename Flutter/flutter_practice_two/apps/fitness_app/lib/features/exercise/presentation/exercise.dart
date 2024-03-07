@@ -41,46 +41,50 @@ class ExercisePage extends StatelessWidget {
                 Padding(
                   padding: context.padding(horizontal: 20),
                   child: FATopNavigation(
-                    onLeadingPress: () =>
-                        GoRouter.of(context).go('/homeScreen'),
+                    onLeadingPress: () => GoRouter.of(context).go('/home'),
                     title: s.fullExercise,
                   ),
                 ),
                 context.sizedBox(height: 22),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: context.padding(horizontal: 20),
-                    child: Row(
-                      children: List.generate(state.benefits!.length, (index) {
-                        return GestureDetector(
-                          onTap: () => context
-                              .read<ExerciseBloc>()
-                              .add(ExerciseOnTap(index)),
-                          child: Container(
-                            margin: const EdgeInsets.only(right: 13),
-                            padding:
-                                context.padding(vertical: 12, horizontal: 25),
-                            decoration: BoxDecoration(
-                              color: state.index == index
-                                  ? context.colorScheme.tertiary
-                                  : context.colorScheme.onSurfaceVariant
-                                      .withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(6),
+                ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context)
+                      .copyWith(scrollbars: false),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: context.padding(horizontal: 20),
+                      child: Row(
+                        children:
+                            List.generate(state.benefits!.length, (index) {
+                          return GestureDetector(
+                            onTap: () => context
+                                .read<ExerciseBloc>()
+                                .add(ExerciseOnTap(index)),
+                            child: Container(
+                              margin: const EdgeInsets.only(right: 13),
+                              padding:
+                                  context.padding(vertical: 12, horizontal: 25),
+                              decoration: BoxDecoration(
+                                color: state.index == index
+                                    ? context.colorScheme.tertiary
+                                    : context.colorScheme.onSurfaceVariant
+                                        .withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              child: Text(
+                                state.benefits![index].title ?? '',
+                                style: state.index == index
+                                    ? context.textTheme.titleLarge?.copyWith(
+                                        fontSize: 12,
+                                        color: context.colorScheme.secondary,
+                                      )
+                                    : context.textTheme.titleLarge
+                                        ?.copyWith(fontSize: 12),
+                              ),
                             ),
-                            child: Text(
-                              state.benefits![index].title ?? '',
-                              style: state.index == index
-                                  ? context.textTheme.titleLarge?.copyWith(
-                                      fontSize: 12,
-                                      color: context.colorScheme.secondary,
-                                    )
-                                  : context.textTheme.titleLarge
-                                      ?.copyWith(fontSize: 12),
-                            ),
-                          ),
-                        );
-                      }),
+                          );
+                        }),
+                      ),
                     ),
                   ),
                 ),
@@ -105,7 +109,7 @@ class ExercisePage extends StatelessWidget {
                                 addExercise: exercise,
                                 onPressed: () {
                                   GoRouter.of(context).goNamed(
-                                    'exerciseDetailScreen',
+                                    'exercise-detail',
                                     extra: exercise,
                                   );
                                 },

@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   onTap: () async {
                     final user = await context.read<SharedPrefs>().getAccount();
                     if (user == null) {
-                      GoRouter.of(context).go('/welcomeScreen');
+                      GoRouter.of(context).go('/welcome');
                     } else {
                       GoRouter.of(context).goNamed('homeScreen');
                     }

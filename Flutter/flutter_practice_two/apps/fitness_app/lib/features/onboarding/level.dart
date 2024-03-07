@@ -27,7 +27,7 @@ class _LevelPageState extends State<LevelPage> {
     ];
 
     return FAScaffold(
-      onBack: () => GoRouter.of(context).go('/heightScreen'),
+      onBack: () => GoRouter.of(context).go('/height'),
       currentStep: 6,
       title: s.levelText,
       body: Column(
@@ -56,7 +56,7 @@ class _LevelPageState extends State<LevelPage> {
           ),
         ],
       ),
-      onNext: () => GoRouter.of(context).go('/goalScreen'),
+      onNext: () => GoRouter.of(context).go('/goal'),
     );
   }
 }

@@ -53,4 +53,17 @@ class FAValidator {
 
     return null;
   }
+
+  static String? validatorInput(dynamic value) {
+    /// check input is String or not
+    if (value is String) {
+      if (value.isEmpty) {
+        return FAUiS.current.requiredValue;
+      }
+    } else {
+      return FAUiS.current.requiredValue;
+    }
+
+    return null;
+  }
 }
