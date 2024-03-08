@@ -43,7 +43,7 @@ class AuthRepository {
     }
   }
 
-  Future<void> signUp({
+  Future<User> signUp({
     String name = '',
     String email = '',
     String password = '',
@@ -63,9 +63,8 @@ class AuthRepository {
           )
           .toList();
 
-      /// If user account is empty, it will post account data.
+      /// If user account is empty, it will push account data.
       if (user.isEmpty) {
-        print("post");
         this.apiClient.post(
               endpoint: FAPath.signUp,
               body: jsonEncode(
@@ -76,8 +75,16 @@ class AuthRepository {
                 },
               ),
             );
+
+        /// get account data from server and return it.
+        User newUser = User(
+          name: name,
+          email: email,
+          password: password,
+        );
+        return newUser;
       } else {
-        throw Failure(400, FAUiS.current.errorMessage);
+        throw Failure(400, 'Account already exists!');
       }
     } else {
       throw Failure(

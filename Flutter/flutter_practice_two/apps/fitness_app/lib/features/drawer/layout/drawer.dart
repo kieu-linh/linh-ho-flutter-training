@@ -16,10 +16,12 @@ class DrawerPage extends StatelessWidget {
   const DrawerPage({
     required this.user,
     this.onTap,
+    this.name,
     super.key,
   });
   final User user;
   final VoidCallback? onTap;
+  final String? name;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class DrawerPage extends StatelessWidget {
                       const SizedBox(height: 7),
                       FAText.headlineLarge(
                         context,
-                        text: '${user.name} !',
+                        text: name ?? '${user.name} !',
                       ),
                       const SizedBox(height: 8),
                       Text(s.basicMemberText,
@@ -80,9 +82,15 @@ class DrawerPage extends StatelessWidget {
                     children: [
                       FASideMenu(icon: FAIcon.iconPlan, title: s.plan),
                       FASideMenu(icon: FAIcon.iconTrain, title: s.training),
-                      FASideMenu(
-                          icon: FAIcon.iconCategory, title: s.categories),
-                      FASideMenu(icon: FAIcon.iconAccount, title: s.myAccount),
+                      GestureDetector(
+                        onTap: () => GoRouter.of(context).goNamed('category'),
+                        child: FASideMenu(
+                            icon: FAIcon.iconCategory, title: s.categories),
+                      ),
+                      GestureDetector(
+                          onTap: () => GoRouter.of(context).go('/profile'),
+                          child: FASideMenu(
+                              icon: FAIcon.iconAccount, title: s.myAccount)),
                       FASideMenu(
                           icon: FAIcon.iconFavorite, title: s.myFavorite),
                       FASideMenu(icon: FAIcon.iconSetting, title: s.appSetting),

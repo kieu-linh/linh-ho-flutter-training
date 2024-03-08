@@ -19,17 +19,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
   });
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,15 +35,15 @@ class _HomePageState extends State<HomePage> {
         ..add(HomeFetchMealData())
         ..add(HomeFetchPopularExerciseData())
         ..add(HomeFetchAddExerciseData())
-        ..add(HomeFetchUserData()),
+        ..add(HomeFetchUserData())
+        ..add(HomeGoalOnTap()),
       child: BlocBuilder<HomeBloc, HomeState>(
-        buildWhen: (previous, current) => previous.fetchGoalStatus != current,
+        buildWhen: (previous, current) => previous != current,
         builder: (context, state) {
           return Scaffold(
             appBar: FAAppBar(
               onPressed: () => zoomDrawerController.toggle?.call(),
-              controller: searchController,
-              name: state.user?.name,
+              name: '${state.user?.name} !',
             ),
             body: ScrollConfiguration(
               behavior:
@@ -63,7 +56,8 @@ class _HomePageState extends State<HomePage> {
                     FATitleHome(title: s.selectGoalText),
                     BlocBuilder<HomeBloc, HomeState>(
                       buildWhen: (previous, current) =>
-                          previous.fetchGoalStatus != current.fetchGoalStatus,
+                          previous.fetchGoalStatus != current.fetchGoalStatus ||
+                          previous.index != current.index,
                       builder: (context, state) {
                         switch (state.fetchGoalStatus) {
                           case SubmissionStatus.initial:
@@ -71,7 +65,13 @@ class _HomePageState extends State<HomePage> {
                           case SubmissionStatus.loading:
                             return FAShimmer.goal();
                           case SubmissionStatus.success:
-                            return FASelectGoal(goals: state.goals ?? []);
+                            return FASelectGoal(
+                              goals: state.goals ?? [],
+                              selectIndex: state.index,
+                              onTap: (index) => context.read<HomeBloc>().add(
+                                    HomeGoalOnTap(index: index),
+                                  ),
+                            );
                           case SubmissionStatus.failure:
                             return Text('Error: ${state.errorMessage}');
                         }

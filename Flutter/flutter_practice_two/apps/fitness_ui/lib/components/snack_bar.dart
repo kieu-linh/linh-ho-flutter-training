@@ -69,6 +69,7 @@ class FASnackBar {
             ),
           ],
         ),
+        duration: const Duration(seconds: 1),
         behavior: SnackBarBehavior.floating,
         backgroundColor: context.colorScheme.onTertiary,
         elevation: 0,

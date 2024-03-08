@@ -5,11 +5,11 @@ import 'package:fitness_app/features/home/model/exercise.dart';
 class ExerciseState extends Equatable {
   const ExerciseState({
     this.fetchBenefitStatus = SubmissionStatus.initial,
+    this.fetchExercisesStatus = SubmissionStatus.initial,
+    this.exercises = const [],
     this.benefits = const [],
     this.errorMessage = '',
     this.index = 0,
-    this.fetchExercisesStatus = SubmissionStatus.initial,
-    this.exercises = const [],
   });
 
   final SubmissionStatus fetchBenefitStatus;

@@ -1,10 +1,13 @@
 import 'package:api_client/api_client.dart';
 import 'package:bloc/bloc.dart';
+import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/core/utils/validator.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_app/features/auth/sign_up/bloc/sign_up_event.dart';
 import 'package:fitness_app/features/auth/sign_up/bloc/sign_up_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   SignUpBloc(this.repository) : super(const SignUpState()) {
@@ -25,7 +28,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   ) async {
     /// Check form field are valid
     bool isFormValid = _checkFormValid(
-      state.name,
+      event.name,
       state.email,
       state.password,
       state.confirmPassword,
@@ -47,7 +50,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     /// Check form field are valid
     bool isFormValid = _checkFormValid(
       state.name,
-      state.email,
+      event.email,
       state.password,
       state.confirmPassword,
     );
@@ -71,7 +74,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     bool isFormValid = _checkFormValid(
       state.name,
       state.email,
-      state.password,
+      event.password,
       state.confirmPassword,
     );
 
@@ -93,10 +96,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       state.name,
       state.email,
       state.password,
-      state.confirmPassword,
+      event.confirmPassword,
     );
-    print(
-        'fgh $isFormValid ${state.name} ${state.email} ${state.password} ${state.confirmPassword}}');
     emit(state.copyWith(
       status: SubmissionStatus.initial,
       confirmPassword: event.confirmPassword,
@@ -114,17 +115,17 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
     // get data from repository
     try {
-      /// emit the success state.
-      emit(state.copyWith(status: SubmissionStatus.success));
-
-      this.repository.signUp(
+      User user = await this.repository.signUp(
             name: event.name,
             email: event.email,
             password: event.password,
           );
 
-      /// Save the user data to the local storage.
-      // SharedPrefs(SharedPreferences.getInstance()).saveAccount(user);
+      /// emit the success state.
+      emit(state.copyWith(status: SubmissionStatus.success));
+
+      // Save the user data to the local storage.
+      SharedPrefs(SharedPreferences.getInstance()).saveAccount(user);
     } catch (e) {
       emit(
         state.copyWith(
@@ -145,6 +146,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     return FAValidator.validatorInput(name) == null &&
         FAValidator.validatorEmail(email) == null &&
         FAValidator.validatorPassword(pass) == null &&
-        FAValidator.validatorPassword(confirmPass) == null;
+        FAValidator.validatorConfirmPassword(confirmPass, pass) == null;
   }
 }

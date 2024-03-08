@@ -66,4 +66,37 @@ class FAValidator {
 
     return null;
   }
+
+  /// validator for password field
+  static String? validatorConfirmPassword(dynamic value, String password) {
+    const pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])';
+    final regex = RegExp(pattern);
+
+    /// check password is String or not
+    if (value is String) {
+      /// check empty password
+      if (value.isEmpty) {
+        return FAUiS.current.requiredValue;
+      }
+
+      /// check password length
+      else if (value.length < 6) {
+        return FAUiS.current.lengthPassText;
+      }
+
+      /// check valid password
+      else if (!regex.hasMatch(value)) {
+        return FAUiS.current.characterPassText;
+      }
+      /// check valid password
+      else if (value != password) {
+        return 'Password not match';
+      }
+    } else {
+      return FAUiS.current.passwordValid;
+    }
+
+    return null;
+  }
+  
 }

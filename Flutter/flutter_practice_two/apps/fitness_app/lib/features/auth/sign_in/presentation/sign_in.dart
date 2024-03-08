@@ -46,7 +46,7 @@ class _SignInPageState extends State<SignInPage> {
         listener: (context, state) {
           // if success go to favoriteScreen
           if (state.status == SubmissionStatus.success) {
-            GoRouter.of(context).go('/favorite');
+            GoRouter.of(context).goNamed('homeScreen');
           }
 
           // if failure show snackbar with error message

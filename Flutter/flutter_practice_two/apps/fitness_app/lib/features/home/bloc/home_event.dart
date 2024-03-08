@@ -20,3 +20,12 @@ class HomeFetchPopularExerciseData extends HomeEvent {}
 class HomeFetchAddExerciseData extends HomeEvent {}
 
 class HomeFetchUserData extends HomeEvent {}
+
+class HomeGoalOnTap extends HomeEvent {
+  HomeGoalOnTap({this.index = 0});
+
+  final int index;
+
+  @override
+  List<Object> get props => [index];
+}

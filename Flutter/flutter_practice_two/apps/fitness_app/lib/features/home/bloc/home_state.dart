@@ -19,6 +19,7 @@ class HomeState extends Equatable {
     this.popularExercises = const [],
     this.addExercises = const [],
     this.errorMessage = '',
+    this.index = 0,
     this.user,
   });
 
@@ -40,6 +41,7 @@ class HomeState extends Equatable {
   final String errorMessage;
 
   final User? user;
+  final int index;
 
   HomeState copyWith({
     SubmissionStatus? fetchGoalsStatus,
@@ -54,6 +56,7 @@ class HomeState extends Equatable {
     List<Exercise>? addExercises,
     String? errorMessage,
     User? user,
+    int? index,
   }) {
     return HomeState(
       fetchGoalStatus: fetchGoalsStatus ?? this.fetchGoalStatus,
@@ -70,6 +73,7 @@ class HomeState extends Equatable {
       addExercises: addExercises ?? this.addExercises,
       errorMessage: errorMessage ?? this.errorMessage,
       user: user ?? this.user,
+      index: index ?? this.index,
     );
   }
 
@@ -87,5 +91,6 @@ class HomeState extends Equatable {
         addExercises,
         errorMessage,
         user,
+        index,
       ];
 }

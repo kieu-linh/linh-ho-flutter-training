@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/utils/status.dart';
+import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_app/features/auth/sign_up/bloc/sign_up_bloc.dart';
 import 'package:fitness_app/features/auth/sign_up/bloc/sign_up_event.dart';
@@ -46,6 +47,7 @@ class _SignUpPageState extends State<SignUpPage> {
         listener: (context, state) {
           // if success go to favoriteScreen
           if (state.status == SubmissionStatus.success) {
+            FASnackBar.success(context, message: 'Created account success!');
             GoRouter.of(context).go('/favorite');
           }
 
@@ -155,6 +157,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                 .add(SignUpConfirmPasswordChanged(
                                     confirmPassword: confirmPassword)),
                             readOnly: state.status == SubmissionStatus.loading,
+                            validator: (value) {
+                              return FAValidator.validatorConfirmPassword(
+                                  value, state.password);
+                            },
                           ),
                         ),
                         context.sizedBox(height: 20),

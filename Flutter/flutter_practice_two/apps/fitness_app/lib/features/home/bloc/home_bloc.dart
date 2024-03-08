@@ -14,6 +14,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeFetchPopularExerciseData>(_onFetchPopularExerciseData);
     on<HomeFetchAddExerciseData>(_onFetchAddExerciseData);
     on<HomeFetchUserData>(_onFetchUserData);
+    on<HomeGoalOnTap>(_onGoalOnTap);
   }
   final HomeRepository repository;
   // SharedPrefs sharedPrefs = SharedPrefs(SharedPreferences.getInstance());
@@ -141,5 +142,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     }
+  }
+
+  Future<void> _onGoalOnTap(
+    HomeGoalOnTap event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(state.copyWith(index: event.index));
+    print(event.index);
   }
 }
