@@ -5,7 +5,6 @@ import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,8 +13,6 @@ class GetStartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Scaffold(
       body: Stack(
         children: [
@@ -27,20 +24,20 @@ class GetStartPage extends StatelessWidget {
                   onLeadingPress: () => GoRouter.of(context).go('/goal'),
                 ),
                 const Spacer(),
-                FAText.displayLarge(context, text: s.startText),
+                FAText.displayLarge(context, text: context.l10n.startText),
                 const SizedBox(height: 8),
                 FAText.headlineSmall(
                   context,
-                  text: s.startDescription,
+                  text: context.l10n.startDescription,
                   textAlign: TextAlign.center,
                 ),
                 context.sizedBox(height: 50),
                 Image.asset(FAImage.imgStart),
                 context.sizedBox(height: 22),
                 FARichText(
-                  fistText: s.firstStartText,
-                  secondText: s.secondStartText,
-                  thirdText: s.thirdStartText,
+                  fistText: context.l10n.firstStartText,
+                  secondText: context.l10n.secondStartText,
+                  thirdText: context.l10n.thirdStartText,
                   textStyleFirst: context.textTheme.displayMedium,
                   textStyleSecond: context.textTheme.displayMedium
                       ?.copyWith(color: context.colorScheme.primary),
@@ -54,7 +51,7 @@ class GetStartPage extends StatelessWidget {
             right: 20,
             bottom: 20,
             child: FAButton(
-              text: s.getStartedText,
+              text: context.l10n.getStartedText,
               onPressed: () => GoRouter.of(context).goNamed('homeScreen'),
             ),
           ),

@@ -1,7 +1,6 @@
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,12 +16,10 @@ class _AgePageState extends State<AgePage> {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return FAScaffold(
       onBack: () => GoRouter.of(context).go('/favorite'),
       currentStep: 2,
-      title: s.yourOldText,
+      title: context.l10n.yourOldText,
       body: context.sizedBox(
         height: 300,
         child: Stack(

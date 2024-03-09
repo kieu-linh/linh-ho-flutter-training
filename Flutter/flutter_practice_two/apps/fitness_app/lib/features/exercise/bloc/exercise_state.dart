@@ -13,11 +13,11 @@ class ExerciseState extends Equatable {
   });
 
   final SubmissionStatus fetchBenefitStatus;
-  final List<Benefit>? benefits;
+  final List<Benefit> benefits;
   final int index;
 
   final SubmissionStatus fetchExercisesStatus;
-  final List<Exercise>? exercises;
+  final List<Exercise> exercises;
 
   final String errorMessage;
 

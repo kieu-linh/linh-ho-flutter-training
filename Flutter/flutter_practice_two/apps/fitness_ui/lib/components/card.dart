@@ -2,7 +2,6 @@ import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FACard extends StatelessWidget {
@@ -12,8 +11,6 @@ class FACard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Stack(
       children: [
         Container(
@@ -45,7 +42,7 @@ class FACard extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        s.cardTitle,
+                        context.l10n.cardTitle,
                         style: AppTextStyles.textButtonMedium
                             .copyWith(fontSize: 17),
                       ),
@@ -59,7 +56,7 @@ class FACard extends StatelessWidget {
                         child: Padding(
                           padding: context.padding(horizontal: 16, vertical: 6),
                           child: Text(
-                            s.buttonCardText,
+                            context.l10n.buttonCardText,
                             style: AppTextStyles.textAppBar.copyWith(
                               fontSize: 12,
                               color: context.colorScheme.secondary,

@@ -3,7 +3,6 @@ import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FAMacronutrientGoal extends StatelessWidget {
@@ -13,8 +12,6 @@ class FAMacronutrientGoal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Column(
       children: [
         Padding(
@@ -23,7 +20,7 @@ class FAMacronutrientGoal extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                s.macronutrient,
+                context.l10n.macronutrient,
                 style: AppTextStyles.textButtonMedium.copyWith(
                   color: context.colorScheme.tertiary,
                 ),

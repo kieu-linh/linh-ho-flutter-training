@@ -315,7 +315,6 @@ Center carousel(BuildContext context) {
   type: FAInput,
 )
 Center input(BuildContext context) {
-  final s = FAUiS.of(context);
   return Center(
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50),
@@ -323,7 +322,7 @@ Center input(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FAInput(
-            hintText: s.EmailHintText,
+            hintText: context.l10n.EmailHintText,
             icon: FAIcon.iconTick,
             validator: (value) {
               return FAValidator.validatorEmail(value);
@@ -331,7 +330,7 @@ Center input(BuildContext context) {
           ),
           const SizedBox(height: 10),
           FAPasswordInput(
-            hintText: s.passwordHintText,
+            hintText: context.l10n.passwordHintText,
             obscureText: true,
             validator: FAValidator.validatorPassword,
           ),

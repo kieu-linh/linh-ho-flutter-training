@@ -2,7 +2,7 @@ import 'package:fitness_app/seeds/favorite.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,11 +11,9 @@ class FavoritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return FAScaffold(
       currentStep: 1,
-      title: s.yourFavoriteText,
+      title: context.l10n.yourFavoriteText,
       body: context.sizedBox(
         height: 430,
         child: ScrollConfiguration(

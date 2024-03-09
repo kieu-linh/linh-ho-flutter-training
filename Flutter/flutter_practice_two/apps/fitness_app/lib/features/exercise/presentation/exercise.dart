@@ -4,14 +4,12 @@ import 'package:fitness_app/features/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
 import 'package:fitness_app/features/exercise/repositories/exercise_repositories.dart';
-import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/shimmer.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -21,8 +19,6 @@ class ExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return BlocProvider(
       create: (context) =>
           ExerciseBloc(ExerciseRepository(context.read<ApiClient>()))
@@ -30,9 +26,9 @@ class ExercisePage extends StatelessWidget {
             ..add(ExerciseFetchExerciseData()),
       child: BlocBuilder<ExerciseBloc, ExerciseState>(
         builder: (context, state) {
-          final listExercise = state.exercises?.where((e) {
+          final listExercise = state.exercises.where((e) {
             return e.benefit?.benefitID ==
-                state.benefits![state.index].benefitID;
+                state.benefits[state.index].benefitID;
           }).toList();
 
           return Scaffold(
@@ -42,7 +38,7 @@ class ExercisePage extends StatelessWidget {
                   padding: context.padding(horizontal: 20),
                   child: FATopNavigation(
                     onLeadingPress: () => GoRouter.of(context).go('/home'),
-                    title: s.fullExercise,
+                    title: context.l10n.fullExercise,
                   ),
                 ),
                 context.sizedBox(height: 22),
@@ -54,8 +50,7 @@ class ExercisePage extends StatelessWidget {
                     child: Padding(
                       padding: context.padding(horizontal: 20),
                       child: Row(
-                        children:
-                            List.generate(state.benefits!.length, (index) {
+                        children: List.generate(state.benefits.length, (index) {
                           return GestureDetector(
                             onTap: () => context
                                 .read<ExerciseBloc>()
@@ -72,7 +67,7 @@ class ExercisePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
-                                state.benefits![index].title ?? '',
+                                state.benefits[index].title ?? '',
                                 style: state.index == index
                                     ? context.textTheme.titleLarge?.copyWith(
                                         fontSize: 12,
@@ -103,8 +98,7 @@ class ExercisePage extends StatelessWidget {
                           return ListView.separated(
                             padding: context.padding(horizontal: 20),
                             itemBuilder: (context, index) {
-                              final exercise =
-                                  listExercise?[index] ?? Exercise();
+                              final exercise = listExercise[index];
                               return FACardContainer(
                                 addExercise: exercise,
                                 onPressed: () {
@@ -120,7 +114,7 @@ class ExercisePage extends StatelessWidget {
                               endIndent: 0,
                               indent: 0,
                             ),
-                            itemCount: listExercise?.length ?? 0,
+                            itemCount: listExercise.length,
                           );
                         case SubmissionStatus.failure:
                           return Text('Error: ${state.errorMessage}');

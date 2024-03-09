@@ -7,7 +7,7 @@ import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -17,8 +17,6 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return BlocProvider(
       create: (context) =>
           CategoryBloc(CategoryRepository(context.read<ApiClient>()))
@@ -42,7 +40,7 @@ class CategoryPage extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(18, 0, 18, 22),
                     child: FATopNavigation(
                       onLeadingPress: () => GoRouter.of(context).go('/home'),
-                      title: s.categories,
+                      title: context.l10n.categories,
                     ),
                   ),
                   Padding(

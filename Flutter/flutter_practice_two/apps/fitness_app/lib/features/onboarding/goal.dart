@@ -4,7 +4,6 @@ import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,12 +19,10 @@ class _GoalPageState extends State<GoalPage> {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     final listText = [
-      s.weightLoss,
-      s.gainMuscle,
-      s.improveFitness,
+      context.l10n.weightLoss,
+      context.l10n.gainMuscle,
+      context.l10n.improveFitness,
     ];
     final listIcon = [
       FAIcon.iconWeightLoss,
@@ -36,7 +33,7 @@ class _GoalPageState extends State<GoalPage> {
     return FAScaffold(
       onBack: () => GoRouter.of(context).go('/level'),
       currentStep: 7,
-      title: s.goalText,
+      title: context.l10n.goalText,
       body: Column(
         children: [
           context.sizedBox(height: 140),

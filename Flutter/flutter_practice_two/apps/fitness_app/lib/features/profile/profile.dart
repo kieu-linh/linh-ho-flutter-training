@@ -5,7 +5,7 @@ import 'package:fitness_app/features/profile/widgets/user_info.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,8 +21,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Scaffold(
       body: Padding(
         padding: context.padding(
@@ -35,7 +33,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 FATopNavigation(
                   onLeadingPress: () => GoRouter.of(context).go('/home'),
                   padding: const EdgeInsets.only(top: 2),
-                  title: s.profile,
+                  title: context.l10n.profile,
                   onTrailingPress: () {},
                   trailing: FAIcons.edit(),
                 ),

@@ -13,7 +13,7 @@ import 'package:fitness_app/features/home/repositories/home_repositories.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -32,8 +32,6 @@ class ExerciseDetailPage extends StatefulWidget {
 class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Scaffold(
       body: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -69,7 +67,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
                           child: FAButton(
-                            text: s.startNow,
+                            text: context.l10n.startNow,
                             onPressed: () {},
                           ),
                         ),

@@ -14,7 +14,6 @@ import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:fitness_app/features/auth/sign_in/presentation/form.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -39,8 +38,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return BlocProvider(
       create: (context) => SignUpBloc(context.read<AuthRepository>()),
       child: BlocListener<SignUpBloc, SignUpState>(
@@ -77,11 +74,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         context.sizedBox(height: 30),
                         FAText.displayLarge(
                           context,
-                          text: s.createAccountTitle,
+                          text: context.l10n.createAccountTitle,
                         ),
                         const SizedBox(height: 11),
                         Text(
-                          s.signUpDescription,
+                          context.l10n.signUpDescription,
                           style: context.textTheme.headlineMedium,
                         ),
                         context.sizedBox(height: 39),
@@ -93,8 +90,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                 .read<SignUpBloc>()
                                 .add(SignUpNameChanged(name: name)),
                             readOnly: state.status == SubmissionStatus.loading,
-                            hintText: s.fullNameText,
+                            hintText: context.l10n.fullNameText,
                             textInputAction: TextInputAction.next,
+                            validator: (value) =>
+                                FAValidator.validatorInput(state.name),
                           ),
                         ),
                         BlocBuilder<SignUpBloc, SignUpState>(
@@ -115,7 +114,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               previous.status != current.status,
                           builder: (context, state) => PasswordInput(
                             onSubmit: () {},
-                            hintText: s.passwordHintText,
+                            hintText: context.l10n.passwordHintText,
                             textInputAction: TextInputAction.next,
                             onChanged: (password) => context
                                 .read<SignUpBloc>()
@@ -133,7 +132,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 const Duration(milliseconds: 500), () {
                               _scrollController.animateTo(
                                 _scrollController.position.maxScrollExtent -
-                                    400,
+                                    100,
                                 duration: const Duration(milliseconds: 50),
                                 curve: Curves.ease,
                               );
@@ -151,7 +150,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         );
                                   }
                                 : null,
-                            hintText: s.confirmPassText,
+                            hintText: context.l10n.confirmPassText,
                             onChanged: (confirmPassword) => context
                                 .read<SignUpBloc>()
                                 .add(SignUpConfirmPasswordChanged(
@@ -182,7 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         );
                                   }
                                 : null,
-                            text: s.createAccountTitle,
+                            text: context.l10n.createAccountTitle,
                             color: state.isValid
                                 ? context.colorScheme.primary
                                 : context.colorScheme.outlineVariant,
@@ -194,7 +193,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              s.registerWithText,
+                              context.l10n.registerWithText,
                               style: context.textTheme.bodySmall,
                             ),
                           ],
@@ -203,14 +202,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         FAButton.outline(
                           onPressed: () {},
                           icon: FAIcon.iconGoogle,
-                          text: s.googleText,
+                          text: context.l10n.googleText,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         ),
                         const SizedBox(height: 8),
                         FAButton.text(
                           onPressed: () {},
                           icon: FAIcon.iconFacebook,
-                          text: s.facebookText,
+                          text: context.l10n.facebookText,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         ),
                         context.sizedBox(height: 48),
@@ -223,14 +222,14 @@ class _SignUpPageState extends State<SignUpPage> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: s.haveAccountText,
+                                      text: context.l10n.haveAccountText,
                                       style: context.textTheme.labelSmall
                                           ?.copyWith(
                                         fontWeight: AppFontWeight.medium,
                                       ),
                                     ),
                                     TextSpan(
-                                      text: s.loginButtonText,
+                                      text: context.l10n.loginButtonText,
                                       style: context.textTheme.labelSmall,
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () =>

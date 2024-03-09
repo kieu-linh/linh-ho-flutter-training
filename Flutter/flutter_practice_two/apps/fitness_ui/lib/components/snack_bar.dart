@@ -5,7 +5,6 @@ import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -81,10 +80,9 @@ class FASnackBar {
     BuildContext context, {
     required String message,
   }) {
-    final s = FAUiS.of(context);
     showSnackBar(
       context,
-      title: s.wellDone,
+      title: context.l10n.wellDone,
       message: message,
       color: AppColor.bgSnackBar,
       iconColor: AppColor.iconSuccess,
@@ -96,10 +94,9 @@ class FASnackBar {
     BuildContext context, {
     required String message,
   }) {
-    final s = FAUiS.of(context);
     showSnackBar(
       context,
-      title: s.ohSnap,
+      title: context.l10n.ohSnap,
       message: message,
     );
   }

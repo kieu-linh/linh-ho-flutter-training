@@ -2,7 +2,6 @@ import 'package:fitness_app/features/exercise_detail/exercise_detail.dart';
 import 'package:fitness_app/seeds/add_exercise.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FAExerciseProgram extends StatefulWidget {
@@ -22,8 +21,6 @@ class _FAExerciseProgramState extends State<FAExerciseProgram> {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 35),
       child: Column(
@@ -32,7 +29,7 @@ class _FAExerciseProgramState extends State<FAExerciseProgram> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                s.exerciseProgram,
+                context.l10n.exerciseProgram,
                 style: context.textTheme.labelSmall?.copyWith(fontSize: 16),
               ),
             ],

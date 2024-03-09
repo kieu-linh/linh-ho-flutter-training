@@ -14,7 +14,7 @@ import 'package:fitness_app/features/home/repositories/home_repositories.dart';
 import 'package:fitness_ui/components/app_bar.dart';
 import 'package:fitness_ui/components/card.dart';
 import 'package:fitness_ui/components/shimmer.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -26,8 +26,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return BlocProvider(
       create: (context) => HomeBloc(HomeRepository(context.read<ApiClient>()))
         ..add(HomeFetchGoalData())
@@ -53,7 +51,7 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     FACard(),
-                    FATitleHome(title: s.selectGoalText),
+                    FATitleHome(title: context.l10n.selectGoalText),
                     BlocBuilder<HomeBloc, HomeState>(
                       buildWhen: (previous, current) =>
                           previous.fetchGoalStatus != current.fetchGoalStatus ||
@@ -79,8 +77,8 @@ class HomePage extends StatelessWidget {
                     ),
                     FATitleHome(
                       onPressed: () => GoRouter.of(context).goNamed('category'),
-                      title: s.category,
-                      titleSmall: s.seeAll,
+                      title: context.l10n.category,
+                      titleSmall: context.l10n.seeAll,
                     ),
                     BlocBuilder<HomeBloc, HomeState>(
                       buildWhen: (previous, current) =>
@@ -101,8 +99,8 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                     FATitleHome(
-                      title: s.popularExerciseDescription,
-                      titleSmall: s.seeAll,
+                      title: context.l10n.popularExerciseDescription,
+                      titleSmall: context.l10n.seeAll,
                     ),
                     BlocBuilder<HomeBloc, HomeState>(
                       buildWhen: (previous, current) =>
@@ -122,7 +120,9 @@ class HomePage extends StatelessWidget {
                         }
                       },
                     ),
-                    FATitleHome(title: s.mealPlans, titleSmall: s.seeAll),
+                    FATitleHome(
+                        title: context.l10n.mealPlans,
+                        titleSmall: context.l10n.seeAll),
                     BlocBuilder<HomeBloc, HomeState>(
                       buildWhen: (previous, current) =>
                           previous.fetchMealStatus != current.fetchMealStatus,
@@ -139,7 +139,9 @@ class HomePage extends StatelessWidget {
                         }
                       },
                     ),
-                    FATitleHome(title: s.addExerciseText, titleSmall: s.seeAll),
+                    FATitleHome(
+                        title: context.l10n.addExerciseText,
+                        titleSmall: context.l10n.seeAll),
                     BlocBuilder<HomeBloc, HomeState>(
                       buildWhen: (previous, current) =>
                           previous.fetchAddExercisesStatus !=

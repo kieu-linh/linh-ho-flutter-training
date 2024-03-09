@@ -6,7 +6,6 @@ import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,7 +24,6 @@ class DrawerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
 
     return Stack(
       children: [
@@ -61,7 +59,7 @@ class DrawerPage extends StatelessWidget {
                         text: name ?? '${user.name} !',
                       ),
                       const SizedBox(height: 8),
-                      Text(s.basicMemberText,
+                      Text(context.l10n.basicMemberText,
                           style: context.textTheme.titleSmall),
                     ],
                   ),
@@ -69,7 +67,7 @@ class DrawerPage extends StatelessWidget {
                   Padding(
                     padding: context.padding(left: 26),
                     child:
-                        Text(s.dashboard, style: context.textTheme.labelMedium),
+                        Text(context.l10n.dashboard, style: context.textTheme.labelMedium),
                   ),
                   Divider(
                     thickness: 1,
@@ -80,23 +78,23 @@ class DrawerPage extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      FASideMenu(icon: FAIcon.iconPlan, title: s.plan),
-                      FASideMenu(icon: FAIcon.iconTrain, title: s.training),
+                      FASideMenu(icon: FAIcon.iconPlan, title: context.l10n.plan),
+                      FASideMenu(icon: FAIcon.iconTrain, title: context.l10n.training),
                       GestureDetector(
                         onTap: () => GoRouter.of(context).goNamed('category'),
                         child: FASideMenu(
-                            icon: FAIcon.iconCategory, title: s.categories),
+                            icon: FAIcon.iconCategory, title: context.l10n.categories),
                       ),
                       GestureDetector(
                           onTap: () => GoRouter.of(context).go('/profile'),
                           child: FASideMenu(
-                              icon: FAIcon.iconAccount, title: s.myAccount)),
+                              icon: FAIcon.iconAccount, title: context.l10n.myAccount)),
                       FASideMenu(
-                          icon: FAIcon.iconFavorite, title: s.myFavorite),
-                      FASideMenu(icon: FAIcon.iconSetting, title: s.appSetting),
+                          icon: FAIcon.iconFavorite, title: context.l10n.myFavorite),
+                      FASideMenu(icon: FAIcon.iconSetting, title: context.l10n.appSetting),
                       FASideMenu(
                         icon: FAIcon.iconContact,
-                        title: s.contactSupport,
+                        title: context.l10n.contactSupport,
                       ),
                       context.sizedBox(height: 60),
                     ],
@@ -128,7 +126,7 @@ class DrawerPage extends StatelessWidget {
                 children: [
                   FAIcons.signOut(),
                   context.sizedBox(width: 22),
-                  Text(s.signOut, style: context.textTheme.titleMedium),
+                  Text(context.l10n.signOut, style: context.textTheme.titleMedium),
                 ],
               ),
             ),

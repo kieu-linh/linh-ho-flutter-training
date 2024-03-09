@@ -1,10 +1,9 @@
 import 'package:fitness_app/core/constant/constant.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class FACarousel extends StatelessWidget {
+class FACarousel extends StatelessWidget {  
   const FACarousel({
     this.onSkip,
     this.onNext,
@@ -20,15 +19,13 @@ class FACarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Row(
       children: [
         GestureDetector(
           onTap: onSkip,
           child: FAText.displaySmall(
             context,
-            text: s.skipPageText.toUpperCase(),
+            text: context.l10n.skipPageText.toUpperCase(),
           ),
         ),
         const Spacer(),
@@ -54,7 +51,7 @@ class FACarousel extends StatelessWidget {
           onTap: onNext,
           child: FAText.displaySmall(
             context,
-            text: s.nextPageText,
+            text: context.l10n.nextPageText,
           ),
         ),
       ],

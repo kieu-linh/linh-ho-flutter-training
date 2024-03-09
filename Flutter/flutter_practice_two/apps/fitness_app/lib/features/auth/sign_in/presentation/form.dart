@@ -2,7 +2,7 @@ import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_ui/components/input.dart';
 import 'package:fitness_ui/components/input_password.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 
 class EmailInput extends StatelessWidget {
@@ -19,11 +19,9 @@ class EmailInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return FAInput(
       onChanged: onChanged,
-      hintText: s.EmailHintText,
+      hintText: context.l10n.EmailHintText,
       icon: isValid ? FAIcon.iconTick : null,
       validator: FAValidator.validatorEmail,
       textInputAction: TextInputAction.next,
@@ -31,7 +29,6 @@ class EmailInput extends StatelessWidget {
     );
   }
 }
-
 class PasswordInput extends StatelessWidget {
   const PasswordInput({
     this.textInputAction = TextInputAction.done,

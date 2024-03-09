@@ -1,7 +1,6 @@
 import 'package:fitness_app/features/exercise_detail/exercise_detail.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FAExerciseInfo extends StatelessWidget {
@@ -14,26 +13,24 @@ class FAExerciseInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ItemContainer(
           widget: widget,
-          title: s.levelTitle,
+          title: context.l10n.levelTitle,
           text: widget.exercise.level,
         ),
         const SizedBox(height: 15),
         ItemContainer(
           widget: widget,
-          title: s.category,
+          title: context.l10n.category,
           text: widget.exercise.benefit?.title,
         ),
         const SizedBox(height: 15),
         ItemContainer(
           widget: widget,
-          title: s.weight,
+          title: context.l10n.weight,
           text: widget.exercise.weight,
         ),
       ],

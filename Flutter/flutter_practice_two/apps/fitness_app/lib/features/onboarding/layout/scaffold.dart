@@ -3,7 +3,6 @@ import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,8 +24,6 @@ class FAScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Scaffold(
       body: Padding(
         padding: context.padding(horizontal: 20),
@@ -37,7 +34,7 @@ class FAScaffold extends StatelessWidget {
               trailing: TextButton(
                 onPressed: () => GoRouter.of(context).go('/get-start'),
                 child: Text(
-                  s.skipPageText,
+                  context.l10n.skipPageText,
                   style: context.textTheme.labelSmall,
                 ),
               ),
@@ -49,7 +46,7 @@ class FAScaffold extends StatelessWidget {
             Padding(
               padding: context.padding(bottom: 30),
               child: FAButton(
-                text: s.nextStepText,
+                text: context.l10n.nextStepText,
                 onPressed: onNext,
               ),
             ),

@@ -13,7 +13,6 @@ import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/font_weight.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,8 +36,6 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return BlocProvider(
       create: (context) => SignInBloc(context.read<AuthRepository>()),
       child: BlocListener<SignInBloc, SignInState>(
@@ -74,10 +71,11 @@ class _SignInPageState extends State<SignInPage> {
                               context.go(AppRoutes.welcomeScreen.path),
                         ),
                         context.sizedBox(height: 30),
-                        FAText.displayLarge(context, text: s.fitnessTitle),
+                        FAText.displayLarge(context,
+                            text: context.l10n.fitnessTitle),
                         const SizedBox(height: 11),
                         Text(
-                          s.signInText,
+                          context.l10n.signInText,
                           style: context.textTheme.headlineMedium,
                         ),
                         context.sizedBox(height: 39),
@@ -99,7 +97,7 @@ class _SignInPageState extends State<SignInPage> {
                               previous.status != current.status,
                           builder: (context, state) {
                             return PasswordInput(
-                              hintText: s.passwordHintText,
+                              hintText: context.l10n.passwordHintText,
                               onTap: () => Future.delayed(
                                   const Duration(milliseconds: 500), () {
                                 _scrollController.animateTo(
@@ -135,7 +133,7 @@ class _SignInPageState extends State<SignInPage> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                s.forgotPasswordText,
+                                context.l10n.forgotPasswordText,
                                 style: context.textTheme.bodyLarge,
                                 textAlign: TextAlign.right,
                               ),
@@ -162,7 +160,7 @@ class _SignInPageState extends State<SignInPage> {
                               color: state.isValid
                                   ? context.colorScheme.primary
                                   : context.colorScheme.outlineVariant,
-                              text: s.loginText,
+                              text: context.l10n.loginText,
                               isLoading:
                                   state.status == SubmissionStatus.loading,
                             );
@@ -173,7 +171,7 @@ class _SignInPageState extends State<SignInPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              s.loginWithText,
+                              context.l10n.loginWithText,
                               style: context.textTheme.bodySmall,
                             ),
                           ],
@@ -182,14 +180,14 @@ class _SignInPageState extends State<SignInPage> {
                         FAButton.outline(
                           onPressed: () {},
                           icon: FAIcon.iconGoogle,
-                          text: s.googleText,
+                          text: context.l10n.googleText,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         ),
                         const SizedBox(height: 8),
                         FAButton.text(
                           onPressed: () {},
                           icon: FAIcon.iconFacebook,
-                          text: s.facebookText,
+                          text: context.l10n.facebookText,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         ),
                         context.sizedBox(height: 48),
@@ -202,14 +200,14 @@ class _SignInPageState extends State<SignInPage> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: s.signInDescription,
+                                      text: context.l10n.signInDescription,
                                       style: context.textTheme.labelSmall
                                           ?.copyWith(
                                         fontWeight: AppFontWeight.medium,
                                       ),
                                     ),
                                     TextSpan(
-                                      text: s.registerText,
+                                      text: context.l10n.registerText,
                                       style: context.textTheme.labelSmall,
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () =>

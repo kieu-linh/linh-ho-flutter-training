@@ -5,7 +5,6 @@ import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:fitness_ui/core/typography/text_style.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -23,8 +22,6 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Stack(
       children: [
         Container(
@@ -88,7 +85,8 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              Text(name ?? s.userName, style: AppTextStyles.nameUser),
+              Text(name ?? context.l10n.userName,
+                  style: AppTextStyles.nameUser),
               const Spacer(),
               FASearchBox(controller: controller),
             ],

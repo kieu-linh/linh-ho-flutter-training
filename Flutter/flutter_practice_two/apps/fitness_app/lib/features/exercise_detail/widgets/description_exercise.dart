@@ -1,7 +1,6 @@
 import 'package:fitness_app/features/exercise_detail/exercise_detail.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FADescriptionExercise extends StatelessWidget {
@@ -14,8 +13,6 @@ class FADescriptionExercise extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
       child: Column(
@@ -36,7 +33,7 @@ class FADescriptionExercise extends StatelessWidget {
           Row(
             children: [
               Text(
-                s.exerciseDetail(
+                context.l10n.exerciseDetail(
                   widget.exercise.weeks ?? 0,
                   widget.exercise.exerciseNumber ?? 0,
                 ),
@@ -52,7 +49,7 @@ class FADescriptionExercise extends StatelessWidget {
                   color: context.colorScheme.tertiary,
                 ),
                 child: Text(
-                  s.schedule,
+                  context.l10n.schedule,
                   style: context.textTheme.bodyLarge?.copyWith(
                     fontSize: 12,
                     color: context.colorScheme.secondary,

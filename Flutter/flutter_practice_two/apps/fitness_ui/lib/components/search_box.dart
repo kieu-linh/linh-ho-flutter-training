@@ -2,7 +2,6 @@
 
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FASearchBox extends StatelessWidget {
@@ -17,8 +16,6 @@ class FASearchBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = FAUiS.of(context);
-
     OutlineInputBorder outlineInputBorder({Color? color}) {
       return OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
@@ -39,7 +36,7 @@ class FASearchBox extends StatelessWidget {
         focusedBorder: outlineInputBorder(),
         enabledBorder: outlineInputBorder(),
         prefixIcon: FAIcons.search(),
-        hintText: s.searchText,
+        hintText: context.l10n.searchText,
         prefixIconConstraints:
             const BoxConstraints(maxHeight: 24, minWidth: 50),
       ),
