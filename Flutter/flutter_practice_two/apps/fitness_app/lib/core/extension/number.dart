@@ -1,4 +1,4 @@
-// extension number on double 
+// extension [DoubleHelper] number on double 
 extension DoubleHelper on double {
   double toDoubleValue(
 

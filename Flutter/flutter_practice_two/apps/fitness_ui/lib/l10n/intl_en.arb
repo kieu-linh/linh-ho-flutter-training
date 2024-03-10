@@ -156,5 +156,9 @@
     "confirmPassText" : "Confirm Password",
     "registerWithText" : "Or Register with",
     "haveAccountText" : "Already have an account?",
-    "loginButtonText" : " Login"
+    "loginButtonText" : " Login",
+    "accountExist" : "Account already exists!",
+    "createAccount" : "Created account success!",
+    "logOutText" : "Do you want logout?"
+
 }

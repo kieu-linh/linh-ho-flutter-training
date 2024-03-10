@@ -1,7 +1,7 @@
-// Create class FAConstant to store data for Welcome Screen
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 
+// Create class FAConstant to store data for Welcome Screen
 class FAConstant {
   FAConstant();
 
@@ -12,6 +12,7 @@ class FAConstant {
   String? thirdText;
 }
 
+/// This is a list of FAConstant to store data for Welcome Screen
 List<FAConstant> splashInfos = [
   FAConstant()
     ..image = FAImage.imgGirlFirst

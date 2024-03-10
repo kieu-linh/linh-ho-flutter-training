@@ -23,6 +23,8 @@ class CategoryPage extends StatelessWidget {
             ..add(CategoryFetchData()),
       child: BlocBuilder<CategoryBloc, CategoryState>(
         builder: (context, state) {
+
+          /// This is the list of categories that will be displayed on the screen.
           final listCategory = state.searchKey?.isNotEmpty == true
               ? state.categories
                   ?.where(

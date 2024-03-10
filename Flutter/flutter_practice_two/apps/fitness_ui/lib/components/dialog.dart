@@ -34,20 +34,20 @@ class FADialog {
               children: [
                 FAButton.text(
                   height: context.sizeHeight(40),
-                  onPressed: () => Navigator.pop(context),
-                  text: FAUiS.current.cancel,
-                  color: context.colorScheme.onSecondaryContainer,
-                  textColor: context.colorScheme.onPrimaryContainer,
-                ),
-                const SizedBox(width: 40),
-                FAButton.text(
-                  height: context.sizeHeight(40),
                   onPressed: () {
                     action?.call();
                     Navigator.pop(context);
                   },
                   text: FAUiS.current.logOut,
                   color: context.colorScheme.primaryContainer,
+                  textColor: context.colorScheme.onPrimaryContainer,
+                ),
+                const SizedBox(width: 40),
+                FAButton.text(
+                  height: context.sizeHeight(40),
+                  onPressed: () => Navigator.pop(context),
+                  text: FAUiS.current.cancel,
+                  color: context.colorScheme.onSecondaryContainer,
                 ),
               ],
             ),

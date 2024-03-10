@@ -8,14 +8,18 @@ import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 class AuthRepository {
   AuthRepository(this.apiClient);
 
+  /// This is an instance of [ApiClient] to call API
   final ApiClient apiClient;
 
+  /// This function [signIn] is called when the user presses the sign in button.
   Future<User> signIn({
     String email = '',
     String password = '',
   }) async {
+    /// get account data from server
     final response = await this.apiClient.get(endPoint: FAPath.login);
 
+    /// If the server returns a 200 OK response, it will return the user account data.
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body) as List<dynamic>;
 
@@ -84,7 +88,7 @@ class AuthRepository {
         );
         return newUser;
       } else {
-        throw Failure(400, 'Account already exists!');
+        throw Failure(400, FAUiS.current.accountExist);
       }
     } else {
       throw Failure(

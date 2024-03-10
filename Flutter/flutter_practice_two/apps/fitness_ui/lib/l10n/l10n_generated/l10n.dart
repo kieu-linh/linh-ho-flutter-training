@@ -1419,6 +1419,36 @@ class FAUiS {
       args: [],
     );
   }
+
+  /// `Account already exists!`
+  String get accountExist {
+    return Intl.message(
+      'Account already exists!',
+      name: 'accountExist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Created account success!`
+  String get createAccount {
+    return Intl.message(
+      'Created account success!',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want logout?`
+  String get logOutText {
+    return Intl.message(
+      'Do you want logout?',
+      name: 'logOutText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FAUiS> {

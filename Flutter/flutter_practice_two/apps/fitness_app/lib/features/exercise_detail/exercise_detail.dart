@@ -84,7 +84,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                 ),
               ),
               Positioned(
-                top: 380,
+                top: 300,
                 left: 20,
                 right: 20,
                 child: FAContainerExercise(widget: widget),

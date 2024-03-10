@@ -24,7 +24,6 @@ class DrawerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
         Padding(
@@ -66,8 +65,8 @@ class DrawerPage extends StatelessWidget {
                   context.sizedBox(height: 40),
                   Padding(
                     padding: context.padding(left: 26),
-                    child:
-                        Text(context.l10n.dashboard, style: context.textTheme.labelMedium),
+                    child: Text(context.l10n.dashboard,
+                        style: context.textTheme.labelMedium),
                   ),
                   Divider(
                     thickness: 1,
@@ -78,20 +77,27 @@ class DrawerPage extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      FASideMenu(icon: FAIcon.iconPlan, title: context.l10n.plan),
-                      FASideMenu(icon: FAIcon.iconTrain, title: context.l10n.training),
+                      FASideMenu(
+                          icon: FAIcon.iconPlan, title: context.l10n.plan),
+                      FASideMenu(
+                          icon: FAIcon.iconTrain, title: context.l10n.training),
                       GestureDetector(
                         onTap: () => GoRouter.of(context).goNamed('category'),
                         child: FASideMenu(
-                            icon: FAIcon.iconCategory, title: context.l10n.categories),
+                            icon: FAIcon.iconCategory,
+                            title: context.l10n.categories),
                       ),
                       GestureDetector(
                           onTap: () => GoRouter.of(context).go('/profile'),
                           child: FASideMenu(
-                              icon: FAIcon.iconAccount, title: context.l10n.myAccount)),
+                              icon: FAIcon.iconAccount,
+                              title: context.l10n.myAccount)),
                       FASideMenu(
-                          icon: FAIcon.iconFavorite, title: context.l10n.myFavorite),
-                      FASideMenu(icon: FAIcon.iconSetting, title: context.l10n.appSetting),
+                          icon: FAIcon.iconFavorite,
+                          title: context.l10n.myFavorite),
+                      FASideMenu(
+                          icon: FAIcon.iconSetting,
+                          title: context.l10n.appSetting),
                       FASideMenu(
                         icon: FAIcon.iconContact,
                         title: context.l10n.contactSupport,
@@ -112,7 +118,7 @@ class DrawerPage extends StatelessWidget {
             onTap: () {
               FADialog.question(
                 context,
-                title: 'Do you want logout?',
+                title: context.l10n.logOutText,
                 action: () {
                   context.read<SharedPrefs>().deleteAccount();
                   GoRouter.of(context).go('/login');
@@ -126,7 +132,8 @@ class DrawerPage extends StatelessWidget {
                 children: [
                   FAIcons.signOut(),
                   context.sizedBox(width: 22),
-                  Text(context.l10n.signOut, style: context.textTheme.titleMedium),
+                  Text(context.l10n.signOut,
+                      style: context.textTheme.titleMedium),
                 ],
               ),
             ),

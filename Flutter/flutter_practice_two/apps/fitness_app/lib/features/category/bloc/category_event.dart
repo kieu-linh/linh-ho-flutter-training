@@ -9,6 +9,7 @@ class CategoryEvent extends Equatable {
 
 class CategoryFetchData extends CategoryEvent {}
 
+/// The [CategorySearch] is used to notify when the user searches for a category.
 class CategorySearch extends CategoryEvent {
   CategorySearch(this.searchKey);
 

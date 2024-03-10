@@ -34,7 +34,7 @@ class SignInEmailChanged extends SignInEvent {
 }
 
 /// The [SignInPasswordChanged] is used to notify
-/// when the User input the password form.
+/// when the User input the password field.
 class SignInPasswordChanged extends SignInEvent {
   const SignInPasswordChanged({
     this.password = '',

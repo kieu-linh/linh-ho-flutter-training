@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, inference_failure_on_untyped_parameter, lines_longer_than_80_chars
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, type_annotate_public_apis, inference_failure_on_untyped_parameter
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "EmailHintText": MessageLookupByLibrary.simpleMessage("Email Address"),
         "LbsToKg": MessageLookupByLibrary.simpleMessage("0.45359237"),
+        "accountExist":
+            MessageLookupByLibrary.simpleMessage("Account already exists!"),
         "addExerciseText":
             MessageLookupByLibrary.simpleMessage("Additional Exercise"),
         "advanced": MessageLookupByLibrary.simpleMessage("Advanced"),
@@ -65,6 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "contactSupport":
             MessageLookupByLibrary.simpleMessage("Contact Support"),
+        "createAccount":
+            MessageLookupByLibrary.simpleMessage("Created account success!"),
         "createAccountTitle":
             MessageLookupByLibrary.simpleMessage("CREATE ACCOUNTS"),
         "crossfitText": MessageLookupByLibrary.simpleMessage("Crossfit \n"),
@@ -134,6 +138,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("What\'s your fitness level?"),
         "levelTitle": MessageLookupByLibrary.simpleMessage("Level"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log out"),
+        "logOutText":
+            MessageLookupByLibrary.simpleMessage("Do you want logout?"),
         "logOutTitle":
             MessageLookupByLibrary.simpleMessage("Log out of your account?"),
         "loginButtonText": MessageLookupByLibrary.simpleMessage(" Login"),

@@ -44,14 +44,17 @@ class _SignUpPageState extends State<SignUpPage> {
         listener: (context, state) {
           // if success go to favoriteScreen
           if (state.status == SubmissionStatus.success) {
-            FASnackBar.success(context, message: 'Created account success!');
+            FASnackBar.success(context, message: context.l10n.createAccount);
             GoRouter.of(context).go('/favorite');
           }
 
           // if failure show snackbar with error message
           else if (state.status == SubmissionStatus.failure) {
             FASnackBar.error(context, message: state.errorMessage);
-          } else {
+          }
+
+          /// hide snackbar
+          else {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
           }
         },

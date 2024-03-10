@@ -18,6 +18,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<SignUpSubmitted>(_onSignUpSubmitted);
   }
 
+  /// This is an instance of the [AuthRepository] class.
   final AuthRepository repository;
 
   /// This function [_onNameChanged] is called when the value of the
@@ -42,7 +43,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   }
 
   /// This function [_onEmailChanged] is called when the value of the
-  /// email form field on the sign in screen changes
+  /// email field on the sign in screen changes
   Future<void> _onEmailChanged(
     SignUpEmailChanged event,
     Emitter<SignUpState> emit,
@@ -65,7 +66,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   }
 
   /// This function [_onPasswordChanged] is called when the value of the
-  /// password form field on the sign in screen changes
+  /// password field on the sign in screen changes
   Future<void> _onPasswordChanged(
     SignUpPasswordChanged event,
     Emitter<SignUpState> emit,
@@ -86,7 +87,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   }
 
   /// This function [_onConfirmPasswordChanged] is called when the value of the
-  /// confirm password form field on the sign in screen changes
+  /// confirm password field on the sign in screen changes
   Future<void> _onConfirmPasswordChanged(
     SignUpConfirmPasswordChanged event,
     Emitter<SignUpState> emit,
@@ -110,7 +111,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     SignUpSubmitted event,
     Emitter<SignUpState> emit,
   ) async {
-    /// This code is called when the user presses the sign in button.
+    /// emit the loading state.
     emit(state.copyWith(status: SubmissionStatus.loading));
 
     // get data from repository
@@ -127,6 +128,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       // Save the user data to the local storage.
       SharedPrefs(SharedPreferences.getInstance()).saveAccount(user);
     } catch (e) {
+
+      /// emit the failure state with error message.
       emit(
         state.copyWith(
           status: SubmissionStatus.failure,

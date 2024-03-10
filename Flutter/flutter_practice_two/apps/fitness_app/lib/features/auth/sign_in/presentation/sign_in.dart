@@ -102,7 +102,7 @@ class _SignInPageState extends State<SignInPage> {
                                   const Duration(milliseconds: 500), () {
                                 _scrollController.animateTo(
                                   _scrollController.position.maxScrollExtent -
-                                      400,
+                                      250,
                                   duration: const Duration(milliseconds: 50),
                                   curve: Curves.ease,
                                 );

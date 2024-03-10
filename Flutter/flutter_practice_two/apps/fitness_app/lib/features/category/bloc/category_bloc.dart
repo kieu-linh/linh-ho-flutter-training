@@ -10,22 +10,29 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<CategorySearch>(_onSearch);
   }
 
+  /// This is an instance of the [CategoryRepository] class.
   final CategoryRepository repository;
 
+  /// This function [_onFetchCategoryData] is called when loading the category data.
   Future _onFetchCategoryData(
     CategoryFetchData event,
     Emitter<CategoryState> emit,
   ) async {
-    emit(state
-        .copyWith(fetchCategoryStatus: SubmissionStatus.loading, categories: []));
+    /// emit new state with new values and status loading
+    emit(state.copyWith(
+        fetchCategoryStatus: SubmissionStatus.loading, categories: []));
+
     try {
+      /// fetch category data from repository
       final categories = await this.repository.fetchCategory();
       emit(
         state.copyWith(
-            fetchCategoryStatus: SubmissionStatus.success,
-            categories: categories),
+          fetchCategoryStatus: SubmissionStatus.success,
+          categories: categories,
+        ),
       );
     } catch (e) {
+      /// emit new state with new values and status failure
       emit(
         state.copyWith(
           fetchCategoryStatus: SubmissionStatus.failure,
@@ -35,10 +42,12 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     }
   }
 
+  /// This function [_onSearch] is called when the user searches for a category.
   Future _onSearch(
     CategorySearch event,
     Emitter<CategoryState> emit,
   ) async {
+    /// emit new state with new values and search key
     emit(state.copyWith(searchKey: event.searchKey));
   }
 }

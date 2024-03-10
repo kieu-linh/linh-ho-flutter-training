@@ -1,3 +1,4 @@
+/// [FAPath] is a class that contains all the path for the API
 class FAPath {
   static const login = '/User?select=*';
 

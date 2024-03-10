@@ -7,8 +7,10 @@ import 'package:fitness_app/features/home/model/category.dart';
 class CategoryRepository {
   const CategoryRepository(this.apiClient);
 
+  /// This is an instance of the [ApiClient] class.
   final ApiClient apiClient;
 
+  /// This function [fetchCategory] is called when loading the category data.
   Future<List<Category>?> fetchCategory() async {
     try {
       final response = await this.apiClient.get(endPoint: FAPath.category);

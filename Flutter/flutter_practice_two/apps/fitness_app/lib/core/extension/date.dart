@@ -1,5 +1,6 @@
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 
+/// extension [DateHelper] to get day session
 extension DateHelper on DateTime {
   String getDaySession() {
     final time = this;

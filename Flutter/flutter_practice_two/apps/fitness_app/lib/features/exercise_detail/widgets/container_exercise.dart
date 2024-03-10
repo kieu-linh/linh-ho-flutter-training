@@ -23,7 +23,7 @@ class FAContainerExercise extends StatelessWidget {
         color: Colors.white,
       ),
       child: Padding(
-        padding: context.padding(horizontal: 50, vertical: 20),
+        padding: context.padding(horizontal: 50, vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

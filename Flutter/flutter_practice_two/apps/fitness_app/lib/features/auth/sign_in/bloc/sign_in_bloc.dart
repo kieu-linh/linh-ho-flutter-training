@@ -16,6 +16,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     on<SignInSubmitted>(_onSignInSubmitted);
   }
 
+  /// This is an instance of the [AuthRepository] class.
   final AuthRepository repository;
 
   /// This function [_onEmailChanged] is called when the value of the

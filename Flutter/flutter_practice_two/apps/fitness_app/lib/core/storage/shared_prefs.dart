@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+/// This class [SharedPrefs] is used to save, get and delete the user's account
 class SharedPrefs {
   SharedPrefs(this.sharedPreferences);
 

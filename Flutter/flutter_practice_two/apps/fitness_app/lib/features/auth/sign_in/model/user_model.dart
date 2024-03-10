@@ -1,3 +1,8 @@
+/// User model class that contains the user's information
+/// [userID] is the user's id
+/// [email] is the user's email
+/// [password] is the user's password
+/// [name] is the user's name
 class User {
   User({
     this.userID,

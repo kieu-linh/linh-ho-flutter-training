@@ -16,6 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
+  flutter_launcher_icons: ^0.13.1
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.9
@@ -35,6 +36,11 @@ dev_dependencies:
 
   #This package provides lint rules for Dart and Flutter
   very_good_analysis: ^5.1.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/img_logo_app.png"
 
 flutter:
   uses-material-design: true

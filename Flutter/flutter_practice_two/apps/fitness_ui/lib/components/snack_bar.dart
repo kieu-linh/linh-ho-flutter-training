@@ -26,7 +26,7 @@ class FASnackBar {
           children: [
             Container(
               padding: const EdgeInsets.all(16),
-              height: context.sizeHeight(80),
+              height: context.sizeHeight(90),
               decoration: BoxDecoration(
                 color: color ?? context.colorScheme.onError,
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
