@@ -66,6 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 behavior:
                     ScrollConfiguration.of(context).copyWith(scrollbars: false),
                 child: SingleChildScrollView(
+                  controller: _scrollController,
                   child: Form(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,8 +136,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                 const Duration(milliseconds: 500), () {
                               _scrollController.animateTo(
                                 _scrollController.position.maxScrollExtent -
-                                    100,
-                                duration: const Duration(milliseconds: 50),
+                                    250,
+                                duration: const Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
                             }),

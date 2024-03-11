@@ -1,3 +1,6 @@
+/// class Goal contains the data for a goal
+/// [goalID] is the goal's id
+/// [name] is the goal's name
 class Goal {
   Goal({
     this.goalID,

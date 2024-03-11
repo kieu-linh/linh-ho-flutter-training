@@ -16,38 +16,58 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeFetchUserData>(_onFetchUserData);
     on<HomeGoalOnTap>(_onGoalOnTap);
   }
-  final HomeRepository repository;
-  // SharedPrefs sharedPrefs = SharedPrefs(SharedPreferences.getInstance());
 
+  /// This is an instance of [HomeRepository] to call API
+  final HomeRepository repository;
+
+  /// This function [_onFetchUserData] is called when the user presses the sign in or sign up button.
   Future<void> _onFetchUserData(
     HomeFetchUserData event,
     Emitter<HomeState> emit,
   ) async {
+    /// This is an instance of [SharedPrefs] to call SharedPreferences
     SharedPrefs sharedPrefs = SharedPrefs(SharedPreferences.getInstance());
 
+    /// save user data to shared preferences
     final user = await sharedPrefs.getAccount();
     emit(state.copyWith(user: user));
   }
 
+  /// This function [_onFetchGoalData] is called when loading the goal data.
   Future<void> _onFetchGoalData(
     HomeFetchGoalData event,
     Emitter<HomeState> emit,
   ) async {
     emit(state.copyWith(fetchGoalsStatus: SubmissionStatus.loading, goals: []));
 
+    /// delay 2 seconds to simulate loading data from server
     await Future.delayed(Duration(seconds: 2));
+
+    /// fetch goal data from repository
     try {
       final goals = await this.repository.fetchGoals();
 
-      emit(state.copyWith(
-          fetchGoalsStatus: SubmissionStatus.success, goals: goals));
-    } catch (e) {
-      emit(state.copyWith(
+      /// emit new state with new values and status success
+      emit(
+        state.copyWith(
+          fetchGoalsStatus: SubmissionStatus.success,
+          goals: goals,
+        ),
+      );
+    }
+
+    /// emit new state with new values and status failure
+    catch (e) {
+      emit(
+        state.copyWith(
           fetchGoalsStatus: SubmissionStatus.failure,
-          errorMessage: e.toString()));
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 
+  /// This function [_onFetchCategoryData] is called when loading the category data.
   Future<void> _onFetchCategoryData(
     HomeFetchCategoryData event,
     Emitter<HomeState> emit,
@@ -55,41 +75,64 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(state.copyWith(
         fetchCategoryStatus: SubmissionStatus.loading, categories: []));
 
+    /// delay 2 seconds to simulate loading data from server
     await Future.delayed(Duration(seconds: 2));
 
+    /// fetch category data from repository
     try {
       final categories = await this.repository.fetchCategory();
 
-      emit(state.copyWith(
+      /// emit new state with new values and status success
+      emit(
+        state.copyWith(
           fetchCategoryStatus: SubmissionStatus.success,
-          categories: categories));
-    } catch (e) {
-      emit(state.copyWith(
+          categories: categories,
+        ),
+      );
+    }
+
+    /// emit new state with new values and status failure
+    catch (e) {
+      emit(
+        state.copyWith(
           fetchCategoryStatus: SubmissionStatus.failure,
-          errorMessage: e.toString()));
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 
+  /// This function [_onFetchMealData] is called when loading the meal data.
   Future<void> _onFetchMealData(
     HomeFetchMealData event,
     Emitter<HomeState> emit,
   ) async {
     emit(state.copyWith(fetchMealStatus: SubmissionStatus.loading, meals: []));
 
+    /// delay 2 seconds to simulate loading data from server
     await Future.delayed(Duration(seconds: 2));
 
+    /// fetch meal data from repository
     try {
       final meals = await this.repository.fetchMeal();
 
+      /// emit new state with new values and status success
       emit(state.copyWith(
           fetchMealStatus: SubmissionStatus.success, meals: meals));
-    } catch (e) {
-      emit(state.copyWith(
+    }
+
+    /// emit new state with new values and status failure with error message
+    catch (e) {
+      emit(
+        state.copyWith(
           fetchMealStatus: SubmissionStatus.failure,
-          errorMessage: e.toString()));
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 
+  /// This function [_onFetchPopularExerciseData] is called when loading the popular exercise data.
   Future<void> _onFetchPopularExerciseData(
     HomeFetchPopularExerciseData event,
     Emitter<HomeState> emit,
@@ -98,21 +141,34 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         fetchPopularExerciseStatus: SubmissionStatus.loading,
         popularExercises: []));
 
+    /// delay 2 seconds to simulate loading data from server
     await Future.delayed(Duration(seconds: 2));
 
+    /// fetch popular exercise data from repository
     try {
       final popularExercises = await this.repository.fetchPopularExercise();
 
-      emit(state.copyWith(
+      /// emit new state with new values and status success with popular exercise data
+      emit(
+        state.copyWith(
           fetchPopularExerciseStatus: SubmissionStatus.success,
-          popularExercises: popularExercises));
-    } catch (e) {
-      emit(state.copyWith(
+          popularExercises: popularExercises,
+        ),
+      );
+    }
+
+    /// emit new state with new values and status failure with error message
+    catch (e) {
+      emit(
+        state.copyWith(
           fetchPopularExerciseStatus: SubmissionStatus.failure,
-          errorMessage: e.toString()));
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 
+  /// This function [_onFetchAddExerciseData] is called when loading the add exercise data.
   Future<void> _onFetchAddExerciseData(
     HomeFetchAddExerciseData event,
     Emitter<HomeState> emit,
@@ -124,17 +180,24 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       ),
     );
 
+    /// delay 2 seconds to simulate loading data from server
     await Future.delayed(Duration(seconds: 2));
 
+    /// fetch add exercise data from repository
     try {
       final addExercises = await this.repository.fetchAddExercise();
 
+      /// emit new state with new values and status success with add exercise data
       emit(
         state.copyWith(
-            fetchAddExercisesStatus: SubmissionStatus.success,
-            addExercises: addExercises),
+          fetchAddExercisesStatus: SubmissionStatus.success,
+          addExercises: addExercises,
+        ),
       );
-    } catch (e) {
+    }
+
+    /// emit new state with new values and status failure with error message
+    catch (e) {
       emit(
         state.copyWith(
           fetchAddExercisesStatus: SubmissionStatus.failure,
@@ -144,11 +207,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
+  /// This function [_onGoalOnTap] is called when the user taps the goal.
   Future<void> _onGoalOnTap(
     HomeGoalOnTap event,
     Emitter<HomeState> emit,
   ) async {
+    /// emit new state with new values and index
     emit(state.copyWith(index: event.index));
-    print(event.index);
   }
 }

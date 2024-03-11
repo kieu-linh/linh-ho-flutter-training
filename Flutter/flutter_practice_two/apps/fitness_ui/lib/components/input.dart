@@ -36,7 +36,7 @@ class FAInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.sizeHeight(135),
+      height: context.sizeHeight(115),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

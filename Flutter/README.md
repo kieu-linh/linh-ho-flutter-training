@@ -17,15 +17,17 @@
 
 ***Timeline:*** 3 weeks ()
 
-***Actual:*** 
+***Actual:*** 20 day
 
 ***Target:***
 
-- Have an understanding at the basic level of how context and state management work in one Flutter application.
-- Become better understood and apply the widget lifecycle.
+- Understanding and apply Flutter Widget for building Fitness app
+- Apply Widget book and Responsive in this project
+- Understanding and apply state management with BLoC
 - Use storage to persist current data.
-- Become familiar with state management and better understood about BLoC.
-- Get acquainted with working with API (asynchronous) and error handling from apis.
+- Make API calls from Flutter app
+- Manage navigating and routing system with go_router
+- Understanding widget lifecycle
 
 ## Prerequisites
 Before you continue, ensure you meet the following requirements:
@@ -38,12 +40,22 @@ Before you continue, ensure you meet the following requirements:
 - [Estimate](https://trello.com/b/6uJPIPsM/practice-two)
 ​
 ## Deployment Plan
-- [] Epic 1: Requirement analysis
-- [] Epic 2: Setup environment
-- [] Epic 3: Create skeleton structure practice
-- [] Epic 4: Apply use Bloc to manager state
-- [] Epic 5: Get data from API 
-- [] Epic 6: Use Shared_preferences to save data 
+- [X] Epic 1: Requirement analysis
+- [X] Epic 2: Setup environment
+- [X] Epic 3: Create folders structure practice
+- [X] Epic 4: Apply use Bloc to manager state
+- [X] Epic 5: Setup data on Supabase
+- [X] Epic 6: Get data from API 
+- [X] Epic 7: Use Shared_preferences to save data 
+- [X] Epic 8: Test the application and prepare for the review
+
+## UI
+- [X] Sign In Screen + Bloc + API
+- [X] Sign Up Screen + Bloc + API
+- [X] Home Screen + Bloc + API
+- [X] Category Screen + Bloc + API
+- [X] Exercise Screen + Bloc + API
+- [X] Exercise Detail Screen + Bloc + API
 
 ## Installation
 1. Clone the repository:

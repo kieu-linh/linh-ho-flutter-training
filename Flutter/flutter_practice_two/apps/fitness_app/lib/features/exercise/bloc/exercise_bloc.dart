@@ -12,27 +12,39 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
     on<ExerciseFetchExerciseDataByBenefitID>(_onFetchExerciseDataByBenefitID);
   }
 
+  /// This is an instance of [ExerciseRepository] to call API
   final ExerciseRepository repository;
 
+  /// This function [_onChangeBenefit] is called when on tap benefit item.
   Future<void> _onChangeBenefit(
     ExerciseOnTap event,
     Emitter<ExerciseState> emit,
   ) async {
+    /// emit new state with new values and index
     emit(state.copyWith(index: event.index));
   }
 
+  /// This function [_onFetchBenefitData] is called when loading the benefit data.
   Future<void> _onFetchBenefitData(
     ExerciseFetchBenefitData event,
     Emitter<ExerciseState> emit,
   ) async {
-    emit(state
-        .copyWith(fetchBenefitStatus: SubmissionStatus.loading, benefits: []));
+    emit(
+      state
+          .copyWith(fetchBenefitStatus: SubmissionStatus.loading, benefits: []),
+    );
+
+    /// fetch benefit data from repository
     try {
       final benefits = await this.repository.fetchBenefit();
 
+      /// emit new state with new values and status success
       emit(state.copyWith(
           fetchBenefitStatus: SubmissionStatus.success, benefits: benefits));
-    } catch (e) {
+    }
+
+    /// emit new state with new values and status failure
+    catch (e) {
       emit(
         state.copyWith(
           fetchBenefitStatus: SubmissionStatus.failure,
@@ -42,6 +54,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
     }
   }
 
+  /// This function [_onFetchExerciseData] is called when loading the exercise data.
   Future<void> _onFetchExerciseData(
     ExerciseFetchExerciseData event,
     Emitter<ExerciseState> emit,
@@ -53,15 +66,21 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       ),
     );
 
+    /// fetch exercise data from repository
     try {
       final exercises = await this.repository.fetchExercise();
+
+      /// emit new state with new values and status success
       emit(
         state.copyWith(
           fetchExercisesStatus: SubmissionStatus.success,
           exercises: exercises,
         ),
       );
-    } catch (e) {
+    }
+
+    /// emit new state with new values and status failure with error message
+    catch (e) {
       emit(
         state.copyWith(
           fetchExercisesStatus: SubmissionStatus.failure,
@@ -71,6 +90,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
     }
   }
 
+  /// This function [_onFetchExerciseDataByBenefitID] is called when loading the exercise data by benefit id.
   Future<void> _onFetchExerciseDataByBenefitID(
     ExerciseFetchExerciseDataByBenefitID event,
     Emitter<ExerciseState> emit,
@@ -83,15 +103,22 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       ),
     );
 
+    /// fetch exercise data from repository
     try {
       final exercises = await this.repository.fetchExercise();
       exercises?.where((element) => element.benefit?.benefitID == event.index);
+
+      /// emit new state with new values and status success
       emit(
         state.copyWith(
-            fetchExercisesStatus: SubmissionStatus.success,
-            exercises: exercises),
+          fetchExercisesStatus: SubmissionStatus.success,
+          exercises: exercises,
+        ),
       );
-    } catch (e) {
+    }
+
+    /// emit new state with new values and status failure with error message
+    catch (e) {
       emit(
         state.copyWith(
           fetchExercisesStatus: SubmissionStatus.failure,

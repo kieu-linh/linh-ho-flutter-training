@@ -1,3 +1,8 @@
+/// class Meal contains the data for a meal 
+/// [mealID] is the meal's id
+/// [description] is the meal's description
+/// [imagePath] is the meal's image path
+/// [kcal] is the meal's kcal
 class Meal {
   Meal({
     this.mealID,

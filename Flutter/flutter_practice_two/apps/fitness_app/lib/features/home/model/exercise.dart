@@ -1,7 +1,19 @@
-// ignore_for_file: unnecessary_cast
+/// class Exercise contains 1 abstract method and 1 constructor
+/// [exerciseID] is the exercise's id
+/// [image] is the exercise's image
+/// [title] is the exercise's title
+/// [kcal] is the exercise's kcal
+/// [min] is the exercise's min
+/// [level] is the exercise's level
+/// [backgroundImage] is the exercise's background image
+/// [weight] is the exercise's weight
+/// [description] is the exercise's description
+/// [weeks] is the exercise's weeks
+/// [exerciseNumber] is the exercise's number
+/// [type] is the exercise's type
+/// [benefit] is the exercise's benefit
 
 import 'package:fitness_app/features/exercise/model/benefit.dart';
-
 class Exercise {
   Exercise({
     this.exerciseID,

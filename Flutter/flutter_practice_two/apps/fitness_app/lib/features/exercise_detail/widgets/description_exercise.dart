@@ -42,7 +42,7 @@ class FADescriptionExercise extends StatelessWidget {
               const Spacer(),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 22, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
                 height: context.sizeHeight(38),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),

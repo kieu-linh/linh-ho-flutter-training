@@ -1,3 +1,7 @@
+/// class Category contains the data of a category
+/// [categoryID] is the category's id
+/// [name] is the category's name
+/// [imagePath] is the category's image path
 class Category {
   Category({
     this.categoryID,
