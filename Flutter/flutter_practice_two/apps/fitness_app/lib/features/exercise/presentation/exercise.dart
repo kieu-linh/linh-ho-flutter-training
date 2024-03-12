@@ -30,7 +30,6 @@ class ExercisePage extends StatelessWidget {
             return e.benefit?.benefitID ==
                 state.benefits[state.index].benefitID;
           }).toList();
-
           return Scaffold(
             body: Column(
               children: [
@@ -117,7 +116,7 @@ class ExercisePage extends StatelessWidget {
                             itemCount: listExercise.length,
                           );
                         case SubmissionStatus.failure:
-                          return Text('Error: ${state.errorMessage}');
+                          return SizedBox();
                       }
                     },
                   ),

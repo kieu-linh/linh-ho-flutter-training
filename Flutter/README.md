@@ -15,7 +15,7 @@
 
 ***Start date:*** 19/02/2024
 
-***Timeline:*** 3 weeks ()
+***Timeline:*** 3 weeks
 
 ***Actual:*** 20 day
 
