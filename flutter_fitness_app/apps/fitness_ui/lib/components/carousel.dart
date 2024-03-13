@@ -1,0 +1,60 @@
+import 'package:fitness_app/core/constant/constant.dart';
+import 'package:fitness_ui/components/text.dart';
+import 'package:fitness_ui/core/extension/extension.dart';
+import 'package:flutter/material.dart';
+
+class FACarousel extends StatelessWidget {  
+  const FACarousel({
+    this.onSkip,
+    this.onNext,
+    this.pageIndex = 0,
+    this.pageController,
+    super.key,
+  });
+
+  final int? pageIndex;
+  final PageController? pageController;
+  final VoidCallback? onSkip;
+  final VoidCallback? onNext;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: onSkip,
+          child: FAText.displaySmall(
+            context,
+            text: context.l10n.skipPageText.toUpperCase(),
+          ),
+        ),
+        const Spacer(),
+        ...List.generate(splashInfos.length, (index) {
+          return AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            //if _pageIndex == index, width = 15, else width = 8
+            width: pageIndex == index ? 15 : 8,
+            height: 8,
+            margin: const EdgeInsets.symmetric(horizontal: 3),
+            decoration: BoxDecoration(
+              //if _pageIndex == index, color = primary
+              //else color = tertiary
+              color: pageIndex == index
+                  ? context.colorScheme.primary
+                  : context.colorScheme.tertiary,
+              borderRadius: BorderRadius.circular(4),
+            ),
+          );
+        }),
+        const Spacer(),
+        GestureDetector(
+          onTap: onNext,
+          child: FAText.displaySmall(
+            context,
+            text: context.l10n.nextPageText,
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -1,0 +1,12 @@
+include: package:very_good_analysis/analysis_options.5.1.0.yaml
+linter:
+  rules:
+    public_member_api_docs: false
+    depend_on_referenced_packages: false
+    sized_box_shrink_expand: false
+    omit_local_variable_types: false
+    always_use_package_imports : false
+    prefer_final_locals : false
+    unnecessary_lambdas : false
+    require_trailing_commas : false
+    

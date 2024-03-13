@@ -1,0 +1,67 @@
+name: fitness_app
+description: "A new Flutter project."
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  api_client:
+    path: ../package/api_client
+  bloc: ^8.1.2
+  equatable: ^2.0.5
+  fitness_ui:
+    path: ../fitness_ui
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  flutter_launcher_icons: ^0.13.1
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^2.0.9
+  flutter_zoom_drawer: ^3.1.1
+  go_router: ^12.1.3
+  http: ^1.1.0
+  intl: ^0.18.1
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  device_preview: ^1.1.0
+
+  # Dart package that creates a binding between your translations
+  intl_utils: ^2.8.7
+
+  provider: ^6.1.1
+
+  #This package provides lint rules for Dart and Flutter
+  very_good_analysis: ^5.1.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/img_logo_app.png"
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  # This is folder for assets: image, icon in the app.
+  assets:
+    - assets/images/
+    - assets/icons/
+
+  # This is for custom two fonts in the app.
+  fonts:
+    - family: Bebas-Regular
+      fonts:
+        - asset: assets/fonts/Bebas-Regular.otf
+    - family: Montserrat-Medium
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
+
+# Config i18n generation
+flutter_intl:
+  enabled: true
+  arb_dir: lib/l10n
+  output_dir: lib/l10n/l10n_generated
