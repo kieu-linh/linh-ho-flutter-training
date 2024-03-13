@@ -7,11 +7,13 @@ class FavoriteState extends Equatable {
     this.fetchFavoriteStatus = SubmissionStatus.initial,
     this.favorites = const [],
     this.errorMessage = '',
+    this.index = 0,
   });
 
   final SubmissionStatus fetchFavoriteStatus;
   final List<Favorite>? favorites;
 
+  final int index;
   final String errorMessage;
 
   FavoriteState copyWith({
@@ -19,10 +21,12 @@ class FavoriteState extends Equatable {
     List<Favorite>? favorites,
     String? searchKey,
     String? errorMessage,
+    int? index,
   }) {
     return FavoriteState(
       fetchFavoriteStatus: fetchFavoriteStatus ?? this.fetchFavoriteStatus,
       favorites: favorites ?? this.favorites,
+      index: index ?? this.index,
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
@@ -31,6 +35,7 @@ class FavoriteState extends Equatable {
   List<Object?> get props => [
         fetchFavoriteStatus,
         favorites,
+        index,
         errorMessage,
       ];
 }

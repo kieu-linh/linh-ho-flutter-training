@@ -1,4 +1,5 @@
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -31,7 +32,7 @@ class _GoalPageState extends State<GoalPage> {
     ];
 
     return FAScaffold(
-      onBack: () => GoRouter.of(context).go('/level'),
+      onBack: () => context.go(AppRoutes.levelScreen.path),
       currentStep: 7,
       title: context.l10n.goalText,
       body: Column(
@@ -62,7 +63,7 @@ class _GoalPageState extends State<GoalPage> {
           }),
         ],
       ),
-      onNext: () => GoRouter.of(context).go('/get-start'),
+      onNext: () => context.go(AppRoutes.getStartScreen.path),
     );
   }
 }

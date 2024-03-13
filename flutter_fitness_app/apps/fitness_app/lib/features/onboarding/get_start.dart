@@ -1,3 +1,4 @@
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/components/text.dart';
@@ -21,7 +22,7 @@ class GetStartPage extends StatelessWidget {
             child: Column(
               children: [
                 FATopNavigation(
-                  onLeadingPress: () => GoRouter.of(context).go('/goal'),
+                  onLeadingPress: () => context.go(AppRoutes.goalScreen.path),
                 ),
                 const Spacer(),
                 FAText.displayLarge(context, text: context.l10n.startText),
@@ -52,7 +53,7 @@ class GetStartPage extends StatelessWidget {
             bottom: 20,
             child: FAButton(
               text: context.l10n.getStartedText,
-              onPressed: () => GoRouter.of(context).goNamed('homeScreen'),
+              onPressed: () => context.go(AppRoutes.homeScreen.path),
             ),
           ),
         ],

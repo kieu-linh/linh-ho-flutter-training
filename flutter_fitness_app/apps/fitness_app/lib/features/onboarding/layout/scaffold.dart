@@ -1,3 +1,4 @@
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/components/top_onboarding.dart';
@@ -32,7 +33,7 @@ class FAScaffold extends StatelessWidget {
           children: [
             FATopNavigation(
               trailing: TextButton(
-                onPressed: () => GoRouter.of(context).go('/get-start'),
+                onPressed: () => context.go(AppRoutes.getStartScreen.path),
                 child: Text(
                   context.l10n.skipPageText,
                   style: context.textTheme.labelSmall,

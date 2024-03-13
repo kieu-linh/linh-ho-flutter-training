@@ -3,6 +3,7 @@ import 'package:fitness_app/features/category/bloc/category_bloc.dart';
 import 'package:fitness_app/features/category/bloc/category_event.dart';
 import 'package:fitness_app/features/category/bloc/category_state.dart';
 import 'package:fitness_app/features/category/repositories/category_repository.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
@@ -23,7 +24,6 @@ class CategoryPage extends StatelessWidget {
             ..add(CategoryFetchData()),
       child: BlocBuilder<CategoryBloc, CategoryState>(
         builder: (context, state) {
-
           /// This is the list of categories that will be displayed on the screen.
           final listCategory = state.searchKey?.isNotEmpty == true
               ? state.categories
@@ -41,7 +41,8 @@ class CategoryPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(18, 0, 18, 22),
                     child: FATopNavigation(
-                      onLeadingPress: () => GoRouter.of(context).go('/home'),
+                      onLeadingPress: () =>
+                          context.go(AppRoutes.homeScreen.path),
                       title: context.l10n.categories,
                     ),
                   ),

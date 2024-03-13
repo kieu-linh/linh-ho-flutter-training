@@ -4,6 +4,7 @@ import 'package:fitness_app/features/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
 import 'package:fitness_app/features/exercise/repositories/exercise_repositories.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
 import 'package:fitness_ui/components/shimmer.dart';
@@ -36,7 +37,7 @@ class ExercisePage extends StatelessWidget {
                 Padding(
                   padding: context.padding(horizontal: 20),
                   child: FATopNavigation(
-                    onLeadingPress: () => GoRouter.of(context).go('/home'),
+                    onLeadingPress: () => context.go(AppRoutes.homeScreen.path),
                     title: context.l10n.fullExercise,
                   ),
                 ),
@@ -100,12 +101,10 @@ class ExercisePage extends StatelessWidget {
                               final exercise = listExercise[index];
                               return FACardContainer(
                                 addExercise: exercise,
-                                onPressed: () {
-                                  GoRouter.of(context).goNamed(
-                                    'exercise-detail',
-                                    extra: exercise,
-                                  );
-                                },
+                                onPressed: () => context.goNamed(
+                                  AppRoutes.exerciseDetailScreen.name,
+                                  extra: exercise,
+                                ),
                               );
                             },
                             separatorBuilder: (context, index) => FADivider(

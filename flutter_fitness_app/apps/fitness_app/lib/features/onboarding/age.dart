@@ -1,4 +1,5 @@
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _AgePageState extends State<AgePage> {
   @override
   Widget build(BuildContext context) {
     return FAScaffold(
-      onBack: () => GoRouter.of(context).go('/favorite'),
+      onBack: () => context.go(AppRoutes.favoriteScreen.path),
       currentStep: 2,
       title: context.l10n.yourOldText,
       body: context.sizedBox(
@@ -67,7 +68,7 @@ class _AgePageState extends State<AgePage> {
           ],
         ),
       ),
-      onNext: () => GoRouter.of(context).go('/weight'),
+      onNext: () => context.go(AppRoutes.weightScreen.path),
     );
   }
 }

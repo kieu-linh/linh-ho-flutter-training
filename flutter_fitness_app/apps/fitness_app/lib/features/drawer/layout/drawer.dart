@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/models/user_data.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/dialog.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
@@ -82,13 +83,13 @@ class DrawerPage extends StatelessWidget {
                       FASideMenu(
                           icon: FAIcon.iconTrain, title: context.l10n.training),
                       GestureDetector(
-                        onTap: () => GoRouter.of(context).goNamed('category'),
+                        onTap: () => context.goNamed(AppRoutes.category.name),
                         child: FASideMenu(
                             icon: FAIcon.iconCategory,
                             title: context.l10n.categories),
                       ),
                       GestureDetector(
-                          onTap: () => GoRouter.of(context).go('/profile'),
+                          onTap: () => context.go(AppRoutes.profileScreen.path),
                           child: FASideMenu(
                               icon: FAIcon.iconAccount,
                               title: context.l10n.myAccount)),
@@ -121,7 +122,7 @@ class DrawerPage extends StatelessWidget {
                 title: context.l10n.logOutText,
                 action: () {
                   context.read<SharedPrefs>().deleteAccount();
-                  GoRouter.of(context).go('/login');
+                  context.go(AppRoutes.loginScreen.path);;
                 },
               );
             },

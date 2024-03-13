@@ -101,4 +101,29 @@ class FAValidator {
 
     return null;
   }
+
+  static String? validatorWeight(dynamic value) {
+    /// check weight is String or not
+    if (value is String) {
+      /// check empty weight
+      if (value.isEmpty) {
+        return FAUiS.current.requiredValue;
+      }
+
+      try {
+        final weight = double.parse(value);
+
+        /// check valid weight
+        if (weight > 10 && weight < 200) {
+          return 'Weight should be between 10 and 200';
+        }
+      } catch (e) {
+        return 'Please enter number';
+      }
+    } else {
+      return 'Please enter number';
+    }
+
+    return null;
+  }
 }

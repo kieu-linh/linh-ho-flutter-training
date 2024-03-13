@@ -1,5 +1,7 @@
 import 'package:fitness_app/core/extension/number.dart';
+import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -20,9 +22,8 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return FAScaffold(
-      onBack: () => GoRouter.of(context).go('/weight'),
+      onBack: () => context.go(AppRoutes.weightScreen.path),
       currentStep: 4,
       title: context.l10n.goalWeightTitle,
       body: Padding(
@@ -44,9 +45,10 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
           textLeft: context.l10n.lbs,
           textRight: context.l10n.kg,
           controller: weightController,
+          validator: FAValidator.validatorWeight,
         ),
       ),
-      onNext: () => GoRouter.of(context).push('/height'),
+      onNext: () => context.go(AppRoutes.height.path),
     );
   }
 }

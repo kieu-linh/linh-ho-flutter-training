@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/features/welcome/widget/image_filter.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -45,9 +46,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   onTap: () async {
                     final user = await context.read<SharedPrefs>().getAccount();
                     if (user == null) {
-                      GoRouter.of(context).go('/welcome');
+                      context.go(AppRoutes.welcomeScreen.path);
                     } else {
-                      GoRouter.of(context).goNamed('homeScreen');
+                      context.go(AppRoutes.homeScreen.path);
                     }
                   },
                   child: Container(
