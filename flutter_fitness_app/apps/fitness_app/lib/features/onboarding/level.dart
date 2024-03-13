@@ -1,4 +1,5 @@
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -24,7 +25,7 @@ class _LevelPageState extends State<LevelPage> {
     ];
 
     return FAScaffold(
-      onBack: () => GoRouter.of(context).go('/height'),
+      onBack: () => context.go(AppRoutes.height.path),
       currentStep: 6,
       title: context.l10n.levelText,
       body: Column(
@@ -53,7 +54,7 @@ class _LevelPageState extends State<LevelPage> {
           ),
         ],
       ),
-      onNext: () => GoRouter.of(context).go('/goal'),
+      onNext: () => context.go(AppRoutes.goalScreen.path),
     );
   }
 }

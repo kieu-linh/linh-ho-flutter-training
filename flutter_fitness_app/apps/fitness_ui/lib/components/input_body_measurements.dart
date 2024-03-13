@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 class FABodyMeasurementInput extends StatefulWidget {
   const FABodyMeasurementInput({
+    this.validator,
     this.textRight,
     this.textLeft,
     this.controller,
@@ -16,6 +17,7 @@ class FABodyMeasurementInput extends StatefulWidget {
   });
 
   final TextEditingController? controller;
+  final FormFieldValidator<String>? validator;
   final String? textRight;
   final String? textLeft;
   final Function(String)? onChange;
@@ -33,7 +35,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     final sizeText = size.width * 0.5 - 28;
-    
+
     return Column(
       children: [
         Container(
@@ -85,11 +87,13 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
           ),
           child: Row(
             children: [
-              TextField(
+              TextFormField(
                 keyboardType: TextInputType.number,
                 textAlign: TextAlign.right,
                 controller: widget.controller,
                 onChanged: widget.onChange,
+                validator: widget.validator,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   constraints: BoxConstraints(
                     maxWidth: sizeText,

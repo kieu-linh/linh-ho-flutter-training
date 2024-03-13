@@ -4,6 +4,7 @@ import 'package:fitness_app/features/onboarding/favorite/bloc/favorite_event.dar
 import 'package:fitness_app/features/onboarding/favorite/bloc/favorite_state.dart';
 import 'package:fitness_app/features/onboarding/favorite/repository/favorite_repository.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -39,24 +40,47 @@ class FavoritePage extends StatelessWidget {
                     childAspectRatio: 4 / 4.1,
                   ),
                   itemBuilder: (context, index) {
-                    return  Column(
-                      children: [
-                        Image.asset(
-                          state.favorites?[index].imagePath ?? '',
-                          height: context.sizeHeight(100),
-                        ),
-                        const SizedBox(height: 11),
-                        FAText.titleLarge(
-                          context,
-                          text:  state.favorites?[index].name ?? '',
-                        ),
-                      ],
+                    return GestureDetector(
+                      onTap: () => context.read<FavoriteBloc>().add(
+                            FavoriteOnTap(index: index),
+                          ),
+                      child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              Image.asset(
+                                state.favorites?[index].imagePath ?? '',
+                                height: context.sizeHeight(100),
+                              ),
+                              state.index == index
+                                  ? Container(
+                                      width: 107,
+                                      height: 107,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: context.colorScheme.onTertiary,
+                                        border: Border.all(
+                                          color: context.colorScheme.error,
+                                          width: 2,
+                                        ),
+                                      ),
+                                    )
+                                  : const SizedBox(),
+                            ],
+                          ),
+                          const SizedBox(height: 11),
+                          FAText.titleLarge(
+                            context,
+                            text: state.favorites?[index].name ?? '',
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),
               ),
             ),
-            onNext: () => GoRouter.of(context).push('/age'),
+            onNext: () => context.go(AppRoutes.ageScreen.path),
           );
         },
       ),

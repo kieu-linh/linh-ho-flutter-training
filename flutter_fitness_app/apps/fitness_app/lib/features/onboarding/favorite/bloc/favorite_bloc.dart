@@ -7,6 +7,7 @@ import 'package:fitness_app/features/onboarding/favorite/repository/favorite_rep
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   FavoriteBloc(this.repository) : super(const FavoriteState()) {
     on<FavoriteFetchData>(_onFetchFavoriteData);
+    on<FavoriteOnTap>(_onFavoriteOnTap);
   }
 
   /// This is an instance of the [FavoriteRepository] class.
@@ -39,5 +40,14 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
         ),
       );
     }
+  }
+
+  /// This function [_onFavoriteOnTap] is called when the user taps on a favorite.
+  Future _onFavoriteOnTap(
+    FavoriteOnTap event,
+    Emitter<FavoriteState> emit,
+  ) async {
+    /// emit new state with new values and index
+    emit(state.copyWith(index: event.index));
   }
 }

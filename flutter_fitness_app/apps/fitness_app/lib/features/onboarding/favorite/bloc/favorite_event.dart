@@ -9,3 +9,11 @@ class FavoriteEvent extends Equatable {
 
 class FavoriteFetchData extends FavoriteEvent {}
 
+class FavoriteOnTap extends FavoriteEvent {
+  FavoriteOnTap({this.index = 0});
+
+  final int index;
+
+  @override
+  List<Object> get props => [index];
+}

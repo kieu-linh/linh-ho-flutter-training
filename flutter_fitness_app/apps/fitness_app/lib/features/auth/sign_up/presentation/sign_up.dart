@@ -45,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
           // if success go to favoriteScreen
           if (state.status == SubmissionStatus.success) {
             FASnackBar.success(context, message: context.l10n.createAccount);
-            GoRouter.of(context).go('/favorite');
+            context.go(AppRoutes.favoriteScreen.path);
           }
 
           // if failure show snackbar with error message
@@ -237,7 +237,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       style: context.textTheme.labelSmall,
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () =>
-                                            GoRouter.of(context).go('/login'),
+                                           context.go(AppRoutes.loginScreen.path),
                                     ),
                                   ],
                                 ),

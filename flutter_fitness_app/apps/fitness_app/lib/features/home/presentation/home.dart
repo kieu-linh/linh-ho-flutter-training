@@ -11,6 +11,7 @@ import 'package:fitness_app/features/home/presentation/widgets/popular_exercise.
 import 'package:fitness_app/features/home/presentation/widgets/select_goal.dart';
 import 'package:fitness_app/features/home/presentation/widgets/title.dart';
 import 'package:fitness_app/features/home/repositories/home_repositories.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/app_bar.dart';
 import 'package:fitness_ui/components/card.dart';
 import 'package:fitness_ui/components/shimmer.dart';
@@ -76,7 +77,7 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                     FATitleHome(
-                      onPressed: () => GoRouter.of(context).goNamed('category'),
+                      onPressed: () => context.goNamed(AppRoutes.category.name),
                       title: context.l10n.category,
                       titleSmall: context.l10n.seeAll,
                     ),

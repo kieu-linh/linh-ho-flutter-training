@@ -1,3 +1,4 @@
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_app/seeds/user.dart';
 import 'package:fitness_app/features/profile/widgets/goal_item.dart';
 import 'package:fitness_app/features/profile/widgets/macronutrient_goal.dart';
@@ -31,7 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Column(
               children: [
                 FATopNavigation(
-                  onLeadingPress: () => GoRouter.of(context).go('/home'),
+                  onLeadingPress: () => context.go(AppRoutes.homeScreen.path),
                   padding: const EdgeInsets.only(top: 2),
                   title: context.l10n.profile,
                   onTrailingPress: () {},

@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/constant/constant.dart';
 import 'package:fitness_app/features/welcome/widget/image_filter.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/carousel.dart';
 import 'package:fitness_ui/components/rich_text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -65,7 +66,7 @@ class _WelcomePageState extends State<WelcomePage> {
             right: 24,
             bottom: 24,
             child: FACarousel(
-              onSkip: () => GoRouter.of(context).go('/login'),
+              onSkip: () => context.go(AppRoutes.loginScreen.path),
               onNext: () {
                 //if pageIndex < listWelcomes.length - 1 then next page
                 //else: page is the last page, navigate to login page
@@ -75,7 +76,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     curve: Curves.bounceIn,
                   );
                 } else {
-                  GoRouter.of(context).go('/login');
+                  context.go(AppRoutes.loginScreen.path);
                 }
               },
               pageIndex: pageIndex,

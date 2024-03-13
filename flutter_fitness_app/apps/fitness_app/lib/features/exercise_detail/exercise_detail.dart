@@ -10,6 +10,7 @@ import 'package:fitness_app/features/home/bloc/home_state.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/presentation/widgets/add_exercise.dart';
 import 'package:fitness_app/features/home/repositories/home_repositories.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -80,7 +81,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                 left: 24,
                 right: 24,
                 child: FATopNavigation(
-                  onLeadingPress: () => GoRouter.of(context).go('/exercise'),
+                  onLeadingPress: () =>
+                      context.go(AppRoutes.exerciseScreen.path),
                 ),
               ),
               Positioned(

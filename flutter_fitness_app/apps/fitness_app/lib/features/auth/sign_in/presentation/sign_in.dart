@@ -43,7 +43,7 @@ class _SignInPageState extends State<SignInPage> {
         listener: (context, state) {
           // if success go to favoriteScreen
           if (state.status == SubmissionStatus.success) {
-            GoRouter.of(context).goNamed('homeScreen');
+            context.goNamed(AppRoutes.homeScreen.name);
           }
 
           // if failure show snackbar with error message
@@ -210,8 +210,8 @@ class _SignInPageState extends State<SignInPage> {
                                       text: context.l10n.registerText,
                                       style: context.textTheme.labelSmall,
                                       recognizer: TapGestureRecognizer()
-                                        ..onTap = () =>
-                                            GoRouter.of(context).go('/sign-up'),
+                                        ..onTap = () => context
+                                            .go(AppRoutes.signUpScreen.path),
                                     ),
                                   ],
                                 ),
