@@ -17,3 +17,4 @@ class FavoriteOnTap extends FavoriteEvent {
   @override
   List<Object> get props => [index];
 }
+

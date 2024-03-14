@@ -121,6 +121,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
             email: event.email,
             password: event.password,
           );
+      userStarted = user;
 
       /// emit the success state.
       emit(state.copyWith(status: SubmissionStatus.success));
@@ -128,7 +129,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       // Save the user data to the local storage.
       SharedPrefs(SharedPreferences.getInstance()).saveAccount(user);
     } catch (e) {
-
       /// emit the failure state with error message.
       emit(
         state.copyWith(

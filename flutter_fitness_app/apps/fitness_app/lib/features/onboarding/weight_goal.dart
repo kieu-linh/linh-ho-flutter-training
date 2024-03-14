@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/extension/number.dart';
 import 'package:fitness_app/core/utils/validator.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
@@ -48,7 +49,10 @@ class _WeightGoalPageState extends State<WeightGoalPage> {
           validator: FAValidator.validatorWeight,
         ),
       ),
-      onNext: () => context.go(AppRoutes.height.path),
+      onNext: () {
+        userStarted..weightGoal = double.parse(weightController.text);
+        context.go(AppRoutes.height.path);
+      },
     );
   }
 }

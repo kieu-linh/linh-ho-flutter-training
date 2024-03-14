@@ -50,4 +50,5 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     /// emit new state with new values and index
     emit(state.copyWith(index: event.index));
   }
+
 }
