@@ -94,7 +94,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
                 onChanged: widget.onChange,
                 validator: widget.validator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: InputDecoration(
+                 decoration: InputDecoration(
                   constraints: BoxConstraints(
                     maxWidth: sizeText,
                   ),
