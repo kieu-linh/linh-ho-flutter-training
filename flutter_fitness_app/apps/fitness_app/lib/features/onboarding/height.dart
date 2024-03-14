@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/extension/number.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/input_body_measurements.dart';
@@ -20,7 +21,6 @@ class _HeightPageState extends State<HeightPage> {
   double heightValue = 0;
   @override
   Widget build(BuildContext context) {
-
     return FAScaffold(
       onBack: () => context.go(AppRoutes.weightGoalScreen.path),
       currentStep: 5,
@@ -45,7 +45,11 @@ class _HeightPageState extends State<HeightPage> {
           controller: heightController,
         ),
       ),
-      onNext: () => context.go(AppRoutes.levelScreen.path),
+      onNext: () {
+        userStarted..height = double.parse(heightController.text);
+        print(userStarted.toJson());
+        context.go(AppRoutes.levelScreen.path);
+      },
     );
   }
 }

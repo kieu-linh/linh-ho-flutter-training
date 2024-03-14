@@ -1,3 +1,4 @@
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/features/onboarding/layout/scaffold.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
@@ -47,7 +48,7 @@ class _AgePageState extends State<AgePage> {
               physics: const FixedExtentScrollPhysics(),
               itemExtent: 40,
               childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 56,
+                childCount: 76,
                 builder: (context, index) {
                   return Center(
                     child: Text(
@@ -68,7 +69,10 @@ class _AgePageState extends State<AgePage> {
           ],
         ),
       ),
-      onNext: () => context.go(AppRoutes.weightScreen.path),
+      onNext: () {
+        userStarted..age = _selectIndex + 15;
+        context.go(AppRoutes.weightScreen.path);
+      },
     );
   }
 }

@@ -2,27 +2,27 @@ import 'dart:convert';
 
 import 'package:api_client/api_client.dart';
 import 'package:fitness_app/core/constant/path.dart';
-import 'package:fitness_app/features/onboarding/favorite/model/favorite.dart';
+import 'package:fitness_app/features/onboarding/level/model/level.dart';
 
-class FavoriteRepository {
-  const FavoriteRepository(this.apiClient);
+class LevelRepository {
+  const LevelRepository(this.apiClient);
 
   /// This is an instance of the [ApiClient] class.
   final ApiClient apiClient;
 
-  /// This function [fetchFavorite] is called when loading the favorite data.
-  Future<List<Favorite>?> fetchFavorite() async {
+  /// This function [fetchLevel] is called when loading the Level data.
+  Future<List<Level>?> fetchLevel() async {
     try {
       final response = await this.apiClient.get(endPoint: FAPath.favorite);
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
-        final favorites = data
-            .map((e) => Favorite.fromJson(e as Map<String, dynamic>))
+        final levels = data
+            .map((e) => Level.fromJson(e as Map<String, dynamic>))
             .toList();
-        return favorites;
+        return levels;
       } else {
-        throw Exception('Failed to load favorites');
+        throw Exception('Failed to load levels');
       }
     } on Failure {
       rethrow;

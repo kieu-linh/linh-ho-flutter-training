@@ -1,4 +1,5 @@
 import 'package:api_client/api_client.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/features/onboarding/favorite/bloc/favorite_bloc.dart';
 import 'package:fitness_app/features/onboarding/favorite/bloc/favorite_event.dart';
 import 'package:fitness_app/features/onboarding/favorite/bloc/favorite_state.dart';
@@ -80,7 +81,10 @@ class FavoritePage extends StatelessWidget {
                 ),
               ),
             ),
-            onNext: () => context.go(AppRoutes.ageScreen.path),
+            onNext: () {
+              userStarted..favoriteID = state.favorites?[state.index].favoriteID;
+              context.go(AppRoutes.ageScreen.path);
+            },
           );
         },
       ),
