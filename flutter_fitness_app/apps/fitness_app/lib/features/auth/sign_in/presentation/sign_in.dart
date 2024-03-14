@@ -128,7 +128,8 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         const SizedBox(height: 17),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () =>
+                              context.go(AppRoutes.forgotPassScreen.path),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [

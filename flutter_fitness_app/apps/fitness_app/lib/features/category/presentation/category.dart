@@ -2,7 +2,7 @@ import 'package:api_client/api_client.dart';
 import 'package:fitness_app/features/category/bloc/category_bloc.dart';
 import 'package:fitness_app/features/category/bloc/category_event.dart';
 import 'package:fitness_app/features/category/bloc/category_state.dart';
-import 'package:fitness_app/features/category/repositories/category_repository.dart';
+import 'package:fitness_app/features/category/repository/category_repository.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/search_box.dart';
 import 'package:fitness_ui/components/text.dart';

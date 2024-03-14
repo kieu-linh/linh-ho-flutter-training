@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/input.dart';
@@ -8,14 +9,14 @@ import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ForgetPassword extends StatefulWidget {
-  const ForgetPassword({super.key});
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({super.key});
 
   @override
-  State<ForgetPassword> createState() => _ForgetPasswordState();
+  State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-class _ForgetPasswordState extends State<ForgetPassword> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   TextEditingController emailController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool checkIcon = false;
@@ -50,10 +51,12 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     FAInput(
                       hintText: 'Email',
                       controller: emailController,
+                      validator: FAValidator.validatorEmail,
                     ),
                     context.sizedBox(height: 109),
                     FAButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          context.go(AppRoutes.verifyAccountScreen.path),
                       text: 'RESET PASSWORD',
                     ),
                   ],

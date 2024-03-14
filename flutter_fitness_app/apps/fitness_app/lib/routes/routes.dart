@@ -1,5 +1,7 @@
+import 'package:fitness_app/features/auth/forget_password/presentation/forget_password.dart';
 import 'package:fitness_app/features/auth/sign_in/presentation/sign_in.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/sign_up.dart';
+import 'package:fitness_app/features/auth/verify_account/presentation/verify_account.dart';
 import 'package:fitness_app/features/category/presentation/category.dart';
 import 'package:fitness_app/features/drawer/drawer_main.dart';
 import 'package:fitness_app/features/exercise/presentation/exercise.dart';
@@ -61,6 +63,11 @@ class FARouter {
         builder: (context, state) => const SignUpPage(),
       ),
       GoRoute(
+        path: AppRoutes.forgotPassScreen.path,
+        name: AppRoutes.forgotPassScreen.name,
+        builder: (context, state) => const ForgotPassword(),
+      ),
+      GoRoute(
         path: AppRoutes.favoriteScreen.path,
         name: AppRoutes.favoriteScreen.name,
         builder: (context, state) => const FavoritePage(),
@@ -99,6 +106,11 @@ class FARouter {
         path: AppRoutes.getStartScreen.path,
         name: AppRoutes.getStartScreen.name,
         builder: (context, state) => const GetStartPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.verifyAccountScreen.path,
+        name: AppRoutes.verifyAccountScreen.name,
+        builder: (context, state) => const VerifyAccountPage(),
       ),
 
       /// Home Router
@@ -203,7 +215,10 @@ enum AppRoutes {
     name: 'signUpScreen',
     path: '/sign-up',
   ),
-
+  forgotPassScreen(
+    name: 'forgotPassScreen',
+    path: '/forgot-pass',
+  ),
   favoriteScreen(
     name: 'favoriteScreen',
     path: '/favorite',
@@ -259,6 +274,10 @@ enum AppRoutes {
   exerciseDetailScreen(
     name: 'exercise-detail',
     path: 'exercise-detail',
+  ),
+  verifyAccountScreen(
+    name: 'verifyAccountScreen',
+    path: '/verify-account',
   );
 
   const AppRoutes({
