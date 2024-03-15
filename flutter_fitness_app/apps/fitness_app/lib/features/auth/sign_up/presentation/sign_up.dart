@@ -95,7 +95,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                 .add(SignUpNameChanged(name: name)),
                             readOnly: state.status == SubmissionStatus.loading,
                             hintText: context.l10n.fullNameText,
-                            textInputAction: TextInputAction.next,
                             validator: (value) =>
                                 FAValidator.validatorInput(state.name),
                           ),
@@ -236,8 +235,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                       text: context.l10n.loginButtonText,
                                       style: context.textTheme.labelSmall,
                                       recognizer: TapGestureRecognizer()
-                                        ..onTap = () =>
-                                           context.go(AppRoutes.loginScreen.path),
+                                        ..onTap = () => context
+                                            .go(AppRoutes.loginScreen.path),
                                     ),
                                   ],
                                 ),

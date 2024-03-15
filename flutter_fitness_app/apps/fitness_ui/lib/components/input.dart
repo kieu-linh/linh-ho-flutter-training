@@ -12,7 +12,7 @@ class FAInput extends StatelessWidget {
     this.hintText = '',
     this.icon,
     this.controller,
-    this.textInputAction,
+    this.textInputAction = TextInputAction.next,
     this.onFieldSubmit,
     super.key,
     this.keyboardType,
@@ -29,7 +29,7 @@ class FAInput extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   final String hintText;
   final String? icon;
-  final TextInputAction? textInputAction;
+  final TextInputAction textInputAction;
   final Function(String)? onChanged;
   final bool readOnly;
 
