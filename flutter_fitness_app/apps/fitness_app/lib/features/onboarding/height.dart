@@ -47,7 +47,6 @@ class _HeightPageState extends State<HeightPage> {
       ),
       onNext: () {
         userStarted..height = double.parse(heightController.text);
-        print(userStarted.toJson());
         context.go(AppRoutes.levelScreen.path);
       },
     );

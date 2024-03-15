@@ -12,12 +12,12 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.controller,
     this.onPressed,
-    this.avatar,
+    this.avatar = FAImage.imgAvatarHome,
     this.name,
   });
   final TextEditingController? controller;
   final VoidCallback? onPressed;
-  final String? avatar;
+  final String avatar;
   final String? name;
 
   @override
@@ -65,12 +65,9 @@ class FAAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: FAIcons.menu(),
                   ),
                   const SizedBox(width: 5),
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 22,
-                    backgroundImage: AssetImage(
-                      FAImage.imgAvatar,
-                      package: 'fitness_ui',
-                    ),
+                    backgroundImage: AssetImage(avatar),
                   ),
                   const Spacer(),
                   FAIcons.notification(),

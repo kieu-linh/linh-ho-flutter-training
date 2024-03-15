@@ -23,6 +23,8 @@ class FAImage {
 
   static const String imgAvatar = 'assets/images/img_avatar.png';
 
+  static const String imgAvatarHome = 'assets/images/img_avatar_home.png';
+
   static const String imgGirlCard = 'assets/images/img_girl_card.png';
 
   static const String imgDumbbell = 'assets/images/img_dumbbell.png';

@@ -19,7 +19,6 @@ class FavoriteState extends Equatable {
   FavoriteState copyWith({
     SubmissionStatus? fetchFavoriteStatus,
     List<Favorite>? favorites,
-    String? searchKey,
     String? errorMessage,
     int? index,
   }) {

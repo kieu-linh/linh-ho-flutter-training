@@ -116,6 +116,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
     // get data from repository
     try {
+      print('object vao r12');
       User user = await this.repository.signUp(
             name: event.name,
             email: event.email,

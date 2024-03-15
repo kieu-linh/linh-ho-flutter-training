@@ -114,7 +114,7 @@ class FAValidator {
         final weight = double.parse(value);
 
         /// check valid weight
-        if (weight > 10 && weight < 200) {
+        if (weight < 10 || weight > 300) {
           return 'Weight should be between 10 and 200';
         }
       } catch (e) {
