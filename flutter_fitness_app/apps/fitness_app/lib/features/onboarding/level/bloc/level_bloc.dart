@@ -19,7 +19,8 @@ class LevelBloc extends Bloc<LevelEvent, LevelState> {
     Emitter<LevelState> emit,
   ) async {
     /// emit new state with new values and status loading
-    emit(state.copyWith(fetchLevelStatus: SubmissionStatus.loading, levels: []));
+    emit(
+        state.copyWith(fetchLevelStatus: SubmissionStatus.loading, levels: []));
     try {
       /// fetch Level data from repository
       final levels = await this.repository.fetchLevel();

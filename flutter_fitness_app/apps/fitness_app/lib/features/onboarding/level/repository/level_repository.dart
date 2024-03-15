@@ -13,13 +13,13 @@ class LevelRepository {
   /// This function [fetchLevel] is called when loading the Level data.
   Future<List<Level>?> fetchLevel() async {
     try {
-      final response = await this.apiClient.get(endPoint: FAPath.favorite);
+      final response = await this.apiClient.get(endPoint: FAPath.level);
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
-        final levels = data
-            .map((e) => Level.fromJson(e as Map<String, dynamic>))
-            .toList();
+        final levels =
+            data.map((e) => Level.fromJson(e as Map<String, dynamic>)).toList();
+
         return levels;
       } else {
         throw Exception('Failed to load levels');

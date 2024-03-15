@@ -19,7 +19,6 @@ class LevelState extends Equatable {
   LevelState copyWith({
     SubmissionStatus? fetchLevelStatus,
     List<Level>? levels,
-    String? searchKey,
     String? errorMessage,
     int? index,
   }) {

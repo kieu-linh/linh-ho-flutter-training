@@ -18,6 +18,9 @@ class User {
     this.height,
     this.age,
     this.favoriteID,
+    this.levelID,
+    this.goalID,
+    this.avatar,
   });
   int? userID;
   String? email;
@@ -28,24 +31,30 @@ class User {
   double? height;
   int? age;
   int? favoriteID;
+  int? levelID;
+  int? goalID;
+  String? avatar;
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      userID: json['userID'] as int,
-      email: json['email'] as String,
-      password: json['password'] as String,
-      name: json['name'] as String,
-      weight: json['weight'] as double,
-      weightGoal: json['weightGoal'] as double,
-      height: json['height'] as double,
-      age: json['age'] as int,
-      favoriteID: json['favoriteID'] as int,
+      userID: json['userID'] as int?,
+      email: json['email'] as String?,
+      password: json['password'] as String?,
+      name: json['name'] as String?,
+      weight: json['weight'] as double?,
+      weightGoal: json['weightGoal'] as double?,
+      height: json['height'] as double?,
+      age: json['age'] as int?,
+      favoriteID: json['favoriteID'] as int?,
+      levelID: json['levelID'] as int?,
+      goalID: json['goalID'] as int?,
+      avatar: json['avatar'] as String?,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'userID': userID,
+      if (userID != null) 'userID': userID,
       'email': email,
       'password': password,
       'name': name,
@@ -54,6 +63,9 @@ class User {
       'height': height,
       'age': age,
       'favoriteID': favoriteID,
+      'levelID': levelID,
+      'goalID': goalID,
+      'avatar': avatar,
     };
   }
 }

@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:api_client/api_client.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/rich_text.dart';
@@ -11,6 +15,19 @@ import 'package:go_router/go_router.dart';
 
 class GetStartPage extends StatelessWidget {
   const GetStartPage({super.key});
+
+  void updateInfoUser(BuildContext context) {
+    ApiClient()
+        .patch(
+          endpoint: '/User?email=eq.${userStarted.email}',
+          body: jsonEncode(userStarted.toJson()),
+        )
+        .then((response) => print(response.statusCode))
+        .catchError((onError) {
+      SnackBar(content: Text(onError.toString()));
+    });
+    context.go(AppRoutes.homeScreen.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +70,7 @@ class GetStartPage extends StatelessWidget {
             bottom: 20,
             child: FAButton(
               text: context.l10n.getStartedText,
-              onPressed: () => context.go(AppRoutes.homeScreen.path),
+              onPressed: () => updateInfoUser(context),
             ),
           ),
         ],

@@ -15,6 +15,7 @@ import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/app_bar.dart';
 import 'package:fitness_ui/components/card.dart';
 import 'package:fitness_ui/components/shimmer.dart';
+import 'package:fitness_ui/core/constant/images.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,6 +44,7 @@ class HomePage extends StatelessWidget {
             appBar: FAAppBar(
               onPressed: () => zoomDrawerController.toggle?.call(),
               name: '${state.user?.name} !',
+              avatar: state.user?.avatar ?? FAImage.imgAvatarHome,
             ),
             body: ScrollConfiguration(
               behavior:

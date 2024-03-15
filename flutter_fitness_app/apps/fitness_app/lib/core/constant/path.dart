@@ -4,13 +4,17 @@ class FAPath {
 
   static const signUp = '/User';
 
-  static const goal = '/Goal?select=*';
+  static const goal = '/Goal?type=eq.1&select=*';
+
+  static const goalOnboarding = '/Goal?type=eq.2&select=*';
 
   static const category = '/Category?select=*';
 
   static const meal = '/Meal?select=*';
 
   static const favorite = '/Favorite?select=*';
+
+  static const level = '/Level?select=*';
 
   static const exercise = '/Exercise?type=eq.1&select=*&order=exerciseID.asc';
 
