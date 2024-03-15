@@ -49,7 +49,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             context.go(AppRoutes.homeScreen.path),
                         padding: const EdgeInsets.only(top: 2),
                         title: context.l10n.profile,
-                        onTrailingPress: () {},
+                        onTrailingPress: () =>
+                            context.goNamed(AppRoutes.editProfileScreen.name),
                         trailing: FAIcons.edit(),
                       ),
                       Column(

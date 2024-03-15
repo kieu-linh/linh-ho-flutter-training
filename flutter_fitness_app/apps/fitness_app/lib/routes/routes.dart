@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/sign_up/presentation/sign_up.dart';
 import 'package:fitness_app/features/auth/verify_account/presentation/verify_account.dart';
 import 'package:fitness_app/features/category/presentation/category.dart';
 import 'package:fitness_app/features/drawer/drawer_main.dart';
+import 'package:fitness_app/features/edit_profile/edit_profile.dart';
 import 'package:fitness_app/features/exercise/presentation/exercise.dart';
 import 'package:fitness_app/features/exercise_detail/exercise_detail.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
@@ -186,6 +187,14 @@ class FARouter {
                 path: AppRoutes.profileScreen.path,
                 name: AppRoutes.profileScreen.path,
                 builder: (context, state) => ProfilePage(key: state.pageKey),
+                routes: [
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: AppRoutes.editProfileScreen.path,
+                    name: AppRoutes.editProfileScreen.name,
+                    builder: (context, state) => EditProfilePage(),
+                  ),
+                ],
               ),
             ],
           ),
@@ -266,6 +275,10 @@ enum AppRoutes {
   profileScreen(
     name: 'profileScreen',
     path: '/profile',
+  ),
+  editProfileScreen(
+    name: 'edit-profile',
+    path: 'edit-profile',
   ),
   exerciseScreen(
     name: 'exerciseScreen',

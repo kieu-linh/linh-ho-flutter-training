@@ -24,11 +24,11 @@ class EmailInput extends StatelessWidget {
       hintText: context.l10n.EmailHintText,
       icon: isValid ? FAIcon.iconTick : null,
       validator: FAValidator.validatorEmail,
-      textInputAction: TextInputAction.next,
       readOnly: readOnly,
     );
   }
 }
+
 class PasswordInput extends StatelessWidget {
   const PasswordInput({
     this.textInputAction = TextInputAction.done,
