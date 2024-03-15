@@ -1,4 +1,4 @@
-import 'package:fitness_app/seeds/category.dart';
+import 'package:fitness_app/features/home/model/category.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -6,12 +6,13 @@ import 'package:flutter/material.dart';
 
 class FAGoalItem extends StatelessWidget {
   const FAGoalItem({
+    required this.goals,
     super.key,
   });
 
+  final List<Category> goals;
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         Padding(
@@ -32,7 +33,7 @@ class FAGoalItem extends StatelessWidget {
           child: Padding(
             padding: context.padding(horizontal: 20),
             child: Row(
-              children: List.generate(CategorySeeds.listCategory.length, (index) {
+              children: List.generate(goals.length, (index) {
                 return Padding(
                   padding: context.padding(right: 19),
                   child: Column(
@@ -40,13 +41,13 @@ class FAGoalItem extends StatelessWidget {
                       CircleAvatar(
                         radius: 30,
                         backgroundImage: AssetImage(
-                          CategorySeeds.listCategory[index].imagePath,
+                          goals[index].imagePath ?? '',
                         ),
                       ),
                       const SizedBox(height: 10),
                       FAText.bodyLarge(
                         context,
-                        text: CategorySeeds.listCategory[index].name,
+                        text: goals[index].name ?? '',
                         style:
                             context.textTheme.bodyLarge?.copyWith(fontSize: 12),
                       ),

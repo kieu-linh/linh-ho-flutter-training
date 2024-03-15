@@ -2,10 +2,13 @@ import 'dart:convert';
 
 import 'package:api_client/api_client.dart';
 import 'package:fitness_app/core/constant/path.dart';
+import 'package:fitness_app/core/storage/shared_prefs.dart';
+import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_app/features/home/model/category.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/features/home/model/goal.dart';
 import 'package:fitness_app/features/home/model/meal.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeRepository {
   const HomeRepository(this.apiClient);
@@ -26,6 +29,39 @@ class HomeRepository {
             data.map((e) => Goal.fromJson(e as Map<String, dynamic>)).toList();
 
         return goals;
+      }
+
+      /// else notify the user that the data failed to load
+      else {
+        throw Exception('Failed to load goals');
+      }
+    } on Failure {
+      rethrow;
+    }
+  }
+
+  /// This function [fetchUsers] is called when loading the user data.
+  Future<User?> fetchUsers() async {
+    try {
+      /// This is an instance of [SharedPrefs] to call SharedPreferences
+      SharedPrefs sharedPrefs = SharedPrefs(SharedPreferences.getInstance());
+
+      /// save user data to shared preferences
+      final user = await sharedPrefs.getAccount();
+
+      final path = '/User?email=eq.${user?.email}&select=*';
+
+      /// get the goal data from the api
+      final response = await this.apiClient.get(endPoint: path);
+
+      /// check if the response status code is 200: return the user data
+      if (response.statusCode == 200) {
+        /// decode the response body and map it to a list of user
+        final data = jsonDecode(response.body) as List<dynamic>;
+        final user =
+            data.map((e) => User.fromJson(e as Map<String, dynamic>)).toList();
+
+        return user.first;
       }
 
       /// else notify the user that the data failed to load
@@ -130,8 +166,8 @@ class HomeRepository {
             .toList();
 
         return exercises;
-      } 
-      
+      }
+
       /// else notify the user that the data failed to load
       else {
         throw Exception('Failed to add exercises');

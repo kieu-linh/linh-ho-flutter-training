@@ -1,10 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/features/home/bloc/home_event.dart';
 import 'package:fitness_app/features/home/bloc/home_state.dart';
 import 'package:fitness_app/features/home/repositories/home_repositories.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc(this.repository) : super(const HomeState()) {
@@ -25,12 +23,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     HomeFetchUserData event,
     Emitter<HomeState> emit,
   ) async {
-    /// This is an instance of [SharedPrefs] to call SharedPreferences
-    SharedPrefs sharedPrefs = SharedPrefs(SharedPreferences.getInstance());
+    /// fetch user data from repository
+    try {
+      final user = await this.repository.fetchUsers();
 
-    /// save user data to shared preferences
-    final user = await sharedPrefs.getAccount();
-    emit(state.copyWith(user: user));
+      print('user: ${user?.name}');
+
+      /// emit new state with new values and status success
+      emit(state.copyWith(user: user));
+    }
+
+    /// emit new state with new values and status failure
+    catch (e) {
+      emit(state.copyWith(errorMessage: e.toString()));
+    }
   }
 
   /// This function [_onFetchGoalData] is called when loading the goal data.
