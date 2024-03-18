@@ -1,6 +1,8 @@
 class FAIcon {
   static const String iconBack = 'assets/icons/ic_back.svg';
 
+  static const String iconNext = 'assets/icons/ic_next.svg';
+
   static const String iconEye = 'assets/icons/ic_eye.svg';
 
   static const String iconFacebook = 'assets/icons/ic_facebook.svg';
@@ -60,4 +62,8 @@ class FAIcon {
   static const String iconError = 'assets/icons/ic_error.svg';
 
   static const String iconTickSuccess = 'assets/icons/ic_tick_success.svg';
+
+  static const String iconFemale = 'assets/icons/ic_female.svg';
+
+  static const String iconMale = 'assets/icons/ic_male.svg';
 }

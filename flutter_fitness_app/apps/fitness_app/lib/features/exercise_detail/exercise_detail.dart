@@ -1,4 +1,3 @@
-// ignore_for_file: deprecated_member_use
 import 'package:api_client/api_client.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/container_exercise.dart';
 import 'package:fitness_app/features/exercise_detail/widgets/description_exercise.dart';
@@ -68,9 +67,9 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
                           child: FAButton(
-                            text: context.l10n.startNow,
-                            onPressed: () {},
-                          ),
+                              text: context.l10n.startNow,
+                              onPressed: () => context
+                                  .goNamed(AppRoutes.trainingScreen.name)),
                         ),
                       ],
                     ),

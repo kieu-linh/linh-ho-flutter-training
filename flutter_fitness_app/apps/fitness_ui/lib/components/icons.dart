@@ -43,6 +43,20 @@ class FAIcons extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for next icon
+  factory FAIcons.next({
+    Color? color,
+    double? width,
+    double? height,
+  }) {
+    return FAIcons(
+      iconLink: 'assets/icons/ic_next.svg',
+      color: color,
+      height: height,
+      width: width,
+    );
+  }
+
   /// Factory constructor for eye icon
   factory FAIcons.eye({
     Color? color,

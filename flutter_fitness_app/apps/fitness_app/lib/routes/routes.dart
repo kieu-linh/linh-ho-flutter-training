@@ -17,7 +17,9 @@ import 'package:fitness_app/features/onboarding/level/presentation/level.dart';
 import 'package:fitness_app/features/onboarding/weight.dart';
 import 'package:fitness_app/features/onboarding/weight_goal.dart';
 import 'package:fitness_app/features/profile/profile.dart';
+import 'package:fitness_app/features/schedule/schedule.dart';
 import 'package:fitness_app/features/splash/splash_screen.dart';
+import 'package:fitness_app/features/start-training/start_training.dart';
 import 'package:fitness_app/features/welcome/welcome.dart';
 import 'package:fitness_ui/components/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -173,6 +175,23 @@ class FARouter {
                       key: state.pageKey,
                       exercise: state.extra as Exercise,
                     ),
+                    routes: [
+                      /// Schedule Page
+                      GoRoute(
+                        parentNavigatorKey: _rootNavigatorKey,
+                        path: AppRoutes.scheduleScreen.path,
+                        name: AppRoutes.scheduleScreen.name,
+                        builder: (context, state) => SchedulePage(),
+                      ),
+
+                      /// Training Page
+                      GoRoute(
+                        parentNavigatorKey: _rootNavigatorKey,
+                        path: AppRoutes.trainingScreen.path,
+                        name: AppRoutes.trainingScreen.name,
+                        builder: (context, state) => TrainingPage(),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -287,6 +306,14 @@ enum AppRoutes {
   exerciseDetailScreen(
     name: 'exercise-detail',
     path: 'exercise-detail',
+  ),
+  scheduleScreen(
+    name: 'schedule-screen',
+    path: 'schedule-screen',
+  ),
+  trainingScreen(
+    name: 'training-screen',
+    path: 'training-screen',
   ),
   verifyAccountScreen(
     name: 'verifyAccountScreen',

@@ -1,7 +1,9 @@
 import 'package:fitness_app/features/exercise_detail/exercise_detail.dart';
+import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class FADescriptionExercise extends StatelessWidget {
   const FADescriptionExercise({
@@ -40,19 +42,22 @@ class FADescriptionExercise extends StatelessWidget {
                 style: context.textTheme.bodyLarge,
               ),
               const Spacer(),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-                height: context.sizeHeight(38),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: context.colorScheme.tertiary,
-                ),
-                child: Text(
-                  context.l10n.schedule,
-                  style: context.textTheme.bodyLarge?.copyWith(
-                    fontSize: 12,
-                    color: context.colorScheme.secondary,
+              GestureDetector(
+                onTap: () => context.goNamed(AppRoutes.scheduleScreen.name),
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                  height: context.sizeHeight(38),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: context.colorScheme.tertiary,
+                  ),
+                  child: Text(
+                    context.l10n.schedule,
+                    style: context.textTheme.bodyLarge?.copyWith(
+                      fontSize: 12,
+                      color: context.colorScheme.secondary,
+                    ),
                   ),
                 ),
               ),
