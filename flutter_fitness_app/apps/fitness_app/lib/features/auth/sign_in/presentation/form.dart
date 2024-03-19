@@ -10,12 +10,14 @@ class EmailInput extends StatelessWidget {
     this.isValid = true,
     this.readOnly = false,
     this.onChanged,
+    this.controller,
     super.key,
   });
 
   final bool isValid;
   final Function(String)? onChanged;
   final bool readOnly;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class EmailInput extends StatelessWidget {
       icon: isValid ? FAIcon.iconTick : null,
       validator: FAValidator.validatorEmail,
       readOnly: readOnly,
+      controller: controller,
     );
   }
 }

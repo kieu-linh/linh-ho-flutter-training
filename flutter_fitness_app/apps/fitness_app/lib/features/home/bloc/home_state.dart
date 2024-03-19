@@ -21,6 +21,7 @@ class HomeState extends Equatable {
     this.errorMessage = '',
     this.index = 0,
     this.user,
+    this.isValidProfile = false,
   });
 
   final SubmissionStatus fetchGoalStatus;
@@ -42,6 +43,7 @@ class HomeState extends Equatable {
 
   final User? user;
   final int index;
+  final bool isValidProfile;
 
   HomeState copyWith({
     SubmissionStatus? fetchGoalsStatus,
@@ -57,6 +59,7 @@ class HomeState extends Equatable {
     String? errorMessage,
     User? user,
     int? index,
+    bool? isValidProfile,
   }) {
     return HomeState(
       fetchGoalStatus: fetchGoalsStatus ?? this.fetchGoalStatus,
@@ -74,6 +77,7 @@ class HomeState extends Equatable {
       errorMessage: errorMessage ?? this.errorMessage,
       user: user ?? this.user,
       index: index ?? this.index,
+      isValidProfile: isValidProfile ?? this.isValidProfile,
     );
   }
 
@@ -92,5 +96,6 @@ class HomeState extends Equatable {
         errorMessage,
         user,
         index,
+        isValidProfile,
       ];
 }

@@ -126,4 +126,54 @@ class FAValidator {
 
     return null;
   }
+
+  static String? validatorHeight(dynamic value) {
+    /// check height is String or not
+    if (value is String) {
+      /// check empty height
+      if (value.isEmpty) {
+        return FAUiS.current.requiredValue;
+      }
+
+      try {
+        final height = double.parse(value);
+
+        /// check valid weight
+        if (height < 10 || height > 300) {
+          return 'Height should be between 10 and 200';
+        }
+      } catch (e) {
+        return 'Please enter number';
+      }
+    } else {
+      return 'Please enter number';
+    }
+
+    return null;
+  }
+
+  static String? validatorAge(dynamic value) {
+    /// check age is String or not
+    if (value is String) {
+      /// check empty age
+      if (value.isEmpty) {
+        return FAUiS.current.requiredValue;
+      }
+
+      try {
+        final age = int.parse(value);
+
+        /// check valid age
+        if (age < 5 || age > 90) {
+          return 'Age should be between 6 and 90';
+        }
+      } catch (e) {
+        return 'Please enter number';
+      }
+    } else {
+      return 'Please enter number';
+    }
+
+    return null;
+  }
 }

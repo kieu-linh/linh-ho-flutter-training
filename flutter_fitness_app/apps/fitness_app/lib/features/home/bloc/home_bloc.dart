@@ -13,6 +13,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeFetchAddExerciseData>(_onFetchAddExerciseData);
     on<HomeFetchUserData>(_onFetchUserData);
     on<HomeGoalOnTap>(_onGoalOnTap);
+    on<ProfileSubmit>(_onProfileSubmit);
   }
 
   /// This is an instance of [HomeRepository] to call API
@@ -220,5 +221,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     /// emit new state with new values and index
     emit(state.copyWith(index: event.index));
+  }
+
+  Future<void> _onProfileSubmit(
+    ProfileSubmit event,
+    Emitter<HomeState> emit,
+  ) async {
+    bool checkValue = (event.name != state.user?.name) ||
+        (event.weight != state.user?.weight) ||
+        (event.height != state.user?.height) ||
+        (event.age != state.user?.age);
+    emit(state.copyWith(isValidProfile: checkValue));
+    print('objectaaaaa ${state.isValidProfile}');
   }
 }

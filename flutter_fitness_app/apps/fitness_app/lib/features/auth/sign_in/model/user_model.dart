@@ -8,20 +8,20 @@
 /// [age] is the user's age
 /// [favoriteID] is the user's favorite id
 class User {
-  User({
-    this.userID,
-    this.email,
-    this.password,
-    this.name,
-    this.weight,
-    this.weightGoal,
-    this.height,
-    this.age,
-    this.favoriteID,
-    this.levelID,
-    this.goalID,
-    this.avatar,
-  });
+  User(
+      {this.userID,
+      this.email,
+      this.password,
+      this.name,
+      this.weight,
+      this.weightGoal,
+      this.height,
+      this.age,
+      this.favoriteID,
+      this.levelID,
+      this.goalID,
+      this.avatar,
+      this.gender});
   int? userID;
   String? email;
   String? password;
@@ -34,22 +34,23 @@ class User {
   int? levelID;
   int? goalID;
   String? avatar;
+  bool? gender;
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      userID: json['userID'] as int?,
-      email: json['email'] as String?,
-      password: json['password'] as String?,
-      name: json['name'] as String?,
-      weight: json['weight'] as double?,
-      weightGoal: json['weightGoal'] as double?,
-      height: json['height'] as double?,
-      age: json['age'] as int?,
-      favoriteID: json['favoriteID'] as int?,
-      levelID: json['levelID'] as int?,
-      goalID: json['goalID'] as int?,
-      avatar: json['avatar'] as String?,
-    );
+        userID: json['userID'] as int?,
+        email: json['email'] as String?,
+        password: json['password'] as String?,
+        name: json['name'] as String?,
+        weight: double.parse(json['weight'].toString()),
+        weightGoal: double.parse(json['weightGoal'].toString()),
+        height: double.parse(json['height'].toString()),
+        age: json['age'] as int?,
+        favoriteID: json['favoriteID'] as int?,
+        levelID: json['levelID'] as int?,
+        goalID: json['goalID'] as int?,
+        avatar: json['avatar'] as String?,
+        gender: json['gender'] as bool?);
   }
 
   Map<String, dynamic> toJson() {
@@ -66,6 +67,18 @@ class User {
       'levelID': levelID,
       'goalID': goalID,
       'avatar': avatar,
+      'gender': gender
+    };
+  }
+
+  Map<String, dynamic> toJsonProfile() {
+    return {
+      'name': name,
+      'weight': weight,
+      'height': height,
+      'age': age,
+      'avatar': avatar,
+      'gender': gender
     };
   }
 }

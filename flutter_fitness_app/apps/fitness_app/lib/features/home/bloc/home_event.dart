@@ -21,6 +21,22 @@ class HomeFetchAddExerciseData extends HomeEvent {}
 
 class HomeFetchUserData extends HomeEvent {}
 
+class ProfileSubmit extends HomeEvent {
+  final String name;
+  final double weight;
+  final double height;
+  final bool gender;
+  final int age;
+
+  ProfileSubmit({
+    required this.name,
+    required this.weight,
+    required this.height,
+    required this.gender,
+    required this.age,
+  });
+}
+
 class HomeGoalOnTap extends HomeEvent {
   HomeGoalOnTap({this.index = 0});
 

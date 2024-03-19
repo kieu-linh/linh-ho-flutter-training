@@ -66,6 +66,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       User user = await this
           .repository
           .signIn(email: event.email, password: event.password);
+      print('asd ${user.name}');
 
       /// emit the success state.
       emit(state.copyWith(status: SubmissionStatus.success));
