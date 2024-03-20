@@ -54,7 +54,6 @@ class AuthRepository {
     String password = '',
   }) async {
     final response = await this.apiClient.get(endPoint: FAPath.login);
-    print('oo ${response.statusCode}');
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body) as List<dynamic>;
 
@@ -67,11 +66,9 @@ class AuthRepository {
             (element) => element.email == email,
           )
           .toList();
-      print('oo ${user.length}}');
 
       /// If user account is empty, it will push account data.
       if (user.isEmpty) {
-        print('object vao r2');
         this.apiClient.post(
               endpoint: FAPath.signUp,
               body: jsonEncode(
@@ -89,7 +86,6 @@ class AuthRepository {
           email: email,
           password: password,
         );
-        print('object vao r');
         return newUser;
       } else {
         throw Failure(400, FAUiS.current.accountExist);

@@ -41,7 +41,7 @@ class FARouter {
       GlobalKey<NavigatorState>(debugLabel: 'shellProfile');
 
   static final GoRouter appRouter = GoRouter(
-    initialLocation: AppRoutes.homeScreen.path,
+    initialLocation: AppRoutes.splashScreen.path,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [

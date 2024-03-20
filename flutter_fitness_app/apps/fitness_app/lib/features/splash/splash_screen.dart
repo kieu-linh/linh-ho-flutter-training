@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/notification/local_notifications.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/features/welcome/widget/image_filter.dart';
 import 'package:fitness_app/routes/routes.dart';
@@ -43,14 +44,31 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 context.sizedBox(height: 42),
                 GestureDetector(
-                  onTap: () async {
-                    final user = await context.read<SharedPrefs>().getAccount();
-                    if (user == null) {
-                      context.go(AppRoutes.welcomeScreen.path);
-                    } else {
-                      context.go(AppRoutes.homeScreen.path);
-                    }
+                  // onTap: () {
+                  //   print('abs');
+                  //   LocalNotifications.showPeriodicNotification(
+                  //     title: 'Simple Notification',
+                  //     body: 'This is a simple notification',
+                  //     payload: 'Simple Notification',
+                  //   );
+                  //   print('as');
+                  // },
+                  onTap: () {
+                    LocalNotifications.showNotification(
+                      title: 'Simple Notification',
+                      body: 'This is a simple notification',
+                      payload: 'Simple Notification',
+                    );
                   },
+                  // onTap: () async {
+                  //   // final user = await context.read<SharedPrefs>().getAccount();
+                  //   // if (user == null) {
+                  //   //   context.go(AppRoutes.welcomeScreen.path);
+                  //   // } else {
+                  //   //   context.go(AppRoutes.homeScreen.path);
+                  //   // }
+
+                  // },
                   child: Container(
                     width: context.sizeWidth(180),
                     height: context.sizeHeight(56),

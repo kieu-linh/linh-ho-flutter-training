@@ -1,4 +1,5 @@
 import 'package:api_client/api_client.dart';
+import 'package:fitness_app/core/notification/local_notifications.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
@@ -10,7 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+   await LocalNotifications.init();
   runApp(const MyApp());
 }
 
