@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/notification/local_notifications.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/icons.dart';
@@ -302,7 +303,13 @@ class _SchedulePageState extends State<SchedulePage> {
                               padding: context.padding(top: 20, bottom: 20),
                               child: FAButton(
                                 text: 'DONE',
-                                onPressed: () {},
+                                onPressed: () {
+                                  LocalNotifications.showNotification(
+                                      // title: 'Simple Notification',
+                                      // body: 'This is a simple notification',
+                                      // payload: 'Simple Notification',
+                                      );
+                                },
                               ),
                             ),
                           ],

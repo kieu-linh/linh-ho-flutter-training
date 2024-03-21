@@ -1,5 +1,4 @@
 import 'package:api_client/api_client.dart';
-import 'package:fitness_app/core/notification/local_notifications.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
@@ -9,12 +8,21 @@ import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await LocalNotifications.init();
+  await _configureLocalTimeZone();
   runApp(const MyApp());
+}
+
+Future<void> _configureLocalTimeZone() async {
+  tz.initializeTimeZones();
+  final String? timeZoneName = await FlutterTimezone.getLocalTimezone();
+  tz.setLocalLocation(tz.getLocation(timeZoneName!));
 }
 
 class MyApp extends StatefulWidget {
@@ -53,6 +61,7 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.light,
           theme: FAppTheme.lightTheme,
+          darkTheme: FAppTheme.darkTheme,
           localizationsDelegates: const [
             FAUiS.delegate,
             S.delegate,

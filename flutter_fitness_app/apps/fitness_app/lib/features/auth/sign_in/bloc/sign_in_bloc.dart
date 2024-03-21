@@ -66,7 +66,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       User user = await this
           .repository
           .signIn(email: event.email, password: event.password);
-      print('asd ${user.name}');
 
       /// emit the success state.
       emit(state.copyWith(status: SubmissionStatus.success));
@@ -74,6 +73,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       /// Save the user data to the local storage.
       SharedPrefs(SharedPreferences.getInstance()).saveAccount(user);
     } catch (e) {
+      print('object $e');
       emit(
         state.copyWith(
           status: SubmissionStatus.failure,

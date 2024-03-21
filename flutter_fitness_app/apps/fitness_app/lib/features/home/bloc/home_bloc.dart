@@ -228,8 +228,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     bool checkValue = (event.name != state.user?.name) ||
-        (event.weight != state.user?.weight) ||
-        (event.height != state.user?.height) ||
+        (event.weight !=
+            (state.user?.weight is double ? state.user?.weight : 0.0)) ||
+        (event.height !=
+            (state.user?.height is double ? state.user?.height : 0.0)) ||
         (event.age != state.user?.age);
     emit(state.copyWith(isValidProfile: checkValue));
     print('objectaaaaa ${state.isValidProfile}');

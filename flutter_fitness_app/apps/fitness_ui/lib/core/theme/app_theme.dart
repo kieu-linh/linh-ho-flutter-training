@@ -31,6 +31,32 @@ class AppTheme {
     );
   }
 
+  static ColorScheme get colorSchemeDart {
+    return const ColorScheme.dark(
+      primary: AppColor.darkPrimary,
+      secondary: AppColor.darkSecondary,
+      onSecondary: AppColor.darkOnSecondary,
+      tertiary: AppColor.darkTertiary,
+      tertiaryContainer: AppColor.darkTertiaryContainer,
+      onTertiary: AppColor.transparent,
+      surface: AppColor.darkOnSurface,
+      onSurface: AppColor.darkOnSurfaceVariant,
+      onSurfaceVariant: AppColor.darkSurfaceContainer,
+      outline: AppColor.darkOutlineColor,
+      outlineVariant: AppColor.darkOutlineButton,
+      onSecondaryContainer: AppColor.darkBottomNavigationColor,
+      error: AppColor.error,
+      onError: AppColor.onError,
+      inverseSurface: AppColor.iconHeart,
+      onInverseSurface: AppColor.containerThird,
+      inversePrimary: AppColor.containerSecond,
+      onTertiaryContainer: AppColor.linearContainer,
+      surfaceTint: AppColor.containerFirst,
+      background: AppColor.buttonFaceColor,
+      onBackground: AppColor.iconColor,
+    );
+  }
+
   /// Define the text theme for the app
   static final TextTheme textTheme = TextTheme(
     displayLarge: AppTextStyles.titlePrimary,

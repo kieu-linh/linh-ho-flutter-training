@@ -55,8 +55,8 @@ class FavoritePage extends StatelessWidget {
                               ),
                               state.index == index
                                   ? Container(
-                                      width: 107,
-                                      height: 107,
+                                      width: 105,
+                                      height: 105,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: context.colorScheme.onTertiary,
@@ -82,7 +82,8 @@ class FavoritePage extends StatelessWidget {
               ),
             ),
             onNext: () {
-              userStarted..favoriteID = state.favorites?[state.index].favoriteID;
+              userStarted
+                ..favoriteID = state.favorites?[state.index].favoriteID;
               context.go(AppRoutes.ageScreen.path);
             },
           );

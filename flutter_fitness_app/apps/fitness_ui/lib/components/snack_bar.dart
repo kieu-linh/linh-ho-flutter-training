@@ -34,30 +34,25 @@ class FASnackBar {
               child: Row(
                 children: [
                   context.sizedBox(width: 48),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(title ?? '', style: AppTextStyles.titleSnackBar),
-                        const Spacer(),
-                        Text(
-                          message,
-                          style: AppTextStyles.messageSnackBar,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(title ?? '', style: AppTextStyles.titleSnackBar),
+                      Text(
+                        message,
+                        style: AppTextStyles.messageSnackBar,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
             Positioned(
               bottom: 0,
-              child: Positioned(
-                bottom: 0,
-                child: FAIcons.splash(color: iconColor ?? AppColor.iconError),
-              ),
+              child: FAIcons.splash(color: iconColor ?? AppColor.iconError),
             ),
             Positioned(
               top: -13,

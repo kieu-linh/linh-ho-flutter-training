@@ -28,9 +28,9 @@ class User {
   String? email;
   String? password;
   String? name;
-  double? weight;
-  double? weightGoal;
-  double? height;
+  dynamic weight;
+  dynamic weightGoal;
+  dynamic height;
   int? age;
   int? favoriteID;
   int? levelID;
@@ -44,9 +44,9 @@ class User {
       email: json['email'] as String?,
       password: json['password'] as String?,
       name: json['name'] as String?,
-      // weight: json['weight'] as double?,
-      // weightGoal: json['weightGoal'] as double?,
-      // height: json['height'] as double?,
+      weight: json['weight'] as dynamic,
+      weightGoal: json['weightGoal'] as dynamic,
+      height: json['height'] as dynamic,
       age: json['age'] as int?,
       favoriteID: json['favoriteID'] as int?,
       levelID: json['levelID'] as int?,

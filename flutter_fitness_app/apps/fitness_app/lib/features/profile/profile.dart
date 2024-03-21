@@ -34,6 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ..add(HomeFetchCategoryData()),
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
+          print('user: ${state.user?.weight.runtimeType}');
           return Scaffold(
             body: Padding(
               padding: context.padding(
@@ -58,8 +59,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           FAUserInfo(
                             image: state.user?.avatar ?? UserSeeds.user1.image,
                             name: state.user?.name ?? '',
-                            weight: state.user?.weight ?? 0.0,
-                            height: state.user?.height ?? 0.0,
+                            weight: double.parse(
+                                state.user?.weight.toString() ?? '0.0'),
+                            height: double.parse(
+                                state.user?.height.toString() ?? '0.0'),
                             age: state.user?.age ?? 0,
                           ),
                           FAGoalItem(goals: state.categories),
