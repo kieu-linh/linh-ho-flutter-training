@@ -19,8 +19,6 @@ class AuthRepository {
     /// get account data from server
     final response = await this.apiClient.get(endPoint: FAPath.login);
 
-    print('abx ${response.body}');
-
     /// If the server returns a 200 OK response, it will return the user account data.
     if (response.statusCode >= 200 && response.statusCode < 300) {
       final data = jsonDecode(response.body) as List<dynamic>;
@@ -39,7 +37,6 @@ class AuthRepository {
       if (user.isEmpty) {
         throw Failure(400, FAUiS.current.errorMessage);
       } else {
-        print('object ${user.first.name}');
         return user.first;
       }
     } else {

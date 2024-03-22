@@ -52,26 +52,25 @@ class AppColor {
 
   static const iconSuccess = Color(0XFF004E32);
 
-  static const darkPrimary = Color(0xFFC2EF00);
+  static const darkPrimary = Color(0xFFB0C929);
 
-  static const darkSecondary = Color(0xFF304164);
+  static const darkSecondary = Color.fromARGB(255, 24, 22, 30);
 
-  static const darkOnSecondary = Color(0xFF304164);
+  static const darkOnSecondary = Colors.white;
 
   static const darkTertiary = Color(0xFFFFFFFF);
 
-  static const darkTertiaryContainer = Color(0xFF4B5875);
+  static const darkTertiaryContainer = Colors.white;
 
   static const darkOnSurface = Color(0xFFFFFFFF);
 
-  static const darkOnSurfaceVariant = Color(0xFF4B5875);
+  static const darkOnSurfaceVariant = Colors.white;
 
   static const darkSurfaceContainer = Color(0xFFFFFFFF);
 
-  static const darkOutlineColor = Color(0xFF1E2B47);
+  static const darkOutlineColor = Colors.black;
 
-  static const darkOutlineButton= Color(0xFFFFFFFF);
+  static const darkOutlineButton = Color(0xFFFFFFFF);
 
   static const darkBottomNavigationColor = Color(0xFF1E2B47);
-
 }

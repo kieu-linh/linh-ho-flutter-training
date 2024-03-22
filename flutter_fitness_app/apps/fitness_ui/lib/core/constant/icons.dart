@@ -66,4 +66,12 @@ class FAIcon {
   static const String iconFemale = 'assets/icons/ic_female.svg';
 
   static const String iconMale = 'assets/icons/ic_male.svg';
+
+  static const String iconLock = 'assets/icons/ic_lock.svg';
+
+  static const String iconLanguage = 'assets/icons/ic_language.svg';
+
+  static const String iconDark = 'assets/icons/ic_dark.svg';
+
+  static const String iconHealth = 'assets/icons/ic_health.svg';
 }

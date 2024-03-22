@@ -96,9 +96,13 @@ class DrawerPage extends StatelessWidget {
                       FASideMenu(
                           icon: FAIcon.iconFavorite,
                           title: context.l10n.myFavorite),
-                      FASideMenu(
-                          icon: FAIcon.iconSetting,
-                          title: context.l10n.appSetting),
+                      GestureDetector(
+                        onTap: () =>
+                            context.go(AppRoutes.appSettingScreen.path),
+                        child: FASideMenu(
+                            icon: FAIcon.iconSetting,
+                            title: context.l10n.appSetting),
+                      ),
                       FASideMenu(
                         icon: FAIcon.iconContact,
                         title: context.l10n.contactSupport,
@@ -122,7 +126,8 @@ class DrawerPage extends StatelessWidget {
                 title: context.l10n.logOutText,
                 action: () {
                   context.read<SharedPrefs>().deleteAccount();
-                  context.go(AppRoutes.loginScreen.path);;
+                  context.go(AppRoutes.loginScreen.path);
+                  ;
                 },
               );
             },

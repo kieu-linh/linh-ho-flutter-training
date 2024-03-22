@@ -28,8 +28,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       final user = await this.repository.fetchUsers();
 
-      print('user: ${user?.name}');
-
       /// emit new state with new values and status success
       emit(state.copyWith(user: user));
     }
@@ -234,6 +232,5 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             (state.user?.height is double ? state.user?.height : 0.0)) ||
         (event.age != state.user?.age);
     emit(state.copyWith(isValidProfile: checkValue));
-    print('objectaaaaa ${state.isValidProfile}');
   }
 }

@@ -34,7 +34,6 @@ class _ProfilePageState extends State<ProfilePage> {
         ..add(HomeFetchCategoryData()),
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
-          print('user: ${state.user?.weight.runtimeType}');
           return Scaffold(
             body: Padding(
               padding: context.padding(

@@ -4,6 +4,7 @@ import 'package:fitness_app/features/exercise/bloc/exercise_bloc.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_event.dart';
 import 'package:fitness_app/features/exercise/bloc/exercise_state.dart';
 import 'package:fitness_app/features/exercise/repositories/exercise_repositories.dart';
+import 'package:fitness_app/features/home/model/exercise.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/card_container.dart';
 import 'package:fitness_ui/components/divider.dart';
@@ -20,17 +21,23 @@ class ExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Exercise> listExercise = [];
+
     return BlocProvider(
       create: (context) =>
           ExerciseBloc(ExerciseRepository(context.read<ApiClient>()))
             ..add(ExerciseFetchBenefitData())
             ..add(ExerciseFetchExerciseData()),
-      child: BlocBuilder<ExerciseBloc, ExerciseState>(
+      child: BlocConsumer<ExerciseBloc, ExerciseState>(
+        listener: (context, state) {
+          if (state.benefits.isNotEmpty) {
+            listExercise = state.exercises.where((e) {
+              return e.benefit?.benefitID ==
+                  state.benefits[state.index].benefitID;
+            }).toList();
+          }
+        },
         builder: (context, state) {
-          final listExercise = state.exercises.where((e) {
-            return e.benefit?.benefitID ==
-                state.benefits[state.index].benefitID;
-          }).toList();
           return Scaffold(
             body: Column(
               children: [
@@ -100,12 +107,12 @@ class ExercisePage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               final exercise = listExercise[index];
                               return FACardContainer(
-                                addExercise: exercise,
-                                onPressed: () => context.goNamed(
-                                  AppRoutes.exerciseDetailScreen.name,
-                                  extra: exercise,
-                                ),
-                              );
+                                  addExercise: exercise,
+                                  onPressed: () => context.pushNamed(
+                                        AppRoutes.exerciseDetailScreen.name,
+                                        extra: exercise,
+                                      )
+                                  );
                             },
                             separatorBuilder: (context, index) => FADivider(
                               height: context.sizeHeight(40),

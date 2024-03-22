@@ -67,9 +67,10 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
                           child: FAButton(
-                              text: context.l10n.startNow,
-                              onPressed: () => context
-                                  .goNamed(AppRoutes.trainingScreen.name)),
+                            text: context.l10n.startNow,
+                            onPressed: () => context
+                                .pushNamed(AppRoutes.trainingScreen.name),
+                          ),
                         ),
                       ],
                     ),
@@ -80,8 +81,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                 left: 24,
                 right: 24,
                 child: FATopNavigation(
-                  onLeadingPress: () =>
-                      context.go(AppRoutes.exerciseScreen.path),
+                  onLeadingPress: () => context.pop(),
                 ),
               ),
               Positioned(

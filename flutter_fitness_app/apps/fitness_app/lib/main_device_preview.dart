@@ -50,9 +50,8 @@ class _MyAppState extends State<MyApp> {
         child: MaterialApp.router(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
-          themeMode: ThemeMode.light,
           theme: FAppTheme.lightTheme,
-          darkTheme: FAppTheme.darkTheme,
+          darkTheme: ThemeData.dark(),
           localizationsDelegates: const [
             FAUiS.delegate,
             S.delegate,

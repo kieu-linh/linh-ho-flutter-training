@@ -1,4 +1,3 @@
-import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +41,7 @@ class _TrainingPageState extends State<TrainingPage> {
                 left: 24,
                 right: 24,
                 child: FATopNavigation(
-                  onLeadingPress: () =>
-                      context.goNamed(AppRoutes.exerciseDetailScreen.name),
+                  onLeadingPress: () => context.pop(),
                 ),
               ),
             ],

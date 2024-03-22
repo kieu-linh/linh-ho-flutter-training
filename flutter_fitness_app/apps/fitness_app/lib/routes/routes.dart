@@ -1,3 +1,4 @@
+import 'package:fitness_app/features/app_setting/app_setting.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/forget_password.dart';
 import 'package:fitness_app/features/auth/sign_in/presentation/sign_in.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/sign_up.dart';
@@ -8,6 +9,7 @@ import 'package:fitness_app/features/edit_profile/edit_profile.dart';
 import 'package:fitness_app/features/exercise/presentation/exercise.dart';
 import 'package:fitness_app/features/exercise_detail/exercise_detail.dart';
 import 'package:fitness_app/features/home/model/exercise.dart';
+import 'package:fitness_app/features/meal_plan/presentation/meal_plan.dart';
 import 'package:fitness_app/features/onboarding/age.dart';
 import 'package:fitness_app/features/onboarding/favorite/presentation/favorite.dart';
 import 'package:fitness_app/features/onboarding/get_start.dart';
@@ -115,6 +117,16 @@ class FARouter {
         name: AppRoutes.verifyAccountScreen.name,
         builder: (context, state) => const VerifyAccountPage(),
       ),
+      GoRoute(
+        path: AppRoutes.drawerScreen.path,
+        name: AppRoutes.drawerScreen.name,
+        builder: (context, state) => DrawerMain(key: state.pageKey),
+      ),
+      GoRoute(
+        path: AppRoutes.appSettingScreen.path,
+        name: AppRoutes.appSettingScreen.name,
+        builder: (context, state) => AppSettingPage(),
+      ),
 
       /// Home Router
       StatefulShellRoute.indexedStack(
@@ -148,12 +160,9 @@ class FARouter {
             navigatorKey: _shellNavigatorMeal,
             routes: [
               GoRoute(
-                path: '/mealPlan',
-                name: 'MealPlan',
-                builder: (context, state) => Container(
-                  color: Colors.green,
-                ),
-              ),
+                  path: '/mealPlan',
+                  name: 'MealPlan',
+                  builder: (context, state) => MealPlanPage()),
             ],
           ),
 
@@ -318,6 +327,14 @@ enum AppRoutes {
   verifyAccountScreen(
     name: 'verifyAccountScreen',
     path: '/verify-account',
+  ),
+  appSettingScreen(
+    name: 'app-setting',
+    path: '/app-setting',
+  ),
+  drawerScreen(
+    name: 'drawer-screen',
+    path: '/drawer-screen',
   );
 
   const AppRoutes({

@@ -10,7 +10,11 @@ class FAPath {
 
   static const category = '/Category?select=*';
 
-  static const meal = '/Meal?select=*';
+  static const meal = '/Meal?type=eq.2&select=*';
+
+  static const mealDetail = '/MealDetail?select=*&order=mealDetailID.asc';
+
+  static const mealPlan = '/Meal?order=mealDetailID.asc&select=*,MealDetail(*)';
 
   static const favorite = '/Favorite?select=*';
 

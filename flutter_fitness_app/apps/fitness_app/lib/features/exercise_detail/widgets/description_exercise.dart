@@ -43,7 +43,7 @@ class FADescriptionExercise extends StatelessWidget {
               ),
               const Spacer(),
               GestureDetector(
-                onTap: () => context.goNamed(AppRoutes.scheduleScreen.name),
+                onTap: () => context.pushNamed(AppRoutes.scheduleScreen.name),
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 22, vertical: 12),

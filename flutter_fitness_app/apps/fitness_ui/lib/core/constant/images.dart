@@ -65,4 +65,10 @@ class FAImage {
 
   static const String imgExerciseDumbbell =
       'assets/images/img_exercise_dumbbell.png';
+
+  static const String imgGreenFood = 'assets/images/img_green.png';
+
+  static const String imgHealthFood = 'assets/images/img_health_food.png';
+
+  static const String imgEgg = 'assets/images/img_egg.png';
 }

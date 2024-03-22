@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/notification/local_notifications.dart';
-import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
@@ -77,8 +76,7 @@ class _SchedulePageState extends State<SchedulePage> {
               left: 24,
               right: 24,
               child: FATopNavigation(
-                onLeadingPress: () =>
-                    context.goNamed(AppRoutes.exerciseDetailScreen.name),
+                onLeadingPress: () => context.pop(),
               ),
             ),
             Positioned(

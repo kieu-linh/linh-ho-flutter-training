@@ -1,5 +1,6 @@
 import 'package:fitness_app/features/home/model/meal.dart';
 import 'package:fitness_ui/components/divider.dart';
+import 'package:fitness_ui/components/icons.dart';
 import 'package:fitness_ui/components/text.dart';
 import 'package:fitness_ui/core/extension/device_info.dart';
 import 'package:fitness_ui/core/extension/extension.dart';
@@ -29,9 +30,16 @@ class FAMealPlan extends StatelessWidget {
                 const SizedBox(height: 11),
                 FAText.bodySmall(context, text: meals[index].description ?? ''),
                 const SizedBox(height: 5),
-                Text(
-                  '${meals[index].kcal} kcal',
-                  style: context.textTheme.bodySmall?.copyWith(fontSize: 10),
+                Row(
+                  children: [
+                    FAIcons.calories(),
+                    const SizedBox(width: 7),
+                    Text(
+                      '${meals[index].kcal} kcal',
+                      style:
+                          context.textTheme.bodySmall?.copyWith(fontSize: 10),
+                    ),
+                  ],
                 ),
               ],
             );
