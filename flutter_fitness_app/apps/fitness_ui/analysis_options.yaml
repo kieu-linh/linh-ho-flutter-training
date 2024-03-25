@@ -1,4 +1,4 @@
-include: package:very_good_analysis/analysis_options.5.1.0.yaml
+
 linter:
   rules:
     public_member_api_docs: false
@@ -9,4 +9,4 @@ linter:
     prefer_final_locals : false
     unnecessary_lambdas : false
     require_trailing_commas : false
-    
+  

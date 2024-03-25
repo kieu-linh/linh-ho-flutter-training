@@ -1449,6 +1449,336 @@ class FAUiS {
       args: [],
     );
   }
+
+  /// `Weight should be between 10 and 200`
+  String get roleWeight {
+    return Intl.message(
+      'Weight should be between 10 and 200',
+      name: 'roleWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter number`
+  String get enterNumber {
+    return Intl.message(
+      'Please enter number',
+      name: 'enterNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Height should be between 100 and 200`
+  String get roleHeight {
+    return Intl.message(
+      'Height should be between 100 and 200',
+      name: 'roleHeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age should be between 6 and 90`
+  String get roleAge {
+    return Intl.message(
+      'Age should be between 6 and 90',
+      name: 'roleAge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `APP SETTING`
+  String get setting {
+    return Intl.message(
+      'APP SETTING',
+      name: 'setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder`
+  String get reminder {
+    return Intl.message(
+      'Reminder',
+      name: 'reminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get changePass {
+    return Intl.message(
+      'Change Password',
+      name: 'changePass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apple Health`
+  String get apple {
+    return Intl.message(
+      'Apple Health',
+      name: 'apple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get darkMode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'darkMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `UPGRADE PREMIUM`
+  String get upgrade {
+    return Intl.message(
+      'UPGRADE PREMIUM',
+      name: 'upgrade',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `FORGOT PASSWORD`
+  String get forgotPass {
+    return Intl.message(
+      'FORGOT PASSWORD',
+      name: 'forgotPass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email below to receive \nyour password reset code.`
+  String get descriptionForgotPass {
+    return Intl.message(
+      'Please enter your email below to receive \nyour password reset code.',
+      name: 'descriptionForgotPass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `RESET PASSWORD`
+  String get resetPass {
+    return Intl.message(
+      'RESET PASSWORD',
+      name: 'resetPass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `VERIFY ACCOUNT`
+  String get verifyAccount {
+    return Intl.message(
+      'VERIFY ACCOUNT',
+      name: 'verifyAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify your account by entering verification code we sent to`
+  String get verifyDescription {
+    return Intl.message(
+      'Verify your account by entering verification code we sent to',
+      name: 'verifyDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update success!`
+  String get updateSuccess {
+    return Intl.message(
+      'Update success!',
+      name: 'updateSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EDIT PROFILE`
+  String get editProfile {
+    return Intl.message(
+      'EDIT PROFILE',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message(
+      'Gender',
+      name: 'gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{kcal} kcal`
+  String kcalText(int kcal) {
+    return Intl.message(
+      '$kcal kcal',
+      name: 'kcalText',
+      desc: '',
+      args: [kcal],
+    );
+  }
+
+  /// `{min} min`
+  String minText(int min) {
+    return Intl.message(
+      '$min min',
+      name: 'minText',
+      desc: '',
+      args: [min],
+    );
+  }
+
+  /// `MEAL PLAN`
+  String get mealPlan {
+    return Intl.message(
+      'MEAL PLAN',
+      name: 'mealPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SCHEDULE EXERCISE`
+  String get scheduleText {
+    return Intl.message(
+      'SCHEDULE EXERCISE',
+      name: 'scheduleText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time`
+  String get time {
+    return Intl.message(
+      'Time',
+      name: 'time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set Reminder`
+  String get setReminder {
+    return Intl.message(
+      'Set Reminder',
+      name: 'setReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder on`
+  String get reminderOn {
+    return Intl.message(
+      'Reminder on',
+      name: 'reminderOn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DONE`
+  String get done {
+    return Intl.message(
+      'DONE',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notification`
+  String get notification {
+    return Intl.message(
+      'Notification',
+      name: 'notification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get ready to get moving! Its time to hit the gym.`
+  String get textNotify {
+    return Intl.message(
+      'Get ready to get moving! Its time to hit the gym.',
+      name: 'textNotify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder set successfully`
+  String get reminderSuccess {
+    return Intl.message(
+      'Reminder set successfully',
+      name: 'reminderSuccess',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FAUiS> {
@@ -1457,6 +1787,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<FAUiS> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'vi'),
     ];
   }
 

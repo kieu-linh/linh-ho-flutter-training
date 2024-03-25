@@ -150,15 +150,62 @@
     "healthyText": "Healthy Muscular \n",
     "sportswomanText": "Sportswoman \n",
     "standingText": "Standing",
-    "createAccountTitle" : "CREATE ACCOUNTS",
-    "signUpDescription" : "Please enter your credentials to \nproceed ",
-    "fullNameText" : "Full Name",
-    "confirmPassText" : "Confirm Password",
-    "registerWithText" : "Or Register with",
-    "haveAccountText" : "Already have an account?",
-    "loginButtonText" : " Login",
-    "accountExist" : "Account already exists!",
-    "createAccount" : "Created account success!",
-    "logOutText" : "Do you want logout?"
+    "createAccountTitle": "CREATE ACCOUNTS",
+    "signUpDescription": "Please enter your credentials to \nproceed ",
+    "fullNameText": "Full Name",
+    "confirmPassText": "Confirm Password",
+    "registerWithText": "Or Register with",
+    "haveAccountText": "Already have an account?",
+    "loginButtonText": " Login",
+    "accountExist": "Account already exists!",
+    "createAccount": "Created account success!",
+    "logOutText": "Do you want logout?",
+    "roleWeight": "Weight should be between 10 and 200",
+    "enterNumber": "Please enter number",
+    "roleHeight": "Height should be between 100 and 200",
+    "roleAge": "Age should be between 6 and 90",
+    "setting": "APP SETTING",
+    "reminder": "Reminder",
+    "changePass": "Change Password",
+    "apple": "Apple Health",
+    "darkMode": "Dark Mode",
+    "language": "Language",
+    "english": "English",
+    "upgrade": "UPGRADE PREMIUM",
+    "forgotPass": "FORGOT PASSWORD",
+    "descriptionForgotPass": "Please enter your email below to receive \nyour password reset code.",
+    "email": "Email",
+    "resetPass": "RESET PASSWORD",
+    "verifyAccount": "VERIFY ACCOUNT",
+    "verifyDescription": "Verify your account by entering verification code we sent to",
+    "updateSuccess": "Update success!",
+    "editProfile": "EDIT PROFILE",
+    "gender": "Gender",
+    "kcalText": "{kcal} kcal",
+    "@kcalText": {
+        "placeholders": {
+            "kcal": {
+                "type": "int"
+            }
+        }
+    },
+    "minText": "{min} min",
+    "@minText": {
+        "placeholders": {
+            "min": {
+                "type": "int"
+            }
+        }
+    },
 
+    "mealPlan": "MEAL PLAN",
+    "scheduleText": "SCHEDULE EXERCISE",
+    "date": "Date",
+    "time": "Time",
+    "setReminder": "Set Reminder",
+    "reminderOn": "Reminder on",
+    "done": "DONE",
+    "notification": "Notification",
+    "textNotify": "Get ready to get moving! Its time to hit the gym.",
+    "reminderSuccess": "Reminder set successfully"
 }

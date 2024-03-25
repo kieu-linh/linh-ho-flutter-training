@@ -75,8 +75,9 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: [
           ...S.delegate.supportedLocales,
           ...FAUiS.delegate.supportedLocales,
-          const Locale('en', ''),
+          // const Locale('en', 'vi'),
         ],
+        locale: const Locale('vi_VN'),
         routerConfig: FARouter.appRouter,
       ),
     );

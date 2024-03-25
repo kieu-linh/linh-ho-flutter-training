@@ -139,8 +139,8 @@ class FAValidator {
         final height = double.parse(value);
 
         /// check valid weight
-        if (height < 10 || height > 300) {
-          return 'Height should be between 10 and 200';
+        if (height < 100 || height > 200) {
+          return 'Height should be between 100 and 200';
         }
       } catch (e) {
         return 'Please enter number';

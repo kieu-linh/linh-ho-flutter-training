@@ -27,16 +27,13 @@ class AuthRepository {
       final listUser =
           data.map((e) => User.fromJson(e as Map<String, dynamic>)).toList();
 
-      print('listUser: ${listUser[4].password}');
-
-      final pass = Encode.decryptPassword(listUser[4].password ?? '');
-
-      print('pass: $pass');
-
       /// check user account has in list data or not
       final user = listUser
           .where(
-            (element) => element.email == email && element.password == password,
+            (element) =>
+                element.email == email &&
+                Encode.decryptPassword(element.password ?? '') ==
+                    password.trim(),
           )
           .toList();
 
