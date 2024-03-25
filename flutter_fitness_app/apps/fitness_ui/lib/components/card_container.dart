@@ -40,8 +40,9 @@ class FACardContainer extends StatelessWidget {
                     const SizedBox(width: 7),
                     Text(
                       '${addExercise.kcal} kcal',
-                      style:
-                          context.textTheme.bodySmall?.copyWith(fontSize: 10),
+                      style: context.textTheme.bodySmall?.copyWith(
+                        fontSize: 10,
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -53,8 +54,9 @@ class FACardContainer extends StatelessWidget {
                     const SizedBox(width: 6),
                     Text(
                       '${addExercise.min} min',
-                      style:
-                          context.textTheme.bodySmall?.copyWith(fontSize: 10),
+                      style: context.textTheme.bodySmall?.copyWith(
+                        fontSize: 10,
+                      ),
                     ),
                   ],
                 ),

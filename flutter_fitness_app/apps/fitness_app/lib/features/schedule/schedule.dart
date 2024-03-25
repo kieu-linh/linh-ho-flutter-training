@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/notification/local_notifications.dart';
 import 'package:fitness_ui/components/button.dart';
 import 'package:fitness_ui/components/icons.dart';
+import 'package:fitness_ui/components/snack_bar.dart';
 import 'package:fitness_ui/components/top_navigation.dart';
 import 'package:fitness_ui/components/switch.dart';
 import 'package:fitness_ui/core/constant/icons.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 class SchedulePage extends StatefulWidget {
   const SchedulePage({
@@ -25,6 +27,8 @@ class _SchedulePageState extends State<SchedulePage> {
   DateTime _dateTime = DateTime.now();
 
   TimeOfDay _time = TimeOfDay.now();
+
+  bool isCheck = false;
 
   var monthNames = [
     "January",
@@ -294,20 +298,46 @@ class _SchedulePageState extends State<SchedulePage> {
                                 Text('Reminder on',
                                     style: context.textTheme.titleLarge),
                                 Spacer(),
-                                FASwitch(),
+                                FASwitch(
+                                  isDark: isCheck,
+                                  onChanged: () {
+                                    setState(() {
+                                      isCheck = !isCheck;
+                                    });
+                                  },
+                                ),
                               ],
                             ),
                             Padding(
                               padding: context.padding(top: 20, bottom: 20),
                               child: FAButton(
                                 text: 'DONE',
-                                onPressed: () {
-                                  LocalNotifications.showNotification(
-                                      // title: 'Simple Notification',
-                                      // body: 'This is a simple notification',
-                                      // payload: 'Simple Notification',
-                                      );
-                                },
+                                onPressed: isCheck
+                                    ? () {
+                                        FASnackBar.success(
+                                          context,
+                                          message: 'Reminder set successfully',
+                                        );
+                                        LocalNotificationService()
+                                            .zonedScheduleNotification(
+                                          title: 'Notification',
+                                          body:
+                                              'Get ready to get moving! Its time to hit the gym.',
+                                          payload: 'Simple Notification',
+                                          scheduledDate: tz.TZDateTime(
+                                            tz.local,
+                                            _dateTime.year,
+                                            _dateTime.month,
+                                            _dateTime.day,
+                                            _time.hour,
+                                            _time.minute,
+                                          ),
+                                        );
+                                      }
+                                    : null,
+                                color: isCheck
+                                    ? context.colorScheme.primary
+                                    : context.colorScheme.onSurfaceVariant,
                               ),
                             ),
                           ],

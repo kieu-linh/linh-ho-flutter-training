@@ -1,6 +1,7 @@
 import 'package:api_client/api_client.dart';
 import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
+import 'package:fitness_app/core/utils/encode.dart';
 import 'package:fitness_app/core/utils/status.dart';
 import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
@@ -119,7 +120,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       User user = await this.repository.signUp(
             name: event.name,
             email: event.email,
-            password: event.password,
+            password: Encode.encryptPassword(event.password),
           );
       userStarted = user;
 

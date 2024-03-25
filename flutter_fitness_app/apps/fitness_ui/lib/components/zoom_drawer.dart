@@ -3,9 +3,9 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 class FAZoomDrawer extends StatelessWidget {
   const FAZoomDrawer({
-    this.menu = const SizedBox(),
-    this.child = const SizedBox(),
     super.key,
+    this.menu = const SizedBox.shrink(),
+    this.child = const SizedBox.shrink(),
     this.controller,
   });
 

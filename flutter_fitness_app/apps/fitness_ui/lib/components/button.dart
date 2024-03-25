@@ -86,6 +86,7 @@ class FAButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onPressed,
       child: Container(
         height: height,

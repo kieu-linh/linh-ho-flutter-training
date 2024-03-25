@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           theme: FAppTheme.lightTheme,
-          darkTheme: ThemeData.dark(),
+          darkTheme: FAppTheme.darkTheme,
           localizationsDelegates: const [
             FAUiS.delegate,
             S.delegate,

@@ -6,13 +6,13 @@ class AppColor {
 
   static const primary = Color(0xFFB0C929);
 
-  static const secondary = Colors.white;
+  static const secondary = Color(0xFFFFFFFF);
 
   static const onSecondary = Color(0xFFF5F5F5);
 
   static const transparent = Colors.transparent;
 
-  static const tertiary = Colors.black;
+  static const tertiary = Color(0XFF000000);
 
   static const tertiaryContainer = Color(0xFF191919);
 

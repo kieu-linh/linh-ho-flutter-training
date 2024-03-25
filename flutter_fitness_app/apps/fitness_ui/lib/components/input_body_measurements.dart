@@ -21,8 +21,8 @@ class FABodyMeasurementInput extends StatefulWidget {
   final String? textRight;
   final String? textLeft;
   final Function(String)? onChange;
-  final Function()? onLeftPressed;
-  final Function()? onRightPressed;
+  final VoidCallback? onLeftPressed;
+  final VoidCallback? onRightPressed;
 
   @override
   State<FABodyMeasurementInput> createState() => _FAInputBodyMeasurementState();
@@ -30,6 +30,17 @@ class FABodyMeasurementInput extends StatefulWidget {
 
 class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
   int _selectIndex = 1;
+
+  void onTap(int index) {
+    if (_selectIndex == index) return;
+    _selectIndex = index;
+    if (index == 0) {
+      widget.onLeftPressed?.call();
+    } else {
+      widget.onRightPressed?.call();
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +59,7 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
             mainAxisSize: MainAxisSize.min,
             children: List.generate(2, (index) {
               return GestureDetector(
-                onTap: () {
-                  if (_selectIndex == index) return;
-                  _selectIndex = index;
-                  if (index == 0) {
-                    widget.onLeftPressed?.call();
-                  } else {
-                    widget.onRightPressed?.call();
-                  }
-                  setState(() {});
-                },
+                onTap: () => onTap(index),
                 child: Container(
                   padding: context.padding(horizontal: 10, vertical: 2),
                   decoration: BoxDecoration(
@@ -108,9 +110,10 @@ class _FAInputBodyMeasurementState extends State<FABodyMeasurementInput> {
                 color: context.colorScheme.outline,
               ),
               Text(
-                _selectIndex != 0
-                    ? widget.textRight!.toLowerCase()
-                    : widget.textLeft!.toLowerCase(),
+                (_selectIndex != 0
+                        ? widget.textRight?.toLowerCase()
+                        : widget.textLeft?.toLowerCase()) ??
+                    '',
                 style: AppTextStyles.textStepPage.copyWith(fontSize: 22),
               ),
             ],

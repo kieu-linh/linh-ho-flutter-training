@@ -40,12 +40,10 @@ class PasswordInput extends StatelessWidget {
     this.hintText = '',
     this.onSubmit,
     this.onChanged,
-    this.onTap,
     super.key,
   });
   final VoidCallback? onSubmit;
   final Function(String)? onChanged;
-  final VoidCallback? onTap;
   final bool readOnly;
   final String hintText;
   final TextInputAction textInputAction;
@@ -59,7 +57,6 @@ class PasswordInput extends StatelessWidget {
       validator: validator,
       textInputAction: textInputAction,
       onChanged: onChanged,
-      onTap: onTap,
       onFieldSubmit: (_) => onSubmit?.call(),
       readOnly: readOnly,
     );

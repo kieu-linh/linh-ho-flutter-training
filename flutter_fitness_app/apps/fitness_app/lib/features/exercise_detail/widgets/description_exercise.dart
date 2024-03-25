@@ -47,7 +47,6 @@ class FADescriptionExercise extends StatelessWidget {
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-                  height: context.sizeHeight(38),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: context.colorScheme.tertiary,

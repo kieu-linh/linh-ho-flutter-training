@@ -1,4 +1,5 @@
 import 'package:api_client/api_client.dart';
+import 'package:fitness_app/core/notification/local_notifications.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
@@ -15,7 +16,9 @@ import 'package:timezone/timezone.dart' as tz;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await LocalNotificationService().initialize();
   await _configureLocalTimeZone();
+
   runApp(const MyApp());
 }
 
@@ -45,36 +48,37 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
-        providers: [
-          RepositoryProvider<AuthRepository>(
-            create: (context) => AuthRepository(apiClient),
-          ),
-          RepositoryProvider<ApiClient>(
-            create: (context) => ApiClient(),
-          ),
-          RepositoryProvider<SharedPrefs>(
-            create: (context) => SharedPrefs(SharedPreferences.getInstance()),
-          ),
+      providers: [
+        RepositoryProvider<AuthRepository>(
+          create: (context) => AuthRepository(apiClient),
+        ),
+        RepositoryProvider<ApiClient>(
+          create: (context) => ApiClient(),
+        ),
+        RepositoryProvider<SharedPrefs>(
+          create: (context) => SharedPrefs(SharedPreferences.getInstance()),
+        ),
+      ],
+      child: MaterialApp.router(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.light,
+        theme: FAppTheme.lightTheme,
+        // darkTheme: FAppTheme.darkTheme,
+        localizationsDelegates: const [
+          FAUiS.delegate,
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
         ],
-        child: MaterialApp.router(
-          title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false,
-          themeMode: ThemeMode.light,
-          theme: FAppTheme.lightTheme,
-          darkTheme: FAppTheme.darkTheme,
-          localizationsDelegates: const [
-            FAUiS.delegate,
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: [
-            ...S.delegate.supportedLocales,
-            ...FAUiS.delegate.supportedLocales,
-            const Locale('en', ''),
-          ],
-          routerConfig: FARouter.appRouter,
-        ));
+        supportedLocales: [
+          ...S.delegate.supportedLocales,
+          ...FAUiS.delegate.supportedLocales,
+          const Locale('en', ''),
+        ],
+        routerConfig: FARouter.appRouter,
+      ),
+    );
   }
 }

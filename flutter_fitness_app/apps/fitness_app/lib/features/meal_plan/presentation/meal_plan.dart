@@ -190,8 +190,9 @@ class _MealPlanPageState extends State<MealPlanPage> {
                                 style: state.index == index
                                     ? context.textTheme.labelMedium?.copyWith(
                                         color: context.colorScheme.secondary,
-                                      )
-                                    : context.textTheme.labelMedium,
+                                        fontSize: 12)
+                                    : context.textTheme.labelMedium
+                                        ?.copyWith(fontSize: 12),
                               ),
                             ),
                           );

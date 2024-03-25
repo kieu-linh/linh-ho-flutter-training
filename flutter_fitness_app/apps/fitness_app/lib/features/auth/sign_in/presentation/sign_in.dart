@@ -18,21 +18,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
-
-  @override
-  State<SignInPage> createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
-  final _scrollController = ScrollController();
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +48,6 @@ class _SignInPageState extends State<SignInPage> {
                 behavior:
                     ScrollConfiguration.of(context).copyWith(scrollbars: false),
                 child: SingleChildScrollView(
-                  controller: _scrollController,
                   child: Form(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,15 +84,6 @@ class _SignInPageState extends State<SignInPage> {
                           builder: (context, state) {
                             return PasswordInput(
                               hintText: context.l10n.passwordHintText,
-                              onTap: () => Future.delayed(
-                                  const Duration(milliseconds: 500), () {
-                                _scrollController.animateTo(
-                                  _scrollController.position.maxScrollExtent -
-                                      250,
-                                  duration: const Duration(milliseconds: 50),
-                                  curve: Curves.ease,
-                                );
-                              }),
                               onSubmit: state.isValid
                                   ? () {
                                       context.read<SignInBloc>().add(

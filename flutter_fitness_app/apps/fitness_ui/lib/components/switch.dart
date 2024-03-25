@@ -3,28 +3,31 @@ import 'package:flutter/material.dart';
 
 class FASwitch extends StatelessWidget {
   const FASwitch({
-    // required this.onChanged,
-    // this.isDark = false,
+    this.onChanged,
+    this.isDark = false,
     super.key,
   });
 
-  // final VoidCallback onChanged;
-  // final bool isDark;
+  final VoidCallback? onChanged;
+  final bool isDark;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onChanged,
       child: Container(
         height: 26,
         width: 45,
         padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
-          color: context.colorScheme.primary,
+          color: isDark
+              ? context.colorScheme.primary
+              : context.colorScheme.outlineVariant,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment:
+              isDark ? MainAxisAlignment.end : MainAxisAlignment.start,
           children: [
             Container(
               height: 22,

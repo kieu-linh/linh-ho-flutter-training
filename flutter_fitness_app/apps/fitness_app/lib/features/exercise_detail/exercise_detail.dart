@@ -29,70 +29,86 @@ class ExerciseDetailPage extends StatefulWidget {
   State<ExerciseDetailPage> createState() => _ExerciseDetailPageState();
 }
 
-class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
+class _ExerciseDetailPageState extends State<ExerciseDetailPage>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  Image.asset(
-                    widget.exercise.backgroundImage ?? '',
-                    width: context.width,
-                    height: context.sizeHeight(379),
-                    fit: BoxFit.cover,
-                  ),
-                  Padding(
-                    padding: context.padding(top: 45),
-                    child: Column(
-                      children: [
-                        FAExerciseInfo(widget: widget),
-                        FADescriptionExercise(widget: widget),
-                        FAExerciseProgram(widget: widget),
-                        BlocProvider(
-                            create: (context) => HomeBloc(
-                                  HomeRepository(context.read<ApiClient>()),
-                                )..add(HomeFetchAddExerciseData()),
-                            child: BlocBuilder<HomeBloc, HomeState>(
-                              builder: (context, state) {
-                                return FAAddExercise(
-                                  addExercises: state.addExercises,
-                                );
-                              },
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
-                          child: FAButton(
-                            text: context.l10n.startNow,
-                            onPressed: () => context
-                                .pushNamed(AppRoutes.trainingScreen.name),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
               ),
-              Positioned(
-                left: 24,
-                right: 24,
-                child: FATopNavigation(
-                  onLeadingPress: () => context.pop(),
-                ),
+              child: Image.asset(
+                widget.exercise.backgroundImage ?? '',
+                width: context.width,
+                height: MediaQuery.of(context).size.height * 0.5,
+                fit: BoxFit.cover,
               ),
-              Positioned(
-                top: 370,
-                left: 20,
-                right: 20,
-                child: FAContainerExercise(widget: widget),
-              ),
-            ],
+            ),
           ),
-        ),
+          Positioned.fill(
+            child: DraggableScrollableSheet(
+              initialChildSize: 0.55,
+              minChildSize: 0.55,
+              maxChildSize: 0.8,
+              builder: (context, scrollController) {
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: const Radius.circular(20.0),
+                      topRight: const Radius.circular(20.0),
+                    ),
+                    color: Colors.white,
+                  ),
+                  child: ListView(
+                    controller: scrollController,
+                    padding: EdgeInsets.zero,
+                    children: [
+                      FAContainerExercise(widget: widget),
+                      FAExerciseInfo(widget: widget),
+                      FADescriptionExercise(widget: widget),
+                      FAExerciseProgram(widget: widget),
+                      BlocProvider(
+                          create: (context) => HomeBloc(
+                                HomeRepository(context.read<ApiClient>()),
+                              )..add(HomeFetchAddExerciseData()),
+                          child: BlocBuilder<HomeBloc, HomeState>(
+                            builder: (context, state) {
+                              return FAAddExercise(
+                                addExercises: state.addExercises,
+                              );
+                            },
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
+                        child: FAButton(
+                          text: context.l10n.startNow,
+                          onPressed: () =>
+                              context.pushNamed(AppRoutes.trainingScreen.name),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          Positioned(
+            left: 24,
+            right: 24,
+            child: FATopNavigation(
+              onLeadingPress: () => context.pop(),
+            ),
+          ),
+        ],
       ),
     );
   }

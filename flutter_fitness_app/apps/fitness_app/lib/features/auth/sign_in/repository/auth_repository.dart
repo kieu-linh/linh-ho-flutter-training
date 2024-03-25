@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:api_client/api_client.dart';
 import 'package:fitness_app/core/constant/path.dart';
+import 'package:fitness_app/core/utils/encode.dart';
 import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
 import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
 
@@ -25,6 +26,12 @@ class AuthRepository {
 
       final listUser =
           data.map((e) => User.fromJson(e as Map<String, dynamic>)).toList();
+
+      print('listUser: ${listUser[4].password}');
+
+      final pass = Encode.decryptPassword(listUser[4].password ?? '');
+
+      print('pass: $pass');
 
       /// check user account has in list data or not
       final user = listUser

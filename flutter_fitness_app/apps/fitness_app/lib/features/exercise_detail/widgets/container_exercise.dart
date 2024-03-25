@@ -17,10 +17,9 @@ class FAContainerExercise extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.sizeHeight(60),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        color: Colors.white,
+        color: Colors.transparent,
       ),
       child: Padding(
         padding: context.padding(horizontal: 50, vertical: 20),
