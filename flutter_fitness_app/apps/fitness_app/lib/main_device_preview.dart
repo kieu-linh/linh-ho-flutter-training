@@ -38,11 +38,9 @@ class _MyAppState extends State<MyApp> {
     return MultiRepositoryProvider(
         providers: [
           RepositoryProvider<AuthRepository>(
-            create: (context) => AuthRepository(apiClient),
+            create: (context) => AuthRepository(apiClient)
           ),
-          RepositoryProvider<ApiClient>(
-            create: (context) => ApiClient(),
-          ),
+          RepositoryProvider<ApiClient>(create: (context) => ApiClient()),
           RepositoryProvider<SharedPrefs>(
             create: (context) => SharedPrefs(SharedPreferences.getInstance()),
           ),
@@ -62,7 +60,7 @@ class _MyAppState extends State<MyApp> {
           supportedLocales: [
             ...S.delegate.supportedLocales,
             ...FAUiS.delegate.supportedLocales,
-            // const Locale('en', ''),
+            const Locale('en', ''),
             const Locale('vi', ''),
           ],
           routerConfig: FARouter.appRouter,

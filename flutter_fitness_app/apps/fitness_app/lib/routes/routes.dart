@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/sign_in/presentation/sign_in.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/sign_up.dart';
 import 'package:fitness_app/features/auth/verify_account/presentation/verify_account.dart';
 import 'package:fitness_app/features/category/presentation/category.dart';
+import 'package:fitness_app/features/change_password/change_password.dart';
 import 'package:fitness_app/features/drawer/drawer_main.dart';
 import 'package:fitness_app/features/edit_profile/edit_profile.dart';
 import 'package:fitness_app/features/exercise/presentation/exercise.dart';
@@ -126,6 +127,11 @@ class FARouter {
         path: AppRoutes.appSettingScreen.path,
         name: AppRoutes.appSettingScreen.name,
         builder: (context, state) => AppSettingPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.changePassScreen.path,
+        name: AppRoutes.changePassScreen.name,
+        builder: (context, state) => ChangePassword(),
       ),
 
       /// Home Router
@@ -331,6 +337,10 @@ enum AppRoutes {
   appSettingScreen(
     name: 'app-setting',
     path: '/app-setting',
+  ),
+   changePassScreen(
+    name: 'change-pass',
+    path: '/change-pass',
   ),
   drawerScreen(
     name: 'drawer-screen',

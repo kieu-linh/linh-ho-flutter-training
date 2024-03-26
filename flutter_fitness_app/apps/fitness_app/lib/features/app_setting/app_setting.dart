@@ -28,17 +28,20 @@ class _AppSettingPageState extends State<AppSettingPage> {
         child: Column(
           children: [
             FATopNavigation(
-              title: 'APP SETTING',
+              title: context.l10n.setting,
               onLeadingPress: () => context.go(AppRoutes.homeScreen.path),
             ),
             SizedBox(height: 30),
             ItemRow(
               iconPath: FAIcon.iconNotification,
-              text: 'Reminder',
+              text: context.l10n.reminder,
             ),
-            ItemRow(
-              iconPath: FAIcon.iconLock,
-              text: 'Change Password',
+            GestureDetector(
+              onTap: () => context.go(AppRoutes.changePassScreen.path),
+              child: ItemRow(
+                iconPath: FAIcon.iconLock,
+                text: context.l10n.changePass,
+              ),
             ),
             Column(
               children: [
@@ -49,7 +52,8 @@ class _AppSettingPageState extends State<AppSettingPage> {
                       color: context.colorScheme.tertiary,
                     ),
                     SizedBox(width: 10),
-                    Text('Apple Health', style: context.textTheme.labelMedium),
+                    Text(context.l10n.apple,
+                        style: context.textTheme.labelMedium),
                     Spacer(),
                     FASwitch(),
                   ],
@@ -70,7 +74,8 @@ class _AppSettingPageState extends State<AppSettingPage> {
                       color: context.colorScheme.tertiary,
                     ),
                     SizedBox(width: 10),
-                    Text('Dark Mode', style: context.textTheme.labelMedium),
+                    Text(context.l10n.darkMode,
+                        style: context.textTheme.labelMedium),
                     Spacer(),
                     FASwitch(),
                   ],
@@ -91,10 +96,11 @@ class _AppSettingPageState extends State<AppSettingPage> {
                       color: context.colorScheme.tertiary,
                     ),
                     SizedBox(width: 10),
-                    Text('Language', style: context.textTheme.labelMedium),
+                    Text(context.l10n.language,
+                        style: context.textTheme.labelMedium),
                     Spacer(),
                     Text(
-                      'English',
+                      context.l10n.english,
                       style:
                           context.textTheme.bodySmall?.copyWith(fontSize: 10),
                     ),
@@ -111,7 +117,7 @@ class _AppSettingPageState extends State<AppSettingPage> {
             Padding(
               padding: context.padding(bottom: 30),
               child: FAButton(
-                text: 'UPGRADE PREMIUM',
+                text: context.l10n.upgrade,
                 onPressed: () {},
               ),
             ),
@@ -140,10 +146,8 @@ class ItemRow extends StatelessWidget {
           children: [
             SvgPicture.asset(
               iconPath ?? '',
-              //FAIcon.iconNotification,
               color: context.colorScheme.tertiary,
             ),
-            // FAIcons.notification(color: context.colorScheme.tertiary),
             SizedBox(width: 10),
             Text(text ?? '', style: context.textTheme.labelMedium),
           ],

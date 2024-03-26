@@ -73,7 +73,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       /// Save the user data to the local storage.
       SharedPrefs(SharedPreferences.getInstance()).saveAccount(user);
     } catch (e) {
-      print('object $e');
       emit(
         state.copyWith(
           status: SubmissionStatus.failure,
