@@ -45,3 +45,14 @@ class NewPassChanged extends ChangePassEvent {
   @override
   List<Object> get props => [newPassword];
 }
+
+/// The [ConfirmPasswordChanged] is used to notify
+/// when the User input the confirm password field.
+class ConfirmPasswordChanged extends ChangePassEvent {
+  const ConfirmPasswordChanged({this.confirmPassword = ''});
+
+  final String confirmPassword;
+
+  @override
+  List<Object> get props => [confirmPassword];
+}

@@ -1,4 +1,4 @@
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/l10n/generated/l10n.dart';
 
 /// validator for input field
 class FAValidator {

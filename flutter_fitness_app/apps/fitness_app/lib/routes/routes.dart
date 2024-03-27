@@ -133,6 +133,11 @@ class FARouter {
         name: AppRoutes.changePassScreen.name,
         builder: (context, state) => ChangePassword(),
       ),
+      GoRoute(
+        path: AppRoutes.resetPassScreen.path,
+        name: AppRoutes.resetPassScreen.name,
+        builder: (context, state) => ChangePassword(),
+      ),
 
       /// Home Router
       StatefulShellRoute.indexedStack(
@@ -341,6 +346,10 @@ enum AppRoutes {
    changePassScreen(
     name: 'change-pass',
     path: '/change-pass',
+  ),
+  resetPassScreen(
+    name: 'reset-pass',
+    path: '/reset-pass',
   ),
   drawerScreen(
     name: 'drawer-screen',

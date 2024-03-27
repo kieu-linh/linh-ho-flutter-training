@@ -4,7 +4,7 @@ import 'package:api_client/api_client.dart';
 import 'package:fitness_app/core/constant/path.dart';
 import 'package:fitness_app/core/utils/encode.dart';
 import 'package:fitness_app/features/auth/sign_in/model/user_model.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/l10n/generated/l10n.dart';
 
 class AuthRepository {
   AuthRepository(this.apiClient);

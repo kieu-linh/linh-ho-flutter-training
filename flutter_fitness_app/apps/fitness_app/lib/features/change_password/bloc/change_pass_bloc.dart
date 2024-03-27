@@ -16,6 +16,7 @@ class ChangePassBloc extends Bloc<ChangePassEvent, ChangePassState> {
     on<CurrentPassChanged>(_onCurrentPasswordChanged);
     on<NewPassChanged>(_onNewPasswordChanged);
     on<ChangePassSubmitted>(_onChangePassSubmitted);
+    on<ConfirmPasswordChanged>(_onConfirmPasswordChanged);
   }
 
   final ApiClient apiClient;
@@ -27,8 +28,11 @@ class ChangePassBloc extends Bloc<ChangePassEvent, ChangePassState> {
     Emitter<ChangePassState> emit,
   ) async {
     /// Check email and password form field are valid
-    bool isFormValid =
-        _checkFormValid(event.currentPassword, state.newPassword);
+    bool isFormValid = _checkFormValid(
+      event.currentPassword,
+      state.newPassword,
+      state.confirmPassword,
+    );
 
     /// emit new state with new values and status initial
     emit(state.copyWith(
@@ -44,12 +48,34 @@ class ChangePassBloc extends Bloc<ChangePassEvent, ChangePassState> {
     NewPassChanged event,
     Emitter<ChangePassState> emit,
   ) async {
-    bool isFormValid =
-        _checkFormValid(event.newPassword, state.currentPassword);
+    bool isFormValid = _checkFormValid(
+      event.newPassword,
+      state.currentPassword,
+      state.confirmPassword,
+    );
 
     emit(state.copyWith(
       status: SubmissionStatus.initial,
       newPassword: event.newPassword,
+      isValid: isFormValid,
+    ));
+  }
+
+  /// This function [_onConfirmPasswordChanged] is called when the value of the
+  /// password form field on the sign in screen changes
+  Future<void> _onConfirmPasswordChanged(
+    ConfirmPasswordChanged event,
+    Emitter<ChangePassState> emit,
+  ) async {
+    bool isFormValid = _checkFormValid(
+      state.currentPassword,
+      state.newPassword,
+      event.confirmPassword,
+    );
+
+    emit(state.copyWith(
+      status: SubmissionStatus.initial,
+      confirmPassword: event.confirmPassword,
       isValid: isFormValid,
     ));
   }
@@ -99,8 +125,10 @@ class ChangePassBloc extends Bloc<ChangePassEvent, ChangePassState> {
   bool _checkFormValid(
     String currentPass,
     String newPass,
+    String confirmPass,
   ) {
     return FAValidator.validatorPassword(currentPass) == null &&
-        FAValidator.validatorPassword(newPass) == null;
+        FAValidator.validatorPassword(newPass) == null &&
+        FAValidator.validatorConfirmPassword(confirmPass, newPass) == null;
   }
 }

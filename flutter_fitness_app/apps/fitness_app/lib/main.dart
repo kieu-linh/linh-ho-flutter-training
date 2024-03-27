@@ -3,9 +3,8 @@ import 'package:fitness_app/core/notification/local_notifications.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
-import 'package:fitness_app/l10n/l10n_generated/l10n.dart';
 import 'package:fitness_app/routes/routes.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/l10n/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -67,17 +66,12 @@ class _MyAppState extends State<MyApp> {
         // darkTheme: FAppTheme.darkTheme,
         localizationsDelegates: const [
           FAUiS.delegate,
-          S.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: [
-          ...S.delegate.supportedLocales,
-          ...FAUiS.delegate.supportedLocales,
-          // const Locale('en', 'vi'),
-        ],
-        locale: const Locale('vi_VN'),
+        supportedLocales: FAUiS.delegate.supportedLocales,
+        locale: const Locale('en'),
         routerConfig: FARouter.appRouter,
       ),
     );

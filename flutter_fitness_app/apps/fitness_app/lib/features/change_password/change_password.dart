@@ -83,6 +83,21 @@ class _ChangePasswordState extends State<ChangePassword> {
                             previous.status != current.status ||
                             previous.isValid != current.isValid,
                         builder: (context, state) => FAPasswordInput(
+                          onChanged: (newPass) =>
+                              context.read<ChangePassBloc>().add(NewPassChanged(
+                                    newPassword: newPass,
+                                  )),
+                          hintText: 'New Password',
+                          validator: FAValidator.validatorPassword,
+                          readOnly: state.status == SubmissionStatus.loading,
+                          textInputAction: TextInputAction.next,
+                        ),
+                      ),
+                      BlocBuilder<ChangePassBloc, ChangePassState>(
+                        buildWhen: (previous, current) =>
+                            previous.status != current.status ||
+                            previous.isValid != current.isValid,
+                        builder: (context, state) => FAPasswordInput(
                           onFieldSubmit: state.isValid
                               ? (value) {
                                   context.read<ChangePassBloc>().add(
@@ -94,13 +109,17 @@ class _ChangePasswordState extends State<ChangePassword> {
                                       );
                                 }
                               : null,
-                          onChanged: (newPass) =>
-                              context.read<ChangePassBloc>().add(NewPassChanged(
-                                    newPassword: newPass,
-                                  )),
-                          hintText: 'New Password',
-                          validator: FAValidator.validatorPassword,
+                          onChanged: (confirmPassword) => context
+                              .read<ChangePassBloc>()
+                              .add(ConfirmPasswordChanged(
+                                confirmPassword: confirmPassword,
+                              )),
+                          hintText: 'Confirm Password',
                           readOnly: state.status == SubmissionStatus.loading,
+                          validator: (value) {
+                            return FAValidator.validatorConfirmPassword(
+                                value, state.newPassword);
+                          },
                           textInputAction: TextInputAction.done,
                         ),
                       ),

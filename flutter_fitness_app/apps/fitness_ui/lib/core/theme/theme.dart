@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class FAppTheme {
   FAppTheme._();
 
-  static ThemeData lightTheme = ThemeData(
+  static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Montserrat-Regular',
     brightness: Brightness.light,

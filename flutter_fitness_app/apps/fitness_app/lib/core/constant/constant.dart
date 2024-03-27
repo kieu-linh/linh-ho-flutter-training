@@ -1,5 +1,5 @@
 import 'package:fitness_ui/core/constant/images.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/l10n/generated/l10n.dart';
 
 // Create class FAConstant to store data for Welcome Screen
 class FAConstant {

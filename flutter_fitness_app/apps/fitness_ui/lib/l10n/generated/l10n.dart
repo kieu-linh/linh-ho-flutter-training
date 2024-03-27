@@ -70,210 +70,210 @@ class FAUiS {
     );
   }
 
-  /// `We train your body to be \n great and fit.`
+  /// `Chúng tôi huấn luyện cơ thể của bạn \n trở nên tuyệt vời và khỏe mạnh.`
   String get splashDescription {
     return Intl.message(
-      'We train your body to be \n great and fit.',
+      'Chúng tôi huấn luyện cơ thể của bạn \n trở nên tuyệt vời và khỏe mạnh.',
       name: 'splashDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `LET'S START`
+  /// `BẮT ĐẦU NGAY`
   String get buttonStartText {
     return Intl.message(
-      'LET\'S START',
+      'BẮT ĐẦU NGAY',
       name: 'buttonStartText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Skip`
+  /// `Bỏ qua`
   String get skipPageText {
     return Intl.message(
-      'Skip',
+      'Bỏ qua',
       name: 'skipPageText',
       desc: '',
       args: [],
     );
   }
 
-  /// `NEXT`
+  /// `TIẾP THEO`
   String get nextPageText {
     return Intl.message(
-      'NEXT',
+      'TIẾP THEO',
       name: 'nextPageText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Welcome to Pro Fitness!`
+  /// `Chào mừng bạn đến với Pro Fitness!`
   String get fitnessTitle {
     return Intl.message(
-      'Welcome to Pro Fitness!',
+      'Chào mừng bạn đến với Pro Fitness!',
       name: 'fitnessTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hello there, sign in to \ncontinue!`
+  /// `Xin chào, đăng nhập để \ntiếp tục!`
   String get signInText {
     return Intl.message(
-      'Hello there, sign in to \ncontinue!',
+      'Xin chào, đăng nhập để \ntiếp tục!',
       name: 'signInText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Email Address`
+  /// `Địa chỉ Email`
   String get EmailHintText {
     return Intl.message(
-      'Email Address',
+      'Địa chỉ Email',
       name: 'EmailHintText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Password`
+  /// `Mật khẩu`
   String get passwordHintText {
     return Intl.message(
-      'Password',
+      'Mật khẩu',
       name: 'passwordHintText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Forgot Password?`
+  /// `Quên mật khẩu?`
   String get forgotPasswordText {
     return Intl.message(
-      'Forgot Password?',
+      'Quên mật khẩu?',
       name: 'forgotPasswordText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Login`
+  /// `Đăng nhập`
   String get loginText {
     return Intl.message(
-      'Login',
+      'Đăng nhập',
       name: 'loginText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Or Login with`
+  /// `Hoặc Đăng nhập với`
   String get loginWithText {
     return Intl.message(
-      'Or Login with',
+      'Hoặc Đăng nhập với',
       name: 'loginWithText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Connect with Google`
+  /// `Kết nối với Google`
   String get googleText {
     return Intl.message(
-      'Connect with Google',
+      'Kết nối với Google',
       name: 'googleText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Connect with Facebook`
+  /// `Kết nối với Facebook`
   String get facebookText {
     return Intl.message(
-      'Connect with Facebook',
+      'Kết nối với Facebook',
       name: 'facebookText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Register!`
+  /// `Đăng ký!`
   String get registerText {
     return Intl.message(
-      'Register!',
+      'Đăng ký!',
       name: 'registerText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Don't have an account? `
+  /// `Bạn chưa có tài khoản? `
   String get signInDescription {
     return Intl.message(
-      'Don\'t have an account? ',
+      'Bạn chưa có tài khoản? ',
       name: 'signInDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Select Your Favorite`
+  /// `Chọn Yêu thích của bạn`
   String get yourFavoriteText {
     return Intl.message(
-      'Select Your Favorite',
+      'Chọn Yêu thích của bạn',
       name: 'yourFavoriteText',
       desc: '',
       args: [],
     );
   }
 
-  /// `NEXT STEPS`
+  /// `CÁC BƯỚC TIẾP THEO`
   String get nextStepText {
     return Intl.message(
-      'NEXT STEPS',
+      'CÁC BƯỚC TIẾP THEO',
       name: 'nextStepText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Finish Steps`
+  /// `Hoàn tất Bước`
   String get finishStepText {
     return Intl.message(
-      'Finish Steps',
+      'Hoàn tất Bước',
       name: 'finishStepText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Get Started!`
+  /// `Bắt đầu!`
   String get getStartedText {
     return Intl.message(
-      'Get Started!',
+      'Bắt đầu!',
       name: 'getStartedText',
       desc: '',
       args: [],
     );
   }
 
-  /// `How old are you?`
+  /// `Bạn bao nhiêu tuổi?`
   String get yourOldText {
     return Intl.message(
-      'How old are you?',
+      'Bạn bao nhiêu tuổi?',
       name: 'yourOldText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Step {currentStep} of {numberOfSteps}`
+  /// `Bước {currentStep} trong {numberOfSteps}`
   String stepPageText(int currentStep, int numberOfSteps) {
     return Intl.message(
-      'Step $currentStep of $numberOfSteps',
+      'Bước $currentStep trong $numberOfSteps',
       name: 'stepPageText',
       desc: '',
       args: [currentStep, numberOfSteps],
@@ -290,60 +290,60 @@ class FAUiS {
     );
   }
 
-  /// `How much do you weight?`
+  /// `Bạn nặng bao nhiêu?`
   String get weightTitle {
     return Intl.message(
-      'How much do you weight?',
+      'Bạn nặng bao nhiêu?',
       name: 'weightTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `What's your goal weight?`
+  /// `Mục tiêu cân nặng của bạn là gì?`
   String get goalWeightTitle {
     return Intl.message(
-      'What\'s your goal weight?',
+      'Mục tiêu cân nặng của bạn là gì?',
       name: 'goalWeightTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `How much do you Height?`
+  /// `Bạn cao bao nhiêu?`
   String get heightTitle {
     return Intl.message(
-      'How much do you Height?',
+      'Bạn cao bao nhiêu?',
       name: 'heightTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `What's your fitness level?`
+  /// `Cấp độ tập luyện của bạn là gì?`
   String get levelText {
     return Intl.message(
-      'What\'s your fitness level?',
+      'Cấp độ tập luyện của bạn là gì?',
       name: 'levelText',
       desc: '',
       args: [],
     );
   }
 
-  /// `What's your goal`
+  /// `Mục tiêu của bạn là gì`
   String get goalText {
     return Intl.message(
-      'What\'s your goal',
+      'Mục tiêu của bạn là gì',
       name: 'goalText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Let's get started`
+  /// `Hãy bắt đầu`
   String get startText {
     return Intl.message(
-      'Let\'s get started',
+      'Hãy bắt đầu',
       name: 'startText',
       desc: '',
       args: [],
@@ -390,370 +390,370 @@ class FAUiS {
     );
   }
 
-  /// `Beginner`
+  /// `Mới bắt đầu`
   String get beginner {
     return Intl.message(
-      'Beginner',
+      'Mới bắt đầu',
       name: 'beginner',
       desc: '',
       args: [],
     );
   }
 
-  /// `Intermediate`
+  /// `Trung bình`
   String get intermediate {
     return Intl.message(
-      'Intermediate',
+      'Trung bình',
       name: 'intermediate',
       desc: '',
       args: [],
     );
   }
 
-  /// `Advanced`
+  /// `Nâng cao`
   String get advanced {
     return Intl.message(
-      'Advanced',
+      'Nâng cao',
       name: 'advanced',
       desc: '',
       args: [],
     );
   }
 
-  /// `Weight loss`
+  /// `Giảm cân`
   String get weightLoss {
     return Intl.message(
-      'Weight loss',
+      'Giảm cân',
       name: 'weightLoss',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gain muscle`
+  /// `Tăng cơ`
   String get gainMuscle {
     return Intl.message(
-      'Gain muscle',
+      'Tăng cơ',
       name: 'gainMuscle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Improve fitness`
+  /// `Nâng cao sức khỏe`
   String get improveFitness {
     return Intl.message(
-      'Improve fitness',
+      'Nâng cao sức khỏe',
       name: 'improveFitness',
       desc: '',
       args: [],
     );
   }
 
-  /// `The standard chunk of Lorem Ipsum \n used since the 1500s is reproduced below \n for those interested.`
+  /// `Đoạn văn tiêu chuẩn Lorem Ipsum \n được sử dụng từ những năm 1500 được tái tạo dưới đây \n cho những ai quan tâm.`
   String get startDescription {
     return Intl.message(
-      'The standard chunk of Lorem Ipsum \n used since the 1500s is reproduced below \n for those interested.',
+      'Đoạn văn tiêu chuẩn Lorem Ipsum \n được sử dụng từ những năm 1500 được tái tạo dưới đây \n cho những ai quan tâm.',
       name: 'startDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sculpt your `
+  /// `Tạo dáng cho cơ thể `
   String get firstStartText {
     return Intl.message(
-      'Sculpt your ',
+      'Tạo dáng cho cơ thể ',
       name: 'firstStartText',
       desc: '',
       args: [],
     );
   }
 
-  /// `ideal body, `
+  /// `lý tưởng của bạn, `
   String get secondStartText {
     return Intl.message(
-      'ideal body, ',
+      'lý tưởng của bạn, ',
       name: 'secondStartText',
       desc: '',
       args: [],
     );
   }
 
-  /// `free your \n true self, transform your life.`
+  /// `giải phóng bản thân \n thật sự của bạn, biến đổi cuộc sống của bạn.`
   String get thirdStartText {
     return Intl.message(
-      'free your \n true self, transform your life.',
+      'giải phóng bản thân \n thật sự của bạn, biến đổi cuộc sống của bạn.',
       name: 'thirdStartText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hello, Good Morning`
+  /// `Xin chào, Buổi sáng tốt lành`
   String get morningTitle {
     return Intl.message(
-      'Hello, Good Morning',
+      'Xin chào, Buổi sáng tốt lành',
       name: 'morningTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hello, Good Afternoon`
+  /// `Xin chào, Buổi chiều tốt lành`
   String get afternoonTitle {
     return Intl.message(
-      'Hello, Good Afternoon',
+      'Xin chào, Buổi chiều tốt lành',
       name: 'afternoonTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hello, Good Evening`
+  /// `Xin chào, Buổi tối tốt lành`
   String get eveningTitle {
     return Intl.message(
-      'Hello, Good Evening',
+      'Xin chào, Buổi tối tốt lành',
       name: 'eveningTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Search`
+  /// `Tìm kiếm`
   String get searchText {
     return Intl.message(
-      'Search',
+      'Tìm kiếm',
       name: 'searchText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Fit Young Woman Doing \nBattle Stretch Training`
+  /// `Phụ nữ trẻ đang tập luyện \n giãn cơ`
   String get cardTitle {
     return Intl.message(
-      'Fit Young Woman Doing \nBattle Stretch Training',
+      'Phụ nữ trẻ đang tập luyện \n giãn cơ',
       name: 'cardTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Start Exercise`
+  /// `Bắt đầu tập`
   String get buttonCardText {
     return Intl.message(
-      'Start Exercise',
+      'Bắt đầu tập',
       name: 'buttonCardText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Select your Goal`
+  /// `Chọn mục tiêu của bạn`
   String get selectGoalText {
     return Intl.message(
-      'Select your Goal',
+      'Chọn mục tiêu của bạn',
       name: 'selectGoalText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Loose Weight`
+  /// `Giảm cân`
   String get looseWeightText {
     return Intl.message(
-      'Loose Weight',
+      'Giảm cân',
       name: 'looseWeightText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gain Weight`
+  /// `Tăng cân`
   String get gainWeightText {
     return Intl.message(
-      'Gain Weight',
+      'Tăng cân',
       name: 'gainWeightText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Body Building`
+  /// `Xây dựng cơ bắp`
   String get bodyBuildingText {
     return Intl.message(
-      'Body Building',
+      'Xây dựng cơ bắp',
       name: 'bodyBuildingText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Healthy`
+  /// `Khỏe mạnh`
   String get healthy {
     return Intl.message(
-      'Healthy',
+      'Khỏe mạnh',
       name: 'healthy',
       desc: '',
       args: [],
     );
   }
 
-  /// `Category`
+  /// `Thể loại`
   String get category {
     return Intl.message(
-      'Category',
+      'Thể loại',
       name: 'category',
       desc: '',
       args: [],
     );
   }
 
-  /// `See all`
+  /// `Xem tất cả`
   String get seeAll {
     return Intl.message(
-      'See all',
+      'Xem tất cả',
       name: 'seeAll',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gym`
+  /// `Phòng tập`
   String get gym {
     return Intl.message(
-      'Gym',
+      'Phòng tập',
       name: 'gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cardio`
+  /// `Thể dục cardio`
   String get cardio {
     return Intl.message(
-      'Cardio',
+      'Thể dục cardio',
       name: 'cardio',
       desc: '',
       args: [],
     );
   }
 
-  /// `Stretch`
+  /// `Giãn cơ`
   String get stretch {
     return Intl.message(
-      'Stretch',
+      'Giãn cơ',
       name: 'stretch',
       desc: '',
       args: [],
     );
   }
 
-  /// `Full Body`
+  /// `Toàn bộ cơ thể`
   String get fullBody {
     return Intl.message(
-      'Full Body',
+      'Toàn bộ cơ thể',
       name: 'fullBody',
       desc: '',
       args: [],
     );
   }
 
-  /// `Legs`
+  /// `Chân`
   String get legs {
     return Intl.message(
-      'Legs',
+      'Chân',
       name: 'legs',
       desc: '',
       args: [],
     );
   }
 
-  /// `Home`
+  /// `Trang chủ`
   String get home {
     return Intl.message(
-      'Home',
+      'Trang chủ',
       name: 'home',
       desc: '',
       args: [],
     );
   }
 
-  /// `Meal Plans`
+  /// `Kế hoạch dinh dưỡng`
   String get mealPlans {
     return Intl.message(
-      'Meal Plans',
+      'Kế hoạch dinh dưỡng',
       name: 'mealPlans',
       desc: '',
       args: [],
     );
   }
 
-  /// `Exercise`
+  /// `Bài tập`
   String get exercise {
     return Intl.message(
-      'Exercise',
+      'Bài tập',
       name: 'exercise',
       desc: '',
       args: [],
     );
   }
 
-  /// `Profile`
+  /// `Hồ sơ`
   String get profile {
     return Intl.message(
-      'Profile',
+      'Hồ sơ',
       name: 'profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `Popular Exercise`
+  /// `Bài tập phổ biến`
   String get popularExerciseDescription {
     return Intl.message(
-      'Popular Exercise',
+      'Bài tập phổ biến',
       name: 'popularExerciseDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Full Shot Woman Stretching Arm`
+  /// `Hình phụ nữ giãn cơ tay`
   String get stretchingArmText {
     return Intl.message(
-      'Full Shot Woman Stretching Arm',
+      'Hình phụ nữ giãn cơ tay',
       name: 'stretchingArmText',
       desc: '',
       args: [],
     );
   }
 
-  /// `min`
+  /// `phút`
   String get min {
     return Intl.message(
-      'min',
+      'phút',
       name: 'min',
       desc: '',
       args: [],
     );
   }
 
-  /// `Athlete Practicing Monochrome`
+  /// `Vận động viên tập luyện một màu`
   String get athleteDescription {
     return Intl.message(
-      'Athlete Practicing Monochrome',
+      'Vận động viên tập luyện một màu',
       name: 'athleteDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Greek salad with lettuce, green onion,`
+  /// `Salad Hy Lạp với rau sống, hành tây xanh,`
   String get greekSaladText {
     return Intl.message(
-      'Greek salad with lettuce, green onion,',
+      'Salad Hy Lạp với rau sống, hành tây xanh,',
       name: 'greekSaladText',
       desc: '',
       args: [],
@@ -770,210 +770,210 @@ class FAUiS {
     );
   }
 
-  /// `Salad of fresh vegetables`
+  /// `Salad rau sống`
   String get saladVegetablesText {
     return Intl.message(
-      'Salad of fresh vegetables',
+      'Salad rau sống',
       name: 'saladVegetablesText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Additional Exercise`
+  /// `Thêm Bài tập`
   String get addExerciseText {
     return Intl.message(
-      'Additional Exercise',
+      'Thêm Bài tập',
       name: 'addExerciseText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Exercises with Jumping Rope`
+  /// `Bài tập nhảy dây`
   String get jumpingRopeText {
     return Intl.message(
-      'Exercises with Jumping Rope',
+      'Bài tập nhảy dây',
       name: 'jumpingRopeText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Exercises with Holding Jumping Rope `
+  /// `Bài tập nhảy dây kết hợp`
   String get holdingJumpingText {
     return Intl.message(
-      'Exercises with Holding Jumping Rope ',
+      'Bài tập nhảy dây kết hợp',
       name: 'holdingJumpingText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Exercises with Sitting Dumbbells`
+  /// `Bài tập với tạ ngồi`
   String get sittingDumbbellsText {
     return Intl.message(
-      'Exercises with Sitting Dumbbells',
+      'Bài tập với tạ ngồi',
       name: 'sittingDumbbellsText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Basic member`
+  /// `Thành viên cơ bản`
   String get basicMemberText {
     return Intl.message(
-      'Basic member',
+      'Thành viên cơ bản',
       name: 'basicMemberText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Dashboard`
+  /// `Bảng điều khiển`
   String get dashboard {
     return Intl.message(
-      'Dashboard',
+      'Bảng điều khiển',
       name: 'dashboard',
       desc: '',
       args: [],
     );
   }
 
-  /// `Plans`
+  /// `Kế hoạch`
   String get plan {
     return Intl.message(
-      'Plans',
+      'Kế hoạch',
       name: 'plan',
       desc: '',
       args: [],
     );
   }
 
-  /// `Training`
+  /// `Huấn luyện`
   String get training {
     return Intl.message(
-      'Training',
+      'Huấn luyện',
       name: 'training',
       desc: '',
       args: [],
     );
   }
 
-  /// `Categories`
+  /// `Thể loại`
   String get categories {
     return Intl.message(
-      'Categories',
+      'Thể loại',
       name: 'categories',
       desc: '',
       args: [],
     );
   }
 
-  /// `My Account`
+  /// `Tài khoản của tôi`
   String get myAccount {
     return Intl.message(
-      'My Account',
+      'Tài khoản của tôi',
       name: 'myAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `My Favorites`
+  /// `Yêu thích của tôi`
   String get myFavorite {
     return Intl.message(
-      'My Favorites',
+      'Yêu thích của tôi',
       name: 'myFavorite',
       desc: '',
       args: [],
     );
   }
 
-  /// `App Settings`
+  /// `Cài đặt ứng dụng`
   String get appSetting {
     return Intl.message(
-      'App Settings',
+      'Cài đặt ứng dụng',
       name: 'appSetting',
       desc: '',
       args: [],
     );
   }
 
-  /// `Contact Support`
+  /// `Liên hệ Hỗ trợ`
   String get contactSupport {
     return Intl.message(
-      'Contact Support',
+      'Liên hệ Hỗ trợ',
       name: 'contactSupport',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sign Out`
+  /// `Đăng xuất`
   String get signOut {
     return Intl.message(
-      'Sign Out',
+      'Đăng xuất',
       name: 'signOut',
       desc: '',
       args: [],
     );
   }
 
-  /// `Weight`
+  /// `Cân nặng`
   String get weight {
     return Intl.message(
-      'Weight',
+      'Cân nặng',
       name: 'weight',
       desc: '',
       args: [],
     );
   }
 
-  /// `Height`
+  /// `Chiều cao`
   String get height {
     return Intl.message(
-      'Height',
+      'Chiều cao',
       name: 'height',
       desc: '',
       args: [],
     );
   }
 
-  /// `year`
+  /// `năm`
   String get year {
     return Intl.message(
-      'year',
+      'năm',
       name: 'year',
       desc: '',
       args: [],
     );
   }
 
-  /// `Age`
+  /// `Tuổi`
   String get age {
     return Intl.message(
-      'Age',
+      'Tuổi',
       name: 'age',
       desc: '',
       args: [],
     );
   }
 
-  /// `Goal`
+  /// `Mục tiêu`
   String get titleGoal {
     return Intl.message(
-      'Goal',
+      'Mục tiêu',
       name: 'titleGoal',
       desc: '',
       args: [],
     );
   }
 
-  /// `Macronutrient Goals`
+  /// `Mục tiêu dinh dưỡng chính`
   String get macronutrient {
     return Intl.message(
-      'Macronutrient Goals',
+      'Mục tiêu dinh dưỡng chính',
       name: 'macronutrient',
       desc: '',
       args: [],
@@ -990,110 +990,110 @@ class FAUiS {
     );
   }
 
-  /// `Carbs`
+  /// `Carbohydrate`
   String get carbs {
     return Intl.message(
-      'Carbs',
+      'Carbohydrate',
       name: 'carbs',
       desc: '',
       args: [],
     );
   }
 
-  /// `Fat`
+  /// `Chất béo`
   String get fat {
     return Intl.message(
-      'Fat',
+      'Chất béo',
       name: 'fat',
       desc: '',
       args: [],
     );
   }
 
-  /// `Grams per day`
+  /// `Gram mỗi ngày`
   String get gramPer {
     return Intl.message(
-      'Grams per day',
+      'Gram mỗi ngày',
       name: 'gramPer',
       desc: '',
       args: [],
     );
   }
 
-  /// `Back`
+  /// `Quay lại`
   String get back {
     return Intl.message(
-      'Back',
+      'Quay lại',
       name: 'back',
       desc: '',
       args: [],
     );
   }
 
-  /// `Chest`
+  /// `Ngực`
   String get chest {
     return Intl.message(
-      'Chest',
+      'Ngực',
       name: 'chest',
       desc: '',
       args: [],
     );
   }
 
-  /// `Level`
+  /// `Cấp độ`
   String get levelTitle {
     return Intl.message(
-      'Level',
+      'Cấp độ',
       name: 'levelTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Schedule`
+  /// `Lịch trình`
   String get schedule {
     return Intl.message(
-      'Schedule',
+      'Lịch trình',
       name: 'schedule',
       desc: '',
       args: [],
     );
   }
 
-  /// `Exercise Program`
+  /// `Chương trình tập luyện`
   String get exerciseProgram {
     return Intl.message(
-      'Exercise Program',
+      'Chương trình tập luyện',
       name: 'exerciseProgram',
       desc: '',
       args: [],
     );
   }
 
-  /// `{weekNumber} Weeks - {exerciseNumber} Exercises`
+  /// `{weekNumber} Tuần - {exerciseNumber} Bài tập`
   String exerciseDetail(int weekNumber, int exerciseNumber) {
     return Intl.message(
-      '$weekNumber Weeks - $exerciseNumber Exercises',
+      '$weekNumber Tuần - $exerciseNumber Bài tập',
       name: 'exerciseDetail',
       desc: '',
       args: [weekNumber, exerciseNumber],
     );
   }
 
-  /// `Start Now`
+  /// `Bắt đầu ngay`
   String get startNow {
     return Intl.message(
-      'Start Now',
+      'Bắt đầu ngay',
       name: 'startNow',
       desc: '',
       args: [],
     );
   }
 
-  /// `Full Exercise`
+  /// `Toàn bộ Bài tập`
   String get fullExercise {
     return Intl.message(
-      'Full Exercise',
+      'Toàn bộ Bài tập',
       name: 'fullExercise',
       desc: '',
       args: [],
@@ -1140,130 +1140,130 @@ class FAUiS {
     );
   }
 
-  /// `This field is required`
+  /// `Trường này là bắt buộc`
   String get requiredValue {
     return Intl.message(
-      'This field is required',
+      'Trường này là bắt buộc',
       name: 'requiredValue',
       desc: '',
       args: [],
     );
   }
 
-  /// `Enter a valid email address`
+  /// `Vui lòng nhập một địa chỉ email hợp lệ`
   String get emailValid {
     return Intl.message(
-      'Enter a valid email address',
+      'Vui lòng nhập một địa chỉ email hợp lệ',
       name: 'emailValid',
       desc: '',
       args: [],
     );
   }
 
-  /// `Enter a valid password`
+  /// `Vui lòng nhập mật khẩu hợp lệ`
   String get passwordValid {
     return Intl.message(
-      'Enter a valid password',
+      'Vui lòng nhập mật khẩu hợp lệ',
       name: 'passwordValid',
       desc: '',
       args: [],
     );
   }
 
-  /// `Password must be at least 6 digits long`
+  /// `Mật khẩu phải có ít nhất 6 ký tự`
   String get lengthPassText {
     return Intl.message(
-      'Password must be at least 6 digits long',
+      'Mật khẩu phải có ít nhất 6 ký tự',
       name: 'lengthPassText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Password least uppercase and special character.`
+  /// `Mật khẩu phải có chữ hoa và ký tự đặc biệt ít nhất.`
   String get characterPassText {
     return Intl.message(
-      'Password least uppercase and special character.',
+      'Mật khẩu phải có chữ hoa và ký tự đặc biệt ít nhất.',
       name: 'characterPassText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Well Done!`
+  /// `Tốt lắm!`
   String get wellDone {
     return Intl.message(
-      'Well Done!',
+      'Tốt lắm!',
       name: 'wellDone',
       desc: '',
       args: [],
     );
   }
 
-  /// `Oh snap!`
+  /// `Ồ!`
   String get ohSnap {
     return Intl.message(
-      'Oh snap!',
+      'Ồ!',
       name: 'ohSnap',
       desc: '',
       args: [],
     );
   }
 
-  /// `Login success!`
+  /// `Đăng nhập thành công!`
   String get messageSuccess {
     return Intl.message(
-      'Login success!',
+      'Đăng nhập thành công!',
       name: 'messageSuccess',
       desc: '',
       args: [],
     );
   }
 
-  /// `Email or password is incorrect!`
+  /// `Email hoặc mật khẩu không chính xác!`
   String get errorMessage {
     return Intl.message(
-      'Email or password is incorrect!',
+      'Email hoặc mật khẩu không chính xác!',
       name: 'errorMessage',
       desc: '',
       args: [],
     );
   }
 
-  /// `Log out of your account?`
+  /// `Đăng xuất khỏi tài khoản của bạn?`
   String get logOutTitle {
     return Intl.message(
-      'Log out of your account?',
+      'Đăng xuất khỏi tài khoản của bạn?',
       name: 'logOutTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cancel`
+  /// `Hủy`
   String get cancel {
     return Intl.message(
-      'Cancel',
+      'Hủy',
       name: 'cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `Log out`
+  /// `Đăng xuất`
   String get logOut {
     return Intl.message(
-      'Log out',
+      'Đăng xuất',
       name: 'logOut',
       desc: '',
       args: [],
     );
   }
 
-  /// `Perfect Body \n Doing `
+  /// `Cơ thể hoàn hảo \n đang thực hiện `
   String get bodyText {
     return Intl.message(
-      'Perfect Body \n Doing ',
+      'Cơ thể hoàn hảo \n đang thực hiện ',
       name: 'bodyText',
       desc: '',
       args: [],
@@ -1280,310 +1280,310 @@ class FAUiS {
     );
   }
 
-  /// `Exercises`
+  /// `Bài tập`
   String get exercises {
     return Intl.message(
-      'Exercises',
+      'Bài tập',
       name: 'exercises',
       desc: '',
       args: [],
     );
   }
 
-  /// `Shot Strong \n`
+  /// `Mạnh mẽ \n`
   String get strongText {
     return Intl.message(
-      'Shot Strong \n',
+      'Mạnh mẽ \n',
       name: 'strongText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Timeless \n`
+  /// `Bất kỳ lúc nào \n`
   String get timelessText {
     return Intl.message(
-      'Timeless \n',
+      'Bất kỳ lúc nào \n',
       name: 'timelessText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Woman Training`
+  /// `Phụ nữ tập luyện`
   String get womanText {
     return Intl.message(
-      'Woman Training',
+      'Phụ nữ tập luyện',
       name: 'womanText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Healthy Muscular \n`
+  /// `Sức khỏe cơ bắp \n`
   String get healthyText {
     return Intl.message(
-      'Healthy Muscular \n',
+      'Sức khỏe cơ bắp \n',
       name: 'healthyText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sportswoman \n`
+  /// `Người phụ nữ thể thao \n`
   String get sportswomanText {
     return Intl.message(
-      'Sportswoman \n',
+      'Người phụ nữ thể thao \n',
       name: 'sportswomanText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Standing`
+  /// `Đứng`
   String get standingText {
     return Intl.message(
-      'Standing',
+      'Đứng',
       name: 'standingText',
       desc: '',
       args: [],
     );
   }
 
-  /// `CREATE ACCOUNTS`
+  /// `TẠO TÀI KHOẢN`
   String get createAccountTitle {
     return Intl.message(
-      'CREATE ACCOUNTS',
+      'TẠO TÀI KHOẢN',
       name: 'createAccountTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please enter your credentials to \nproceed `
+  /// `Vui lòng nhập thông tin của bạn để \ntiếp tục `
   String get signUpDescription {
     return Intl.message(
-      'Please enter your credentials to \nproceed ',
+      'Vui lòng nhập thông tin của bạn để \ntiếp tục ',
       name: 'signUpDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Full Name`
+  /// `Họ và tên`
   String get fullNameText {
     return Intl.message(
-      'Full Name',
+      'Họ và tên',
       name: 'fullNameText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Confirm Password`
+  /// `Xác nhận mật khẩu`
   String get confirmPassText {
     return Intl.message(
-      'Confirm Password',
+      'Xác nhận mật khẩu',
       name: 'confirmPassText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Or Register with`
+  /// `Hoặc Đăng ký với`
   String get registerWithText {
     return Intl.message(
-      'Or Register with',
+      'Hoặc Đăng ký với',
       name: 'registerWithText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Already have an account?`
+  /// `Đã có tài khoản?`
   String get haveAccountText {
     return Intl.message(
-      'Already have an account?',
+      'Đã có tài khoản?',
       name: 'haveAccountText',
       desc: '',
       args: [],
     );
   }
 
-  /// ` Login`
+  /// ` Đăng nhập`
   String get loginButtonText {
     return Intl.message(
-      ' Login',
+      ' Đăng nhập',
       name: 'loginButtonText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Account already exists!`
+  /// `Tài khoản đã tồn tại!`
   String get accountExist {
     return Intl.message(
-      'Account already exists!',
+      'Tài khoản đã tồn tại!',
       name: 'accountExist',
       desc: '',
       args: [],
     );
   }
 
-  /// `Created account success!`
+  /// `Tạo tài khoản thành công!`
   String get createAccount {
     return Intl.message(
-      'Created account success!',
+      'Tạo tài khoản thành công!',
       name: 'createAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `Do you want logout?`
+  /// `Bạn muốn đăng xuất?`
   String get logOutText {
     return Intl.message(
-      'Do you want logout?',
+      'Bạn muốn đăng xuất?',
       name: 'logOutText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Weight should be between 10 and 200`
+  /// `Cân nặng phải nằm trong khoảng từ 10 đến 200`
   String get roleWeight {
     return Intl.message(
-      'Weight should be between 10 and 200',
+      'Cân nặng phải nằm trong khoảng từ 10 đến 200',
       name: 'roleWeight',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please enter number`
+  /// `Vui lòng nhập số`
   String get enterNumber {
     return Intl.message(
-      'Please enter number',
+      'Vui lòng nhập số',
       name: 'enterNumber',
       desc: '',
       args: [],
     );
   }
 
-  /// `Height should be between 100 and 200`
+  /// `Chiều cao phải nằm trong khoảng từ 100 đến 200`
   String get roleHeight {
     return Intl.message(
-      'Height should be between 100 and 200',
+      'Chiều cao phải nằm trong khoảng từ 100 đến 200',
       name: 'roleHeight',
       desc: '',
       args: [],
     );
   }
 
-  /// `Age should be between 6 and 90`
+  /// `Tuổi phải nằm trong khoảng từ 6 đến 90`
   String get roleAge {
     return Intl.message(
-      'Age should be between 6 and 90',
+      'Tuổi phải nằm trong khoảng từ 6 đến 90',
       name: 'roleAge',
       desc: '',
       args: [],
     );
   }
 
-  /// `APP SETTING`
+  /// `CÀI ĐẶT ỨNG DỤNG`
   String get setting {
     return Intl.message(
-      'APP SETTING',
+      'CÀI ĐẶT ỨNG DỤNG',
       name: 'setting',
       desc: '',
       args: [],
     );
   }
 
-  /// `Reminder`
+  /// `Nhắc nhở`
   String get reminder {
     return Intl.message(
-      'Reminder',
+      'Nhắc nhở',
       name: 'reminder',
       desc: '',
       args: [],
     );
   }
 
-  /// `Change Password`
+  /// `Thay đổi mật khẩu`
   String get changePass {
     return Intl.message(
-      'Change Password',
+      'Thay đổi mật khẩu',
       name: 'changePass',
       desc: '',
       args: [],
     );
   }
 
-  /// `Apple Health`
+  /// `Sức khỏe Apple`
   String get apple {
     return Intl.message(
-      'Apple Health',
+      'Sức khỏe Apple',
       name: 'apple',
       desc: '',
       args: [],
     );
   }
 
-  /// `Dark Mode`
+  /// `Chế độ Tối`
   String get darkMode {
     return Intl.message(
-      'Dark Mode',
+      'Chế độ Tối',
       name: 'darkMode',
       desc: '',
       args: [],
     );
   }
 
-  /// `Language`
+  /// `Ngôn ngữ`
   String get language {
     return Intl.message(
-      'Language',
+      'Ngôn ngữ',
       name: 'language',
       desc: '',
       args: [],
     );
   }
 
-  /// `English`
+  /// `Tiếng Anh`
   String get english {
     return Intl.message(
-      'English',
+      'Tiếng Anh',
       name: 'english',
       desc: '',
       args: [],
     );
   }
 
-  /// `UPGRADE PREMIUM`
+  /// `NÂNG CẤP PREMIUM`
   String get upgrade {
     return Intl.message(
-      'UPGRADE PREMIUM',
+      'NÂNG CẤP PREMIUM',
       name: 'upgrade',
       desc: '',
       args: [],
     );
   }
 
-  /// `FORGOT PASSWORD`
+  /// `QUÊN MẬT KHẨU`
   String get forgotPass {
     return Intl.message(
-      'FORGOT PASSWORD',
+      'QUÊN MẬT KHẨU',
       name: 'forgotPass',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please enter your email below to receive \nyour password reset code.`
+  /// `Vui lòng nhập email của bạn dưới đây để nhận \nmã đặt lại mật khẩu của bạn.`
   String get descriptionForgotPass {
     return Intl.message(
-      'Please enter your email below to receive \nyour password reset code.',
+      'Vui lòng nhập email của bạn dưới đây để nhận \nmã đặt lại mật khẩu của bạn.',
       name: 'descriptionForgotPass',
       desc: '',
       args: [],
@@ -1600,60 +1600,60 @@ class FAUiS {
     );
   }
 
-  /// `RESET PASSWORD`
+  /// `ĐẶT LẠI MẬT KHẨU`
   String get resetPass {
     return Intl.message(
-      'RESET PASSWORD',
+      'ĐẶT LẠI MẬT KHẨU',
       name: 'resetPass',
       desc: '',
       args: [],
     );
   }
 
-  /// `VERIFY ACCOUNT`
+  /// `XÁC MINH TÀI KHOẢN`
   String get verifyAccount {
     return Intl.message(
-      'VERIFY ACCOUNT',
+      'XÁC MINH TÀI KHOẢN',
       name: 'verifyAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `Verify your account by entering verification code we sent to`
+  /// `Xác minh tài khoản của bạn bằng cách nhập mã xác minh chúng tôi đã gửi đến`
   String get verifyDescription {
     return Intl.message(
-      'Verify your account by entering verification code we sent to',
+      'Xác minh tài khoản của bạn bằng cách nhập mã xác minh chúng tôi đã gửi đến',
       name: 'verifyDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Update success!`
+  /// `Cập nhật thành công!`
   String get updateSuccess {
     return Intl.message(
-      'Update success!',
+      'Cập nhật thành công!',
       name: 'updateSuccess',
       desc: '',
       args: [],
     );
   }
 
-  /// `EDIT PROFILE`
+  /// `CHỈNH SỬA HỒ SƠ`
   String get editProfile {
     return Intl.message(
-      'EDIT PROFILE',
+      'CHỈNH SỬA HỒ SƠ',
       name: 'editProfile',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gender`
+  /// `Giới tính`
   String get gender {
     return Intl.message(
-      'Gender',
+      'Giới tính',
       name: 'gender',
       desc: '',
       args: [],
@@ -1670,110 +1670,110 @@ class FAUiS {
     );
   }
 
-  /// `{min} min`
+  /// `{min} phút`
   String minText(int min) {
     return Intl.message(
-      '$min min',
+      '$min phút',
       name: 'minText',
       desc: '',
       args: [min],
     );
   }
 
-  /// `MEAL PLAN`
+  /// `KẾ HOẠCH BỮA ĂN`
   String get mealPlan {
     return Intl.message(
-      'MEAL PLAN',
+      'KẾ HOẠCH BỮA ĂN',
       name: 'mealPlan',
       desc: '',
       args: [],
     );
   }
 
-  /// `SCHEDULE EXERCISE`
+  /// `LỊCH TRÌNH TẬP LUYỆN`
   String get scheduleText {
     return Intl.message(
-      'SCHEDULE EXERCISE',
+      'LỊCH TRÌNH TẬP LUYỆN',
       name: 'scheduleText',
       desc: '',
       args: [],
     );
   }
 
-  /// `Date`
+  /// `Ngày`
   String get date {
     return Intl.message(
-      'Date',
+      'Ngày',
       name: 'date',
       desc: '',
       args: [],
     );
   }
 
-  /// `Time`
+  /// `Thời gian`
   String get time {
     return Intl.message(
-      'Time',
+      'Thời gian',
       name: 'time',
       desc: '',
       args: [],
     );
   }
 
-  /// `Set Reminder`
+  /// `Đặt nhắc nhở`
   String get setReminder {
     return Intl.message(
-      'Set Reminder',
+      'Đặt nhắc nhở',
       name: 'setReminder',
       desc: '',
       args: [],
     );
   }
 
-  /// `Reminder on`
+  /// `Nhắc nhở vào`
   String get reminderOn {
     return Intl.message(
-      'Reminder on',
+      'Nhắc nhở vào',
       name: 'reminderOn',
       desc: '',
       args: [],
     );
   }
 
-  /// `DONE`
+  /// `HOÀN TẤT`
   String get done {
     return Intl.message(
-      'DONE',
+      'HOÀN TẤT',
       name: 'done',
       desc: '',
       args: [],
     );
   }
 
-  /// `Notification`
+  /// `Thông báo`
   String get notification {
     return Intl.message(
-      'Notification',
+      'Thông báo',
       name: 'notification',
       desc: '',
       args: [],
     );
   }
 
-  /// `Get ready to get moving! Its time to hit the gym.`
+  /// `Sẵn sàng để bắt đầu! Đến lúc tập luyện.`
   String get textNotify {
     return Intl.message(
-      'Get ready to get moving! Its time to hit the gym.',
+      'Sẵn sàng để bắt đầu! Đến lúc tập luyện.',
       name: 'textNotify',
       desc: '',
       args: [],
     );
   }
 
-  /// `Reminder set successfully`
+  /// `Đặt nhắc nhở thành công`
   String get reminderSuccess {
     return Intl.message(
-      'Reminder set successfully',
+      'Đặt nhắc nhở thành công',
       name: 'reminderSuccess',
       desc: '',
       args: [],
@@ -1786,8 +1786,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<FAUiS> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'vi'),
+      Locale.fromSubtags(languageCode: 'en'),
     ];
   }
 

@@ -2,9 +2,8 @@ import 'package:api_client/api_client.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:fitness_app/core/storage/shared_prefs.dart';
 import 'package:fitness_ui/core/theme/theme.dart';
-import 'package:fitness_app/l10n/l10n_generated/l10n.dart';
 import 'package:fitness_app/routes/routes.dart';
-import 'package:fitness_ui/l10n/l10n_generated/l10n.dart';
+import 'package:fitness_ui/l10n/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fitness_app/features/auth/sign_in/repository/auth_repository.dart';
@@ -38,8 +37,7 @@ class _MyAppState extends State<MyApp> {
     return MultiRepositoryProvider(
         providers: [
           RepositoryProvider<AuthRepository>(
-            create: (context) => AuthRepository(apiClient)
-          ),
+              create: (context) => AuthRepository(apiClient)),
           RepositoryProvider<ApiClient>(create: (context) => ApiClient()),
           RepositoryProvider<SharedPrefs>(
             create: (context) => SharedPrefs(SharedPreferences.getInstance()),
@@ -52,17 +50,12 @@ class _MyAppState extends State<MyApp> {
           darkTheme: FAppTheme.darkTheme,
           localizationsDelegates: const [
             FAUiS.delegate,
-            S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: [
-            ...S.delegate.supportedLocales,
-            ...FAUiS.delegate.supportedLocales,
-            const Locale('en', ''),
-            const Locale('vi', ''),
-          ],
+          supportedLocales: FAUiS.delegate.supportedLocales,
+          locale: const Locale('en'),
           routerConfig: FARouter.appRouter,
         ));
   }

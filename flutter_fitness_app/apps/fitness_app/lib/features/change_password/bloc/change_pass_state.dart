@@ -6,13 +6,15 @@ class ChangePassState extends Equatable {
     this.status = SubmissionStatus.initial,
     this.currentPassword = '',
     this.newPassword = '',
+    this.confirmPassword = '',
     this.errorMessage = '',
     this.isValid = false,
   });
 
   final SubmissionStatus status;
-  final String newPassword;
   final String currentPassword;
+  final String newPassword;
+  final String confirmPassword;
   final bool isValid;
   final String errorMessage;
 
@@ -22,11 +24,13 @@ class ChangePassState extends Equatable {
     String? newPassword,
     bool? isValid,
     String? errorMessage,
+    String? confirmPassword,
   }) {
     return ChangePassState(
       status: status ?? this.status,
       currentPassword: currentPassword ?? this.currentPassword,
       newPassword: newPassword ?? this.newPassword,
+      confirmPassword: confirmPassword ?? this.confirmPassword,
       isValid: isValid ?? this.isValid,
       errorMessage: errorMessage ?? this.errorMessage,
     );
@@ -37,6 +41,7 @@ class ChangePassState extends Equatable {
         status,
         currentPassword,
         newPassword,
+        confirmPassword,
         isValid,
         errorMessage,
       ];
